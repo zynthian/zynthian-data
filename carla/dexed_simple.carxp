@@ -1,0 +1,1197 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CARLA-PROJECT>
+<CARLA-PROJECT VERSION='2.0'>
+ <EngineSettings>
+  <ForceStereo>false</ForceStereo>
+  <PreferPluginBridges>false</PreferPluginBridges>
+  <PreferUiBridges>true</PreferUiBridges>
+  <UIsAlwaysOnTop>false</UIsAlwaysOnTop>
+  <MaxParameters>200</MaxParameters>
+  <UIBridgesTimeout>4000</UIBridgesTimeout>
+ </EngineSettings>
+
+ <!-- MIDI Channel Filter -->
+ <Plugin>
+  <Info>
+   <Type>INTERNAL</Type>
+   <Name>MIDI Channel Filter</Name>
+   <Label>midichanfilter</Label>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x3f0</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>1</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>2</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>3</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>4</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>5</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>6</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>7</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>8</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>9</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>10</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>11</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>12</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>13</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>14</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>15</Name>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>16</Name>
+    <Value>1</Value>
+   </Parameter>
+  </Data>
+ </Plugin>
+
+ <!-- Dexed -->
+ <Plugin>
+  <Info>
+   <Type>LV2</Type>
+   <Name>Dexed</Name>
+   <URI>https://github.com/asb2m10/dexed</URI>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x1e5</Options>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Cutoff</Name>
+    <Symbol>cutoff</Symbol>
+    <Value>0.921599984169006</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>Resonance</Name>
+    <Symbol>resonance</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Output</Name>
+    <Symbol>output</Symbol>
+    <Value>1</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>ALGORITHM</Name>
+    <Symbol>algorithm</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>FEEDBACK</Name>
+    <Symbol>feedback</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>OSC KEY SYNC</Name>
+    <Symbol>osc_key_sync</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>8</Index>
+    <Name>LFO SPEED</Name>
+    <Symbol>lfo_speed</Symbol>
+    <Value>0.579999983310699</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>9</Index>
+    <Name>LFO DELAY</Name>
+    <Symbol>lfo_delay</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>10</Index>
+    <Name>LFO PM DEPTH</Name>
+    <Symbol>lfo_pm_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>11</Index>
+    <Name>LFO AM DEPTH</Name>
+    <Symbol>lfo_am_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>12</Index>
+    <Name>LFO KEY SYNC</Name>
+    <Symbol>lfo_key_sync</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>13</Index>
+    <Name>LFO WAVE</Name>
+    <Symbol>lfo_wave</Symbol>
+    <Value>0.666666686534882</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>14</Index>
+    <Name>MIDDLE C</Name>
+    <Symbol>middle_c</Symbol>
+    <Value>0.530612230300903</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>15</Index>
+    <Name>P MODE SENS.</Name>
+    <Symbol>p_mode_sens_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>16</Index>
+    <Name>PITCH EG RATE 1</Name>
+    <Symbol>pitch_eg_rate_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>17</Index>
+    <Name>PITCH EG RATE 2</Name>
+    <Symbol>pitch_eg_rate_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>18</Index>
+    <Name>PITCH EG RATE 3</Name>
+    <Symbol>pitch_eg_rate_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>19</Index>
+    <Name>PITCH EG RATE 4</Name>
+    <Symbol>pitch_eg_rate_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>20</Index>
+    <Name>PITCH EG LEVEL 1</Name>
+    <Symbol>pitch_eg_level_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>21</Index>
+    <Name>PITCH EG LEVEL 2</Name>
+    <Symbol>pitch_eg_level_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>22</Index>
+    <Name>PITCH EG LEVEL 3</Name>
+    <Symbol>pitch_eg_level_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>23</Index>
+    <Name>PITCH EG LEVEL 4</Name>
+    <Symbol>pitch_eg_level_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>24</Index>
+    <Name>OP1 EG RATE 1</Name>
+    <Symbol>op1_eg_rate_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>25</Index>
+    <Name>OP1 EG RATE 2</Name>
+    <Symbol>op1_eg_rate_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>26</Index>
+    <Name>OP1 EG RATE 3</Name>
+    <Symbol>op1_eg_rate_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>27</Index>
+    <Name>OP1 EG RATE 4</Name>
+    <Symbol>op1_eg_rate_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>28</Index>
+    <Name>OP1 EG LEVEL 1</Name>
+    <Symbol>op1_eg_level_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>29</Index>
+    <Name>OP1 EG LEVEL 2</Name>
+    <Symbol>op1_eg_level_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>30</Index>
+    <Name>OP1 EG LEVEL 3</Name>
+    <Symbol>op1_eg_level_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>31</Index>
+    <Name>OP1 EG LEVEL 4</Name>
+    <Symbol>op1_eg_level_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>32</Index>
+    <Name>OP1 OUTPUT LEVEL</Name>
+    <Symbol>op1_output_level</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>33</Index>
+    <Name>OP1 MODE</Name>
+    <Symbol>op1_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>34</Index>
+    <Name>OP1 F COARSE</Name>
+    <Symbol>op1_f_coarse</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>35</Index>
+    <Name>OP1 F FINE</Name>
+    <Symbol>op1_f_fine</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>36</Index>
+    <Name>OP1 OSC DETUNE</Name>
+    <Symbol>op1_osc_detune</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>37</Index>
+    <Name>OP1 BREAK POINT</Name>
+    <Symbol>op1_break_point</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>38</Index>
+    <Name>OP1 L SCALE DEPTH</Name>
+    <Symbol>op1_l_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>39</Index>
+    <Name>OP1 R SCALE DEPTH</Name>
+    <Symbol>op1_r_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>40</Index>
+    <Name>OP1 L KEY SCALE</Name>
+    <Symbol>op1_l_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>41</Index>
+    <Name>OP1 R KEY SCALE</Name>
+    <Symbol>op1_r_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>42</Index>
+    <Name>OP1 RATE SCALING</Name>
+    <Symbol>op1_rate_scaling</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>43</Index>
+    <Name>OP1 A MOD SENS.</Name>
+    <Symbol>op1_a_mod_sens_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>44</Index>
+    <Name>OP1 KEY VELOCITY</Name>
+    <Symbol>op1_key_velocity</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>45</Index>
+    <Name>OP2 EG RATE 1</Name>
+    <Symbol>op2_eg_rate_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>46</Index>
+    <Name>OP2 EG RATE 2</Name>
+    <Symbol>op2_eg_rate_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>47</Index>
+    <Name>OP2 EG RATE 3</Name>
+    <Symbol>op2_eg_rate_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>48</Index>
+    <Name>OP2 EG RATE 4</Name>
+    <Symbol>op2_eg_rate_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>49</Index>
+    <Name>OP2 EG LEVEL 1</Name>
+    <Symbol>op2_eg_level_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>50</Index>
+    <Name>OP2 EG LEVEL 2</Name>
+    <Symbol>op2_eg_level_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>51</Index>
+    <Name>OP2 EG LEVEL 3</Name>
+    <Symbol>op2_eg_level_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>52</Index>
+    <Name>OP2 EG LEVEL 4</Name>
+    <Symbol>op2_eg_level_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>53</Index>
+    <Name>OP2 OUTPUT LEVEL</Name>
+    <Symbol>op2_output_level</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>54</Index>
+    <Name>OP2 MODE</Name>
+    <Symbol>op2_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>55</Index>
+    <Name>OP2 F COARSE</Name>
+    <Symbol>op2_f_coarse</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>56</Index>
+    <Name>OP2 F FINE</Name>
+    <Symbol>op2_f_fine</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>57</Index>
+    <Name>OP2 OSC DETUNE</Name>
+    <Symbol>op2_osc_detune</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>58</Index>
+    <Name>OP2 BREAK POINT</Name>
+    <Symbol>op2_break_point</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>59</Index>
+    <Name>OP2 L SCALE DEPTH</Name>
+    <Symbol>op2_l_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>60</Index>
+    <Name>OP2 R SCALE DEPTH</Name>
+    <Symbol>op2_r_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>61</Index>
+    <Name>OP2 L KEY SCALE</Name>
+    <Symbol>op2_l_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>62</Index>
+    <Name>OP2 R KEY SCALE</Name>
+    <Symbol>op2_r_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>63</Index>
+    <Name>OP2 RATE SCALING</Name>
+    <Symbol>op2_rate_scaling</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>64</Index>
+    <Name>OP2 A MOD SENS.</Name>
+    <Symbol>op2_a_mod_sens_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>65</Index>
+    <Name>OP2 KEY VELOCITY</Name>
+    <Symbol>op2_key_velocity</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>66</Index>
+    <Name>OP3 EG RATE 1</Name>
+    <Symbol>op3_eg_rate_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>67</Index>
+    <Name>OP3 EG RATE 2</Name>
+    <Symbol>op3_eg_rate_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>68</Index>
+    <Name>OP3 EG RATE 3</Name>
+    <Symbol>op3_eg_rate_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>69</Index>
+    <Name>OP3 EG RATE 4</Name>
+    <Symbol>op3_eg_rate_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>70</Index>
+    <Name>OP3 EG LEVEL 1</Name>
+    <Symbol>op3_eg_level_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>71</Index>
+    <Name>OP3 EG LEVEL 2</Name>
+    <Symbol>op3_eg_level_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>72</Index>
+    <Name>OP3 EG LEVEL 3</Name>
+    <Symbol>op3_eg_level_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>73</Index>
+    <Name>OP3 EG LEVEL 4</Name>
+    <Symbol>op3_eg_level_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>74</Index>
+    <Name>OP3 OUTPUT LEVEL</Name>
+    <Symbol>op3_output_level</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>75</Index>
+    <Name>OP3 MODE</Name>
+    <Symbol>op3_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>76</Index>
+    <Name>OP3 F COARSE</Name>
+    <Symbol>op3_f_coarse</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>77</Index>
+    <Name>OP3 F FINE</Name>
+    <Symbol>op3_f_fine</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>78</Index>
+    <Name>OP3 OSC DETUNE</Name>
+    <Symbol>op3_osc_detune</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>79</Index>
+    <Name>OP3 BREAK POINT</Name>
+    <Symbol>op3_break_point</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>80</Index>
+    <Name>OP3 L SCALE DEPTH</Name>
+    <Symbol>op3_l_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>81</Index>
+    <Name>OP3 R SCALE DEPTH</Name>
+    <Symbol>op3_r_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>82</Index>
+    <Name>OP3 L KEY SCALE</Name>
+    <Symbol>op3_l_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>83</Index>
+    <Name>OP3 R KEY SCALE</Name>
+    <Symbol>op3_r_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>84</Index>
+    <Name>OP3 RATE SCALING</Name>
+    <Symbol>op3_rate_scaling</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>85</Index>
+    <Name>OP3 A MOD SENS.</Name>
+    <Symbol>op3_a_mod_sens_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>86</Index>
+    <Name>OP3 KEY VELOCITY</Name>
+    <Symbol>op3_key_velocity</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>87</Index>
+    <Name>OP4 EG RATE 1</Name>
+    <Symbol>op4_eg_rate_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>88</Index>
+    <Name>OP4 EG RATE 2</Name>
+    <Symbol>op4_eg_rate_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>89</Index>
+    <Name>OP4 EG RATE 3</Name>
+    <Symbol>op4_eg_rate_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>90</Index>
+    <Name>OP4 EG RATE 4</Name>
+    <Symbol>op4_eg_rate_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>91</Index>
+    <Name>OP4 EG LEVEL 1</Name>
+    <Symbol>op4_eg_level_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>92</Index>
+    <Name>OP4 EG LEVEL 2</Name>
+    <Symbol>op4_eg_level_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>93</Index>
+    <Name>OP4 EG LEVEL 3</Name>
+    <Symbol>op4_eg_level_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>94</Index>
+    <Name>OP4 EG LEVEL 4</Name>
+    <Symbol>op4_eg_level_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>95</Index>
+    <Name>OP4 OUTPUT LEVEL</Name>
+    <Symbol>op4_output_level</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>96</Index>
+    <Name>OP4 MODE</Name>
+    <Symbol>op4_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>97</Index>
+    <Name>OP4 F COARSE</Name>
+    <Symbol>op4_f_coarse</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>98</Index>
+    <Name>OP4 F FINE</Name>
+    <Symbol>op4_f_fine</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>99</Index>
+    <Name>OP4 OSC DETUNE</Name>
+    <Symbol>op4_osc_detune</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>100</Index>
+    <Name>OP4 BREAK POINT</Name>
+    <Symbol>op4_break_point</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>101</Index>
+    <Name>OP4 L SCALE DEPTH</Name>
+    <Symbol>op4_l_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>102</Index>
+    <Name>OP4 R SCALE DEPTH</Name>
+    <Symbol>op4_r_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>103</Index>
+    <Name>OP4 L KEY SCALE</Name>
+    <Symbol>op4_l_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>104</Index>
+    <Name>OP4 R KEY SCALE</Name>
+    <Symbol>op4_r_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>105</Index>
+    <Name>OP4 RATE SCALING</Name>
+    <Symbol>op4_rate_scaling</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>106</Index>
+    <Name>OP4 A MOD SENS.</Name>
+    <Symbol>op4_a_mod_sens_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>107</Index>
+    <Name>OP4 KEY VELOCITY</Name>
+    <Symbol>op4_key_velocity</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>108</Index>
+    <Name>OP5 EG RATE 1</Name>
+    <Symbol>op5_eg_rate_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>109</Index>
+    <Name>OP5 EG RATE 2</Name>
+    <Symbol>op5_eg_rate_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>110</Index>
+    <Name>OP5 EG RATE 3</Name>
+    <Symbol>op5_eg_rate_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>111</Index>
+    <Name>OP5 EG RATE 4</Name>
+    <Symbol>op5_eg_rate_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>112</Index>
+    <Name>OP5 EG LEVEL 1</Name>
+    <Symbol>op5_eg_level_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>113</Index>
+    <Name>OP5 EG LEVEL 2</Name>
+    <Symbol>op5_eg_level_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>114</Index>
+    <Name>OP5 EG LEVEL 3</Name>
+    <Symbol>op5_eg_level_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>115</Index>
+    <Name>OP5 EG LEVEL 4</Name>
+    <Symbol>op5_eg_level_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>116</Index>
+    <Name>OP5 OUTPUT LEVEL</Name>
+    <Symbol>op5_output_level</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>117</Index>
+    <Name>OP5 MODE</Name>
+    <Symbol>op5_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>118</Index>
+    <Name>OP5 F COARSE</Name>
+    <Symbol>op5_f_coarse</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>119</Index>
+    <Name>OP5 F FINE</Name>
+    <Symbol>op5_f_fine</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>120</Index>
+    <Name>OP5 OSC DETUNE</Name>
+    <Symbol>op5_osc_detune</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>121</Index>
+    <Name>OP5 BREAK POINT</Name>
+    <Symbol>op5_break_point</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>122</Index>
+    <Name>OP5 L SCALE DEPTH</Name>
+    <Symbol>op5_l_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>123</Index>
+    <Name>OP5 R SCALE DEPTH</Name>
+    <Symbol>op5_r_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>124</Index>
+    <Name>OP5 L KEY SCALE</Name>
+    <Symbol>op5_l_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>125</Index>
+    <Name>OP5 R KEY SCALE</Name>
+    <Symbol>op5_r_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>126</Index>
+    <Name>OP5 RATE SCALING</Name>
+    <Symbol>op5_rate_scaling</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>127</Index>
+    <Name>OP5 A MOD SENS.</Name>
+    <Symbol>op5_a_mod_sens_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>128</Index>
+    <Name>OP5 KEY VELOCITY</Name>
+    <Symbol>op5_key_velocity</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>129</Index>
+    <Name>OP6 EG RATE 1</Name>
+    <Symbol>op6_eg_rate_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>130</Index>
+    <Name>OP6 EG RATE 2</Name>
+    <Symbol>op6_eg_rate_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>131</Index>
+    <Name>OP6 EG RATE 3</Name>
+    <Symbol>op6_eg_rate_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>132</Index>
+    <Name>OP6 EG RATE 4</Name>
+    <Symbol>op6_eg_rate_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>133</Index>
+    <Name>OP6 EG LEVEL 1</Name>
+    <Symbol>op6_eg_level_1</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>134</Index>
+    <Name>OP6 EG LEVEL 2</Name>
+    <Symbol>op6_eg_level_2</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>135</Index>
+    <Name>OP6 EG LEVEL 3</Name>
+    <Symbol>op6_eg_level_3</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>136</Index>
+    <Name>OP6 EG LEVEL 4</Name>
+    <Symbol>op6_eg_level_4</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>137</Index>
+    <Name>OP6 OUTPUT LEVEL</Name>
+    <Symbol>op6_output_level</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>138</Index>
+    <Name>OP6 MODE</Name>
+    <Symbol>op6_mode</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>139</Index>
+    <Name>OP6 F COARSE</Name>
+    <Symbol>op6_f_coarse</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>140</Index>
+    <Name>OP6 F FINE</Name>
+    <Symbol>op6_f_fine</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>141</Index>
+    <Name>OP6 OSC DETUNE</Name>
+    <Symbol>op6_osc_detune</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>142</Index>
+    <Name>OP6 BREAK POINT</Name>
+    <Symbol>op6_break_point</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>143</Index>
+    <Name>OP6 L SCALE DEPTH</Name>
+    <Symbol>op6_l_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>144</Index>
+    <Name>OP6 R SCALE DEPTH</Name>
+    <Symbol>op6_r_scale_depth</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>145</Index>
+    <Name>OP6 L KEY SCALE</Name>
+    <Symbol>op6_l_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>146</Index>
+    <Name>OP6 R KEY SCALE</Name>
+    <Symbol>op6_r_key_scale</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>147</Index>
+    <Name>OP6 RATE SCALING</Name>
+    <Symbol>op6_rate_scaling</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>148</Index>
+    <Name>OP6 A MOD SENS.</Name>
+    <Symbol>op6_a_mod_sens_</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>149</Index>
+    <Name>OP6 KEY VELOCITY</Name>
+    <Symbol>op6_key_velocity</Symbol>
+    <Value>0</Value>
+   </Parameter>
+
+   <CustomData>
+    <Type>http://lv2plug.in/ns/ext/atom#Chunk</Type>
+    <Key>urn:juce:stateBinary</Key>
+    <Value>
+VkMyIc0WAAA8ZGV4ZWRTdGF0ZSBjdXRvZmY9IjAuOTIxNTk5OTg0MTY5MDA2MzQ3NjYiIHJlc289IjAiIGdhaW49IjEiIGN1cnJlbnRQcm9ncmFtPSIyNSI+PGRleGVkQmxvYiBiYXNlNjQ6c3lzZXg9IjQxMDQudk9ELkkuQi5OQWlJZ0xWVS5MMUMuLi5BeGdQU2IuUE1ocndJaUVFLlU4Li5VUFBYUFRpQi5MbENRN3hYVkEuLlkuUEpEckVBWEEuLlA0UENuTDFWLi52Qy4uLkE4dnZYLi52WGlNRkppTUYuLjdCLi5Qdk8uTFZBLkxsSkVneFguLi4uazNFLkRMR0dpVWZHaElsWGhJaUx4SEMuT1BCLi5MRkpYblJYaTR4UTBrRmN0RFNWZ3p2UGlBRS5pTUIuaS5QUUxMa0QuRFRUT0x6WGJBZk0uLi4uLlRERWNZLi5WY1NPbkxsSy4uZkkuYi4ubFBmVTI3eVVTTXdQaXdFLi4uLi4uLi5RTEhsLi5MalJSVHlYVlV5T3AudkMuTERFaEkuLldzU0Z2TDFVLi4uLi4uLi5jLmZYRi52WGlNMVh6SGlMeHpmQ3MuLi4uREJDTVVGY2d3MVR6SW1hbWNEUGgweVhDd0MudC4uLkwuRUJpZy5TQVlCLjhMRi4uLlBNLnpCLnYuZlBGLlBPWWpBT2lNMVgudmlCTy52SkhMRkEuVGlJSzBDVnIuLi50Li4uQ2ZBLktRUC42VGlPMUxGTy4uLi4uLi4uN2Z2WEo3Lk9HSVRQUnN6WC5qQi4uLi5OSExsLi5MMVhpTVZMeEhpTFM3UEguLi4uLmdnSlM4RmF1QUJUb0FXWWE0d0RwTEZNLi52SS4uUEFhLmZTSi52WFVIZ0xmOFRWLmJCLi5UdkYudmouLnJrRlFIeVhhLi4ueS4uLkVyQUFHZy4uSzhBRW5MRlQuLi4uLi5mQmFQLldCLmZYb1B3Q2lBLi4uakEuLm52SC52RUMuSGxId0R5WC4uLi5rM0IuSExCQ2VnLi5pSTFYaU1pTHhIU0NFWGhVQS4uRExMVVhxVTJUZ3NWY2YuaFhMYkRHaUEuSC4uLi4uUHZiR1hEQi43VUhHa3dYLi5CLi4uLi5ETDJBS0kuLmh3dlFiTEYuZi4uLi52LkFxTHZULi52V2diVEZpQS5ILi4uLkxQdlIuTEYuLkhGQ0d3d1guLkIuLi4uQ0RyekFNQS4uZUV4UVlMRi5mLi4uLnYuQUNBdlhCLnZYaU0xWHhIaUx4RHZDaS5mQkUuQUZNa3pRSFFVVnR6VFBOTUZGaWdCLi5MRi4uLi4uLmpDLi5ILi5pQXhYbi4uLmlBLi4uLi4uNC52WC5MeVhpTEZKLi5mWC4uLi4uLlBOLkxGLi5MMUlpZ0IuLkxGLi4uLi4uakMuaUkuLmkweFhuLi4uaUEuLi4uLi40LnZYQm53WGlMRkppY0QuLi4uLi4uUE4uTGwuTUwxWGlnaEx4SGlMZWYuRU80Zy5XZlFRTk16U1U0RFVFSTBUaW9oTDZMMVhpQVBILjN5LlguLlJELnZYd2JpSGk4RVcuWEJBckxmTi5QREQuYmpHLkR4RmhvRS50UFBDQ0xBLkhRLi5mYi5FaUxWWC4uZkxHLi4uVEF3WEQuUFNLYmZGaU1sWC5ieC5GTFBILnZEQUFEeEJUTHhYZ0EuLnhiLi4uUC5FaUUuR1c0RS4uM3hMeEhTLk9MQi5SLi5GLi54VFRJRUhQRURReC54WDV6QUdiRUUuLi4uLi4uZkwudkVGQkxsTlpyZ1ZLQS4uLi4uLi4uQy5pay5NaW9DSGVuMFIuLi4uLi4uLkJBdlhYLnZYNWZSSlpzRC4uLi4uLi5mUC5MbEU0TGxOZjdnVktBLi4uLi4uLm5DLmlvQS5Fb0NIY24wUi4uLi4uLi4uMy52WEwuZlhoSWxYeEhpTHgzd0MzSHpDLm5DRldrbGFqTUZabzBWWXg3RUdhN3hYWkEuLi4uLi4ublNDNkguLlNBdkZ4TGxWLi4uTC4uLi5Sc3ZQQi5QVWJiZ0xpVUUuLi5DLk8udk5MSGwuLjdFR2E3eFhaQS4uLi4uLi5mRC5Pby4uWHcwUStMMVBhbzBJLnouLkpJQVZCLnZUYmJ3SGlVRS4uREMuTy5mTlNMbC4uTDFYaU1sTHhIaUxDelBHLi52U0NmQVRJRWpTT1FsYnVBMmJSRUNHbWJVUi5UQktUTHouTWZBT2QzaVNINGZMaUFGLi4zUkZkTC5PTFBEQS4zRFJLanhYaEEuLnVQQUxDSEJBQlkuLk1nakJrTDFYLkxrSy4zLi56ZlBUQi52Ukl3aFVpVXlBLmJCLksuUE5IclVBRC5FR09yeFhaQS4uLi4uLi5uQ0RpSS4uaU0xWGlJaUx4SHlDRkxCLi4uUC5YRGpLUDR6U2ZEeU10TFNRakxoSWNva1UuM0JJUlguYi5yREUuSGpIS1hSV2JnRS5tZmhERmZBQUpnUC41LkJDbWpEU0hBLksuLi5DZ2Z2WEQuLk1iVHdNV00wUy52aENUYlBQSExGQS56eFJRYnlQVWYuLnIzdkhHakRBaXdmQURneUF3N2tXLi4uS21Ed0E1UFBXQVBSWFpBMFIwRGlMeERnQ2QudkcuZkFDRkVsYUZFbGJrQUJIZkgxSkNEd1hpTUYuZ2pnTy4udi5KSUEuaElpLlZMMVdiQWZJRHZ4LjVEUFJULnZRZC5mRWlJbFYuM0JBTUx2Li5qakEuekEuLi54WGdBLi54Yi4uLnZSLmlJLi5MQS4uV0wxWGhBdklDWHYuNEx2U0REdkguLi5IaUVsSi5IeUEuLi5BLkxWLmtia1cuLmZLeUhpTEE3dkhESEEuWHZ2U3hNRlpvNDBUekkyWWUwLk82SEZUVUFmTS4uLi5JQS5XQkhTVk12eUNoQVVVLlhDLi4uUE4uLmoueC5WQzcuZ1hQVUUuMS4uLi5qQkFVSWZMOVhERXBMRldUQS4uLi4uLlpBUFhCSHlYdHZTS2g4MFcuWEMuLi5QLkRYai4uamtRVGZ4WGc4RS4uLi4uLm5DQWlJLi5kTXpXN0hpTHhIU0FPWFJILmJERExmelNSa2pWRTRESGYuUk5zUGdKaTBEVS5yaERrTFBiQjNELklMVkhHNHhYLi4uLi4uLi4ubkJDaUkuLjR6QkUwTFZTVEF2SlJUeC5SQWZTRC5mUWdiakxpQS4uLi4uLi4uZkhITEZBLlRpTGIzeFhDQS4uMEhURi4uRS4rUHZGWUV4UXVMRi4uLi4uLi4uLlJndlguLnZQZThFT3hIaUx4UGZBZGZSRmsuQklTUVVRRXdESFFBQkhBNDBIZkR3WHlMMVgybi4uQ25CR1hBLi5pd2lLU0xWV0xBLi4uLi4uNXZ3WC4udlhYNDBYaVF6TGlBLi4uLmZOVEwxTWJNbFZ4TDFYSlVoUDEuLi4uUC5BcVAuLlJVVU5pTUZTZC5mTS4uLi53UHZYQi52WFBrUUtpTUYuLi4uLi4uZk4uTFYuLjMwUGV3aUx4SGlMUFhmSEpqLi5YZkFUUGNUS3cuQkhmLkJIZUFDR1U0MFMuLi5PMS5QLjJBd1hkLnZXaUxGR2lZRC4uUEMuaUwuWVQ3akEuN0VId0h5WEZBLi4uLi4uLnJCQ2lJLi5lSUNLSkxsUS4uZk4uVEIueUF3U1Iudld0TEZDaVlELi5QQ0IuTHZGTDdEQS43RUhzLnlYRkEuLjcuLi4uckNDaUEuLmRNelc3SGlMeEhpLk5IUkguLlBGai5VVVJBRVNFQUJSUlEwWGlNMVhpTTFYLi4uLi4uLk4ualJBRU0xWGlNMVhpTUYuLi4uLi4ueS5SVS5QaU0xWGlNMVhpQS4uLi4uLjNMLklFVHpYaU0xWGlNMVguLi4uLi4uWENyVUFDTTFYaXdTVVVVMFguLi4uLmZ5LjlUUFBBTTFYQU0xWGlBLi4uLi4uLk1QVkUuelhpTTFYeEhpTHhQLkJCLi4uaVkuRkFRa0lUMEJIUmtqU0dva01JRXhYNy4uLkcuLi4uZkNHaUFBLmU0VEVZTDFXLi4uLi4uLi4zTFBXQi5QWEV3aE1pRUUuLi4uLi4uLk5QTEZFLjcwR1RYeVhQQS4ualBCLi5maUNiby4uaVlUSTBMMVMuTEYuLi4uLjNmdlNCLlBYampnSWlzRC4uLi4uLi4uTlhMbEEuM0VRZXdpTHhIaUxKWC5PZy4uLlhmQVRvZ0RieTNSUDFBQkhOTWxKY0wxWC4uLi4uLi4uM2ZBTEdMMVhpTTFYaU0xWC4uLi4uLi5OUHppQXFMMVhpTTFYaU1GLi4uLi4uZkMuWEkuLk5NbEpjTDFYLi4uLi4uLi4zLmZUSy52WGlNMVhpTTFYLi4uLi4uLk4uamsuLjN6WHB6d1hpQS4uLi4uLi5mQy5PTS4uaU1WVi53ZkwuMy4uT0xCLi4uUExYM3lUQ0lVUFRNRFI3LnhXcHZnQ2Q4RC4uLi4uLi5QY0lua0EuN0VHaWN4WEZBLi56LnZIQ0xHQkNZLi5lTVJMb0xsUS4uLi4uLi4udlF3WEIudldwdmdDZDhELi4uLi4uLlBDSG5rQS43RUdpY3hYRkEuLnoudkhDckJCQ1kuLmVNUkxvTGxRLi4uLi4uLi5QUHdYQi5mV0M4RU94SGlMeEguQmhEQi4uakFGSEVsYnYwUkxmLlJTUzhrWDIueFhkQS4uRS4uLkRILi5Xd0IuU0F2RmZMbFYuLlBMLi4uLlJ3UFFKLi5WYnJnR2lvRS4uREMuLi52LlBMbC4uN0VHYXZ2WFpBLi5FLnZYRG5EQ1g0Li5lNEJIT0wxWC4udkkuei4uMFEuVkIuLkhlMHdIQU1GLi5EQy4uLmZjUExsLi5MMVhpTTFMeEhpTEIzdkguLi4uR2Z3UEV3RFVJTURISElFVHVuaEwwTDFYaUFmS04uLi5mdy5KT0R3WGEuRExpVTBULm5CLklMZlBMUEVELnJpRi5MeVhob0UubWYuRkNyQy5SUS4ueUhRRHpMbFZVQS4uLi4uLjZmdlhELnZYUHpmSWlJbFguYmguSExQVC52REEuN2hFUlhTWGdZRS4uLi4uLmpDLmlRLi5ONGtQLjd4THhIUy5HVHhJQS5QRkxYVFIrUURTRUFCSGZEQ1E4TDFYaUEuLi5iaFguLmZOLnJEQi5ieVhpSTFYaU1GLm0uLi4udkMuVlEuLlJMMVhoTTFYaUF2SS4uLi43dndRSi52WGlNbFhpTTFYLlhrWC43Lk9iTEZBLkh5WGlJMVhpTUYubS4uLi5QRC5pSS4ueUwxWGhNMVhpQXZJLi4uLjcudlguLnZYRzhFT3hIaUx4N3dBZy4uLi5mQUZIOERSTlVqVGYuUkxmTGxSdFh3WFBNQy4yLnZYT0hBRDguUy5pTWpJWExGV0pBLi4uLi4uUmZmVEJEdlhTUFFHaXdVVi4uLi4uLmZERFhqLkFMbEdlWHlYYkEuLi4uLi4uSEFBWUlQLmlFVkZXTDFYMy5mTS4uLi40Zi5TQi52WGQ3d01pd0UuLi4uLi4uZk5EakVBLjMwUGV3aUx4SGlMTnouR3QzLi5YdlBRUGtWWHQ4RkhCQUJIVWt5WGlNRi4uTDFJMFBBLjNmZ1RiLlBUV1l3Uml3RS5pQS4uTy4uT2JEbEEuRDBVT3N6WGJBdlguLi4uLnZDQkRZLi5OY2tFT01GVy4uZkhJLi4ucXd2WEIudlZZYkJPaVlFLi4uLi4uLmZOSHpULmhuVFVhWHpYZUEuLi4uLi4udkNDaUkuLktBMFI3SGlMeEh5QU9MQi5BTC5OTGJUVUlRRUhQZ1RQU0l5WE1jQy5ONEQuLmpCRmFMdk8udkVKLkxGUC5mZlR2Li4udS5QTi5qQ0JpQUMuWnNELlJJRUwuLmZNLi4uLjRIdlhOLnZYZUhpS2lBRS4uLi4uLi52TkhMbC4uclRLalB4WFdBLi4xLmZLQ3Z4Lk9BQS5pRXhIc0xGVC4udkppQXYuNlB2WEIuZldDOEVPeEhpTHhmdkNhLi4uLkRCQ1dVRmNTa21hemdGSGZMRk9xTDFYT0F2Um1ERC5EbkNGS0FBLmlrQVRpTTFYLkxsS3NuLi4zdmZWLi52WDVUa05pSUMuLi4uLi5Qdk4uTEYuLkxWTFBzelguLi4ubUxGLkRIQUY3LlEuaUVDVHhMMVguLmZLWndCLi5mdlguLnZYdlRrTGlJQy4uLi4uLlB2Li5MRi4uTDFYaU1sTHhIaUxDei5HLi4uLnZmd1FVa0RVQUlFSGYuQkhGc0FEd24wWGFBLi4uai4uSy5QVkQuZlFhLlFMWk0xVi4uLi5ELnZCLmpELi5YekZQRGlWaXNFLi4uLi4uM0YuUEEuLi5neEVwTFZYZEEuLi4uLi4yQS5WLi5mTFpqZkpkTVZXLmZBLkUudmIuVEUuLkR6WGlreFhpTUYuLi4uLi52Qi5YQS4uaU0xWGlJaUx4SENCTjMuLk0uUERYRGpTQXd6U0dBQlRBUWpXM2ZRSWNzRS4uLi4uLi52Ti4uLkouTEYuLi52WDAuLi56ckQuLnZDLk1BLi5pb3hBa0RsTC4uLi4uLi4uOC5mVEwudlhmQWhHR0lDTS4uLi4uLmZPLkxsLi5MRkUuLnZYSWNELm8uLi4uN0MuTkEuLmU0Qy5wTGxWLkEuSTQzdi4rLnZYLi5mV0M4RU94SGlMeDd2Q2kuLi4uLkNGRUFoUEFNMFRmZkNIZm5SSm1QeFhaTUUuemZ2SC5QUC5Fd3YudVR4SWpMMVdiQS5NSDMuQ3pFdlBGLnZNWi5QS2lJbFYuM0JBTUx2TkRYVS5XM2hEUWp5WFpVRS4uLi4uLkhHQWlFLi4yLkEuU0xsWGdBdklHWHYublEuT1BELklWSEFMaUFWVS5iQi4uLnZiSHJFQkEua1hpTWxLeUhpTC5iLkhtUC4ubnYuVDBNR1pGd1ZjMThWTFVJU0QxTDFXLkxsSmkudkEud1FQQi52VWhIQU5pOEUuUmNCLi5QLmJUbmsuLmZFTFVUeVhnQS4uaVhFLkRQR0dpUS4uYUVRREdNMVcuTGxJLkxsQXZ3d1FKLlBWblRRUGlVRS5pa1JBLmIuTFRiRS4uLlVIUmZ5WGVBLi4uLi4uLnYuLmlFdkJpTUYuLkh5THhMQ0ROSEIuLi4uSFh6VFl6d0ZWdkkyYjFRRE5qclFHaUVFLi43Li5VUHZYRExqQy52Q01KZnhYZ0EuLlkuUEpEekVBVUkuLlJBUUNpTDFWLi52Qy4uLkErdnZYQi4uTmtuUUdpRUUuLjcuLlVQdkZIdmpDLnZCTElmeFhnQS4uWS5QSkRULkFVSS4uLkV3Q2VMMVYuLnZDLi4uQStMd1hCLmZUaU0xWHhIaUx4SHZBWkR5Ri5mLkNHVVdaekVsYkRJRmFiTXo4IiBiYXNlNjQ6cHJvZ3JhbT0iMTYxLmkwek0uM2pTLi5QSlhydy4uYi4uLnZFLlQudkFpQUQuSEhFTC4udksuakMuLkQuLkJMRi5YLnZBWnNELlJJRUwuLmZNLi4uLi5EZi4uTEYuRy52QWk4Z0x0TEZULi4uLi4uLi4uTC4uQkxGLkEudkFLMEJJakwxVS4uZk0uM3guLlB2Li43RC5ILlBBaUV4SHNMRlQuLnZKaUF2Li5MLi5BTEYuQS52QWRNelc3SGlMeEhDQkdEdkYuLi4uQS5mLkxiVVl6TVVkdFFHWmYuUi5BRFAuQUQuIi8+PC9kZXhlZFN0YXRlPgA=
+    </Value>
+   </CustomData>
+  </Data>
+ </Plugin>
+
+ <ExternalPatchbay>
+  <Connection>
+   <Source>MIDI Channel Filter:events-out</Source>
+   <Target>Dexed:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>Dexed:Audio Output 1</Source>
+   <Target>system:playback_1</Target>
+  </Connection>
+  <Connection>
+   <Source>Dexed:Audio Output 1</Source>
+   <Target>system:playback_2</Target>
+  </Connection>
+ </ExternalPatchbay>
+</CARLA-PROJECT>
