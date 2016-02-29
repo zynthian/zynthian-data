@@ -4,6 +4,6 @@
 
 ![Image of Zynthian Box Design](http://zynthian.org/img/github/zynthian-case-render-01.jpg)
 
-This repository contains configuration files, presets, samples, ... or the different synth engines used in Zynthian.
+This repository contains configuration files, presets, samples, ... for the different synth engines used in Zynthian.
 
 You can learn more about the Zynthian Project reading [the blog] (http://blog.zynthian.org) or visiting [the website] (http://zynthian.org).
