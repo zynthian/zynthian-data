@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CARLA-PROJECT>
+<CARLA-PROJECT VERSION='2.0'>
+ <EngineSettings>
+  <ForceStereo>false</ForceStereo>
+  <PreferPluginBridges>false</PreferPluginBridges>
+  <PreferUiBridges>true</PreferUiBridges>
+  <UIsAlwaysOnTop>false</UIsAlwaysOnTop>
+  <MaxParameters>200</MaxParameters>
+  <UIBridgesTimeout>4000</UIBridgesTimeout>
+ </EngineSettings>
+
+ <!-- Nekobi -->
+ <Plugin>
+  <Info>
+   <Type>INTERNAL</Type>
+   <Name>Nekobi</Name>
+   <Label>nekobi</Label>
+  </Info>
+
+  <Data>
+   <Active>Yes</Active>
+   <ControlChannel>1</ControlChannel>
+   <Options>0x100</Options>
+
+   <Parameter>
+    <Index>0</Index>
+    <Name>Waveform</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>1</Index>
+    <Name>Tuning</Name>
+    <Value>0</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>2</Index>
+    <Name>Cutoff</Name>
+    <Value>25</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>3</Index>
+    <Name>VCF Resonance</Name>
+    <Value>25</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>4</Index>
+    <Name>Env Mod</Name>
+    <Value>50</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>Decay</Name>
+    <Value>75</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>6</Index>
+    <Name>Accent</Name>
+    <Value>25</Value>
+   </Parameter>
+
+   <Parameter>
+    <Index>7</Index>
+    <Name>Volume</Name>
+    <Value>75</Value>
+   </Parameter>
+  </Data>
+ </Plugin>
+
+ <Patchbay>
+  <Connection>
+   <Source>Midi Input:events-out</Source>
+   <Target>Nekobi:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>Nekobi:output</Source>
+   <Target>Audio Output:Left</Target>
+  </Connection>
+  <Connection>
+   <Source>Nekobi:output</Source>
+   <Target>Audio Output:Right</Target>
+  </Connection>
+ </Patchbay>
+
+ <ExternalPatchbay>
+  <Connection>
+   <Source>a2j:LPK25 [20] (capture): LPK25 MIDI 1</Source>
+   <Target>a2j:Zynthian_gui [130] (playback): Input port</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:LPK25 [20] (capture): LPK25 MIDI 1</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Target>a2j:Zynthian_gui [130] (playback): Input port</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Zynthian_gui [130] (capture): Output port</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Zynthian_rencoder [131] (capture): Output port</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:audio-out1</Source>
+   <Target>system:playback_1</Target>
+  </Connection>
+  <Connection>
+   <Source>Carla:audio-out2</Source>
+   <Target>system:playback_2</Target>
+  </Connection>
+ </ExternalPatchbay>
+</CARLA-PROJECT>
