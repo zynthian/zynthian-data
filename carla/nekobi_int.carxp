@@ -26,7 +26,9 @@
    <Parameter>
     <Index>0</Index>
     <Name>Waveform</Name>
-    <Value>0</Value>
+    <MidiCC>91</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>1</Value>
    </Parameter>
 
    <Parameter>
@@ -38,36 +40,48 @@
    <Parameter>
     <Index>2</Index>
     <Name>Cutoff</Name>
+    <MidiCC>74</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>25</Value>
    </Parameter>
 
    <Parameter>
     <Index>3</Index>
     <Name>VCF Resonance</Name>
+    <MidiCC>71</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>25</Value>
    </Parameter>
 
    <Parameter>
     <Index>4</Index>
     <Name>Env Mod</Name>
+    <MidiCC>1</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>50</Value>
    </Parameter>
 
    <Parameter>
     <Index>5</Index>
     <Name>Decay</Name>
+    <MidiCC>72</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>75</Value>
    </Parameter>
 
    <Parameter>
     <Index>6</Index>
     <Name>Accent</Name>
+    <MidiCC>73</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>25</Value>
    </Parameter>
 
    <Parameter>
     <Index>7</Index>
     <Name>Volume</Name>
+    <MidiCC>11</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>75</Value>
    </Parameter>
   </Data>
@@ -90,27 +104,23 @@
 
  <ExternalPatchbay>
   <Connection>
-   <Source>a2j:LPK25 [20] (capture): LPK25 MIDI 1</Source>
-   <Target>a2j:Zynthian_gui [130] (playback): Input port</Target>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:LPK25 [20] (capture): LPK25 MIDI 1</Source>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
    <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
-   <Target>a2j:Zynthian_gui [130] (playback): Input port</Target>
+   <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
    <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:Zynthian_gui [130] (capture): Output port</Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:Zynthian_rencoder [131] (capture): Output port</Source>
+   <Source>Zyncoder:output</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

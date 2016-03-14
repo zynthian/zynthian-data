@@ -20,12 +20,15 @@
 
   <Data>
    <Active>Yes</Active>
+   <Volume>1.14</Volume>
    <ControlChannel>1</ControlChannel>
    <Options>0x100</Options>
 
    <Parameter>
     <Index>0</Index>
     <Name>Waveform</Name>
+    <MidiCC>91</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
 
@@ -38,36 +41,48 @@
    <Parameter>
     <Index>2</Index>
     <Name>Cutoff</Name>
-    <Value>25</Value>
+    <MidiCC>74</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>41.7322845458984</Value>
    </Parameter>
 
    <Parameter>
     <Index>3</Index>
     <Name>VCF Resonance</Name>
-    <Value>25</Value>
+    <MidiCC>71</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>56.8503952026367</Value>
    </Parameter>
 
    <Parameter>
     <Index>4</Index>
     <Name>Env Mod</Name>
+    <MidiCC>1</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>50</Value>
    </Parameter>
 
    <Parameter>
     <Index>5</Index>
     <Name>Decay</Name>
-    <Value>75</Value>
+    <MidiCC>72</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>39.3700790405273</Value>
    </Parameter>
 
    <Parameter>
     <Index>6</Index>
     <Name>Accent</Name>
-    <Value>25</Value>
+    <MidiCC>73</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>43.3070869445801</Value>
    </Parameter>
 
    <Parameter>
     <Index>7</Index>
     <Name>Volume</Name>
+    <MidiCC>11</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>75</Value>
    </Parameter>
   </Data>
@@ -83,6 +98,7 @@
 
   <Data>
    <Active>Yes</Active>
+   <Volume>1.14</Volume>
    <ControlChannel>1</ControlChannel>
    <Options>0x1</Options>
 
@@ -151,12 +167,8 @@
    <Target>Nekobi:events-in</Target>
   </Connection>
   <Connection>
-   <Source>ZynAlienWah:output_1</Source>
-   <Target>Audio Output:Left</Target>
-  </Connection>
-  <Connection>
-   <Source>ZynAlienWah:output_2</Source>
-   <Target>Audio Output:Right</Target>
+   <Source>Midi Input:events-out</Source>
+   <Target>ZynAlienWah:events-in</Target>
   </Connection>
   <Connection>
    <Source>Nekobi:output</Source>
@@ -166,11 +178,35 @@
    <Source>Nekobi:output</Source>
    <Target>ZynAlienWah:input_2</Target>
   </Connection>
+  <Connection>
+   <Source>ZynAlienWah:output_1</Source>
+   <Target>Audio Output:Left</Target>
+  </Connection>
+  <Connection>
+   <Source>ZynAlienWah:output_2</Source>
+   <Target>Audio Output:Right</Target>
+  </Connection>
  </Patchbay>
 
  <ExternalPatchbay>
   <Connection>
    <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>Zyncoder:output</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
