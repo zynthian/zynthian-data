@@ -21,12 +21,14 @@
   <Data>
    <Active>Yes</Active>
    <ControlChannel>1</ControlChannel>
-   <Options>0x1e5</Options>
+   <Options>0x1f5</Options>
 
    <Parameter>
     <Index>2</Index>
     <Name>Gain</Name>
     <Symbol>gain</Symbol>
+    <MidiCC>11</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.300000011920929</Value>
    </Parameter>
 
@@ -34,6 +36,8 @@
     <Index>3</Index>
     <Name>Clip</Name>
     <Symbol>clip</Symbol>
+    <MidiCC>12</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>1</Value>
    </Parameter>
 
@@ -41,6 +45,8 @@
     <Index>4</Index>
     <Name>Saw</Name>
     <Symbol>saw</Symbol>
+    <MidiCC>13</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>1</Value>
    </Parameter>
 
@@ -48,6 +54,8 @@
     <Index>5</Index>
     <Name>Rect</Name>
     <Symbol>rect</Symbol>
+    <MidiCC>14</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
 
@@ -55,6 +63,8 @@
     <Index>6</Index>
     <Name>Tri</Name>
     <Symbol>tri</Symbol>
+    <MidiCC>15</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
 
@@ -62,6 +72,8 @@
     <Index>7</Index>
     <Name>Tune</Name>
     <Symbol>tune</Symbol>
+    <MidiCC>16</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -69,6 +81,8 @@
     <Index>8</Index>
     <Name>Filter X</Name>
     <Symbol>filter_x</Symbol>
+    <MidiCC>17</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -76,6 +90,8 @@
     <Index>9</Index>
     <Name>Resonance</Name>
     <Symbol>resonance</Symbol>
+    <MidiCC>71</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.400000005960464</Value>
    </Parameter>
 
@@ -83,6 +99,8 @@
     <Index>10</Index>
     <Name>Bandwidth</Name>
     <Symbol>bandwidth</Symbol>
+    <MidiCC>50</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.400000005960464</Value>
    </Parameter>
 
@@ -90,6 +108,8 @@
     <Index>11</Index>
     <Name>Velocity</Name>
     <Symbol>velocity</Symbol>
+    <MidiCC>11</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.25</Value>
    </Parameter>
 
@@ -97,6 +117,8 @@
     <Index>12</Index>
     <Name>Inertia</Name>
     <Symbol>inertia</Symbol>
+    <MidiCC>51</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.25</Value>
    </Parameter>
 
@@ -104,6 +126,8 @@
     <Index>13</Index>
     <Name>Passes</Name>
     <Symbol>passes</Symbol>
+    <MidiCC>52</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -111,13 +135,17 @@
     <Index>14</Index>
     <Name>Filter Freq</Name>
     <Symbol>filter_freq</Symbol>
-    <Value>0.25</Value>
+    <MidiCC>74</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>0.264990836381912</Value>
    </Parameter>
 
    <Parameter>
     <Index>15</Index>
     <Name>Attack</Name>
     <Symbol>attack</Symbol>
+    <MidiCC>53</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.25</Value>
    </Parameter>
 
@@ -125,6 +153,8 @@
     <Index>16</Index>
     <Name>Decay</Name>
     <Symbol>decay</Symbol>
+    <MidiCC>54</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.25</Value>
    </Parameter>
 
@@ -132,6 +162,8 @@
     <Index>17</Index>
     <Name>Sustain</Name>
     <Symbol>sustain</Symbol>
+    <MidiCC>55</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -139,6 +171,8 @@
     <Index>18</Index>
     <Name>Release</Name>
     <Symbol>release</Symbol>
+    <MidiCC>56</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -146,6 +180,8 @@
     <Index>19</Index>
     <Name>Filter Min</Name>
     <Symbol>filter_min</Symbol>
+    <MidiCC>57</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.100000001490116</Value>
    </Parameter>
 
@@ -153,6 +189,8 @@
     <Index>20</Index>
     <Name>Filter Max</Name>
     <Symbol>filter_max</Symbol>
+    <MidiCC>58</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>1</Value>
    </Parameter>
 
@@ -160,6 +198,8 @@
     <Index>21</Index>
     <Name>Oversampling</Name>
     <Symbol>oversampling</Symbol>
+    <MidiCC>59</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
   </Data>
@@ -182,19 +222,31 @@
 
  <ExternalPatchbay>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [24] (capture): MK-249C USB MIDI keyboard MIDI </Source>
-   <Target>a2j:Zynthian_gui [129] (playback): Input port</Target>
+   <Source>ttymidi:MIDI_in</Source>
+   <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [24] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:Zynthian_gui [129] (capture): Output port</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:Zynthian_rencoder [130] (capture): Output port</Source>
+   <Source>Zyncoder:output</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

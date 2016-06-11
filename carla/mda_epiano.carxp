@@ -20,14 +20,16 @@
 
   <Data>
    <Active>Yes</Active>
-   <Volume>0.635</Volume>
+   <Volume>1.19</Volume>
    <ControlChannel>1</ControlChannel>
-   <Options>0x1e1</Options>
+   <Options>0x3e1</Options>
 
    <Parameter>
     <Index>0</Index>
     <Name>Envelope Decay</Name>
     <Symbol>env_decay</Symbol>
+    <MidiCC>72</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -35,6 +37,8 @@
     <Index>1</Index>
     <Name>Envelope Release</Name>
     <Symbol>env_release</Symbol>
+    <MidiCC>73</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -42,6 +46,8 @@
     <Index>2</Index>
     <Name>Hardness</Name>
     <Symbol>hardness</Symbol>
+    <MidiCC>71</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -49,6 +55,8 @@
     <Index>3</Index>
     <Name>Treble Boost</Name>
     <Symbol>treble_boost</Symbol>
+    <MidiCC>74</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -56,6 +64,8 @@
     <Index>4</Index>
     <Name>Modulation</Name>
     <Symbol>modulation</Symbol>
+    <MidiCC>1</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -63,6 +73,8 @@
     <Index>5</Index>
     <Name>LFO Rate</Name>
     <Symbol>lfo_rate</Symbol>
+    <MidiCC>92</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.649999976158142</Value>
    </Parameter>
 
@@ -70,13 +82,17 @@
     <Index>6</Index>
     <Name>Velocity Sense</Name>
     <Symbol>vel_sense</Symbol>
-    <Value>0.25</Value>
+    <MidiCC>11</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>0.448818892240524</Value>
    </Parameter>
 
    <Parameter>
     <Index>7</Index>
     <Name>Stereo Width</Name>
     <Symbol>stereo_width</Symbol>
+    <MidiCC>10</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -84,6 +100,8 @@
     <Index>8</Index>
     <Name>Polyphonic</Name>
     <Symbol>polyphonic</Symbol>
+    <MidiCC>96</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>1</Value>
    </Parameter>
 
@@ -91,6 +109,8 @@
     <Index>9</Index>
     <Name>Fine Tuning</Name>
     <Symbol>fine_tuning</Symbol>
+    <MidiCC>94</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -98,6 +118,8 @@
     <Index>10</Index>
     <Name>Random Tuning</Name>
     <Symbol>random_tuning</Symbol>
+    <MidiCC>95</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.145999997854233</Value>
    </Parameter>
 
@@ -105,6 +127,8 @@
     <Index>11</Index>
     <Name>Overdrive</Name>
     <Symbol>overdrive</Symbol>
+    <MidiCC>93</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
   </Data>
@@ -127,23 +151,31 @@
 
  <ExternalPatchbay>
   <Connection>
+   <Source>ttymidi:MIDI_in</Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>ttymidi:MIDI_in</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
    <Source>Zyncoder:output</Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
-   <Target>Zyncoder:input</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:ttymidi [129] (capture): MIDI out</Source>
-   <Target>Zyncoder:input</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:ttymidi [129] (capture): MIDI out</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

@@ -20,9 +20,9 @@
 
   <Data>
    <Active>Yes</Active>
-   <Volume>0.639953</Volume>
+   <Volume>0.65</Volume>
    <ControlChannel>1</ControlChannel>
-   <Options>0x1e1</Options>
+   <Options>0x3e1</Options>
 
    <Parameter>
     <Index>0</Index>
@@ -30,7 +30,7 @@
     <Symbol>env_decay</Symbol>
     <MidiCC>91</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>0.440944880247116</Value>
+    <Value>0.5</Value>
    </Parameter>
 
    <Parameter>
@@ -48,7 +48,7 @@
     <Symbol>hardness</Symbol>
     <MidiCC>74</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>0.598425209522247</Value>
+    <Value>0.5</Value>
    </Parameter>
 
    <Parameter>
@@ -66,7 +66,7 @@
     <Symbol>modulation</Symbol>
     <MidiCC>1</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>0.622047245502472</Value>
+    <Value>0.5</Value>
    </Parameter>
 
    <Parameter>
@@ -75,7 +75,7 @@
     <Symbol>lfo_rate</Symbol>
     <MidiCC>13</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>0.267716526985168</Value>
+    <Value>0.649999976158142</Value>
    </Parameter>
 
    <Parameter>
@@ -91,6 +91,8 @@
     <Index>7</Index>
     <Name>Stereo Width</Name>
     <Symbol>stereo_width</Symbol>
+    <MidiCC>92</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -98,6 +100,8 @@
     <Index>8</Index>
     <Name>Polyphonic</Name>
     <Symbol>polyphonic</Symbol>
+    <MidiCC>93</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>1</Value>
    </Parameter>
 
@@ -105,6 +109,8 @@
     <Index>9</Index>
     <Name>Fine Tuning</Name>
     <Symbol>fine_tuning</Symbol>
+    <MidiCC>94</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -112,6 +118,8 @@
     <Index>10</Index>
     <Name>Random Tuning</Name>
     <Symbol>random_tuning</Symbol>
+    <MidiCC>95</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.145999997854233</Value>
    </Parameter>
 
@@ -123,6 +131,12 @@
     <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
+
+   <CustomData>
+    <Type>http://kxstudio.sf.net/ns/carla/property</Type>
+    <Key>CarlaSkinIsCompacted</Key>
+    <Value>false</Value>
+   </CustomData>
   </Data>
  </Plugin>
 
@@ -136,6 +150,8 @@
 
   <Data>
    <Active>Yes</Active>
+   <DryWet>0.8019</DryWet>
+   <Volume>0.65</Volume>
    <ControlChannel>1</ControlChannel>
    <Options>0x0</Options>
 
@@ -143,39 +159,45 @@
     <Index>0</Index>
     <Name>Drive</Name>
     <Symbol>drive</Symbol>
-    <MidiCC>73</MidiCC>
+    <MidiCC>60</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>1.7322826385498</Value>
+    <Value>6.64400005340576</Value>
    </Parameter>
 
    <Parameter>
     <Index>1</Index>
     <Name>Decay</Name>
     <Symbol>decay</Symbol>
-    <Value>0.380499988794327</Value>
+    <MidiCC>61</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>0</Value>
    </Parameter>
 
    <Parameter>
     <Index>2</Index>
     <Name>Range</Name>
     <Symbol>range</Symbol>
-    <Value>0.850899994373322</Value>
+    <MidiCC>62</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>0.434899985790253</Value>
    </Parameter>
 
    <Parameter>
     <Index>3</Index>
     <Name>Freq</Name>
     <Symbol>freq</Symbol>
-    <Value>0.523800015449524</Value>
+    <MidiCC>63</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>0</Value>
    </Parameter>
 
    <Parameter>
     <Index>4</Index>
     <Name>Mix</Name>
     <Symbol>mix</Symbol>
-    <MidiCC>72</MidiCC>
+    <MidiCC>64</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>0.31496062874794</Value>
+    <Value>0.744300007820129</Value>
    </Parameter>
 
    <CustomData>
@@ -190,6 +212,10 @@
   <Connection>
    <Source>Midi Input:events-out</Source>
    <Target>MDA ePiano:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>Midi Input:events-out</Source>
+   <Target>Auto-wah:events-in</Target>
   </Connection>
   <Connection>
    <Source>MDA ePiano:Left Out</Source>
@@ -207,27 +233,31 @@
    <Source>Auto-wah:Output</Source>
    <Target>Audio Output:Right</Target>
   </Connection>
-  <Connection>
-   <Source>Midi Input:events-out</Source>
-   <Target>Auto-wah:events-in</Target>
-  </Connection>
  </Patchbay>
 
  <ExternalPatchbay>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

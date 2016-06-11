@@ -21,13 +21,13 @@
   <Data>
    <Active>Yes</Active>
    <ControlChannel>1</ControlChannel>
-   <Options>0x1e1</Options>
+   <Options>0x3e1</Options>
 
    <Parameter>
     <Index>0</Index>
     <Name>Attack</Name>
     <Symbol>attack</Symbol>
-    <MidiCC>11</MidiCC>
+    <MidiCC>85</MidiCC>
     <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
@@ -45,7 +45,7 @@
     <Index>2</Index>
     <Name>Release</Name>
     <Symbol>release</Symbol>
-    <MidiCC>91</MidiCC>
+    <MidiCC>87</MidiCC>
     <MidiChannel>1</MidiChannel>
     <Value>0.441000014543533</Value>
    </Parameter>
@@ -54,6 +54,8 @@
     <Index>3</Index>
     <Name>Coarse</Name>
     <Symbol>coarse</Symbol>
+    <MidiCC>90</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.842000007629395</Value>
    </Parameter>
 
@@ -61,6 +63,8 @@
     <Index>4</Index>
     <Name>Fine</Name>
     <Symbol>fine</Symbol>
+    <MidiCC>91</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.328999996185303</Value>
    </Parameter>
 
@@ -95,6 +99,8 @@
     <Index>8</Index>
     <Name>Mod Rel</Name>
     <Symbol>mod_rel</Symbol>
+    <MidiCC>20</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.800000011920929</Value>
    </Parameter>
 
@@ -102,6 +108,8 @@
     <Index>9</Index>
     <Name>Mod Vel</Name>
     <Symbol>mod_vel</Symbol>
+    <MidiCC>21</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.899999976158142</Value>
    </Parameter>
 
@@ -118,6 +126,8 @@
     <Index>11</Index>
     <Name>Octave</Name>
     <Symbol>octave</Symbol>
+    <MidiCC>22</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -125,6 +135,8 @@
     <Index>12</Index>
     <Name>FineTune</Name>
     <Symbol>finetune</Symbol>
+    <MidiCC>23</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -174,19 +186,27 @@
 
  <ExternalPatchbay>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

@@ -22,12 +22,14 @@
    <Active>Yes</Active>
    <Volume>0.43</Volume>
    <ControlChannel>1</ControlChannel>
-   <Options>0x1e1</Options>
+   <Options>0x3f1</Options>
 
    <Parameter>
     <Index>0</Index>
     <Name>Envelope Decay</Name>
     <Symbol>env_decay</Symbol>
+    <MidiCC>12</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -35,13 +37,17 @@
     <Index>1</Index>
     <Name>Envelope Release</Name>
     <Symbol>env_release</Symbol>
-    <Value>0.5</Value>
+    <MidiCC>13</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>0.511811017990112</Value>
    </Parameter>
 
    <Parameter>
     <Index>2</Index>
     <Name>Hardness Offset</Name>
     <Symbol>hardness_offset</Symbol>
+    <MidiCC>14</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -49,6 +55,8 @@
     <Index>3</Index>
     <Name>Velocity to Hardness</Name>
     <Symbol>vel_to_hardness</Symbol>
+    <MidiCC>15</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -56,6 +64,8 @@
     <Index>4</Index>
     <Name>Muffling Filter</Name>
     <Symbol>muffling_filter</Symbol>
+    <MidiCC>16</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.802999973297119</Value>
    </Parameter>
 
@@ -63,6 +73,8 @@
     <Index>5</Index>
     <Name>Velocity to Muffling</Name>
     <Symbol>vel_to_muffling</Symbol>
+    <MidiCC>17</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.250999987125397</Value>
    </Parameter>
 
@@ -70,6 +82,8 @@
     <Index>6</Index>
     <Name>Velocity Sensitivity</Name>
     <Symbol>vel_sensitivity</Symbol>
+    <MidiCC>18</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.375999987125397</Value>
    </Parameter>
 
@@ -77,6 +91,8 @@
     <Index>7</Index>
     <Name>Stereo Width</Name>
     <Symbol>stereo_width</Symbol>
+    <MidiCC>19</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -84,6 +100,8 @@
     <Index>8</Index>
     <Name>Polyphony</Name>
     <Symbol>polyphony</Symbol>
+    <MidiCC>20</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
 
@@ -91,6 +109,8 @@
     <Index>9</Index>
     <Name>Fine Tuning</Name>
     <Symbol>fine_tuning</Symbol>
+    <MidiCC>21</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
 
@@ -98,6 +118,8 @@
     <Index>10</Index>
     <Name>Random Detuning</Name>
     <Symbol>random_detuning</Symbol>
+    <MidiCC>22</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.24600000679493</Value>
    </Parameter>
 
@@ -105,6 +127,8 @@
     <Index>11</Index>
     <Name>Stretch Tuning</Name>
     <Symbol>stretch_tuning</Symbol>
+    <MidiCC>23</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0.5</Value>
    </Parameter>
   </Data>
@@ -127,23 +151,31 @@
 
  <ExternalPatchbay>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
    <Source>Zyncoder:output</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
