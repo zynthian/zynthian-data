@@ -21,7 +21,7 @@
 
   <Data>
    <Active>Yes</Active>
-   <Volume>0.58</Volume>
+   <Volume>0.96</Volume>
    <ControlChannel>1</ControlChannel>
    <Options>0x1fd</Options>
 
@@ -47,9 +47,23 @@
    </Parameter>
 
    <Parameter>
+    <Index>3</Index>
+    <Name>ALGORITHM</Name>
+    <MidiCC>12</MidiCC>
+    <MidiChannel>1</MidiChannel>
+   </Parameter>
+
+   <Parameter>
     <Index>4</Index>
     <Name>FEEDBACK</Name>
     <MidiCC>91</MidiCC>
+    <MidiChannel>1</MidiChannel>
+   </Parameter>
+
+   <Parameter>
+    <Index>5</Index>
+    <Name>OSC KEY SYNC</Name>
+    <MidiCC>13</MidiCC>
     <MidiChannel>1</MidiChannel>
    </Parameter>
 
@@ -279,15 +293,15 @@ L2RleGVkU3RhdGU+AA==
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
+   <Source>Zyncoder:output</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
    <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
    <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>Zyncoder:output</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

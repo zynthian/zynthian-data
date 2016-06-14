@@ -22,7 +22,7 @@
    <Active>Yes</Active>
    <Volume>1.14</Volume>
    <ControlChannel>1</ControlChannel>
-   <Options>0x100</Options>
+   <Options>0x110</Options>
 
    <Parameter>
     <Index>0</Index>
@@ -35,6 +35,8 @@
    <Parameter>
     <Index>1</Index>
     <Name>Tuning</Name>
+    <MidiCC>70</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
 
@@ -43,7 +45,7 @@
     <Name>Cutoff</Name>
     <MidiCC>74</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>41.7322845458984</Value>
+    <Value>24.4094486236572</Value>
    </Parameter>
 
    <Parameter>
@@ -51,7 +53,7 @@
     <Name>VCF Resonance</Name>
     <MidiCC>71</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>56.8503952026367</Value>
+    <Value>24.6850395202637</Value>
    </Parameter>
 
    <Parameter>
@@ -59,7 +61,7 @@
     <Name>Env Mod</Name>
     <MidiCC>1</MidiCC>
     <MidiChannel>1</MidiChannel>
-    <Value>50</Value>
+    <Value>49.6063003540039</Value>
    </Parameter>
 
    <Parameter>
@@ -100,41 +102,53 @@
    <Active>Yes</Active>
    <Volume>1.14</Volume>
    <ControlChannel>1</ControlChannel>
-   <Options>0x1</Options>
+   <Options>0x5</Options>
 
    <Parameter>
     <Index>0</Index>
     <Name>LFO Frequency</Name>
+    <MidiCC>50</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>40</Value>
    </Parameter>
 
    <Parameter>
     <Index>1</Index>
     <Name>LFO Randomness</Name>
+    <MidiCC>51</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>69</Value>
    </Parameter>
 
    <Parameter>
     <Index>2</Index>
     <Name>LFO Type</Name>
+    <MidiCC>52</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
 
    <Parameter>
     <Index>3</Index>
     <Name>LFO Stereo</Name>
+    <MidiCC>53</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>62</Value>
    </Parameter>
 
    <Parameter>
     <Index>4</Index>
     <Name>Depth</Name>
+    <MidiCC>54</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>127</Value>
    </Parameter>
 
    <Parameter>
     <Index>5</Index>
     <Name>Feedback</Name>
+    <MidiCC>55</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>119</Value>
    </Parameter>
 
@@ -147,12 +161,16 @@
    <Parameter>
     <Index>7</Index>
     <Name>L/R Cross</Name>
+    <MidiCC>56</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>0</Value>
    </Parameter>
 
    <Parameter>
     <Index>8</Index>
     <Name>Phase</Name>
+    <MidiCC>57</MidiCC>
+    <MidiChannel>1</MidiChannel>
     <Value>107</Value>
    </Parameter>
 
@@ -190,23 +208,31 @@
 
  <ExternalPatchbay>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
    <Source>Zyncoder:output</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

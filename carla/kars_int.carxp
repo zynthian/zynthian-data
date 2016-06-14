@@ -20,13 +20,16 @@
 
   <Data>
    <Active>Yes</Active>
+   <Volume>0.96</Volume>
    <ControlChannel>1</ControlChannel>
    <Options>0x0</Options>
 
    <Parameter>
     <Index>0</Index>
     <Name>Sustain</Name>
-    <Value>0</Value>
+    <MidiCC>74</MidiCC>
+    <MidiChannel>1</MidiChannel>
+    <Value>1</Value>
    </Parameter>
   </Data>
  </Plugin>
@@ -38,37 +41,41 @@
   </Connection>
   <Connection>
    <Source>Kars:output</Source>
-   <Target>Audio Output:Right</Target>
+   <Target>Audio Output:Left</Target>
   </Connection>
   <Connection>
    <Source>Kars:output</Source>
-   <Target>Audio Output:Left</Target>
+   <Target>Audio Output:Right</Target>
   </Connection>
  </Patchbay>
 
  <ExternalPatchbay>
   <Connection>
-   <Source>a2j:LPK25 [20] (capture): LPK25 MIDI 1</Source>
-   <Target>a2j:Zynthian_gui [130] (playback): Input port</Target>
+   <Source>ttymidi:MIDI_in</Source>
+   <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:LPK25 [20] (capture): LPK25 MIDI 1</Source>
+   <Source>ttymidi:MIDI_in</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
-   <Target>a2j:Zynthian_gui [130] (playback): Input port</Target>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:ttymidi [128] (capture): MIDI out</Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:Zynthian_gui [130] (capture): Output port</Source>
+   <Source>Zyncoder:output</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:Zynthian_rencoder [131] (capture): Output port</Source>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
