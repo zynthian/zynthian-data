@@ -20,6 +20,7 @@
 
   <Data>
    <Active>Yes</Active>
+   <Volume>0.886079</Volume>
    <ControlChannel>1</ControlChannel>
    <Options>0x1f5</Options>
 
@@ -855,7 +856,7 @@
     <Value>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 
-&lt;tal curprogram=&quot;5&quot; version=&quot;1.6999999999999999556&quot;&gt;
+&lt;tal curprogram=&quot;0&quot; version=&quot;1.6999999999999999556&quot;&gt;
   &lt;programs&gt;
     &lt;program programname=&quot;ARP C64 FN&quot; volume=&quot;0.38800001144409179688&quot; filtertype=&quot;0.27272728085517883301&quot;
              cutoff=&quot;0.26399999856948852539&quot; resonance=&quot;0.42000001668930053711&quot;
@@ -921,10 +922,14 @@
  <ExternalPatchbay>
   <Connection>
    <Source>ttymidi:MIDI_in</Source>
-   <Target>Zyncoder:input</Target>
+   <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
    <Source>ttymidi:MIDI_in</Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
@@ -932,19 +937,15 @@
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
-   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
    <Source>Zyncoder:output</Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
-   <Target>Zyncoder:input</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

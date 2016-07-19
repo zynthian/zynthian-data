@@ -22,7 +22,7 @@
    <Active>Yes</Active>
    <Volume>0.639953</Volume>
    <ControlChannel>1</ControlChannel>
-   <Options>0x3e1</Options>
+   <Options>0x3f1</Options>
 
    <Parameter>
     <Index>0</Index>
@@ -136,6 +136,7 @@
 
   <Data>
    <Active>Yes</Active>
+   <Volume>0.691007</Volume>
    <ControlChannel>1</ControlChannel>
    <Options>0x5</Options>
 
@@ -201,6 +202,12 @@
 
    <CurrentMidiBank>1</CurrentMidiBank>
    <CurrentMidiProgram>1</CurrentMidiProgram>
+
+   <CustomData>
+    <Type>http://kxstudio.sf.net/ns/carla/property</Type>
+    <Key>CarlaSkinIsCompacted</Key>
+    <Value>false</Value>
+   </CustomData>
   </Data>
  </Plugin>
 
@@ -233,23 +240,31 @@
 
  <ExternalPatchbay>
   <Connection>
+   <Source>ttymidi:MIDI_in</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>ttymidi:MIDI_in</Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
+  </Connection>
+  <Connection>
    <Source>Zyncoder:output</Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
-   <Target>Zyncoder:input</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:ttymidi [129] (capture): MIDI out</Source>
-   <Target>Zyncoder:input</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:ttymidi [129] (capture): MIDI out</Source>
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>

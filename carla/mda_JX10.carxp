@@ -20,7 +20,7 @@
 
   <Data>
    <Active>Yes</Active>
-   <Volume>0.870204</Volume>
+   <Volume>0.767588</Volume>
    <Balance-Left>-0.984252</Balance-Left>
    <ControlChannel>1</ControlChannel>
    <Options>0x3f1</Options>
@@ -261,14 +261,10 @@
  <ExternalPatchbay>
   <Connection>
    <Source>ttymidi:MIDI_in</Source>
-   <Target>Zyncoder:input</Target>
+   <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
    <Source>ttymidi:MIDI_in</Source>
-   <Target>Carla:events-in</Target>
-  </Connection>
-  <Connection>
-   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
@@ -276,12 +272,16 @@
    <Target>Carla:events-in</Target>
   </Connection>
   <Connection>
-   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Source>a2j:Midi Through [14] (capture): Midi Through Port-0</Source>
    <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
    <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
    <Target>Carla:events-in</Target>
+  </Connection>
+  <Connection>
+   <Source>a2j:MK-249C USB MIDI keyboard [20] (capture): MK-249C USB MIDI keyboard MIDI </Source>
+   <Target>Zyncoder:input</Target>
   </Connection>
   <Connection>
    <Source>Zyncoder:output</Source>
