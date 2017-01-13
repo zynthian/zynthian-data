@@ -20,7 +20,7 @@ _:b3
     ingen:head <dexed_lv2/midi_in> .
 
 _:b4
-    ingen:tail <midi_capture_1> ;
+    ingen:tail <midi_capture_3> ;
     ingen:head <dexed_lv2/midi_in> .
 
 _:b5
@@ -32,12 +32,12 @@ _:b6
     ingen:head <playback_2> .
 
 <dexed_lv2>
-    ingen:canvasX 1730.0 ;
-    ingen:canvasY 391.0 ;
+    ingen:canvasX 1787.1 ;
+    ingen:canvasY 441.3 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 1 ;
+    lv2:microVersion 1 ;
+    lv2:minorVersion 0 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
     lv2:port <dexed_lv2/audio_out> ,
@@ -45,7 +45,18 @@ _:b6
              <dexed_lv2/resonance> ,
              <dexed_lv2/output> ,
              <dexed_lv2/engine> ,
-             <dexed_lv2/unisono> ,
+             <dexed_lv2/polymono> ,
+             <dexed_lv2/pitch_bend_range> ,
+             <dexed_lv2/pitch_bend_step> ,
+             <dexed_lv2/mod_wheel_range> ,
+             <dexed_lv2/mod_wheel_assign> ,
+             <dexed_lv2/foot_ctrl_range> ,
+             <dexed_lv2/foot_ctrl_assign> ,
+             <dexed_lv2/breath_ctrl_range> ,
+             <dexed_lv2/breath_ctrl_assign> ,
+             <dexed_lv2/aftertouch_range> ,
+             <dexed_lv2/aftertouch_assign> ,
+             <dexed_lv2/master_tune> ,
              <dexed_lv2/algorithm_num> ,
              <dexed_lv2/feedback> ,
              <dexed_lv2/oscillator_sync> ,
@@ -191,14 +202,16 @@ _:b6
              <dexed_lv2/op6_kbd_rate_scaling> ,
              <dexed_lv2/op6_amp_mod_sensitivity> ,
              <dexed_lv2/op6_key_vel_sensitivity> ,
-             <dexed_lv2/pitch_bend_range> ,
-             <dexed_lv2/pitch_bend_step> ,
-             <dexed_lv2/mod_wheel_range> ,
-             <dexed_lv2/mod_wheel_step> ,
+             <dexed_lv2/op1_enable> ,
+             <dexed_lv2/op2_enable> ,
+             <dexed_lv2/op3_enable> ,
+             <dexed_lv2/op4_enable> ,
+             <dexed_lv2/op5_enable> ,
+             <dexed_lv2/op6_enable> ,
              <dexed_lv2/midi_in> ,
              <dexed_lv2/:bypass> ;
     lv2:prototype <https://github.com/dcoredump/dexed.lv2> ;
-    pedal:preset <https://github.com/dcoredump/dexed.lv2/presets#E.PIANO_1> ;
+    pedal:preset <> ;
     a ingen:Block .
 
 <dexed_lv2/midi_in>
@@ -207,293 +220,28 @@ _:b6
     a atom:AtomPort ,
         lv2:InputPort .
 
-<dexed_lv2/op5_eg_rate_2>
-    ingen:value 20.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_kbd_rate_scaling>
-    ingen:value 3.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_osc_freq_coarse>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_kbd_lev_scl_brk_pt>
-    ingen:value 41.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_kbd_rate_scaling>
-    ingen:value 3.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_osc_detune>
-    ingen:value -7.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_osc_freq_fine>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_kbd_lev_scl_rht_depth>
-    ingen:value 19.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_kbd_lev_scl_brk_pt>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_eg_rate_3>
-    ingen:value 20.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_amp_mod_sensitivity>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_osc_freq_fine>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_level_2>
-    ingen:value 75.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <dexed_lv2/op5_kbd_lev_scl_lft_curve>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op1_kbd_lev_scl_lft_depth>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_rate_1>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_eg_rate_2>
-    ingen:value 20.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_eg_rate_4>
+<dexed_lv2/pitch_eg_rate_2>
     ingen:value 67.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op5_eg_level_2>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_eg_rate_1>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_eg_rate_2>
-    ingen:value 25.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/lfo_speed>
-    ingen:value 34.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/unisono>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/pitch_bend_step>
-    ingen:value 12.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_eg_rate_3>
-    ingen:value 20.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_rate_4>
-    ingen:value 78.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_operator_output_level>
+<dexed_lv2/op6_eg_level_1>
     ingen:value 99.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op4_eg_rate_4>
-    ingen:value 50.000000 ;
+<dexed_lv2/op2_eg_level_1>
+    ingen:value 99.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op5_kbd_lev_scl_lft_depth>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_kbd_lev_scl_brk_pt>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_eg_rate_4>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_amp_mod_sensitivity>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_kbd_lev_scl_rht_depth>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_kbd_lev_scl_brk_pt>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_operator_output_level>
-    ingen:value 79.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_amp_mod_sensitivity>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_osc_freq_coarse>
-    ingen:value 14.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/lfo_waveform>
-    ingen:value 4.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_key_vel_sensitivity>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/pitch_eg_rate_4>
-    ingen:value 60.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_kbd_lev_scl_rht_curve>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/transpose>
-    ingen:value 24.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/lfo_sync>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_operator_output_level>
-    ingen:value 58.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_kbd_lev_scl_rht_depth>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_eg_level_4>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_amp_mod_sensitivity>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_eg_level_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_osc_mode>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/pitch_bend_range>
-    ingen:value 12.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_kbd_lev_scl_lft_curve>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_kbd_lev_scl_brk_pt>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_kbd_lev_scl_lft_curve>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_eg_rate_4>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_osc_detune>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_eg_rate_1>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_kbd_lev_scl_rht_curve>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_kbd_lev_scl_rht_curve>
-    ingen:value 0.000000 ;
+<dexed_lv2/op1_enable>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -502,197 +250,32 @@ _:b6
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op3_kbd_lev_scl_rht_depth>
-    ingen:value 0.000000 ;
+<dexed_lv2/foot_ctrl_range>
+    ingen:value 99.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op5_kbd_lev_scl_brk_pt>
-    ingen:value 0.000000 ;
+<dexed_lv2/op6_kbd_lev_scl_brk_pt>
+    ingen:value 41.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/pitch_eg_rate_1>
-    ingen:value 94.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_kbd_lev_scl_rht_curve>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_eg_level_2>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_amp_mod_sensitivity>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_eg_rate_1>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_eg_level_4>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/lfo_delay>
-    ingen:value 33.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/cutoff>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_kbd_lev_scl_rht_depth>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_key_vel_sensitivity>
-    ingen:value 2.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_osc_mode>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_osc_mode>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_eg_rate_3>
-    ingen:value 25.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_osc_freq_coarse>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/engine>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_eg_rate_3>
+<dexed_lv2/op3_eg_rate_2>
     ingen:value 20.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/pitch_eg_level_1>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_level_4>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/mod_wheel_range>
-    ingen:value 12.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_operator_output_level>
-    ingen:value 99.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_eg_level_1>
-    ingen:value 99.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_eg_level_2>
-    ingen:value 85.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_kbd_lev_scl_lft_depth>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_kbd_lev_scl_lft_curve>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_eg_rate_3>
-    ingen:value 20.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_eg_rate_4>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/resonance>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/pitch_eg_level_4>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_eg_level_1>
-    ingen:value 99.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_level_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_eg_rate_2>
+<dexed_lv2/op4_eg_rate_2>
     ingen:value 29.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op1_eg_level_3>
+<dexed_lv2/op6_eg_level_3>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op6_eg_rate_1>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_kbd_lev_scl_lft_curve>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_rate_2>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/pitch_eg_level_2>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_kbd_lev_scl_lft_depth>
+<dexed_lv2/engine>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -702,78 +285,8 @@ _:b6
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op2_amp_mod_sensitivity>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_eg_level_2>
-    ingen:value 95.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_eg_level_1>
-    ingen:value 99.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_osc_freq_fine>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_eg_rate_1>
-    ingen:value 96.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_eg_level_2>
-    ingen:value 75.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_osc_freq_coarse>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_key_vel_sensitivity>
-    ingen:value 2.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/algorithm_num>
-    ingen:value 5.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_osc_mode>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_osc_freq_coarse>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_rate_3>
-    ingen:value 35.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/pitch_eg_rate_2>
-    ingen:value 67.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_osc_mode>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_eg_level_4>
-    ingen:value 0.000000 ;
+<dexed_lv2/op5_eg_rate_4>
+    ingen:value 50.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -782,23 +295,8 @@ _:b6
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op5_osc_freq_fine>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_key_vel_sensitivity>
-    ingen:value 7.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/feedback>
-    ingen:value 6.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_kbd_lev_scl_lft_depth>
-    ingen:value 0.000000 ;
+<dexed_lv2/op1_osc_freq_coarse>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -807,42 +305,32 @@ _:b6
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op4_eg_level_4>
+<dexed_lv2/op6_eg_rate_1>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/lfo_pitch_mod_depth>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/oscillator_sync>
+<dexed_lv2/op4_kbd_lev_scl_lft_curve>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op6_eg_level_1>
-    ingen:value 99.000000 ;
+<dexed_lv2/op2_eg_level_2>
+    ingen:value 75.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op1_osc_freq_coarse>
+<dexed_lv2/pitch_bend_range>
     ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op4_operator_output_level>
-    ingen:value 89.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_kbd_rate_scaling>
-    ingen:value 3.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_osc_mode>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/lfo_amp_mod_depth>
+<dexed_lv2/op4_kbd_lev_scl_rht_depth>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -852,82 +340,87 @@ _:b6
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/lfo_pitch_mod_depth>
-    ingen:value 0.000000 ;
+<dexed_lv2/op5_eg_rate_3>
+    ingen:value 20.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op4_key_vel_sensitivity>
-    ingen:value 6.000000 ;
+<dexed_lv2/op3_eg_level_2>
+    ingen:value 95.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op5_eg_level_1>
+<dexed_lv2/op5_eg_rate_1>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_eg_rate_1>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_operator_output_level>
     ingen:value 99.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/pitch_eg_level_3>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_eg_rate_2>
-    ingen:value 29.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_kbd_lev_scl_rht_curve>
+<dexed_lv2/op5_kbd_lev_scl_rht_depth>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op2_osc_freq_fine>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/output>
+<dexed_lv2/op5_osc_freq_coarse>
     ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op4_kbd_rate_scaling>
-    ingen:value 3.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/mod_wheel_step>
-    ingen:value 12.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op4_kbd_lev_scl_lft_depth>
+<dexed_lv2/foot_ctrl_assign>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op1_osc_detune>
+<dexed_lv2/op1_operator_output_level>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_osc_freq_coarse>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/cutoff>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_osc_freq_coarse>
+    ingen:value 14.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_eg_rate_3>
+    ingen:value 20.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_kbd_rate_scaling>
     ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_kbd_lev_scl_lft_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_rate_4>
+    ingen:value 67.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
 <dexed_lv2/op4_eg_level_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op3_eg_level_3>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op6_osc_detune>
-    ingen:value 7.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op5_eg_level_3>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -937,33 +430,58 @@ _:b6
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/pitch_eg_rate_3>
-    ingen:value 95.000000 ;
+<dexed_lv2/feedback>
+    ingen:value 6.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op5_kbd_rate_scaling>
-    ingen:value 3.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op2_eg_level_1>
-    ingen:value 76.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<dexed_lv2/op1_osc_freq_fine>
+<dexed_lv2/op5_kbd_lev_scl_brk_pt>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op2_kbd_rate_scaling>
-    ingen:value 3.000000 ;
+<dexed_lv2/op2_osc_mode>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op4_kbd_lev_scl_rht_depth>
+<dexed_lv2/op2_enable>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_eg_level_4>
     ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_eg_rate_2>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/breath_ctrl_assign>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_kbd_lev_scl_rht_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_bend_step>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_osc_freq_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_eg_rate_4>
+    ingen:value 78.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -972,8 +490,568 @@ _:b6
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<dexed_lv2/op4_kbd_lev_scl_lft_curve>
+<dexed_lv2/op2_eg_rate_1>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_eg_rate_1>
+    ingen:value 94.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_osc_mode>
     ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_osc_freq_coarse>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/lfo_sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_osc_mode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_kbd_lev_scl_lft_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_kbd_lev_scl_rht_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_osc_freq_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_eg_level_4>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_amp_mod_sensitivity>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_eg_rate_3>
+    ingen:value 20.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_eg_rate_1>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_kbd_rate_scaling>
+    ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_kbd_lev_scl_brk_pt>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_osc_freq_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_osc_detune>
+    ingen:value -7.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_osc_detune>
+    ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_kbd_rate_scaling>
+    ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_osc_mode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/breath_ctrl_range>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_key_vel_sensitivity>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/lfo_amp_mod_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_eg_level_2>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_eg_level_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_rate_3>
+    ingen:value 25.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_rate_2>
+    ingen:value 25.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_osc_mode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_eg_level_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/output>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/resonance>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_level_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_kbd_lev_scl_rht_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_kbd_lev_scl_lft_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/polymono>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_eg_level_1>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_kbd_lev_scl_rht_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_eg_level_4>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_eg_level_2>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_kbd_rate_scaling>
+    ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_amp_mod_sensitivity>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_eg_rate_3>
+    ingen:value 20.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_kbd_lev_scl_lft_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_kbd_lev_scl_lft_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_kbd_lev_scl_rht_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_eg_rate_4>
+    ingen:value 60.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_eg_rate_3>
+    ingen:value 35.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_amp_mod_sensitivity>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/lfo_delay>
+    ingen:value 33.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_eg_rate_4>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_operator_output_level>
+    ingen:value 58.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_level_2>
+    ingen:value 75.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_eg_level_3>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_kbd_lev_scl_rht_depth>
+    ingen:value 19.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_osc_freq_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_level_4>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_kbd_lev_scl_lft_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_eg_rate_4>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_eg_rate_2>
+    ingen:value 29.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_eg_level_1>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_kbd_rate_scaling>
+    ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_eg_level_2>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_eg_rate_2>
+    ingen:value 20.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_operator_output_level>
+    ingen:value 79.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/aftertouch_assign>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_kbd_lev_scl_brk_pt>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_amp_mod_sensitivity>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_eg_level_1>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_kbd_lev_scl_lft_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_eg_level_2>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_enable>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_operator_output_level>
+    ingen:value 89.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_kbd_lev_scl_rht_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_kbd_lev_scl_lft_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/mod_wheel_assign>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_eg_level_1>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/transpose>
+    ingen:value 24.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_kbd_lev_scl_brk_pt>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/algorithm_num>
+    ingen:value 5.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_kbd_lev_scl_rht_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_eg_level_4>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_amp_mod_sensitivity>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_osc_freq_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/pitch_eg_rate_3>
+    ingen:value 95.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_enable>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_level_1>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op2_key_vel_sensitivity>
+    ingen:value 7.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/lfo_speed>
+    ingen:value 34.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_kbd_lev_scl_rht_curve>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/aftertouch_range>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_osc_freq_coarse>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_osc_freq_fine>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_enable>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_amp_mod_sensitivity>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_eg_level_3>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/mod_wheel_range>
+    ingen:value 99.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_key_vel_sensitivity>
+    ingen:value 2.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_osc_detune>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_kbd_lev_scl_lft_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_kbd_lev_scl_brk_pt>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_key_vel_sensitivity>
+    ingen:value 6.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_eg_level_4>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_kbd_rate_scaling>
+    ingen:value 3.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op3_osc_mode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_eg_rate_1>
+    ingen:value 96.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_osc_detune>
+    ingen:value 7.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/master_tune>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/oscillator_sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op6_enable>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/lfo_waveform>
+    ingen:value 4.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op5_kbd_lev_scl_lft_depth>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op4_eg_rate_4>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<dexed_lv2/op1_key_vel_sensitivity>
+    ingen:value 2.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -1018,10 +1096,32 @@ _:b6
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<midi_capture_1>
+<midi_capture_3>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
     lv2:index 4 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_capture_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 5 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_capture_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 6 ;
     lv2:name "LPK25 MIDI 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "midi_capture_1" ;
@@ -1029,10 +1129,32 @@ _:b6
     a atom:AtomPort ,
         lv2:InputPort .
 
+<midi_playback_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 7 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<midi_playback_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 8 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
 <midi_playback_1>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 5 ;
+    lv2:index 9 ;
     lv2:name "LPK25 MIDI 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "midi_playback_1" ;
@@ -1043,7 +1165,7 @@ _:b6
 <serial_midi_in>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 6 ;
+    lv2:index 10 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_in" ;
@@ -1054,7 +1176,7 @@ _:b6
 <serial_midi_out>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 7 ;
+    lv2:index 11 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_out" ;
@@ -1081,7 +1203,11 @@ _:b6
              <control_out> ,
              <serial_midi_in> ,
              <serial_midi_out> ,
+             <midi_capture_3> ,
+             <midi_capture_4> ,
              <midi_capture_1> ,
+             <midi_playback_3> ,
+             <midi_playback_4> ,
              <midi_playback_1> ,
              <playback_1> ,
              <playback_2> ;
