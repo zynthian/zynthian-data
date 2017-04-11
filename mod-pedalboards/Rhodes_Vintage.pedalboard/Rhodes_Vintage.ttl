@@ -8,64 +8,56 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <Ambience/right_out> ;
-    ingen:head <Gain2x2/In2> .
-
-_:b2
-    ingen:tail <Ambience/left_out> ;
-    ingen:head <Gain2x2/In1> .
-
-_:b3
-    ingen:tail <capture_2> ;
-    ingen:head <playback_2> .
-
-_:b4
-    ingen:tail <White/out> ;
-    ingen:head <Gain/In> .
-
-_:b5
-    ingen:tail <Gain2x2/Out1> ;
-    ingen:head <playback_1> .
-
-_:b6
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
-
-_:b7
-    ingen:tail <serial_midi_in> ;
-    ingen:head <EPiano/event_in> .
-
-_:b8
-    ingen:tail <Gain2x2/Out2> ;
-    ingen:head <playback_2> .
-
-_:b9
     ingen:tail <midi_capture_1> ;
     ingen:head <EPiano/event_in> .
 
-_:b10
-    ingen:tail <Combo/left_out> ;
-    ingen:head <Ambience/left_in> .
+_:b2
+    ingen:tail <Gain2x2/Out2> ;
+    ingen:head <playback_2> .
 
-_:b11
-    ingen:tail <Combo/right_out> ;
-    ingen:head <Ambience/right_in> .
+_:b3
+    ingen:tail <White/out> ;
+    ingen:head <Gain/In> .
 
-_:b12
-    ingen:tail <Gain/Out> ;
-    ingen:head <Combo/left_in> .
+_:b4
+    ingen:tail <serial_midi_in> ;
+    ingen:head <EPiano/event_in> .
 
-_:b13
-    ingen:tail <Gain/Out> ;
+_:b5
+    ingen:tail <Ambience/left_out> ;
+    ingen:head <Gain2x2/In1> .
+
+_:b6
+    ingen:tail <EPiano/right_out> ;
     ingen:head <Combo/right_in> .
 
-_:b14
+_:b7
+    ingen:tail <Gain2x2/Out1> ;
+    ingen:head <playback_1> .
+
+_:b8
     ingen:tail <EPiano/left_out> ;
     ingen:head <Combo/left_in> .
 
-_:b15
-    ingen:tail <EPiano/right_out> ;
+_:b9
+    ingen:tail <Gain/Out> ;
+    ingen:head <Combo/left_in> .
+
+_:b10
+    ingen:tail <Gain/Out> ;
     ingen:head <Combo/right_in> .
+
+_:b11
+    ingen:tail <Ambience/right_out> ;
+    ingen:head <Gain2x2/In2> .
+
+_:b12
+    ingen:tail <Combo/left_out> ;
+    ingen:head <Ambience/left_in> .
+
+_:b13
+    ingen:tail <Combo/right_out> ;
+    ingen:head <Ambience/right_in> .
 
 <Ambience>
     ingen:canvasX 2772.0 ;
@@ -105,23 +97,23 @@ _:b15
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<Ambience/mix>
-    ingen:value 62.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <Ambience/output>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Ambience/size>
-    ingen:value 3.125000 ;
+<Ambience/hf_damp>
+    ingen:value 69.291339 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Ambience/hf_damp>
-    ingen:value 70.000000 ;
+<Ambience/mix>
+    ingen:value 62.204724 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Ambience/size>
+    ingen:value 3.070866 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -176,18 +168,13 @@ _:b15
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Combo/hpf_freq>
-    ingen:value 1.000000 ;
+<Combo/drive>
+    ingen:value 34.375000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Combo/model>
-    ingen:value 3.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<Combo/hpf_reso>
-    ingen:value 50.000000 ;
+<Combo/output>
+    ingen:value 8.125000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -196,13 +183,18 @@ _:b15
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Combo/drive>
-    ingen:value 34.375000 ;
+<Combo/hpf_freq>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<Combo/output>
-    ingen:value 8.125000 ;
+<Combo/hpf_reso>
+    ingen:value 50.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<Combo/model>
+    ingen:value 3.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -246,8 +238,43 @@ _:b15
     a atom:AtomPort ,
         lv2:InputPort .
 
+<EPiano/fine_tuning>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/modulation>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <EPiano/overdrive>
     ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/hardness>
+    ingen:value -0.393701 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/random_tuning>
+    ingen:value 7.300000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/treble_boost>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/env_decay>
+    ingen:value 49.606299 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<EPiano/vel_sense>
+    ingen:value 25.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -257,22 +284,7 @@ _:b15
         lv2:InputPort .
 
 <EPiano/env_release>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/fine_tuning>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/hardness>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/random_tuning>
-    ingen:value 7.300000 ;
+    ingen:value 49.606299 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -283,26 +295,6 @@ _:b15
 
 <EPiano/polyphonic>
     ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/vel_sense>
-    ingen:value 25.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/env_decay>
-    ingen:value 50.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/treble_boost>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<EPiano/modulation>
-    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -437,8 +429,24 @@ _:b15
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<playback_1>
+<capture_1>
     lv2:index 2 ;
+    lv2:name "Capture 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_1" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<capture_2>
+    lv2:index 3 ;
+    lv2:name "Capture 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_2" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<playback_1>
+    lv2:index 4 ;
     lv2:name "Playback 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_1" ;
@@ -446,17 +454,39 @@ _:b15
         lv2:OutputPort .
 
 <playback_2>
-    lv2:index 3 ;
+    lv2:index 5 ;
     lv2:name "Playback 2" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_2" ;
     a lv2:AudioPort ,
         lv2:OutputPort .
 
+<midi_capture_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 6 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_capture_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 7 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
 <midi_capture_1>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 4 ;
+    lv2:index 8 ;
     lv2:name "LPK25 MIDI 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "midi_capture_1" ;
@@ -464,10 +494,32 @@ _:b15
     a atom:AtomPort ,
         lv2:InputPort .
 
+<midi_playback_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 9 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<midi_playback_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 10 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
 <midi_playback_1>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 5 ;
+    lv2:index 11 ;
     lv2:name "LPK25 MIDI 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "midi_playback_1" ;
@@ -478,7 +530,7 @@ _:b15
 <serial_midi_in>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 6 ;
+    lv2:index 12 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_in" ;
@@ -489,7 +541,7 @@ _:b15
 <serial_midi_out>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 7 ;
+    lv2:index 13 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_out" ;
@@ -517,9 +569,7 @@ _:b15
               _:b10 ,
               _:b11 ,
               _:b12 ,
-              _:b13 ,
-              _:b14 ,
-              _:b15 ;
+              _:b13 ;
     ingen:block <Ambience> ,
                 <Combo> ,
                 <EPiano> ,
@@ -530,8 +580,14 @@ _:b15
              <control_out> ,
              <serial_midi_in> ,
              <serial_midi_out> ,
+             <midi_capture_3> ,
+             <midi_capture_4> ,
              <midi_capture_1> ,
+             <midi_playback_3> ,
+             <midi_playback_4> ,
              <midi_playback_1> ,
+             <capture_1> ,
+             <capture_2> ,
              <playback_1> ,
              <playback_2> ;
     lv2:extensionData <http://lv2plug.in/ns/ext/state#interface> ;

@@ -8,40 +8,32 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <capture_2> ;
-    ingen:head <playback_2> .
-
-_:b2
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
-
-_:b3
-    ingen:tail <FluidPlug_AirFont320/audio_out_l> ;
-    ingen:head <autowah/in> .
-
-_:b4
-    ingen:tail <FluidPlug_AirFont320/audio_out_r> ;
-    ingen:head <autowah/in> .
-
-_:b5
-    ingen:tail <autowah/out> ;
-    ingen:head <playback_1> .
-
-_:b6
-    ingen:tail <autowah/out> ;
-    ingen:head <playback_2> .
-
-_:b7
     ingen:tail <serial_midi_in> ;
     ingen:head <FluidPlug_AirFont320/events> .
 
-_:b8
+_:b2
+    ingen:tail <autowah/out> ;
+    ingen:head <playback_2> .
+
+_:b3
+    ingen:tail <autowah/out> ;
+    ingen:head <playback_1> .
+
+_:b4
+    ingen:tail <FluidPlug_AirFont320/audio_out_l> ;
+    ingen:head <autowah/in> .
+
+_:b5
     ingen:tail <midi_capture_1> ;
     ingen:head <FluidPlug_AirFont320/events> .
 
+_:b6
+    ingen:tail <FluidPlug_AirFont320/audio_out_r> ;
+    ingen:head <autowah/in> .
+
 <FluidPlug_AirFont320>
-    ingen:canvasX 1290.6 ;
-    ingen:canvasY 426.7 ;
+    ingen:canvasX 1290.0 ;
+    ingen:canvasY 426.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
     lv2:microVersion 0 ;
@@ -64,13 +56,13 @@ _:b8
     a atom:AtomPort ,
         lv2:InputPort .
 
-<FluidPlug_AirFont320/level>
-    ingen:value 1.000000 ;
+<FluidPlug_AirFont320/program>
+    ingen:value 7.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<FluidPlug_AirFont320/program>
-    ingen:value 7.000000 ;
+<FluidPlug_AirFont320/level>
+    ingen:value 0.992126 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -80,8 +72,8 @@ _:b8
         lv2:InputPort .
 
 <autowah>
-    ingen:canvasX 2100.9 ;
-    ingen:canvasY 449.6 ;
+    ingen:canvasX 2100.0 ;
+    ingen:canvasY 449.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
     lv2:microVersion 0 ;
@@ -118,13 +110,13 @@ _:b8
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<autowah/mix>
-    ingen:value 0.500000 ;
+<autowah/freq>
+    ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<autowah/freq>
-    ingen:value 0.000000 ;
+<autowah/mix>
+    ingen:value 0.500000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -158,8 +150,24 @@ _:b8
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<playback_1>
+<capture_1>
     lv2:index 2 ;
+    lv2:name "Capture 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_1" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<capture_2>
+    lv2:index 3 ;
+    lv2:name "Capture 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_2" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<playback_1>
+    lv2:index 4 ;
     lv2:name "Playback 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_1" ;
@@ -167,7 +175,7 @@ _:b8
         lv2:OutputPort .
 
 <playback_2>
-    lv2:index 3 ;
+    lv2:index 5 ;
     lv2:name "Playback 2" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_2" ;
@@ -177,7 +185,7 @@ _:b8
 <midi_capture_1>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 4 ;
+    lv2:index 6 ;
     lv2:name "LPK25 MIDI 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "midi_capture_1" ;
@@ -185,10 +193,32 @@ _:b8
     a atom:AtomPort ,
         lv2:InputPort .
 
+<midi_capture_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 7 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_capture_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 8 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
 <midi_playback_1>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 5 ;
+    lv2:index 9 ;
     lv2:name "LPK25 MIDI 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "midi_playback_1" ;
@@ -196,10 +226,32 @@ _:b8
     a atom:AtomPort ,
         lv2:OutputPort .
 
+<midi_playback_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 10 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<midi_playback_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 11 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
 <serial_midi_in>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 6 ;
+    lv2:index 12 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_in" ;
@@ -210,7 +262,7 @@ _:b8
 <serial_midi_out>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 7 ;
+    lv2:index 13 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_out" ;
@@ -219,9 +271,9 @@ _:b8
         lv2:OutputPort .
 
 <>
-    doap:name "Clavinet + AutoWah" ;
-    pedal:width 0 ;
-    pedal:height 0 ;
+    doap:name "Dexed" ;
+    pedal:width 3840 ;
+    pedal:height 1058 ;
     pedal:addressings <addressings.json> ;
     pedal:screenshot <screenshot.png> ;
     pedal:thumbnail <thumbnail.png> ;
@@ -231,9 +283,7 @@ _:b8
               _:b3 ,
               _:b4 ,
               _:b5 ,
-              _:b6 ,
-              _:b7 ,
-              _:b8 ;
+              _:b6 ;
     ingen:block <FluidPlug_AirFont320> ,
                 <autowah> ;
     lv2:port <control_in> ,
@@ -241,7 +291,13 @@ _:b8
              <serial_midi_in> ,
              <serial_midi_out> ,
              <midi_capture_1> ,
+             <midi_capture_4> ,
+             <midi_capture_3> ,
              <midi_playback_1> ,
+             <midi_playback_4> ,
+             <midi_playback_3> ,
+             <capture_1> ,
+             <capture_2> ,
              <playback_1> ,
              <playback_2> ;
     lv2:extensionData <http://lv2plug.in/ns/ext/state#interface> ;

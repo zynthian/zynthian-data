@@ -8,28 +8,24 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <capture_2> ;
-    ingen:head <playback_2> .
-
-_:b2
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
-
-_:b3
     ingen:tail <serial_midi_in> ;
     ingen:head <tal_noisemaker/lv2_events_in> .
 
-_:b4
+_:b2
     ingen:tail <tal_noisemaker/lv2_audio_out_1> ;
     ingen:head <playback_1> .
 
-_:b5
+_:b3
     ingen:tail <tal_noisemaker/lv2_audio_out_2> ;
     ingen:head <playback_2> .
 
+_:b4
+    ingen:tail <midi_capture_1> ;
+    ingen:head <tal_noisemaker/lv2_events_in> .
+
 <tal_noisemaker>
-    ingen:canvasX 1823.6 ;
-    ingen:canvasY 392.5 ;
+    ingen:canvasX 1823.0 ;
+    ingen:canvasY 392.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
     lv2:microVersion 0 ;
@@ -144,338 +140,8 @@ _:b5
     a atom:AtomPort ,
         lv2:InputPort .
 
-<tal_noisemaker/lfo2sync>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/detune>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/envelopeeditorspeed>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/pitchwheelpitch>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/filtersustain>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/osc2tune>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lv2_port_79>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/delayfactorr>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo1waveform>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/freeadattack>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/filterdecay>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lv2_port_78>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/resonance>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lv2_port_81>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/envelopeeditordest1>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lv2_port_80>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/filtercontour>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/voices>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lv2_port_92>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/ampdecay>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/portamento>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/envelopeeditoramount>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lv2_port_77>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lv2_port_70>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/osc2finetune>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/ampattack>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/delayhighshelf>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/ampsustain>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/delaytime>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo1destination>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/osc1phase>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/osc2phase>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/velocityvolume>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/velocitycontour>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/unused>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/oscmastertune>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo2destination>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/delaywet>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/filterdrive>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/freeaddestination>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <tal_noisemaker/reverbpredelay>
     ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo2rate>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo2keytrigger>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/volume>
-    ingen:value 0.408000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/envelopeoneshot>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo2waveform>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/velocitycutoff>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/osc1waveform>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/envelopefixtempo>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo1sync>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/oscbitcrusher>
-    ingen:value 1.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/osc3volume>
-    ingen:value 0.800000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/delayfactorl>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/highpass>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo1phase>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/delaysync>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/reverbhighcut>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/reverbwet>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo1amount>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/portamentomode>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo2amount>
-    ingen:value 0.500000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/freeaddecay>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/chorus2enable>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/amprelease>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/filterrelease>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/delaylowshelf>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/osc1pw>
-    ingen:value 0.500000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -484,17 +150,17 @@ _:b5
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/chorus1enable>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/reverbdecay>
+<tal_noisemaker/osc1finetune>
     ingen:value 0.500000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/filtertype>
+<tal_noisemaker/amprelease>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/freeaddecay>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -504,7 +170,27 @@ _:b5
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/lfo1keytrigger>
+<tal_noisemaker/delaysync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/vintagenoise>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/portamentomode>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/delayfactorr>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/chorus2enable>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -514,13 +200,8 @@ _:b5
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/lfo2phase>
+<tal_noisemaker/lfo1rate>
     ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/cutoff>
-    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -529,37 +210,47 @@ _:b5
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<tal_noisemaker/filterdecay>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/filterrelease>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <tal_noisemaker/osc2fm>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/lv2_freewheel>
+<tal_noisemaker/detune>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/osc1volume>
-    ingen:value 0.800000 ;
+<tal_noisemaker/ampsustain>
+    ingen:value 1.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/lv2_port_91>
+<tal_noisemaker/lfo2phase>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/osc1tune>
-    ingen:value 0.250000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<tal_noisemaker/lfo1rate>
+<tal_noisemaker/envelopeeditordest1>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/unused_2>
+<tal_noisemaker/portamento>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/reverbhighcut>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -569,12 +260,172 @@ _:b5
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/keyfollow>
+<tal_noisemaker/filtertype>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<tal_noisemaker/oscbitcrusher>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_freewheel>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo2destination>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/oscmastertune>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/unused_2>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/delayhighshelf>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/delaywet>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc2phase>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/resonance>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/envelopeoneshot>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo2keytrigger>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo2sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/envelopeeditorspeed>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc1phase>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo1amount>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/velocityvolume>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/freeaddestination>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/highpass>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo1sync>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc1volume>
+    ingen:value 0.800000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/voices>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_80>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/unused>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo1keytrigger>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/ampattack>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/envelopeeditoramount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/filtersustain>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <tal_noisemaker/freeadamount>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_91>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/reverbwet>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/delayfactorl>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo2amount>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo1waveform>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -584,17 +435,77 @@ _:b5
     a lv2:ControlPort ,
         lv2:InputPort .
 
+<tal_noisemaker/filtercontour>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc1waveform>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_70>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
 <tal_noisemaker/oscsync>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/delayfeedback>
+<tal_noisemaker/volume>
+    ingen:value 0.401575 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/delaytime>
     ingen:value 0.500000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/osc1finetune>
+<tal_noisemaker/lfo1phase>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc2tune>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/velocitycutoff>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/velocitycontour>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_79>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/delaylowshelf>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/freeadattack>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_78>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc2finetune>
     ingen:value 0.500000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -604,7 +515,92 @@ _:b5
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<tal_noisemaker/vintagenoise>
+<tal_noisemaker/delayfeedback>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/cutoff>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/reverbdecay>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc1pw>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc1tune>
+    ingen:value 0.250000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/osc3volume>
+    ingen:value 0.800000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/pitchwheelpitch>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/chorus1enable>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/keyfollow>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_92>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo2rate>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/envelopefixtempo>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_81>
+    ingen:value 1.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo1destination>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lv2_port_77>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/lfo2waveform>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/ampdecay>
+    ingen:value 0.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<tal_noisemaker/filterdrive>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -638,8 +634,24 @@ _:b5
     a atom:AtomPort ,
         lv2:OutputPort .
 
-<playback_1>
+<capture_1>
     lv2:index 2 ;
+    lv2:name "Capture 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_1" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<capture_2>
+    lv2:index 3 ;
+    lv2:name "Capture 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "capture_2" ;
+    a lv2:AudioPort ,
+        lv2:InputPort .
+
+<playback_1>
+    lv2:index 4 ;
     lv2:name "Playback 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_1" ;
@@ -647,17 +659,83 @@ _:b5
         lv2:OutputPort .
 
 <playback_2>
-    lv2:index 3 ;
+    lv2:index 5 ;
     lv2:name "Playback 2" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "playback_2" ;
     a lv2:AudioPort ,
         lv2:OutputPort .
 
+<midi_capture_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 6 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_capture_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 7 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_capture_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 8 ;
+    lv2:name "LPK25 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_1" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_playback_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 9 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<midi_playback_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 10 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<midi_playback_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 11 ;
+    lv2:name "LPK25 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_1" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
 <serial_midi_in>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 4 ;
+    lv2:index 12 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_in" ;
@@ -668,7 +746,7 @@ _:b5
 <serial_midi_out>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 5 ;
+    lv2:index 13 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_out" ;
@@ -687,13 +765,20 @@ _:b5
     ingen:arc _:b1 ,
               _:b2 ,
               _:b3 ,
-              _:b4 ,
-              _:b5 ;
+              _:b4 ;
     ingen:block <tal_noisemaker> ;
     lv2:port <control_in> ,
              <control_out> ,
              <serial_midi_in> ,
              <serial_midi_out> ,
+             <midi_capture_3> ,
+             <midi_capture_4> ,
+             <midi_capture_1> ,
+             <midi_playback_3> ,
+             <midi_playback_4> ,
+             <midi_playback_1> ,
+             <capture_1> ,
+             <capture_2> ,
              <playback_1> ,
              <playback_2> ;
     lv2:extensionData <http://lv2plug.in/ns/ext/state#interface> ;
