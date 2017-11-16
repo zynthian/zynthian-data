@@ -16,20 +16,20 @@ _:b2
     ingen:head <playback_1> .
 
 _:b3
-    ingen:tail <AlienWah/lv2_audio_out_1> ;
+    ingen:tail <autowah/out> ;
     ingen:head <playback_1> .
 
 _:b4
-    ingen:tail <AlienWah/lv2_audio_out_2> ;
+    ingen:tail <autowah/out> ;
     ingen:head <playback_2> .
 
 _:b5
     ingen:tail <FluidPlug_FluidPianos/audio_out_l> ;
-    ingen:head <AlienWah/lv2_audio_in_1> .
+    ingen:head <autowah/in> .
 
 _:b6
     ingen:tail <FluidPlug_FluidPianos/audio_out_r> ;
-    ingen:head <AlienWah/lv2_audio_in_2> .
+    ingen:head <autowah/in> .
 
 _:b7
     ingen:tail <serial_midi_in> ;
@@ -39,102 +39,68 @@ _:b8
     ingen:tail <midi_capture_1> ;
     ingen:head <FluidPlug_FluidPianos/events> .
 
-<AlienWah>
-    ingen:canvasX 2308.0 ;
-    ingen:canvasY 338.0 ;
+<autowah>
+    ingen:canvasX 2100.0 ;
+    ingen:canvasY 449.0 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
     lv2:microVersion 0 ;
-    lv2:minorVersion 3 ;
+    lv2:minorVersion 0 ;
     mod:builderVersion 0 ;
     mod:releaseNumber 0 ;
-    lv2:port <AlienWah/lv2_audio_in_1> ,
-             <AlienWah/lv2_audio_in_2> ,
-             <AlienWah/lv2_audio_out_1> ,
-             <AlienWah/lv2_audio_out_2> ,
-             <AlienWah/lfofreq> ,
-             <AlienWah/lforand> ,
-             <AlienWah/lfotype> ,
-             <AlienWah/lfostereo> ,
-             <AlienWah/depth> ,
-             <AlienWah/fb> ,
-             <AlienWah/delay> ,
-             <AlienWah/lrcross> ,
-             <AlienWah/phase> ,
-             <AlienWah/:bypass> ;
-    lv2:prototype <http://zynaddsubfx.sourceforge.net/fx#AlienWah> ;
-    pedal:preset <http://zynaddsubfx.sourceforge.net/fx#AlienWah:preset001> ;
+    lv2:port <autowah/in> ,
+             <autowah/out> ,
+             <autowah/drive> ,
+             <autowah/decay> ,
+             <autowah/range> ,
+             <autowah/freq> ,
+             <autowah/mix> ,
+             <autowah/:bypass> ;
+    lv2:prototype <http://drobilla.net/plugins/fomp/autowah> ;
+    pedal:preset <> ;
     a ingen:Block .
 
-<AlienWah/lv2_audio_in_1>
+<autowah/in>
     a lv2:AudioPort ,
         lv2:InputPort .
 
-<AlienWah/lv2_audio_in_2>
-    a lv2:AudioPort ,
-        lv2:InputPort .
-
-<AlienWah/lv2_audio_in_1>
+<autowah/in>
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<AlienWah/lv2_audio_in_2>
-    a lv2:AudioPort ,
-        lv2:OutputPort .
-
-<AlienWah/lfostereo>
-    ingen:value 62.000000 ;
+<autowah/range>
+    ingen:value 0.496063 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<AlienWah/delay>
-    ingen:value 25.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AlienWah/lrcross>
+<autowah/freq>
     ingen:value 0.000000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<AlienWah/fb>
-    ingen:value 105.000000 ;
+<autowah/mix>
+    ingen:value 0.500000 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<AlienWah/lfofreq>
-    ingen:value 70.000000 ;
+<autowah/decay>
+    ingen:value 0.244094 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<AlienWah/depth>
-    ingen:value 60.000000 ;
+<autowah/drive>
+    ingen:value -0.157480 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<AlienWah/lforand>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AlienWah/phase>
-    ingen:value 64.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AlienWah/lfotype>
-    ingen:value 0.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<AlienWah/:bypass>
+<autowah/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
 <FluidPlug_FluidPianos>
-    ingen:canvasX 1517.3 ;
-    ingen:canvasY 313.1 ;
+    ingen:canvasX 1146.8 ;
+    ingen:canvasY 399.3 ;
     ingen:enabled true ;
     ingen:polyphonic false ;
     lv2:microVersion 0 ;
@@ -271,9 +237,9 @@ _:b8
         lv2:OutputPort .
 
 <>
-    doap:name "Clavinet + Wah" ;
-    pedal:width 0 ;
-    pedal:height 0 ;
+    doap:name "Clavinet + AutoWah" ;
+    pedal:width 2880 ;
+    pedal:height 1400 ;
     pedal:addressings <addressings.json> ;
     pedal:screenshot <screenshot.png> ;
     pedal:thumbnail <thumbnail.png> ;
@@ -286,7 +252,7 @@ _:b8
               _:b6 ,
               _:b7 ,
               _:b8 ;
-    ingen:block <AlienWah> ,
+    ingen:block <autowah> ,
                 <FluidPlug_FluidPianos> ;
     lv2:port <:bpb> ,
              <:bpm> ,
