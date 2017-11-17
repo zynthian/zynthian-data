@@ -8,36 +8,76 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
 _:b1
-    ingen:tail <capture_2> ;
-    ingen:head <playback_2> .
+    ingen:tail <serial_midi_in> ;
+    ingen:head <FluidPlug_FluidPianos/events> .
 
 _:b2
-    ingen:tail <capture_1> ;
-    ingen:head <playback_1> .
+    ingen:tail <FluidPlug_FluidPianos/audio_out_r> ;
+    ingen:head <autowah/in> .
 
 _:b3
     ingen:tail <autowah/out> ;
     ingen:head <playback_1> .
 
 _:b4
-    ingen:tail <autowah/out> ;
-    ingen:head <playback_2> .
+    ingen:tail <midi_capture_1> ;
+    ingen:head <FluidPlug_FluidPianos/events> .
 
 _:b5
     ingen:tail <FluidPlug_FluidPianos/audio_out_l> ;
     ingen:head <autowah/in> .
 
 _:b6
-    ingen:tail <FluidPlug_FluidPianos/audio_out_r> ;
-    ingen:head <autowah/in> .
+    ingen:tail <capture_2> ;
+    ingen:head <playback_2> .
 
 _:b7
-    ingen:tail <serial_midi_in> ;
-    ingen:head <FluidPlug_FluidPianos/events> .
+    ingen:tail <autowah/out> ;
+    ingen:head <playback_2> .
 
 _:b8
-    ingen:tail <midi_capture_1> ;
-    ingen:head <FluidPlug_FluidPianos/events> .
+    ingen:tail <capture_1> ;
+    ingen:head <playback_1> .
+
+<FluidPlug_FluidPianos>
+    ingen:canvasX 1146.0 ;
+    ingen:canvasY 399.0 ;
+    ingen:enabled true ;
+    ingen:polyphonic false ;
+    lv2:microVersion 0 ;
+    lv2:minorVersion 2 ;
+    mod:builderVersion 0 ;
+    mod:releaseNumber 0 ;
+    lv2:port <FluidPlug_FluidPianos/audio_out_l> ,
+             <FluidPlug_FluidPianos/audio_out_r> ,
+             <FluidPlug_FluidPianos/level> ,
+             <FluidPlug_FluidPianos/program> ,
+             <FluidPlug_FluidPianos/events> ,
+             <FluidPlug_FluidPianos/:bypass> ;
+    lv2:prototype <http://kxstudio.linuxaudio.org/plugins/FluidPlug_FluidPianos> ;
+    pedal:preset <file:///zynthian/zynthian-my-data/presets/lv2/FluidPlug_FluidPianos-CLavinet.lv2/Clavinet.ttl> ;
+    a ingen:Block .
+
+<FluidPlug_FluidPianos/events>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<FluidPlug_FluidPianos/level>
+    ingen:value 0.346457 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<FluidPlug_FluidPianos/program>
+    ingen:value 7.000000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<FluidPlug_FluidPianos/:bypass>
+    ingen:value 0 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
 
 <autowah>
     ingen:canvasX 2100.0 ;
@@ -68,8 +108,13 @@ _:b8
     a lv2:AudioPort ,
         lv2:OutputPort .
 
-<autowah/range>
-    ingen:value 0.496063 ;
+<autowah/mix>
+    ingen:value 0.500000 ;
+    a lv2:ControlPort ,
+        lv2:InputPort .
+
+<autowah/drive>
+    ingen:value -11.205357 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -78,8 +123,8 @@ _:b8
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<autowah/mix>
-    ingen:value 0.500000 ;
+<autowah/range>
+    ingen:value 0.496063 ;
     a lv2:ControlPort ,
         lv2:InputPort .
 
@@ -88,52 +133,7 @@ _:b8
     a lv2:ControlPort ,
         lv2:InputPort .
 
-<autowah/drive>
-    ingen:value -0.157480 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
 <autowah/:bypass>
-    ingen:value 0 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidPianos>
-    ingen:canvasX 1146.8 ;
-    ingen:canvasY 399.3 ;
-    ingen:enabled true ;
-    ingen:polyphonic false ;
-    lv2:microVersion 0 ;
-    lv2:minorVersion 2 ;
-    mod:builderVersion 0 ;
-    mod:releaseNumber 0 ;
-    lv2:port <FluidPlug_FluidPianos/audio_out_l> ,
-             <FluidPlug_FluidPianos/audio_out_r> ,
-             <FluidPlug_FluidPianos/level> ,
-             <FluidPlug_FluidPianos/program> ,
-             <FluidPlug_FluidPianos/events> ,
-             <FluidPlug_FluidPianos/:bypass> ;
-    lv2:prototype <http://kxstudio.linuxaudio.org/plugins/FluidPlug_FluidPianos> ;
-    pedal:preset <file:///root/.lv2/FluidPlug_FluidPianos-Clavinet.lv2/Clavinet.ttl> ;
-    a ingen:Block .
-
-<FluidPlug_FluidPianos/events>
-    atom:bufferType atom:Sequence ;
-    atom:supports midi:MidiEvent ;
-    a atom:AtomPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidPianos/program>
-    ingen:value 7.000000 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidPianos/level>
-    ingen:value 0.992126 ;
-    a lv2:ControlPort ,
-        lv2:InputPort .
-
-<FluidPlug_FluidPianos/:bypass>
     ingen:value 0 ;
     a lv2:ControlPort ,
         lv2:InputPort .
@@ -203,10 +203,32 @@ _:b8
     a atom:AtomPort ,
         lv2:InputPort .
 
-<midi_playback_1>
+<midi_capture_3>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
     lv2:index 8 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_capture_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 9 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_capture_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:InputPort .
+
+<midi_playback_1>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 10 ;
     lv2:name "LPK25 MIDI 1" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "midi_playback_1" ;
@@ -214,10 +236,32 @@ _:b8
     a atom:AtomPort ,
         lv2:OutputPort .
 
+<midi_playback_3>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 11 ;
+    lv2:name "V61 MIDI 1" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_3" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
+<midi_playback_4>
+    atom:bufferType atom:Sequence ;
+    atom:supports midi:MidiEvent ;
+    lv2:index 12 ;
+    lv2:name "V61 MIDI 2" ;
+    lv2:portProperty lv2:connectionOptional ;
+    lv2:symbol "midi_playback_4" ;
+    <http://lv2plug.in/ns/ext/resize-port#minimumSize> 4096 ;
+    a atom:AtomPort ,
+        lv2:OutputPort .
+
 <serial_midi_in>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 9 ;
+    lv2:index 13 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_in" ;
@@ -228,7 +272,7 @@ _:b8
 <serial_midi_out>
     atom:bufferType atom:Sequence ;
     atom:supports midi:MidiEvent ;
-    lv2:index 10 ;
+    lv2:index 14 ;
     lv2:name "Serial MIDI In" ;
     lv2:portProperty lv2:connectionOptional ;
     lv2:symbol "serial_midi_out" ;
@@ -252,8 +296,8 @@ _:b8
               _:b6 ,
               _:b7 ,
               _:b8 ;
-    ingen:block <autowah> ,
-                <FluidPlug_FluidPianos> ;
+    ingen:block <FluidPlug_FluidPianos> ,
+                <autowah> ;
     lv2:port <:bpb> ,
              <:bpm> ,
              <:rolling> ,
@@ -262,7 +306,11 @@ _:b8
              <serial_midi_in> ,
              <serial_midi_out> ,
              <midi_capture_1> ,
+             <midi_capture_3> ,
+             <midi_capture_4> ,
              <midi_playback_1> ,
+             <midi_playback_3> ,
+             <midi_playback_4> ,
              <playback_1> ,
              <playback_2> ;
     lv2:extensionData <http://lv2plug.in/ns/ext/state#interface> ;
