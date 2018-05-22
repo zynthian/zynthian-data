@@ -1,0 +1,22 @@
+#N canvas 2340 771 450 300 10;
+#X obj 107 114 inlet~ L;
+#X obj 175 114 inlet~ R;
+#X obj 117 166 dac~;
+#X obj 107 192 outlet~ L;
+#X obj 175 192 outlet~ R;
+#X obj 107 140 *~ 5;
+#X obj 175 140 *~ 5;
+#X obj 261 111 hsl 128 15 0 5 0 1 empty empty Master_Volume -2 -8 0
+10 -262144 -1 -1 10566 1;
+#X obj 258 75 / 25;
+#X obj 258 45 ctlin 7;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 5 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 2 1;
+#X connect 6 0 4 0;
+#X connect 7 0 6 1;
+#X connect 7 0 5 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
