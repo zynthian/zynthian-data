@@ -1,4 +1,4 @@
-#N canvas 415 258 939 642 10;
+#N canvas 406 258 939 642 10;
 #X obj 78 468 dac~;
 #X obj 81 444 *~ 0.5;
 #N canvas 1 77 592 473 midimono 0;
@@ -778,11 +778,11 @@ net...);
 #X restore -30 453 pd three_oscillator_block_16times_oversampled;
 #X obj -29 31 inlet;
 #X obj 125 187 hradio 15 1 1 4 empty empty wave 3 8 0 10 -261682 -1
--99865 1;
+-99865 2;
 #X obj 318 105 vsl 15 80 0 120 0 1 empty empty cf 2 4 0 8 -204800 -1
--1 4200 1;
+-1 5400 1;
 #X obj 352 105 vsl 15 80 0 0.85 0 1 empty empty rs 2 4 0 8 -204800
--1 -1 4700 1;
+-1 -1 2300 1;
 #X obj 616 580 *;
 #X obj 178 207 tgl 15 1 empty empty ep 2 7 0 8 -262144 -1 -1 0 -2;
 #X obj 650 550 + 1;
@@ -804,7 +804,7 @@ net...);
 #X obj 408 825 abs_adsr2a;
 #X obj 131 926 *~;
 #X obj 387 108 vsl 15 80 0.2 1 0 1 empty empty d 5 5 0 8 -262144 -1
--1 4200 1;
+-1 2800 1;
 #X obj 246 517 *;
 #X obj 246 565 * 10000;
 #X obj 247 543 *;
@@ -815,62 +815,62 @@ net...);
 #X obj 327 617 * 10000;
 #X obj 342 591 *;
 #X obj 404 108 vsl 15 80 0 1 0 1 empty empty s 5 5 0 8 -262144 -1 -1
-6200 1;
+2300 1;
 #X obj 421 108 vsl 15 80 0.2 1 0 1 empty empty r 5 5 0 8 -262144 -1
 -1 2700 1;
 #X obj 370 108 vsl 15 80 0.2 1 0 1 empty empty a 5 5 0 8 -262144 -1
--1 900 1;
+-1 1100 1;
 #X obj 289 816 sig~;
 #X obj 310 563 *;
 #X obj 267 105 vsl 15 60 0 1 0 1 empty empty 1 5 5 0 8 -261682 -1 -1
-3700 1;
+4900 1;
 #X obj 284 105 vsl 15 60 0 1 0 1 empty empty 2 5 5 0 8 -262130 -1 -1
-3700 1;
+4100 1;
 #X obj 301 105 vsl 15 60 0 1 0 1 empty empty 3 5 5 0 8 -204786 -1 -1
 0 1;
 #X obj 141 121 vsl 15 60 0 1 0 1 empty empty rm 2 4 0 8 -261682 -1
--1 4700 1;
-#X obj 125 121 vsl 15 60 0 1 0 1 empty empty fm 2 4 0 8 -261682 -1
 -1 0 1;
+#X obj 125 121 vsl 15 60 0 1 0 1 empty empty fm 2 4 0 8 -261682 -1
+-1 4200 1;
 #X obj 158 121 vsl 15 60 0 1 0 1 empty empty pm 2 4 0 8 -261682 -1
 -1 0 1;
 #X obj 190 187 hradio 15 1 1 4 empty empty wave 3 8 0 10 -262130 -1
--99865 1;
+-99865 2;
 #X obj 208 122 vsl 15 60 0 1 0 1 empty empty rm 2 4 0 8 -262130 -1
 -1 0 1;
 #X obj 191 122 vsl 15 60 0 1 0 1 empty empty fm 2 4 0 8 -262130 -1
--1 1200 1;
+-1 1300 1;
 #X obj 225 122 vsl 15 60 0 1 0 1 empty empty pm 2 4 0 8 -262130 -1
--1 1700 1;
+-1 0 1;
 #X obj 255 172 hradio 15 1 1 4 empty empty wave 3 8 0 10 -204786 -1
 -99865 1;
 #X obj 31 185 +;
 #X obj 191 104 nbx 5 14 -24 24 0 1 empty empty empty 0 -8 0 10 -262130
--1 -1 -11.99 256;
+-1 -1 -0.03 256;
 #X obj 263 384 *;
 #X obj 285 410 *;
 #X obj 141 406 sig~;
 #X obj 136 354 +;
 #X obj 255 191 nbx 5 14 -99 999 0 1 empty empty empty 0 -8 0 10 -204786
--1 -1 -0.01 256;
+-1 -1 7 256;
 #X obj 266 207 hsl 80 15 0 1 0 1 empty empty a 2 7 0 10 -262144 -1
--1 600 1;
+-1 0 1;
 #X obj 355 207 hsl 80 15 0 1 0 1 empty empty d 2 7 0 10 -262144 -1
--1 3000 1;
+-1 1500 1;
 #X obj 266 225 hsl 80 15 0 1 0 1 empty empty s 2 7 0 10 -262144 -1
--1 800 1;
+-1 1500 1;
 #X obj 355 225 hsl 80 15 0 1 0 1 empty empty r 2 7 0 10 -262144 -1
--1 4200 1;
+-1 2600 1;
 #X obj 355 194 hsl 70 10 -1 1 0 1 empty empty kt -2 5 0 10 -204800
--1 -1 2600 1;
+-1 -1 3800 1;
 #X obj 198 207 hsl 60 15 0 1 0 1 empty empty >filter 2 7 0 10 -262144
--1 -1 2200 1;
+-1 -1 1100 1;
 #X obj 572 498 * 120;
 #X obj 311 190 hradio 15 1 1 2 empty empty fix 2 8 0 10 -204786 -1
 -99865 0;
 #X obj 166 225 tgl 15 1 empty empty ep 2 7 0 8 -262144 -1 -1 0 -2;
 #X obj 186 225 hsl 60 15 0 1 0 1 empty empty >pitch 2 7 0 10 -262144
--1 -1 3200 1;
+-1 -1 2600 1;
 #X obj 112 225 tgl 15 1 empty empty 1 5 8 0 8 -262144 -1 -1 0 1;
 #X obj 130 225 tgl 15 1 empty empty 2 5 8 0 8 -262144 -1 -1 0 1;
 #X obj 147 225 tgl 15 1 empty empty 3 5 8 0 8 -262144 -1 -1 1 1;
@@ -880,7 +880,7 @@ net...);
 #X obj 183 377 spigot;
 #X obj 199 308 t b f;
 #X obj 335 105 vsl 15 80 0 1 0 1 empty empty fm 2 4 0 8 -204800 -1
--1 0 1;
+-1 700 1;
 #X obj 218 733 *~;
 #X obj 249 691 * 36;
 #X obj 262 666 *;
@@ -918,7 +918,7 @@ net...);
 #X restore 122 900 pd softclip;
 #X obj 104 207 tgl 15 1 empty empty ep 2 7 0 8 -262144 -1 -1 0 -2;
 #X obj 124 207 hsl 50 15 0 1 0 1 empty empty >osc3 2 7 0 10 -262144
--1 -1 0 1;
+-1 -1 4500 1;
 #X obj 32 649 *;
 #X obj 48 624 + 1;
 #X obj 14 599 t b f;
@@ -930,11 +930,11 @@ net...);
 #X obj 107 172 vradio 15 1 1 2 empty empty sc 1 6 0 10 -261682 -1 -99865
 0;
 #X obj 175 121 vsl 10 60 0 0.99 0 1 empty empty pw 0 3 0 8 -261682
--1 -1 900 1;
-#X obj 242 122 vsl 10 60 0 0.99 0 1 empty empty pw 0 3 0 8 -262130
--1 -1 700 1;
-#X obj 255 107 vsl 10 60 0 0.99 0 1 empty empty pw 0 3 0 8 -204786
 -1 -1 0 1;
+#X obj 242 122 vsl 10 60 0 0.99 0 1 empty empty pw 0 3 0 8 -262130
+-1 -1 0 1;
+#X obj 255 107 vsl 10 60 0 0.99 0 1 empty empty pw 0 3 0 8 -204786
+-1 -1 100 1;
 #X text 489 820 amp-env;
 #X text 523 535 mod-env;
 #X text 587 546 filtermod;
@@ -946,11 +946,11 @@ for fm \, rm \, pwm and filter-fm;
 #X text -60 9 pitch (note nr);
 #X obj 57 -26 / 128;
 #X obj 102 117 vsl 10 50 0 1 0 1 empty empty v 2 3 0 8 -262144 -1 -1
-2000 1;
+3300 1;
 #X obj 113 117 vsl 10 50 0 1 0 1 empty empty a 2 3 0 8 -262144 -1 -1
-0 1;
+900 1;
 #X obj 900 474 float;
-#N canvas 308 201 1041 699 preset16 0;
+#N canvas 299 201 1041 699 preset16 0;
 #X obj 22 60 inlet;
 #X obj -55 808 outlet, f 8;
 #X obj 52 167 list prepend;
@@ -1028,7 +1028,10 @@ for fm \, rm \, pwm and filter-fm;
 #X msg 261 68 0.346939 0 0 0 0 0 0.01 0 0 0 0 0 0.661017 0.627119 0.627119
 89.6203 0 0 0.291139 0.625316 0.455696 0.402532 0 0 0 0 -0.01 0 0.101449
 0 0 0 0 0 0.518987 0 0 0 0 0 0.303797 0.329114;
-#X obj 33 211 ctlin 2;
+#X obj 102 206 ctlin 2;
+#X obj 102 260 int;
+#X obj 102 233 / 8;
+#X obj 102 289 change;
 #X connect 0 0 21 1;
 #X connect 2 0 19 0;
 #X connect 3 0 19 0;
@@ -1074,7 +1077,10 @@ for fm \, rm \, pwm and filter-fm;
 #X connect 29 0 1 0;
 #X connect 30 0 1 0;
 #X connect 31 0 1 0;
-#X connect 32 0 19 0;
+#X connect 32 0 34 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 35 0 19 0;
 #X coords 0 699 1 698 115 18 0;
 #X restore 1059 596 pd preset16;
 #X obj 1110 249 r \$0presetstore;
