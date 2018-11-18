@@ -12,3 +12,12 @@ midi.controller.upper.22=overdrive.outputgain
 
 #Middle A frecuency
 osc.tuning=#OSC.TUNING#
+
+#MIDI receive channels.
+#The allowed range is 1 to 16.
+midi.upper.channel=#MIDI.UPPER.CHANNEL#
+midi.lower.channel=#MIDI.LOWER.CHANNEL#
+midi.pedals.channel=#MIDI.PEDALS.CHANNEL#
+
+#Tonewheel configuration (Harmonics)
+#TONEWHEEL.CONFIG#
