@@ -21,3 +21,4 @@ midi.pedals.channel=#MIDI.PEDALS.CHANNEL#
 
 #Tonewheel configuration (Harmonics)
 #TONEWHEEL.CONFIG#
+
