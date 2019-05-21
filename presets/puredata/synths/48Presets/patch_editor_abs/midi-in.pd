@@ -1,0 +1,48 @@
+#N canvas 258 245 796 617 10;
+#X obj 307 433 / 127;
+#X obj 307 455 sig~;
+#X obj 386 205 > 0;
+#X obj 386 396 pack 0 10;
+#X obj 386 418 line~;
+#X obj 485 200 / 127;
+#X obj 485 222 sig~;
+#X obj 307 477 outlet~ PITCH;
+#X obj 386 440 outlet~ GATE;
+#X obj 485 244 outlet~ VELOCITY;
+#X obj 169 120 cnv 15 15 15 empty \$0-midi-gui-r empty 20 12 0 14 -33289
+-1 0;
+#X obj 413 257 + 12;
+#X msg 413 279 color \$1;
+#X obj 413 312 s \$0-midi-gui-r;
+#X obj 386 227 t f f;
+#X obj 307 185 t f f;
+#X floatatom 214 120 5 0 0 2 - - -, f 5;
+#X floatatom 104 120 5 0 0 2 - - -, f 5;
+#X obj 104 142 cnv 5 5 5 empty empty NOTE 0 0 0 8 -262144 -66577 0
+;
+#X obj 167 142 cnv 5 5 5 empty empty GATE 0 0 0 8 -262144 -66577 0
+;
+#X obj 230 142 cnv 5 5 5 empty empty VEL 0 0 0 8 -262144 -1 0;
+#X obj 103 110 cnv 5 5 5 empty empty MIDI-IN 0 0 0 12 -262144 -66577
+0;
+#X obj 386 183 t f f f;
+#X obj 307 100 notein 1;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 14 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 3 0;
+#X connect 14 1 11 0;
+#X connect 15 0 0 0;
+#X connect 15 1 17 0;
+#X connect 22 0 2 0;
+#X connect 22 1 5 0;
+#X connect 22 2 16 0;
+#X connect 23 0 15 0;
+#X connect 23 1 22 0;
+#X coords 0 -1 1 1 150 50 2 100 100;

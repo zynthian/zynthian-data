@@ -1,0 +1,47 @@
+#N canvas -3 506 669 484 10;
+#X obj 207 130 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
+-226533 -1;
+#X obj 102 130 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
+-226533 -1;
+#X obj 156 130 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
+-226533 -1;
+#X msg 119 191 1 0 \, 0 1 1;
+#X obj 119 213 vline~;
+#X obj 119 235 outlet~;
+#X msg 189 191 1 0 \, 0 1 1;
+#X obj 189 213 vline~;
+#X obj 189 235 outlet~;
+#X msg 269 192 1 0 \, 0 1 1;
+#X obj 269 214 vline~;
+#X obj 269 236 outlet~;
+#X obj 104 109 cnv 5 5 5 empty empty MANUAL-TRIGGERS 0 0 0 12 -262144
+-66577 0;
+#X obj 207 124 cnv 5 5 5 empty empty T3 0 0 0 8 -262144 -226533 0;
+#X obj 102 124 cnv 5 5 5 empty empty T1 0 0 0 8 -262144 -226533 0;
+#X obj 156 124 cnv 5 5 5 empty empty T2 0 0 0 8 -262144 -226533 0;
+#X floatatom 275 64 5 0 0 0 - - -;
+#X floatatom 224 64 5 0 0 0 - - -;
+#X obj 50 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 2 1
+;
+#X floatatom 104 347 5 0 0 0 - - -;
+#X floatatom 57 90 5 0 0 0 - - -;
+#X obj 125 34;
+#X obj 132 317 moses 1;
+#X obj 124 67 > 80;
+#X obj 278 26 ctlin 18 1;
+#X connect 0 0 9 0;
+#X connect 1 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 20 0 22 0;
+#X connect 22 0 19 0;
+#X connect 22 1 0 0;
+#X connect 23 0 20 0;
+#X connect 24 0 17 0;
+#X connect 24 0 23 0;
+#X coords 0 -1 1 1 140 65 2 100 100;
