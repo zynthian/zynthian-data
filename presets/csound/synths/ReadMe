@@ -1,0 +1,13 @@
+
+This is a package of six softsynths for Csound (used with version 6.08) which can be run from the command-line (terminal). Each synth also includeds an alternate version (with "-cc" in the filename) which has its filter cutoff parameter hardlinked to MIDI CC#1 (Modulation Wheel), if preferred. (Obviously, if you are familiar with programming Csound, you can hardlink any other MIDI CC's you may have to additional parameters as well.)
+
+These synths are substractive in approach. There are 5 discrete-level oscillators (two skewable Saw-Tri-Saw, Integrated Saw, Square-Pulse with Pulse Width Modulation, and Sine) as well as white noise.
+
+There are standard Filter Cutoff and Filter Resonance controls, and three envelopes: amp, filter and pitch. The filter and pitch envelopes are bi-polar. All three envelopes include an initial start point, and 4 stages: each with Rate and Level settings. (effectively giving one more stage than a traditional ADSR envelope)  The sliders control the Rates and the knobs control the Levels. (move the sliders downwards to increase time) 
+
+An LFO is also included for modulating pitch, and pitch bend depth can be adjusted (maximum four octaves). A contour knob is provided to control filter depth, as well as knobs to adjust touch-sensitivity of both amplitude and filter.
+
+If any filter envelope stage level setting is set too low, the filtered signal may be lost. To correct this, raise the affected parameter level until the signal is as desired, or try increasing the Contour setting.
+
+Preset saving for these synths requires that you make a new copy of the synth in question, and insert the new parameters in the "Initial settings" section of the new file. (I hope to make a future version of these synths preset-save capability included.)
+
