@@ -1,0 +1,96 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+	a pset:Preset ;
+	lv2:appliesTo <http://tumbetoene.tuxfamily.org> ;
+	rdfs:label "Formant1" ;
+	lv2:port [
+		lv2:symbol "attack" ;
+		pset:value 0.25
+	] , [
+		lv2:symbol "bandwidth" ;
+		pset:value 0.47999999
+	] , [
+		lv2:symbol "clip" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "decay" ;
+		pset:value 0.25
+	] , [
+		lv2:symbol "filter_freq" ;
+		pset:value 0.28
+	] , [
+		lv2:symbol "filter_max" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "filter_min" ;
+		pset:value 0.1
+	] , [
+		lv2:symbol "filter_x" ;
+		pset:value 0.28
+	] , [
+		lv2:symbol "gain" ;
+		pset:value 0.30000001
+	] , [
+		lv2:symbol "inertia" ;
+		pset:value 0.28
+	] , [
+		lv2:symbol "lv2_freewheel" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "oversampling" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "passes" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "rect" ;
+		pset:value 0.41
+	] , [
+		lv2:symbol "release" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "resonance" ;
+		pset:value 0.28
+	] , [
+		lv2:symbol "saw" ;
+		pset:value 0.37
+	] , [
+		lv2:symbol "sustain" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "tri" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "tune" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "velocity" ;
+		pset:value 0.23999999
+	] ;
+	state:state [
+		<urn:juce:stateBinary> """VkMyIZkDAAA8c3ludGg+PHBhcmFtIG5hbWU9ImdhaW4iIHZhbD0iMC4yOTk5OTk5OTk5OTk5OTk5
+ODg5Ii8+PHBhcmFtIG5hbWU9ImNsaXAiIHZhbD0iMSIvPjxwYXJhbSBuYW1lPSJzYXciIHZhbD0i
+MC4zNzAwMDAwMDQ3NjgzNzE1ODIwMyIvPjxwYXJhbSBuYW1lPSJyZWN0IiB2YWw9IjAuNDA5OTk5
+OTk2NDIzNzIxMzEzNDgiLz48cGFyYW0gbmFtZT0idHJpIiB2YWw9IjAiLz48cGFyYW0gbmFtZT0i
+dHVuZSIgdmFsPSIwLjUiLz48cGFyYW0gbmFtZT0iZmlsdGVyX2N1dG9mZiIgdmFsPSIwLjI4MDAw
+MDAwMTE5MjA5Mjg5NTUxIi8+PHBhcmFtIG5hbWU9ImZpbHRlcl9yZXNvIiB2YWw9IjAuMjgwMDAw
+MDAxMTkyMDkyODk1NTEiLz48cGFyYW0gbmFtZT0iZmlsdGVyX2JhbmR3aWR0aCIgdmFsPSIwLjQ3
+OTk5OTk4OTI3MTE2Mzk0MDQzIi8+PHBhcmFtIG5hbWU9ImZpbHRlcl92ZWxvY2l0eSIgdmFsPSIw
+LjIzOTk5OTk5NDYzNTU4MTk3MDIxIi8+PHBhcmFtIG5hbWU9ImZpbHRlcl9pbmVydGlhIiB2YWw9
+IjAuMjgwMDAwMDAxMTkyMDkyODk1NTEiLz48cGFyYW0gbmFtZT0iZmlsdGVyX3Bhc3NlcyIgdmFs
+PSIwLjUiLz48cGFyYW0gbmFtZT0iZmlsdGVyX2N1cmN1dG9mZiIgdmFsPSIwLjI4MDAwMDAwMTE5
+MjA5Mjg5NTUxIi8+PHBhcmFtIG5hbWU9ImVudl9hdHRhY2siIHZhbD0iMC4yNSIvPjxwYXJhbSBu
+YW1lPSJlbnZfZGVjYXkiIHZhbD0iMC4yNSIvPjxwYXJhbSBuYW1lPSJlbnZfc3VzdGFpbiIgdmFs
+PSIwLjUiLz48cGFyYW0gbmFtZT0iZW52X3JlbGVhc2UiIHZhbD0iMC41Ii8+PHBhcmFtIG5hbWU9
+ImZpbHRlcl9taW5mcmVxIiB2YWw9IjAuMTAwMDAwMDAwMDAwMDAwMDA1NTUiLz48cGFyYW0gbmFt
+ZT0iZmlsdGVyX21heGZyZXEiIHZhbD0iMSIvPjxwYXJhbSBuYW1lPSJvdmVyc2FtcGxpbmciIHZh
+bD0iMC41Ii8+PC9zeW50aD4A"""^^xsd:base64Binary
+	] .
+

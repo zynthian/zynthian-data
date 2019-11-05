@@ -1,0 +1,332 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+	a pset:Preset ;
+	lv2:appliesTo <http://padthv1.sourceforge.net/lv2> ;
+	rdfs:label "BellKeys03" ;
+	lv2:port [
+		lv2:symbol "CHO1_DELAY" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "CHO1_FEEDB" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "CHO1_MOD" ;
+		pset:value 0.22
+	] , [
+		lv2:symbol "CHO1_RATE" ;
+		pset:value 0.55000001
+	] , [
+		lv2:symbol "CHO1_WET" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DCA1_ATTACK" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DCA1_DECAY" ;
+		pset:value 0.64999998
+	] , [
+		lv2:symbol "DCA1_RELEASE" ;
+		pset:value 0.34999999
+	] , [
+		lv2:symbol "DCA1_SUSTAIN" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DCA1_VOLUME" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "DCF1_ATTACK" ;
+		pset:value 0.01
+	] , [
+		lv2:symbol "DCF1_CUTOFF" ;
+		pset:value 0.44
+	] , [
+		lv2:symbol "DCF1_DECAY" ;
+		pset:value 0.58999997
+	] , [
+		lv2:symbol "DCF1_ENABLED" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "DCF1_ENVELOPE" ;
+		pset:value 0.63
+	] , [
+		lv2:symbol "DCF1_RELEASE" ;
+		pset:value 0.40000001
+	] , [
+		lv2:symbol "DCF1_RESO" ;
+		pset:value 0.16
+	] , [
+		lv2:symbol "DCF1_SLOPE" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DCF1_SUSTAIN" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DCF1_TYPE" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DEF1_CHANNEL" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DEF1_MODWHEEL" ;
+		pset:value 0.1
+	] , [
+		lv2:symbol "DEF1_MONO" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DEF1_PITCHBEND" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "DEF1_PRESSURE" ;
+		pset:value 0.51999998
+	] , [
+		lv2:symbol "DEF1_VELOCITY" ;
+		pset:value 0.80000001
+	] , [
+		lv2:symbol "DEL1_BPM" ;
+		pset:value 67.0
+	] , [
+		lv2:symbol "DEL1_DELAY" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "DEL1_FEEDB" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "DEL1_WET" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "DYN1_COMPRESS" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "DYN1_LIMITER" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "FLA1_DAFT" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "FLA1_DELAY" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "FLA1_FEEDB" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "FLA1_WET" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_APOD1" ;
+		pset:value 4.0
+	] , [
+		lv2:symbol "GEN1_APOD2" ;
+		pset:value 4.0
+	] , [
+		lv2:symbol "GEN1_BALANCE" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_DETUNE1" ;
+		pset:value 0.03
+	] , [
+		lv2:symbol "GEN1_DETUNE2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_ENVTIME" ;
+		pset:value 0.60000002
+	] , [
+		lv2:symbol "GEN1_GLIDE1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_GLIDE2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_NH1" ;
+		pset:value 33.0
+	] , [
+		lv2:symbol "GEN1_NH2" ;
+		pset:value 33.0
+	] , [
+		lv2:symbol "GEN1_OCTAVE" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_PHASE" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_RINGMOD" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_SAMPLE1" ;
+		pset:value 103.0
+	] , [
+		lv2:symbol "GEN1_SAMPLE2" ;
+		pset:value 103.0
+	] , [
+		lv2:symbol "GEN1_SCALE1" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "GEN1_SCALE2" ;
+		pset:value -1.0
+	] , [
+		lv2:symbol "GEN1_TUNING" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "GEN1_WIDTH1" ;
+		pset:value 2.0
+	] , [
+		lv2:symbol "GEN1_WIDTH2" ;
+		pset:value 2.0
+	] , [
+		lv2:symbol "KEY1_HIGH" ;
+		pset:value 127.0
+	] , [
+		lv2:symbol "KEY1_LOW" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_ATTACK" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_BALANCE" ;
+		pset:value 0.03
+	] , [
+		lv2:symbol "LFO1_BPM" ;
+		pset:value 108.0
+	] , [
+		lv2:symbol "LFO1_CUTOFF" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_DECAY" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_ENABLED" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "LFO1_PANNING" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_PITCH" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_RATE" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_RELEASE" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "LFO1_RESO" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_RINGMOD" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_SHAPE" ;
+		pset:value 2.0
+	] , [
+		lv2:symbol "LFO1_SUSTAIN" ;
+		pset:value 0.81999999
+	] , [
+		lv2:symbol "LFO1_SWEEP" ;
+		pset:value -1.0
+	] , [
+		lv2:symbol "LFO1_SYNC" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_VOLUME" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "LFO1_WIDTH" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "OUT1_FXSEND" ;
+		pset:value 0.62
+	] , [
+		lv2:symbol "OUT1_PANNING" ;
+		pset:value 0.01
+	] , [
+		lv2:symbol "OUT1_VOLUME" ;
+		pset:value 0.28
+	] , [
+		lv2:symbol "OUT1_WIDTH" ;
+		pset:value 0.01
+	] , [
+		lv2:symbol "PHA1_DAFT" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "PHA1_DEPTH" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "PHA1_FEEDB" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "PHA1_RATE" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "PHA1_WET" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "REV1_DAMP" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "REV1_FEEDB" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "REV1_ROOM" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "REV1_WET" ;
+		pset:value 0.18000001
+	] , [
+		lv2:symbol "REV1_WIDTH" ;
+		pset:value 0.0
+	] ;
+	state:state [
+		<http://padthv1.sourceforge.net/lv2#state> """PCFET0NUWVBFIHBhZHRodjE+CjxzdGF0ZT4KIDxzYW1wbGVzPgogIDxzYW1wbGUgbmg9IjMzIiBp
+bmRleD0iMCI+CiAgIDxpdGVtcz4KICAgIDxpdGVtIGluZGV4PSIwIj4xPC9pdGVtPgogICAgPGl0
+ZW0gaW5kZXg9IjEiPjAuNzYwODc8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMiI+MC40NDU2NTI8
+L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMyI+MC4yNjA4NzwvaXRlbT4KICAgIDxpdGVtIGluZGV4
+PSI0Ij4wLjUyMTczOTwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSI1Ij4wLjcyODI2MTwvaXRlbT4K
+ICAgIDxpdGVtIGluZGV4PSI2Ij4wLjUyMTczOTwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSI3Ij4w
+LjQxMzA0MzwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSI4Ij4wLjQ2NzM5MTwvaXRlbT4KICAgIDxp
+dGVtIGluZGV4PSI5Ij4wLjUzMjYwOTwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIxMCI+MC42NzM5
+MTM8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMTEiPjAuNDIzOTEzPC9pdGVtPgogICAgPGl0ZW0g
+aW5kZXg9IjEyIj4wLjE4NDc4MzwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIxMyI+MC4yMzkxMzwv
+aXRlbT4KICAgIDxpdGVtIGluZGV4PSIxNCI+MC40MTMwNDM8L2l0ZW0+CiAgICA8aXRlbSBpbmRl
+eD0iMTUiPjAuNTk3ODI2PC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjE2Ij4wLjczOTEzPC9pdGVt
+PgogICAgPGl0ZW0gaW5kZXg9IjE3Ij4wLjQ4OTEzPC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjE4
+Ij4wLjIxNzM5MTwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIxOSI+MC4yMzkxMzwvaXRlbT4KICAg
+IDxpdGVtIGluZGV4PSIyMCI+MC40MTMwNDM8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMjEiPjAu
+NTU0MzQ4PC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjIyIj4wLjU0MzQ3ODwvaXRlbT4KICAgIDxp
+dGVtIGluZGV4PSIyMyI+MC4wOTc4MjYxPC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjI0Ij4wLjA1
+NDM0Nzg8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMjUiPjAuMTA4Njk2PC9pdGVtPgogICAgPGl0
+ZW0gaW5kZXg9IjI2Ij4wLjMwNDM0ODwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIyNyI+MC42MDg2
+OTY8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMjgiPjAuNTY1MjE3PC9pdGVtPgogICAgPGl0ZW0g
+aW5kZXg9IjI5Ij4wLjE4NDc4MzwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIzMCI+MC4xNDEzMDQ8
+L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMzEiPjAuMDQzNDc4MzwvaXRlbT4KICAgIDxpdGVtIGlu
+ZGV4PSIzMiI+MC4wMzAzMDM8L2l0ZW0+CiAgIDwvaXRlbXM+CiAgPC9zYW1wbGU+CiAgPHNhbXBs
+ZSBuaD0iMzMiIGluZGV4PSIxIj4KICAgPGl0ZW1zPgogICAgPGl0ZW0gaW5kZXg9IjAiPjAuOTIz
+OTEzPC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjEiPjAuNTc2MDg3PC9pdGVtPgogICAgPGl0ZW0g
+aW5kZXg9IjIiPjAuNTk3ODI2PC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjMiPjAuNzA2NTIyPC9p
+dGVtPgogICAgPGl0ZW0gaW5kZXg9IjQiPjAuNDg5MTM8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0i
+NSI+MC4zMjYwODc8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iNiI+MC4zNTg2OTY8L2l0ZW0+CiAg
+ICA8aXRlbSBpbmRleD0iNyI+MC41ODY5NTc8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iOCI+MC44
+MjYwODc8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iOSI+MC41OTc4MjY8L2l0ZW0+CiAgICA8aXRl
+bSBpbmRleD0iMTAiPjAuMjgyNjA5PC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjExIj4wLjM4MDQz
+NTwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIxMiI+MC41NjUyMTc8L2l0ZW0+CiAgICA8aXRlbSBp
+bmRleD0iMTMiPjAuMzQ3ODI2PC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjE0Ij4wLjMxNTIxNzwv
+aXRlbT4KICAgIDxpdGVtIGluZGV4PSIxNSI+MC40MzQ3ODM8L2l0ZW0+CiAgICA8aXRlbSBpbmRl
+eD0iMTYiPjAuNjUyMTc0PC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjE3Ij4wLjc2MDg3PC9pdGVt
+PgogICAgPGl0ZW0gaW5kZXg9IjE4Ij4wLjcyODI2MTwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIx
+OSI+MC41MjE3Mzk8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMjAiPjAuMjcxNzM5PC9pdGVtPgog
+ICAgPGl0ZW0gaW5kZXg9IjIxIj4wLjE1MjE3NDwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIyMiI+
+MC4xMDg2OTY8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMjMiPjAuMTA4Njk2PC9pdGVtPgogICAg
+PGl0ZW0gaW5kZXg9IjI0Ij4wLjA4Njk1NjU8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMjUiPjAu
+MDg2OTU2NTwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIyNiI+MC4xMDg2OTY8L2l0ZW0+CiAgICA8
+aXRlbSBpbmRleD0iMjciPjAuMTYzMDQzPC9pdGVtPgogICAgPGl0ZW0gaW5kZXg9IjI4Ij4wLjEw
+ODY5NjwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIyOSI+MC4wNDM0NzgzPC9pdGVtPgogICAgPGl0
+ZW0gaW5kZXg9IjMwIj4wLjA1NDM0Nzg8L2l0ZW0+CiAgICA8aXRlbSBpbmRleD0iMzEiPjAuMDU0
+MzQ3ODwvaXRlbT4KICAgIDxpdGVtIGluZGV4PSIzMiI+MC4wMzI2MDg3PC9pdGVtPgogICA8L2l0
+ZW1zPgogIDwvc2FtcGxlPgogPC9zYW1wbGVzPgo8L3N0YXRlPgo="""^^xsd:base64Binary
+	] .
+
