@@ -1,0 +1,418 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<392Synthv1Patches_NoizeExport05.ttl>
+	a pset:Preset ;
+	lv2:appliesTo <http://synthv1.sourceforge.net/lv2> ;
+	rdfs:label "NoizeExport05" ;
+	lv2:port [
+		lv2:symbol "DCO1_SHAPE1" ;
+		pset:value 4
+	] , [
+		lv2:symbol "DCO1_WIDTH1" ;
+		pset:value 0.408466
+	] , [
+		lv2:symbol "DCO1_BANDL1" ;
+		pset:value 1
+	] , [
+		lv2:symbol "DCO1_SHAPE2" ;
+		pset:value 3
+	] , [
+		lv2:symbol "DCO1_WIDTH2" ;
+		pset:value 0.00183848
+	] , [
+		lv2:symbol "DCO1_BANDL2" ;
+		pset:value 1
+	] , [
+		lv2:symbol "DCO1_BALANCE" ;
+		pset:value 0.799158
+	] , [
+		lv2:symbol "DCO1_DETUNE" ;
+		pset:value 0.711649
+	] , [
+		lv2:symbol "DCO1_PHASE" ;
+		pset:value 0.0263699
+	] , [
+		lv2:symbol "DCO1_RINGMOD" ;
+		pset:value 0.0583593
+	] , [
+		lv2:symbol "DCO1_OCTAVE" ;
+		pset:value 0.186388
+	] , [
+		lv2:symbol "DCO1_TUNING" ;
+		pset:value 0.50255
+	] , [
+		lv2:symbol "DCO1_GLIDE" ;
+		pset:value 0.102723
+	] , [
+		lv2:symbol "DCO1_ENVTIME" ;
+		pset:value 0.503464
+	] , [
+		lv2:symbol "DCF1_CUTOFF" ;
+		pset:value 0.570445
+	] , [
+		lv2:symbol "DCF1_RESO" ;
+		pset:value 0.189361
+	] , [
+		lv2:symbol "DCF1_TYPE" ;
+		pset:value 1
+	] , [
+		lv2:symbol "DCF1_SLOPE" ;
+		pset:value 0
+	] , [
+		lv2:symbol "DCF1_ENVELOPE" ;
+		pset:value 0.853936
+	] , [
+		lv2:symbol "DCF1_ATTACK" ;
+		pset:value 0.408365
+	] , [
+		lv2:symbol "DCF1_DECAY" ;
+		pset:value 0.504757
+	] , [
+		lv2:symbol "DCF1_SUSTAIN" ;
+		pset:value 0.516673
+	] , [
+		lv2:symbol "DCF1_RELEASE" ;
+		pset:value 0.0231597
+	] , [
+		lv2:symbol "LFO1_SHAPE" ;
+		pset:value 4
+	] , [
+		lv2:symbol "LFO1_WIDTH" ;
+		pset:value 0.60095
+	] , [
+		lv2:symbol "LFO1_BPM" ;
+		pset:value 258.726
+	] , [
+		lv2:symbol "LFO1_RATE" ;
+		pset:value 0.109671
+	] , [
+		lv2:symbol "LFO1_SYNC" ;
+		pset:value 1
+	] , [
+		lv2:symbol "LFO1_SWEEP" ;
+		pset:value -0.425556
+	] , [
+		lv2:symbol "LFO1_PITCH" ;
+		pset:value -0.318787
+	] , [
+		lv2:symbol "LFO1_BALANCE" ;
+		pset:value -0.737235
+	] , [
+		lv2:symbol "LFO1_RINGMOD" ;
+		pset:value -0.642907
+	] , [
+		lv2:symbol "LFO1_CUTOFF" ;
+		pset:value 0.498145
+	] , [
+		lv2:symbol "LFO1_RESO" ;
+		pset:value 0.549963
+	] , [
+		lv2:symbol "LFO1_PANNING" ;
+		pset:value 0.749212
+	] , [
+		lv2:symbol "LFO1_VOLUME" ;
+		pset:value 0.13
+	] , [
+		lv2:symbol "LFO1_ATTACK" ;
+		pset:value 0.750911
+	] , [
+		lv2:symbol "LFO1_DECAY" ;
+		pset:value 0.301384
+	] , [
+		lv2:symbol "LFO1_SUSTAIN" ;
+		pset:value 0.774185
+	] , [
+		lv2:symbol "LFO1_RELEASE" ;
+		pset:value 0.46256
+	] , [
+		lv2:symbol "DCA1_VOLUME" ;
+		pset:value 0.57
+	] , [
+		lv2:symbol "DCA1_ATTACK" ;
+		pset:value 0.327753
+	] , [
+		lv2:symbol "DCA1_DECAY" ;
+		pset:value 0.832544
+	] , [
+		lv2:symbol "DCA1_SUSTAIN" ;
+		pset:value 0.985858
+	] , [
+		lv2:symbol "DCA1_RELEASE" ;
+		pset:value 0.0790284
+	] , [
+		lv2:symbol "OUT1_WIDTH" ;
+		pset:value 0.870534
+	] , [
+		lv2:symbol "OUT1_PANNING" ;
+		pset:value -0.0213556
+	] , [
+		lv2:symbol "OUT1_FXSEND" ;
+		pset:value 0.649473
+	] , [
+		lv2:symbol "OUT1_VOLUME" ;
+		pset:value 0.12
+	] , [
+		lv2:symbol "DEF1_PITCHBEND" ;
+		pset:value 0.18
+	] , [
+		lv2:symbol "DEF1_MODWHEEL" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "DEF1_PRESSURE" ;
+		pset:value 0.764414
+	] , [
+		lv2:symbol "DEF1_VELOCITY" ;
+		pset:value 0.0515965
+	] , [
+		lv2:symbol "DEF1_CHANNEL" ;
+		pset:value 0
+	] , [
+		lv2:symbol "DEF1_MONO" ;
+		pset:value 0
+	] , [
+		lv2:symbol "DCO2_SHAPE1" ;
+		pset:value 2
+	] , [
+		lv2:symbol "DCO2_WIDTH1" ;
+		pset:value 0.343558
+	] , [
+		lv2:symbol "DCO2_BANDL1" ;
+		pset:value 0
+	] , [
+		lv2:symbol "DCO2_SHAPE2" ;
+		pset:value 1
+	] , [
+		lv2:symbol "DCO2_WIDTH2" ;
+		pset:value 0.0622401
+	] , [
+		lv2:symbol "DCO2_BANDL2" ;
+		pset:value 0
+	] , [
+		lv2:symbol "DCO2_BALANCE" ;
+		pset:value -0.862225
+	] , [
+		lv2:symbol "DCO2_DETUNE" ;
+		pset:value 0.349462
+	] , [
+		lv2:symbol "DCO2_PHASE" ;
+		pset:value 0.7138
+	] , [
+		lv2:symbol "DCO2_RINGMOD" ;
+		pset:value 0.20027
+	] , [
+		lv2:symbol "DCO2_OCTAVE" ;
+		pset:value 0.224069
+	] , [
+		lv2:symbol "DCO2_TUNING" ;
+		pset:value -0.0742552
+	] , [
+		lv2:symbol "DCO2_GLIDE" ;
+		pset:value 0.975252
+	] , [
+		lv2:symbol "DCO2_ENVTIME" ;
+		pset:value 0.402615
+	] , [
+		lv2:symbol "DCF2_CUTOFF" ;
+		pset:value 0.213783
+	] , [
+		lv2:symbol "DCF2_RESO" ;
+		pset:value 0.276635
+	] , [
+		lv2:symbol "DCF2_TYPE" ;
+		pset:value 1
+	] , [
+		lv2:symbol "DCF2_SLOPE" ;
+		pset:value 2
+	] , [
+		lv2:symbol "DCF2_ENVELOPE" ;
+		pset:value 0.208777
+	] , [
+		lv2:symbol "DCF2_ATTACK" ;
+		pset:value 0.009344
+	] , [
+		lv2:symbol "DCF2_DECAY" ;
+		pset:value 0.662201
+	] , [
+		lv2:symbol "DCF2_SUSTAIN" ;
+		pset:value 0.683417
+	] , [
+		lv2:symbol "DCF2_RELEASE" ;
+		pset:value 0.944611
+	] , [
+		lv2:symbol "LFO2_SHAPE" ;
+		pset:value 1
+	] , [
+		lv2:symbol "LFO2_WIDTH" ;
+		pset:value 0.33289
+	] , [
+		lv2:symbol "LFO2_BPM" ;
+		pset:value 24.9262
+	] , [
+		lv2:symbol "LFO2_RATE" ;
+		pset:value 0.0635563
+	] , [
+		lv2:symbol "LFO2_SYNC" ;
+		pset:value 0
+	] , [
+		lv2:symbol "LFO2_SWEEP" ;
+		pset:value -0.758328
+	] , [
+		lv2:symbol "LFO2_PITCH" ;
+		pset:value -0.232092
+	] , [
+		lv2:symbol "LFO2_BALANCE" ;
+		pset:value -0.267051
+	] , [
+		lv2:symbol "LFO2_RINGMOD" ;
+		pset:value 0.378211
+	] , [
+		lv2:symbol "LFO2_CUTOFF" ;
+		pset:value 0.455024
+	] , [
+		lv2:symbol "LFO2_RESO" ;
+		pset:value 0.259994
+	] , [
+		lv2:symbol "LFO2_PANNING" ;
+		pset:value 0.71665
+	] , [
+		lv2:symbol "LFO2_VOLUME" ;
+		pset:value 0
+	] , [
+		lv2:symbol "LFO2_ATTACK" ;
+		pset:value 0.789752
+	] , [
+		lv2:symbol "LFO2_DECAY" ;
+		pset:value 0.00319032
+	] , [
+		lv2:symbol "LFO2_SUSTAIN" ;
+		pset:value 0.927212
+	] , [
+		lv2:symbol "LFO2_RELEASE" ;
+		pset:value 0.139214
+	] , [
+		lv2:symbol "DCA2_VOLUME" ;
+		pset:value 0.84
+	] , [
+		lv2:symbol "DCA2_ATTACK" ;
+		pset:value 0.716991
+	] , [
+		lv2:symbol "DCA2_DECAY" ;
+		pset:value 0.127483
+	] , [
+		lv2:symbol "DCA2_SUSTAIN" ;
+		pset:value 0.667223
+	] , [
+		lv2:symbol "DCA2_RELEASE" ;
+		pset:value 0.179863
+	] , [
+		lv2:symbol "OUT2_WIDTH" ;
+		pset:value -0.794531
+	] , [
+		lv2:symbol "OUT2_PANNING" ;
+		pset:value -0.69
+	] , [
+		lv2:symbol "OUT2_FXSEND" ;
+		pset:value 0.393646
+	] , [
+		lv2:symbol "OUT2_VOLUME" ;
+		pset:value 0.24
+	] , [
+		lv2:symbol "DEF2_PITCHBEND" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "DEF2_MODWHEEL" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "DEF2_PRESSURE" ;
+		pset:value 0.0699889
+	] , [
+		lv2:symbol "DEF2_VELOCITY" ;
+		pset:value 0.983758
+	] , [
+		lv2:symbol "DEF2_CHANNEL" ;
+		pset:value 0
+	] , [
+		lv2:symbol "DEF2_MONO" ;
+		pset:value 1
+	] , [
+		lv2:symbol "CHO1_WET" ;
+		pset:value 0.667175
+	] , [
+		lv2:symbol "CHO1_DELAY" ;
+		pset:value 0.200592
+	] , [
+		lv2:symbol "CHO1_FEEDB" ;
+		pset:value 0.83
+	] , [
+		lv2:symbol "CHO1_RATE" ;
+		pset:value 6.54371e-05
+	] , [
+		lv2:symbol "CHO1_MOD" ;
+		pset:value 0.269832
+	] , [
+		lv2:symbol "FLA1_WET" ;
+		pset:value 0.94727
+	] , [
+		lv2:symbol "FLA1_DELAY" ;
+		pset:value 0.097369
+	] , [
+		lv2:symbol "FLA1_FEEDB" ;
+		pset:value 0.390668
+	] , [
+		lv2:symbol "FLA1_DAFT" ;
+		pset:value 0.331224
+	] , [
+		lv2:symbol "PHA1_WET" ;
+		pset:value 0.463843
+	] , [
+		lv2:symbol "PHA1_RATE" ;
+		pset:value 0.0797734
+	] , [
+		lv2:symbol "PHA1_FEEDB" ;
+		pset:value 0.0587358
+	] , [
+		lv2:symbol "PHA1_DEPTH" ;
+		pset:value 0.0938401
+	] , [
+		lv2:symbol "PHA1_DAFT" ;
+		pset:value 0.938098
+	] , [
+		lv2:symbol "DEL1_WET" ;
+		pset:value 0.848488
+	] , [
+		lv2:symbol "DEL1_DELAY" ;
+		pset:value 0.0970304
+	] , [
+		lv2:symbol "DEL1_FEEDB" ;
+		pset:value 0.54
+	] , [
+		lv2:symbol "DEL1_BPM" ;
+		pset:value 355.573
+	] , [
+		lv2:symbol "REV1_WET" ;
+		pset:value 0.44
+	] , [
+		lv2:symbol "REV1_ROOM" ;
+		pset:value 0.992794
+	] , [
+		lv2:symbol "REV1_DAMP" ;
+		pset:value 0.654925
+	] , [
+		lv2:symbol "REV1_FEEDB" ;
+		pset:value 0.51
+	] , [
+		lv2:symbol "REV1_WIDTH" ;
+		pset:value -0.808944
+	] , [
+		lv2:symbol "DYN1_COMPRESS" ;
+		pset:value 0
+	] , [
+		lv2:symbol "DYN1_LIMITER" ;
+		pset:value 0
+	] .
