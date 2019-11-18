@@ -1,0 +1,249 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<Persuaders.ttl>	a pset:Preset ;
+	lv2:appliesTo <https://obxd.wordpress.com> ;
+	rdfs:label "Persuaders" ;
+	lv2:port [
+		lv2:symbol "asplayedallocation" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "bandpassblend" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "bendosc2only" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "bendrange" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "brightness" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "cutoff" ;
+		pset:value 0.308
+	] , [
+		lv2:symbol "decay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "envelopedetune" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "envelopetopitch" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "filter_warm" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "filterattack" ;
+		pset:value 0.08
+	] , [
+		lv2:symbol "filterdecay" ;
+		pset:value 0.63200003
+	] , [
+		lv2:symbol "filterdetune" ;
+		pset:value 0.33199999
+	] , [
+		lv2:symbol "filterenvamount" ;
+		pset:value 0.44
+	] , [
+		lv2:symbol "filterkeyfollow" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "filterrelease" ;
+		pset:value 0.69199997
+	] , [
+		lv2:symbol "filtersustain" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fourpole" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "legatomode" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfoamount1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfoamount2" ;
+		pset:value 0.36000001
+	] , [
+		lv2:symbol "lfofilter" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfofrequency" ;
+		pset:value 0.34
+	] , [
+		lv2:symbol "lfoosc1" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "lfoosc2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfopw1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfopw2" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "lfosampleholdwave" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfosinewave" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "lfosquarewave" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lv2_freewheel" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lv2_port_1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "multimode" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "noisemix" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "octave" ;
+		pset:value 0.31200001
+	] , [
+		lv2:symbol "osc1mix" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "osc1pitch" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc1pulse" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "osc1saw" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc2hardsync" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc2mix" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "osc2pitch" ;
+		pset:value 0.252
+	] , [
+		lv2:symbol "osc2pulse" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "osc2saw" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "oscillator2detune" ;
+		pset:value 0.27200001
+	] , [
+		lv2:symbol "pan1" ;
+		pset:value 0.336
+	] , [
+		lv2:symbol "pan2" ;
+		pset:value 0.708
+	] , [
+		lv2:symbol "pan3" ;
+		pset:value 0.31999999
+	] , [
+		lv2:symbol "pan4" ;
+		pset:value 0.63200003
+	] , [
+		lv2:symbol "pan5" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "pan6" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "pan7" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "pan8" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "pitchquant" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "portamento" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "portamentodetune" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "pulsewidth" ;
+		pset:value 0.04
+	] , [
+		lv2:symbol "release" ;
+		pset:value 0.48800001
+	] , [
+		lv2:symbol "resonance" ;
+		pset:value 0.412
+	] , [
+		lv2:symbol "sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "tune" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "unison" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "unused2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "unused3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "vampfactor" ;
+		pset:value 0.184
+	] , [
+		lv2:symbol "vfltfactor" ;
+		pset:value 0.80400002
+	] , [
+		lv2:symbol "vibratorate" ;
+		pset:value 0.60000002
+	] , [
+		lv2:symbol "voicecount" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "voicedetune" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "volume" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "xmod" ;
+		pset:value 0.076
+	] ;
+	state:state [
+		<urn:juce:stateBinary> """VkMyIeQDAAA8RGF0c291bmRzIDA9IjAiIDE9IjAiIDI9IjAuNSIgMz0iMSIgND0iMC41IiA1PSIw
+LjMxMjAwMDAwNjQzNzMwMTYzNTc0IiA2PSIwIiA3PSIwIiA4PSIwIiA5PSIwLjYwMDAwMDAyMzg0
+MTg1NzkxMDE2IiAxMD0iMC44MDQwMDAwMjAwMjcxNjA2NDQ1MyIgMTE9IjAuMTg0MDAwMDAwMzU3
+NjI3ODY4NjUiIDEyPSIwIiAxMz0iMCIgMTQ9IjAiIDE1PSIwIiAxNj0iMC4yNzIwMDAwMTQ3ODE5
+NTE5MDQzIiAxNz0iMC4zNDAwMDAwMDM1NzYyNzg2ODY1MiIgMTg9IjEiIDE5PSIwIiAyMD0iMCIg
+MjE9IjAiIDIyPSIwLjM2MDAwMDAxNDMwNTExNDc0NjA5IiAyMz0iMSIgMjQ9IjAiIDI1PSIwIiAy
+Nj0iMCIgMjc9IjEiIDI4PSIwIiAyOT0iMC4wNzU5OTk5OTc1NTYyMDk1NjQyMDkiIDMwPSIwIiAz
+MT0iMC4yNTIwMDAwMDQwNTMxMTU4NDQ3MyIgMzI9IjAiIDMzPSIwIiAzND0iMSIgMzU9IjAiIDM2
+PSIxIiAzNz0iMC4wMzk5OTk5OTkxMDU5MzAzMjgzNjkiIDM4PSIxIiAzOT0iMCIgNDA9IjEiIDQx
+PSIxIiA0Mj0iMCIgNDM9IjAiIDQ0PSIwLjMwNzk5OTk5ODMzMTA2OTk0NjI5IiA0NT0iMC40MTIw
+MDAwMDA0NzY4MzcxNTgyIiA0Nj0iMCIgNDc9IjAiIDQ4PSIwIiA0OT0iMCIgNTA9IjAuNDM5OTk5
+OTk3NjE1ODE0MjA4OTgiIDUxPSIwIiA1Mj0iMCIgNTM9IjEiIDU0PSIwLjQ4ODAwMDAwNTQ4MzYy
+NzMxOTM0IiA1NT0iMC4wNzk5OTk5OTgyMTE4NjA2NTY3MzgiIDU2PSIwLjYzMjAwMDAyOTA4NzA2
+NjY1MDM5IiA1Nz0iMCIgNTg9IjAuNjkxOTk5OTcxODY2NjA3NjY2MDIiIDU5PSIwIiA2MD0iMC4z
+MzE5OTk5ODczNjM4MTUzMDc2MiIgNjE9IjAiIDYyPSIwLjMzNTk5OTk5NTQ3MDA0Njk5NzA3IiA2
+Mz0iMC43MDgwMDAwMDQyOTE1MzQ0MjM4MyIgNjQ9IjAuMzE5OTk5OTkyODQ3NDQyNjI2OTUiIDY1
+PSIwLjYzMjAwMDAyOTA4NzA2NjY1MDM5IiA2Nj0iMC41IiA2Nz0iMC41IiA2OD0iMC41IiA2OT0i
+MC41IiA3MD0iMCIgcHJvZ3JhbU5hbWU9IkRlZmF1bHQiLz4A"""^^xsd:base64Binary
+	] .

@@ -1,0 +1,252 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<30th_anniversary.ttl>	a pset:Preset ;
+	lv2:appliesTo <https://obxd.wordpress.com> ;
+	rdfs:label "30th anniversary" ;
+	lv2:port [
+		lv2:symbol "asplayedallocation" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "attack" ;
+		pset:value 0.736
+	] , [
+		lv2:symbol "bandpassblend" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "bendosc2only" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "bendrange" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "brightness" ;
+		pset:value 0.95200002
+	] , [
+		lv2:symbol "cutoff" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "decay" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "envelopedetune" ;
+		pset:value 0.168
+	] , [
+		lv2:symbol "envelopetopitch" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "filter_warm" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "filterattack" ;
+		pset:value 0.81999999
+	] , [
+		lv2:symbol "filterdecay" ;
+		pset:value 0.60399997
+	] , [
+		lv2:symbol "filterdetune" ;
+		pset:value 0.228
+	] , [
+		lv2:symbol "filterenvamount" ;
+		pset:value 0.69599998
+	] , [
+		lv2:symbol "filterkeyfollow" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "filterrelease" ;
+		pset:value 0.77200001
+	] , [
+		lv2:symbol "filtersustain" ;
+		pset:value 0.74000001
+	] , [
+		lv2:symbol "fourpole" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "legatomode" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfoamount1" ;
+		pset:value 0.528
+	] , [
+		lv2:symbol "lfoamount2" ;
+		pset:value 0.472
+	] , [
+		lv2:symbol "lfofilter" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfofrequency" ;
+		pset:value 0.59600002
+	] , [
+		lv2:symbol "lfoosc1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfoosc2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfopw1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfopw2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfosampleholdwave" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfosinewave" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lfosquarewave" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lv2_freewheel" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "lv2_port_1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "multimode" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "noisemix" ;
+		pset:value 0.208
+	] , [
+		lv2:symbol "octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "osc1mix" ;
+		pset:value 0.72000003
+	] , [
+		lv2:symbol "osc1pitch" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc1pulse" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc1saw" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "osc2hardsync" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc2mix" ;
+		pset:value 0.73199999
+	] , [
+		lv2:symbol "osc2pitch" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc2pulse" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "osc2saw" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "oscillator2detune" ;
+		pset:value 0.14400001
+	] , [
+		lv2:symbol "pan1" ;
+		pset:value 0.412
+	] , [
+		lv2:symbol "pan2" ;
+		pset:value 0.60399997
+	] , [
+		lv2:symbol "pan3" ;
+		pset:value 0.46799999
+	] , [
+		lv2:symbol "pan4" ;
+		pset:value 0.58399999
+	] , [
+		lv2:symbol "pan5" ;
+		pset:value 0.40799999
+	] , [
+		lv2:symbol "pan6" ;
+		pset:value 0.58399999
+	] , [
+		lv2:symbol "pan7" ;
+		pset:value 0.41999999
+	] , [
+		lv2:symbol "pan8" ;
+		pset:value 0.62800002
+	] , [
+		lv2:symbol "pitchquant" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "portamento" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "portamentodetune" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "pulsewidth" ;
+		pset:value 0.212
+	] , [
+		lv2:symbol "release" ;
+		pset:value 0.81199998
+	] , [
+		lv2:symbol "resonance" ;
+		pset:value 0.78399998
+	] , [
+		lv2:symbol "sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "tune" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "unison" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "unused2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "unused3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "vampfactor" ;
+		pset:value 0.14
+	] , [
+		lv2:symbol "vfltfactor" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "vibratorate" ;
+		pset:value 0.60000002
+	] , [
+		lv2:symbol "voicecount" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "voicedetune" ;
+		pset:value 0.208
+	] , [
+		lv2:symbol "volume" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "xmod" ;
+		pset:value 0.048
+	] ;
+	state:state [
+		<urn:juce:stateBinary> """VkMyIZoEAAA8RGF0c291bmRzIDA9IjAiIDE9IjAiIDI9IjAuNSIgMz0iMSIgND0iMC41IiA1PSIw
+LjUiIDY9IjAiIDc9IjAiIDg9IjAiIDk9IjAuNjAwMDAwMDIzODQxODU3OTEwMTYiIDEwPSIwIiAx
+MT0iMC4xNDAwMDAwMDA1OTYwNDY0NDc3NSIgMTI9IjAiIDEzPSIwIiAxND0iMCIgMTU9IjAuMjA4
+MDAwMDA0MjkxNTM0NDIzODMiIDE2PSIwLjE0NDAwMDAwODcwMjI3ODEzNzIxIiAxNz0iMC41OTYw
+MDAwMTU3MzU2MjYyMjA3IiAxOD0iMCIgMTk9IjAiIDIwPSIwIiAyMT0iMC41Mjc5OTk5OTcxMzg5
+NzcwNTA3OCIgMjI9IjAuNDcyMDAwMDAyODYxMDIyOTQ5MjIiIDIzPSIwIiAyND0iMCIgMjU9IjAi
+IDI2PSIwIiAyNz0iMCIgMjg9IjAiIDI5PSIwLjA0ODAwMDAwMDQxNzIzMjUxMzQyOCIgMzA9IjAi
+IDMxPSIwIiAzMj0iMCIgMzM9IjEiIDM0PSIwIiAzNT0iMSIgMzY9IjAiIDM3PSIwLjIxMTk5OTk5
+NzQ5NjYwNDkxOTQzIiAzOD0iMC45NTIwMDAwMjE5MzQ1MDkyNzczNCIgMzk9IjAiIDQwPSIwLjcy
+MDAwMDAyODYxMDIyOTQ5MjE5IiA0MT0iMC43MzE5OTk5OTMzMjQyNzk3ODUxNiIgNDI9IjAuMjA4
+MDAwMDA0MjkxNTM0NDIzODMiIDQzPSIxIiA0ND0iMCIgNDU9IjAuNzgzOTk5OTc5NDk2MDAyMTk3
+MjciIDQ2PSIwIiA0Nz0iMCIgNDg9IjAiIDQ5PSIwIiA1MD0iMC42OTU5OTk5Nzk5NzI4MzkzNTU0
+NyIgNTE9IjAuNzM2MDAwMDAxNDMwNTExNDc0NjEiIDUyPSIwLjUiIDUzPSIxIiA1ND0iMC44MTE5
+OTk5NzY2MzQ5NzkyNDgwNSIgNTU9IjAuODE5OTk5OTkyODQ3NDQyNjI2OTUiIDU2PSIwLjYwMzk5
+OTk3MjM0MzQ0NDgyNDIyIiA1Nz0iMC43NDAwMDAwMDk1MzY3NDMxNjQwNiIgNTg9IjAuNzcyMDAw
+MDE0NzgxOTUxOTA0MyIgNTk9IjAuMTY3OTk5OTk3NzM1MDIzNDk4NTQiIDYwPSIwLjIyODAwMDAw
+MDExOTIwOTI4OTU1IiA2MT0iMCIgNjI9IjAuNDEyMDAwMDAwNDc2ODM3MTU4MiIgNjM9IjAuNjAz
+OTk5OTcyMzQzNDQ0ODI0MjIiIDY0PSIwLjQ2Nzk5OTk5NDc1NDc5MTI1OTc3IiA2NT0iMC41ODM5
+OTk5OTE0MTY5MzExNTIzNCIgNjY9IjAuNDA3OTk5OTkyMzcwNjA1NDY4NzUiIDY3PSIwLjU4Mzk5
+OTk5MTQxNjkzMTE1MjM0IiA2OD0iMC40MTk5OTk5ODY4ODY5NzgxNDk0MSIgNjk9IjAuNjI4MDAw
+MDIwOTgwODM0OTYwOTQiIDcwPSIwIiBwcm9ncmFtTmFtZT0iRGVmYXVsdCIvPgA="""^^xsd:base64Binary
+	] .
