@@ -1,11 +1,11 @@
 <CsoundSynthesizer>
 <CsOptions>
 
--odac -+rtaudio=jack -Ma -dm0
+;-odac -+rtaudio=jack -Ma -dm0
 </CsOptions>
 <CsInstruments>
 
-sr=48000
+;sr=44100
 ksmps=256
 nchnls=2
 0dbfs=1
@@ -188,10 +188,12 @@ FLsetVal_i	0.1,gihdet9	;init value Sq-PWM
 
 instr 1
 
-if gkonoff	=	1	then
-turnoff
-endif
+imidichan = 1
+massign imidichan, 1
 
+;if gkonoff	=	1	then
+;turnoff
+;endif
 
 iamp	ampmidi	i(gksens6)
 ifilt	ampmidi i(gksens7)
@@ -202,15 +204,24 @@ kmax = 10
 kmin = 0
 imin = 0
 imax = 1
-ichan = 1
-ictlno = 1
 
-kdest	ctrl7	ichan, ictlno, kmin, kmax
+;kdest	ctrl7	ichan, ictlno, kmin, kmax
 
-k1	ctrl7	1,1,10,(sr)/2
-ktrig	changed	k1
-FLsetVal	ktrig,k1,gih1
+k1	ctrl7	imidichan,74,10,(sr)/2
+ktrig1	changed	k1
+FLsetVal	ktrig1,k1,gih1
 
+k2	ctrl7	imidichan,71,0,1
+ktrig2	changed	k2
+FLsetVal	ktrig2,k2,gih2
+
+k3	ctrl7	imidichan,1,0,80
+ktrig3	changed	k3
+FLsetVal	ktrig3,k3,gih3
+
+k3b	ctrl7	imidichan,2,0,20
+ktrig3b	changed	k3b
+FLsetVal	ktrig3b,k3b,gih3b
 
 kbend	pchbend	imin,imax
 kbend = kbend*gkBendRange
@@ -219,26 +230,20 @@ kbend = semitone(kbend)
 klfo	lfo	gklfo,gkrate,1
 klfo    +=  gklfo
 
-
 kadsrpitch	linsegr	i(gkpea),i(gkpeb),i(gkpec),i(gkped),i(gkpee),i(gkpef),i(gkpeg),i(gkpeh),i(gkpei)
-avco1	vco2	gkamp1,(ifreq*kbend*gkdet1)*kadsrpitch+(klfo*(ifreq/127)),4,gkdet8b ;tri-saw
-avco2	vco2	gkamp2,(ifreq*kbend*gkdet2)*kadsrpitch+(klfo*(ifreq/127)),4,gkdet8 ;tri-saw
-avco3	vco2	gkamp3,(ifreq*kbend*gkdet3)*kadsrpitch+(klfo*(ifreq/127)),8 ;int saw
-avco4	vco2	gkamp4,(ifreq*kbend*gkdet4)*kadsrpitch+(klfo*(ifreq/127)),2,gkdet9 ;Sq-PWM
-a0	poscil	gkamp5,(ifreq*kbend*gkdet5)*kadsrpitch+(klfo*(ifreq/127)),-1 ;sine
-a1	rand	gkdet6
-asum	sum	avco1,avco2,avco3,avco4,a0,a1
+avco1		vco2	gkamp1,(ifreq*kbend*gkdet1)*kadsrpitch+(klfo*(ifreq/127)),4,gkdet8b ;tri-saw
+avco2		vco2	gkamp2,(ifreq*kbend*gkdet2)*kadsrpitch+(klfo*(ifreq/127)),4,gkdet8 ;tri-saw
+avco3		vco2	gkamp3,(ifreq*kbend*gkdet3)*kadsrpitch+(klfo*(ifreq/127)),8 ;int saw
+avco4		vco2	gkamp4,(ifreq*kbend*gkdet4)*kadsrpitch+(klfo*(ifreq/127)),2,gkdet9 ;Sq-PWM
+a0		poscil	gkamp5,(ifreq*kbend*gkdet5)*kadsrpitch+(klfo*(ifreq/127)),-1 ;sine
+a1		rand	gkdet6
+asum		sum	avco1,avco2,avco3,avco4,a0,a1
 kadsrfilt	linsegr	i(gkfea),i(gkfeb),i(gkfec),i(gkfed),i(gkfee),i(gkfef),i(gkfeg),i(gkfeh),i(gkfei)
-afilt	mvclpf1	asum,(gkfreq*(gkcont+kadsrfilt))*ifilt,gkreso,0
+afilt		mvclpf1	asum,(gkfreq*(gkcont+kadsrfilt))*ifilt,gkreso,0
 kadsr		linsegr	i(gkaea),i(gkaeb),i(gkaec),i(gkaed),i(gkaee),i(gkaef),i(gkaeg),i(gkaeh),i(gkaei)
-outs	afilt*(kadsr*iamp),afilt*(kadsr*iamp)
+outs		afilt*(kadsr*iamp),afilt*(kadsr*iamp)
 
 endin
-
-instr 2
-exitnow
-endin
-
 
 </CsInstruments>
 <CsScore>
