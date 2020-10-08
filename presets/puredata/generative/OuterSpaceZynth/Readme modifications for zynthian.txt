@@ -1,5 +1,5 @@
 
-Spacezynth by Ron Summers
+OuterSpaceZynth by Ron Summers
 Based on OuterSpace_V1 by Alberto Zin released under the Gnu Public License v. 2.0
 
 Modified to run on Zynthian Open Synth Platform
