@@ -1,0 +1,21 @@
+#N canvas 502 235 469 316 10;
+#X obj 5 2 cnv 15 450 20 empty empty [failsafe] 2 11 1 18 -233017 -66577
+0;
+#X msg 422 3 pddp;
+#X text 244 284 released under the GNU GPL;
+#X text 27 270 (C) Copyright 2006 Hans-Christoph Steiner <hans@at.or.at>
+;
+#X obj 206 182 gemwin;
+#X msg 206 162 0;
+#X text 25 38 When the CPU is pegged \, first [failsafe] turns of DSP
+and bangs the right outlet. Then if the CPU is still pegged \, it bangs
+the left inlet and ultimately quits Pd.;
+#X text 36 222 You can add your own conditions using the bangs from
+the outlets.;
+#X obj 155 127 failsafe;
+#X obj 155 85 loadbang;
+#X msg 119 172 \; pd quit;
+#X connect 5 0 4 0;
+#X connect 8 0 10 0;
+#X connect 8 1 5 0;
+#X connect 9 0 8 0;

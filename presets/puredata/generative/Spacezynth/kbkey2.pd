@@ -1,0 +1,16 @@
+#N canvas 227 326 736 329 12;
+#X obj 62 48 change;
+#X obj 62 107 s \$2-r;
+#X obj 65 151 r \$2-s;
+#X obj 65 212 pack \$3 0;
+#X msg 65 184 bang;
+#X text 201 39 USE: Arg1 \$0 \, Arg2 \$0-key ($0-c1 \, \$0-c+1 \, ...)
+\; Arg3 midinumber \, Arg4 asci;
+#X obj 62 19 kbkey \$4;
+#X obj 65 239 s \$1-output;
+#X connect 0 0 1 0;
+#X connect 2 0 3 1;
+#X connect 2 0 4 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 0;
+#X connect 6 0 0 0;

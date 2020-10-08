@@ -1,0 +1,26 @@
+#N canvas 0 0 834 719 10;
+#X obj 70 311 s metro;
+#X obj 120 310 s LFOspread;
+#X obj 102 17 loadbang;
+#X obj 70 333 s Q;
+#X obj 97 333 s LFO_f;
+#X obj 151 333 s Amp;
+#X obj 71 355 s reverbgain;
+#X obj 153 355 s f0;
+#X obj 194 310 s f_offset;
+#X obj 195 334 s attack_t;
+#X obj 195 357 s decay_t;
+#X msg 102 54 \; pd dsp 1 \; metro 100 \; LFOspread 20 \; LFO_f 0.1
+\; f0 30 \; Q 80 \; reverbgain 10 \; Amp 0.2 \; Rev 2000 \; f_offset
+1 \; attack_t 1000 \; decay_t 3000 \;;
+#X connect 2 0 11 0;
+#X connect 11 0 0 0;
+#X connect 11 0 1 0;
+#X connect 11 0 3 0;
+#X connect 11 0 4 0;
+#X connect 11 0 5 0;
+#X connect 11 0 6 0;
+#X connect 11 0 7 0;
+#X connect 11 0 8 0;
+#X connect 11 0 9 0;
+#X connect 11 0 10 0;

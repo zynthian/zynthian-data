@@ -1,0 +1,140 @@
+#N canvas 367 232 1256 709 10;
+#X obj 32 15 loadbang;
+#X obj 430 621 symbol;
+#X symbolatom 433 649 10 0 0 0 - - OS_pres_name;
+#X msg 133 554 Bubbles;
+#X msg 7 554 GhostVoices;
+#X msg 254 555 Drone;
+#X msg 379 559 Windy;
+#X msg 512 552 OuterSpace;
+#X msg 641 551 LiftMeUp;
+#X text 717 104 All the variables begin with OS_;
+#X text 716 135 Typically \, if a variable ends with a 0 it is sent
+to the interface slider. Then it will be normalized.;
+#X msg 886 547 Falling;
+#X msg 9 247 \; pd dsp 1 \; OS_metro 100 \; OS_LFOspread 50 \; OS_LFO_f0
+10 \; OS_f00 3000 \; OS_Q 80 \; OS_revgain0 1000 \; OS_f_offset0 2000
+\; OS_attack_t 27000 \; OS_decay_t 27000 \; OS_damp0 100 \; OS_WetDry0
+60 \; OS_retr_onoff 0 \; OS_polyphony 24 \; OS_RevSize0 90 \; OS_RevDamp0
+50 \; OS_RevWidth0 60 \; OS_Amp0 300 \; OS_freq_detune 0 \; OS_v_dens
+1 \;;
+#X msg 254 247 \; OS_metro 100 \; OS_LFOspread 70 \; OS_LFO_f0 20 \;
+OS_f00 4000 \; OS_Q 30 \; OS_revgain0 1000 \; OS_f_offset0 2600 \;
+OS_attack_t 7000 \; OS_decay_t 7000 \; OS_damp0 120 \; OS_WetDry0 50
+\; OS_retr_onoff 1 \; OS_polyphony 24 \; OS_RevSize0 75 \; OS_RevDamp0
+30 \; OS_RevWidth0 80 \; OS_Amp0 300 \; OS_freq_detune 0 \; OS_v_dens
+1 \; OS_retrigg 500 \;;
+#X msg 380 261 \; OS_metro 100 \; OS_LFOspread 80 \; OS_LFO_f0 8 \;
+OS_f00 1600 \; OS_Q 8 \; OS_revgain0 1000 \; OS_f_offset0 2600 \; OS_attack_t
+3000 \; OS_decay_t 7000 \; OS_damp0 135 \; OS_WetDry0 30 \; OS_retr_onoff
+0 \; OS_polyphony 24 \; OS_RevSize0 85 \; OS_RevDamp0 30 \; OS_RevWidth0
+99 \; OS_Amp0 300 \; OS_freq_detune 0 \; OS_v_dens 1 \;;
+#X msg 509 261 \; OS_metro 100 \; OS_LFOspread 90 \; OS_LFO_f0 10 \;
+OS_f00 3600 \; OS_Q 110 \; OS_revgain0 1000 \; OS_f_offset0 2000 \;
+OS_attack_t 100 \; OS_decay_t 7000 \; OS_damp0 120 \; OS_WetDry0 99
+\; OS_retr_onoff 0 \; OS_polyphony 24 \; OS_RevSize0 99 \; OS_RevDamp0
+30 \; OS_RevWidth0 80 \; OS_Amp0 300 \; OS_freq_detune 0 \; OS_v_dens
+1 \;;
+#X msg 637 263 \; OS_metro 100 \; OS_LFOspread 77 \; OS_LFO_f0 7 \;
+OS_f00 6402 \; OS_Q 95 \; OS_revgain0 1000 \; OS_f_offset0 2633 \;
+OS_attack_t 10000 \; OS_decay_t 4044 \; OS_damp0 108 \; OS_WetDry0
+83 \; OS_retr_onoff 0 \; OS_polyphony 24 \; OS_RevSize0 47 \; OS_RevDamp0
+35 \; OS_RevWidth0 88 \; OS_Amp0 300 \; OS_freq_detune 12 \; OS_v_dens
+1 \;;
+#X obj 364 9 r OS_preset;
+#X obj 364 169 f;
+#X obj 364 108 del 500;
+#X msg 364 138 bang;
+#X obj 364 73 t b b f;
+#X msg 513 135 \; OS_t_Amp 500 \; OS_Amp0 0;
+#X obj 242 12 r OS_trigger;
+#X obj 242 102 del 500;
+#X obj 364 41 f;
+#X obj 77 55 delay 400;
+#X obj 120 147 s OS_trigger;
+#X obj 242 68 select 2;
+#X obj 46 165 s OS_preset;
+#X msg 25 106 \; pd dsp 1;
+#X msg 117 120 2;
+#X msg 131 260 \; OS_metro 100 \; OS_LFOspread 70 \; OS_LFO_f0 20 \;
+OS_f00 4000 \; OS_Q 30 \; OS_revgain0 1000 \; OS_f_offset0 2600 \;
+OS_attack_t 100 \; OS_decay_t 200 \; OS_damp0 120 \; OS_WetDry0 18
+\; OS_retr_onoff 0 \; OS_polyphony 24 \; OS_RevSize0 56 \; OS_RevDamp0
+30 \; OS_RevWidth0 33 \; OS_Amp0 300 \; OS_freq_detune 0 \; OS_v_dens
+1 \;;
+#X msg 759 264 \; OS_metro 100 \; OS_LFOspread 71 \; OS_LFO_f0 73 \;
+OS_f00 1928 \; OS_Q 123 \; OS_revgain0 1984 \; OS_f_offset0 3519 \;
+OS_attack_t 30 \; OS_decay_t 4985 \; OS_damp0 119 \; OS_WetDry0 0 \;
+OS_retr_onoff 0 \; OS_polyphony 8 \; OS_RevSize0 90 \; OS_RevDamp0
+2 \; OS_RevWidth0 60 \; OS_Amp0 300 \; OS_freq_detune 0 \; OS_v_dens
+11 \;;
+#X msg 761 546 Tones;
+#X msg 889 259 \; OS_metro 100 \; OS_LFOspread 90 \; OS_LFO_f0 10 \;
+OS_f00 3600 \; OS_Q 110 \; OS_revgain0 1000 \; OS_f_offset0 2600 \;
+OS_attack_t 100 \; OS_decay_t 7000 \; OS_damp0 120 \; OS_WetDry0 75
+\; OS_retr_onoff 0 \; OS_polyphony 24 \; OS_RevSize0 99 \; OS_RevDamp0
+30 \; OS_RevWidth0 80 \; OS_Amp0 300 \; OS_freq_detune 6 \; OS_v_dens
+1 \; OS_retrigg 700 \;;
+#X obj 418 32 route 0 1 2 3 4 5 6 7 8 9;
+#X msg 1021 543 Mantra;
+#X msg 1012 258 \; OS_metro 100 \; OS_LFOspread 50 \; OS_LFO_f0 10
+\; OS_f00 11748 \; OS_Q 80 \; OS_revgain0 1000 \; OS_f_offset0 1396
+\; OS_attack_t 7000 \; OS_decay_t 7000 \; OS_damp0 100 \; OS_WetDry0
+66 \; OS_retr_onoff 0 \; OS_polyphony 10 \; OS_RevSize0 90 \; OS_RevDamp0
+50 \; OS_RevWidth0 60 \; OS_Amp0 300 \; OS_freq_drone 0 \; OS_v_dens
+1 \; OS_retrigg 0 \;, f 19;
+#X msg 1143 260 \; OS_metro 100 \; OS_LFOspread 9 \; OS_LFO_f0 77 \;
+OS_f00 7778 \; OS_Q 76 \; OS_revgain0 1000 \; OS_f_offset0 946 \; OS_attack_t
+30 \; OS_decay_t 1877 \; OS_damp0 92 \; OS_WetDry0 0 \; OS_retr_onoff
+1 \; OS_polyphony 9 \; OS_RevSize0 85 \; OS_RevDamp0 48 \; OS_RevWidth0
+30 \; OS_Amp0 300 \; OS_freq_detune 0 \; OS_v_dens 0 \; OS_retrigg
+464 \;;
+#X msg 1124 544 Marching;
+#X connect 0 0 26 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 11 0 1 0;
+#X connect 17 0 25 0;
+#X connect 18 0 36 0;
+#X connect 19 0 20 0;
+#X connect 20 0 18 0;
+#X connect 21 0 19 0;
+#X connect 21 1 22 0;
+#X connect 21 2 18 1;
+#X connect 23 0 28 0;
+#X connect 24 0 25 0;
+#X connect 25 0 21 0;
+#X connect 26 0 31 0;
+#X connect 26 0 30 0;
+#X connect 28 0 24 0;
+#X connect 31 0 27 0;
+#X connect 31 0 29 0;
+#X connect 34 0 1 0;
+#X connect 36 0 12 0;
+#X connect 36 0 4 0;
+#X connect 36 1 32 0;
+#X connect 36 1 3 0;
+#X connect 36 2 13 0;
+#X connect 36 2 5 0;
+#X connect 36 3 14 0;
+#X connect 36 3 6 0;
+#X connect 36 4 15 0;
+#X connect 36 4 7 0;
+#X connect 36 5 16 0;
+#X connect 36 5 8 0;
+#X connect 36 6 33 0;
+#X connect 36 6 34 0;
+#X connect 36 7 35 0;
+#X connect 36 7 11 0;
+#X connect 36 8 38 0;
+#X connect 36 8 37 0;
+#X connect 36 9 39 0;
+#X connect 36 9 40 0;
+#X connect 37 0 1 0;
+#X connect 40 0 1 0;
+#X coords 0 0 1 1 105 30 0;

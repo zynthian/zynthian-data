@@ -1,0 +1,568 @@
+#N canvas 673 245 939 664 10;
+#X obj 364 -5 cnv 15 350 60 empty empty empty 20 12 0 35 -158587 -66577
+0;
+#X obj 16 317 cnv 15 200 260 empty empty SoundGenEngine 20 12 0 14
+-233017 -66577 0;
+#X obj 86 358 noise~;
+#X obj 86 411 sound_gen;
+#X obj 99 540 dac~;
+#X obj 171 397 env~;
+#X obj 24 399 env~;
+#X obj 86 437 sound_out;
+#N canvas 488 218 479 554 readme 0;
+#X text 34 12 OUTERSPACE - An ambient sound generator by Alberto Zin
+- 2006;
+#X text 34 457 No warranty at all. The patch is provided "as-is" \,
+without any express or implied warranty. In no event shall the author
+be held liable for any damages arising for use of this patch.;
+#X text 35 65 OuterSpace is an instrument for PureData capable of generating
+audio effects like wind \, water \, "space" sounds.;
+#X text 34 356 The OuterSpace instrument is loosely based on the SpaceDrone
+instrument from Reaktor 5 library but since it is PD it is better (and
+free) :-). Joking.;
+#X text 179 427 WARRANTY;
+#X text 34 110 The instrument is based on white noise filtered by a
+bank of 128 (!) band-pass filters spread across the audible spectrum.
+Each filter contributes to the overall sound as a "voice". Each voice
+has a "quartic" attack and decay amplitude envelope triggered independently
+for a "natural" effect of attack and decay. Each voice is then placed
+in the stereo field and rotated from left to right following a low
+frequency oscillator (LFO) \, plus some spread. High frequencies cam
+be attenuated using a power law (1/x)^d \, where x is the frequency
+and d is the "damp" control. The output is reverberated using freeverb~.
+Few reverb parameters are implemented in the main control GUI. Keep
+an eye to the CPU load. On old machines 128 voices may hang up the
+audio. In this case try to reduce the polyphony to lower numbers. Doing
+so you'll loose the high frequency part of the spectrum but using frequency
+spacing parameter can compensate for this.;
+#X restore 607 456 pd readme;
+#X obj 234 317 cnv 15 300 260 empty empty Reverb_(freeverb~) 20 12
+0 14 -233017 -66577 0;
+#X obj 245 405 vsl 15 128 0 1000 0 0 OS_revgain0 OS_revgain0 empty
+0 -8 0 8 -233017 -1 -1 12700 1;
+#X obj 301 405 vsl 15 128 0 100 0 0 OS_WetDry0 OS_WetDry0 empty 0 -8
+0 8 -233017 -1 -1 6350 1;
+#X obj 16 72 cnv 15 565 225 empty empty VoiceControl 20 12 0 14 -233017
+-66577 0;
+#X obj 31 122 vsl 15 128 100 13000 0 0 OS_f00 OS_f00 empty 0 -8 0 8
+-233017 -1 -1 3840 1;
+#X floatatom 29 261 5 0 0 0 - OS_f0 -;
+#X obj 219 123 vsl 15 128 0 100 0 0 OS_LFO_f0 OS_LFO_f0 empty 0 -8
+0 8 -233017 -1 -1 2540 1;
+#X floatatom 219 261 5 0 0 0 - OS_LFO_f0 -;
+#X obj 118 124 vsl 15 128 50 5000 0 0 OS_f_offset0 OS_f_offset0 empty
+0 -8 0 8 -233017 -1 -1 6542 1;
+#X floatatom 113 262 5 0 0 0 - OS_f_offset0 -;
+#X obj 331 126 vsl 15 128 30 3000 0 0 OS_attack_t OS_attack_t empty
+0 -8 0 8 -233017 -1 -1 12700 1;
+#X floatatom 331 263 5 0 0 0 - OS_attack_t -;
+#X obj 391 125 vsl 15 128 30 3000 0 0 OS_decay_t OS_decay_t empty 0
+-8 0 8 -233017 -1 -1 12700 1;
+#X floatatom 391 262 5 0 0 0 - OS_decay_t -;
+#X obj 452 124 vsl 15 128 50 200 0 0 OS_damp0 OS_damp0 empty 0 -8 0
+8 -233017 -1 -1 5927 1;
+#X floatatom 452 262 5 0 0 0 - OS_damp0 -;
+#X obj 514 125 vsl 15 128 50 2000 0 0 OS_retrigg OS_retrigg empty 0
+-8 0 8 -233017 -1 -1 2931 1;
+#X floatatom 514 262 5 0 0 0 - OS_retrigg -;
+#X obj 514 77 tgl 15 0 OS_retr_onoff OS_retr_onoff empty 0 -6 0 8 -195568
+-1 -1 1 1;
+#X obj 75 123 vsl 15 128 5 130 0 0 OS_Q OS_Q empty 0 -8 0 8 -233017
+-1 -1 2540 1;
+#X floatatom 70 262 5 0 0 0 - OS_Q -;
+#X obj 597 72 cnv 15 270 225 empty empty MainControl 20 12 0 14 -233017
+-66577 0;
+#X obj 623 138 vsl 15 128 0 1000 0 0 OS_Amp0 OS_Amp0 empty 0 -8 0 8
+-260818 -1 -1 3810 1;
+#X obj 671 101 tgl 20 0 OS_trigger OS_trigger empty 0 -6 0 8 -260818
+-1 -1 2 1;
+#X text 702 99 ON/OFF;
+#X text 617 113 Volume;
+#X text 669 128 Polyphony (Voices);
+#X obj 275 124 vsl 15 128 0 100 0 0 OS_LFOspread OS_LFOspread empty
+0 -8 0 8 -233017 -1 -1 8890 1;
+#X floatatom 277 262 5 0 0 0 - OS_LFOspread -;
+#X text 537 77 ON/OFF;
+#X text 725 -2 Alberto Zin - 2006;
+#X text 30 99 f0;
+#X text 68 100 Res;
+#X text 208 99 PAN LFO;
+#X text 255 99 LFO spr;
+#X text 314 99 Attack;
+#X text 374 99 Decay;
+#X text 423 99 Hi-fr Damp;
+#X text 505 100 Retrigg;
+#X obj 359 405 vsl 15 128 0 100 0 0 OS_RevSize0 OS_RevSize0 empty 0
+-8 0 8 -233017 -1 -1 9525 1;
+#X obj 418 407 vsl 15 128 0 100 0 0 OS_RevDamp0 OS_RevDamp0 empty 0
+-8 0 8 -233017 -1 -1 3810 1;
+#X text 412 378 Damp;
+#X obj 486 406 vsl 15 128 0 100 0 0 OS_RevWidth0 OS_RevWidth0 empty
+0 -8 0 8 -233017 -1 -1 10160 1;
+#X text 455 377 StereoWidth;
+#X text 238 380 Gain;
+#X text 282 379 Wet/Dry;
+#X text 339 379 Room Size;
+#X obj 671 229 hradio 15 1 0 10 OS_preset OS_preset empty 0 -6 0 8
+-260818 -1 -1 2;
+#X text 670 209 Preset;
+#X obj 674 149 hsl 128 15 1 128 0 0 OS_polyphony OS_polyphony empty
+-2 -6 0 8 -260818 -1 -1 2300 1;
+#X obj 674 190 hsl 128 15 0 50 0 0 OS_v_dens OS_v_dens empty -2 -6
+0 8 -260818 -1 -1 254 1;
+#X text 670 169 Voice density;
+#X text 98 99 Fr spac;
+#X obj 168 123 vsl 15 128 0 12 0 0 OS_freq_detune OS_freq_detune empty
+0 -8 0 8 -233017 -1 -1 0 1;
+#X floatatom 168 261 5 0 0 0 - OS_freq_detune -;
+#X text 147 100 Fr detune;
+#X obj 607 401 save_load_par;
+#X obj 608 326 norm_val;
+#X obj 671 271 bng 15 250 50 0 OS_ParSave OS_ParSave empty 0 -6 0 8
+-260818 -1 -1;
+#X text 668 248 Save;
+#X obj 749 271 bng 15 250 50 0 OS_random OS_random empty 0 -6 0 8 -260818
+-1 -1;
+#X text 746 248 Randomize;
+#X floatatom 244 553 5 0 0 0 - OS_reverbgain -;
+#X floatatom 619 278 5 0 0 0 - OS_Amp -;
+#X text 332 282 ms;
+#X text 393 282 ms;
+#X text 29 282 Hz;
+#X text 223 282 Hz;
+#X text 160 283 halftones;
+#X text 277 282 %;
+#X text 516 281 ms;
+#X floatatom 814 148 5 0 0 0 - OS_polyphony -;
+#N canvas 0 0 480 648 readme_controls 0;
+#X text 11 41 - f0: base frequency [Hz]. All the band pass filters
+are tuned on multiple frequencies of f0 .;
+#X text 13 198 - Fr Detune: frequency detune (Halftones). During the
+attack and decaying phase the sound is detuned by the amount of halftones
+specified here;
+#X text 12 249 - PAN LFO: Panoramic Low Frequency Oscillator [Hz].
+Each voice moves in the stereo panorama with a frequency specified
+here (each voice independent from the others);
+#X text 12 298 - LFO spr: LFO spread. Not all voices moves in the stereo
+field at the same frequency but there will be a certain spread for
+each voice \, specified in % of the PAN LFO.;
+#X text 14 419 - Decay: [ms]. The same as attack.;
+#X text 15 440 - Hi-fr Damp: High-frequencies damping. A damping is
+provided in order to attenuate the very high frequencies which may
+be too loud. The amplitude of each voice is attenuated by the factor
+(1/x)^alpha \, where x is the voice number (1-128) and alpha is the
+parameter set here.;
+#X text 15 518 - Retrigg radio button: Activates the retrigger function
+- Retrigg: [ms]. Retriggering function. If this is not activated the
+attack of each voices is activated exactly when the decay part has
+been finished. Activating the retrigg radio button the attack part
+of each voice is retriggered independently every Retrigg ms.;
+#X text 12 7 PARAMETERS OF THE GRAPHICAL USER INTERFACE - Voice Controls
+;
+#X text 12 76 - Res: resonance control of the band-pass filter. Low
+values produce large bandwidths \, higher values means narrow \, "tuned"
+filter frequency;
+#X text 12 124 - Fr Spac: Frequency spacing (Df). The multiplier of
+the fundamental frequency. At the end \, the central frequency of each
+bp filter will be tuned on f_N = f0 * n * Df + detune \, where n is
+the voice number (1 to 128) and detune is explained later;
+#X text 14 347 - Attack: [ms] similar to the attack time for each voice.
+In reality the true attack time is selected randomly based on random(Attack).
+For the amplitude envelope of each voice \, a "quartic" attack has
+been selected to produce "natural" results.;
+#X restore 748 325 pd readme_controls;
+#N canvas 0 0 508 445 readme_controls2 0;
+#X text 12 8 PARAMETERS OF THE GRAPHICAL USER INTERFACE - Main Controls
+-;
+#X text 13 38 - ON/OFF: activates/deactivates the instrument;
+#X text 12 211 - Preset: changes the parameters for the 8 presets.
+;
+#X text 12 235 - Save: writes the current GUI parameters in a file
+\, to be later loaded. Provide a name for the file (for example with
+default extension .txt) and place them in the /data directory;
+#X text 13 301 - Load: loads a previously saved set of parameters;
+#X text 13 325 - Randomize: the fun of the game! try it to find your
+favourite sound in OuterSpace! Then \, remember to save it!;
+#X text 13 63 - Polyphony: sets the instrument polyphony \, i.e. the
+number of parallel bp~ filters. In order to save CPU \, the voices
+that are not used are turned off using switch~. By lowering the number
+of voices a cut in the high frequencies is obtained. In order to compensate
+for this drawback \, use the "fr. spac" parameter to cover the same
+audio frequencies (but with less voices in between);
+#X text 14 162 - Density: sets the number of voices playing at the
+same time. This parameter has good results with sounds with short attack
+and decay time (i.e. preset 2 \, "Bubbles");
+#X restore 747 351 pd readme_controls2;
+#N canvas 0 0 508 308 readme_controls3 0;
+#X text 9 9 PARAMETERS OF THE GRAPHICAL USER INTERFACE - Reverb Controls
+-;
+#X text 10 55 - Gain: 1st stage of gain (db) \, used to amplify the
+reverb section;
+#X text 11 100 - Wet/Dry: [0-1] parameter that controls the full activation
+of the reverb effect.;
+#X text 12 143 - Room Size: [0-1] small - large room for reverberation
+;
+#X text 11 171 - Damp: [0-1] frequency damping within the reverberation
+algorithm;
+#X text 10 212 - Stereo Width [0-1]: placing of reverberated output
+in the stereo panorama.;
+#X restore 747 376 pd readme_controls3;
+#X symbolatom 777 271 12 0 0 0 - OS_pres_name -;
+#X obj 24 422 - 97;
+#X obj 171 422 - 97;
+#X obj 25 451 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
+#X obj 172 451 vu 15 120 empty empty -1 -8 0 8 -66577 -1 1 0;
+#X obj 747 432 failsafe;
+#X obj 747 403 loadbang;
+#X msg 747 493 \; pd quit;
+#X obj 608 375 random_preset-low-cpu;
+#X obj 608 351 preset-low-cpu;
+#X text 379 -1 LOW CPU Version: Starts by default to 24 Voices;
+#X obj 13 -5 cnv 15 350 60 empty empty OuterSpace 20 12 0 35 -208318
+-66577 0;
+#X text 33 37 Ambient sound generator - freeverb~/NO GUI version;
+#X text 380 17 Then raise the Polyphony slider looking at the cpu;
+#N canvas 488 206 491 566 readme-low-cpu 0;
+#X text 19 10 LOW CPU Version: Starts by default to 24 Voices;
+#X text 19 33 Then raise the Polyphony (voices) slider looking at the
+cpu;
+#X text 19 54 load at the bottom of the patch.;
+#X text 18 144 the "Fr spac" parameter was raised accordingly.;
+#X text 18 212 "Fr spacing" accordingly.;
+#X text 18 75 The higher \, the better. Note: Unfortunately this version
+;
+#X text 19 96 does not sound as good as the full version. Therefore
+\,;
+#X text 19 122 to make it producing a "pleasant" sound with few voices
+;
+#X text 17 168 This means: if you have power enough to reach 40-50
+voices;
+#X text 17 189 without sending the cpu to the knees \, lower down the
+;
+#X restore 724 32 pd readme-low-cpu;
+#X text 381 36 load at the bottom of the patch. The higher the better.
+;
+#N canvas 0 0 1011 687 keyboard 0;
+#N canvas 0 19 610 568 inside 0;
+#X obj 481 437 key;
+#X floatatom 481 466 5 0 0 0 - - -;
+#X text 445 492 show keynumber;
+#X obj 182 433 r \$0-output;
+#X obj 182 458 outlet;
+#X obj 69 69 kbkey2 \$0 \$0-c+1 49 115;
+#X obj 41 95 kbkey2 \$0 \$0-d1 50 120;
+#X obj 70 121 kbkey2 \$0 \$0-d+1 51 100;
+#X obj 41 147 kbkey2 \$0 \$0-e1 52 99;
+#X obj 41 194 kbkey2 \$0 \$0-f1 53 118;
+#X obj 68 219 kbkey2 \$0 \$0-f+1 54 103;
+#X obj 69 271 kbkey2 \$0 \$0-g+1 56 104;
+#X obj 40 245 kbkey2 \$0 \$0-g1 55 98;
+#X obj 40 297 kbkey2 \$0 \$0-a1 57 110;
+#X obj 70 324 kbkey2 \$0 \$0-a+1 58 106;
+#X obj 41 350 kbkey2 \$0 \$0-b1 59 109;
+#X text 86 13 first octave;
+#X obj 42 44 kbkey2 \$0 \$0-c1 48 122;
+#X text 360 90 |Z||X||C||V||B||N||M|;
+#X text 372 70 |S||D| |G||H||J|;
+#X text 373 37 lower rows c1-h1;
+#X connect 0 0 1 0;
+#X connect 3 0 4 0;
+#X restore 273 179 pd inside;
+#X obj 38 156 cnv 15 200 120 tritri empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 150 180 cnv 15 20 80 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 173 180 cnv 15 20 80 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 196 180 cnv 15 20 80 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 58 180 cnv 15 20 80 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 81 180 cnv 15 20 80 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 104 180 cnv 15 20 80 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 127 180 cnv 15 20 80 empty empty empty 20 12 0 14 -262144 -66577
+0;
+#X obj 71 180 cnv 14 14 55 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 97 180 cnv 14 14 55 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 140 180 cnv 14 14 55 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 164 180 cnv 14 14 55 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 189 180 cnv 14 14 55 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 62 242 tgl 12 0 \$0-c1-s \$0-c1-r Z 2 6 0 8 -262144 -1 -1 0
+1;
+#X obj 72 221 tgl 12 0 \$0-c+1-s \$0-c+1-r S 2 6 0 8 -262144 -1 -1
+0 1;
+#X obj 85 242 tgl 12 0 \$0-d1-s \$0-d1-r X 2 6 0 8 -262144 -1 -1 0
+1;
+#X obj 98 221 tgl 12 0 \$0-d+1-s \$0-d+1-r D 2 6 0 8 -262144 -1 -1
+0 1;
+#X obj 108 242 tgl 12 0 \$0-e1-s \$0-e1-r C 2 6 0 8 -262144 -1 -1 0
+1;
+#X obj 131 242 tgl 12 0 \$0-f1-s \$0-f1-r V 2 6 0 8 -262144 -1 -1 0
+1;
+#X obj 154 242 tgl 12 0 \$0-g1-s \$0-g1-r B 2 6 0 8 -262144 -1 -1 0
+1;
+#X obj 177 242 tgl 12 0 \$0-a1-s \$0-a1-r N 2 6 0 8 -262144 -1 -1 0
+1;
+#X obj 141 221 tgl 12 0 \$0-f+1-s \$0-f+1-r G 2 6 0 8 -262144 -1 -1
+0 1;
+#X obj 165 221 tgl 12 0 \$0-g+1-s \$0-g+1-r H 2 6 0 8 -262144 -1 -1
+0 1;
+#X obj 190 221 tgl 12 0 \$0-a+1-s \$0-a+1-r J 2 6 0 8 -262144 -1 -1
+0 1;
+#X obj 200 242 tgl 12 0 \$0-b1-s \$0-b1-r M 2 6 0 8 -262144 -1 -1 0
+1;
+#X floatatom 354 212 5 0 0 0 - - -;
+#X obj 273 223 mtof;
+#X obj 273 248 / 4;
+#X obj 273 280 * 100;
+#X obj 273 375 s OS_f00;
+#X obj 273 319 pack 0 100;
+#X obj 273 350 line;
+#X obj 242 118 notein;
+#X obj 242 145 pack;
+#X connect 0 0 27 0;
+#X connect 27 0 28 0;
+#X connect 28 0 26 0;
+#X connect 28 0 29 0;
+#X connect 29 0 31 0;
+#X connect 31 0 32 0;
+#X connect 32 0 30 0;
+#X connect 33 0 34 0;
+#X connect 34 0 27 0;
+#X restore 607 430 pd keyboard;
+#N canvas 44 303 1271 565 midictl 1;
+#X obj 289 101 ctlin 7;
+#X obj 362 171 s vol;
+#X obj 438 122 ctlin 74;
+#X obj 440 149 / 127;
+#X obj 514 150 / 127;
+#X obj 582 150 / 127;
+#X obj 651 148 / 127;
+#X obj 505 123 ctlin 71;
+#X obj 580 123 ctlin 76;
+#X obj 649 121 ctlin 77;
+#X obj 451 174 s knob1;
+#X obj 521 174 s knob2;
+#X obj 593 177 s knob3;
+#X obj 650 177 s knob4;
+#X obj 721 144 / 127;
+#X obj 737 162 s knob5;
+#X obj 793 149 / 127;
+#X obj 861 149 / 127;
+#X obj 363 341 / 127;
+#X obj 448 342 / 127;
+#X obj 520 343 / 127;
+#X obj 586 338 / 127;
+#X obj 651 340 / 127;
+#X obj 729 341 / 127;
+#X obj 801 342 / 127;
+#X obj 869 342 / 127;
+#X obj 792 179 s knob6;
+#X obj 860 179 s knob7;
+#X obj 363 364 s knob8;
+#X obj 447 372 s knob9;
+#X obj 526 372 s knob10;
+#X obj 591 358 s knob11;
+#X obj 650 370 s knob12;
+#X obj 738 362 s knob13;
+#X obj 868 372 s knob15;
+#X obj 719 121 ctlin 93;
+#X obj 791 107 ctlin 73;
+#X obj 859 122 ctlin 75;
+#X obj 361 314 ctlin 114;
+#X obj 446 315 ctlin 18;
+#X obj 518 316 ctlin 19;
+#X obj 586 316 ctlin 16;
+#X obj 649 313 ctlin 17;
+#X obj 727 314 ctlin 91;
+#X obj 799 315 ctlin 79;
+#X obj 867 315 ctlin 72;
+#X obj 807 372 s knob14;
+#X obj 65 362 s OS_polyphony;
+#X obj 66 310 ctlin 9;
+#X obj 186 333 / 127;
+#X obj 188 356 * 100;
+#X obj 191 380 s OS_v_dens;
+#X obj 186 312 ctlin 10;
+#X obj 507 255 s OS_Q;
+#X obj 507 229 + 5;
+#X obj 657 227 s OS_freq_detune;
+#X obj 659 204 * 12;
+#X obj 784 230 s OS_LFOspread;
+#X obj 784 204 * 100;
+#X obj 328 428 s OS_attack_t;
+#X obj 351 382 * 29970;
+#X obj 351 402 + 30;
+#X obj 427 437 s OS_decay_t;
+#X obj 427 394 * 29970;
+#X obj 427 415 + 30;
+#X obj 408 240 s OS_preset;
+#X floatatom 350 245 5 0 0 0 - - -;
+#X obj 421 219 int;
+#X obj 892 444 s OS_retrigg;
+#X obj 893 397 * 1950;
+#X obj 893 418 + 50;
+#X obj 270 333 / 127;
+#X obj 1123 421 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 1106 407 on/off;
+#X obj 1059 136 vsl 15 64 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 1042 311 i;
+#X obj 1034 349 moses 2;
+#X obj 1048 389 spigot;
+#X floatatom 1099 293 5 0 0 0 - - -;
+#X floatatom 1029 232 5 0 0 0 - - -;
+#X text 1037 107 on/off & seq;
+#X obj 1105 260 / 63;
+#X obj 1047 454 s OS_retr_onoff;
+#X obj 1103 140 ctlin 11;
+#X obj 270 371 s OS_random;
+#X obj 270 312 ctlin 12;
+#X obj 284 171 s OS_Amp0;
+#X obj 287 126 / 127;
+#X floatatom 225 130 5 0 0 0 - - -;
+#X floatatom 208 197 5 0 0 0 - - -;
+#X obj 580 249 s OS_f_offset0;
+#X obj 580 203 * 4950;
+#X obj 580 227 + 50;
+#X obj 521 195 * 125;
+#X obj 706 206 s OS_LFO_f0;
+#X obj 713 183 * 100;
+#X obj 881 252 s OS_damp0;
+#X obj 880 207 * 150;
+#X obj 880 228 + 50;
+#X obj 659 428 s OS_RevSize0;
+#X obj 663 397 * 100;
+#X obj 586 378 * 100;
+#X obj 586 398 s OS_WetDry0;
+#X obj 723 383 * 100;
+#X obj 715 404 s OS_RevDamp0;
+#X obj 803 400 * 100;
+#X obj 796 432 s OS_RevWidth0;
+#X obj 65 336 + 1;
+#X obj 214 165 * 3000;
+#X obj 286 151 * 1000;
+#X obj 516 423 s OS_revgain0;
+#X obj 1148 296 i;
+#X floatatom 1159 328 5 0 0 0 - - -;
+#X obj 1087 357 == 1;
+#X obj 518 400 * 1000;
+#X obj 426 194 * 10;
+#X connect 0 0 87 0;
+#X connect 0 0 88 0;
+#X connect 0 0 108 0;
+#X connect 2 0 3 0;
+#X connect 3 0 10 0;
+#X connect 3 0 115 0;
+#X connect 4 0 11 0;
+#X connect 4 0 93 0;
+#X connect 5 0 12 0;
+#X connect 5 0 91 0;
+#X connect 6 0 13 0;
+#X connect 6 0 56 0;
+#X connect 7 0 4 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 14 0 15 0;
+#X connect 14 0 95 0;
+#X connect 16 0 26 0;
+#X connect 16 0 58 0;
+#X connect 17 0 27 0;
+#X connect 17 0 97 0;
+#X connect 18 0 28 0;
+#X connect 18 0 60 0;
+#X connect 19 0 29 0;
+#X connect 19 0 63 0;
+#X connect 20 0 30 0;
+#X connect 20 0 114 0;
+#X connect 21 0 31 0;
+#X connect 21 0 101 0;
+#X connect 22 0 32 0;
+#X connect 22 0 100 0;
+#X connect 23 0 33 0;
+#X connect 23 0 103 0;
+#X connect 24 0 46 0;
+#X connect 24 0 105 0;
+#X connect 25 0 34 0;
+#X connect 25 0 69 0;
+#X connect 35 0 14 0;
+#X connect 36 0 16 0;
+#X connect 37 0 17 0;
+#X connect 38 0 18 0;
+#X connect 39 0 19 0;
+#X connect 40 0 20 0;
+#X connect 41 0 21 0;
+#X connect 42 0 22 0;
+#X connect 43 0 23 0;
+#X connect 44 0 24 0;
+#X connect 45 0 25 0;
+#X connect 48 0 107 0;
+#X connect 49 0 50 0;
+#X connect 50 0 51 0;
+#X connect 52 0 49 0;
+#X connect 54 0 53 0;
+#X connect 56 0 55 0;
+#X connect 58 0 57 0;
+#X connect 60 0 61 0;
+#X connect 61 0 59 0;
+#X connect 63 0 64 0;
+#X connect 64 0 62 0;
+#X connect 67 0 65 0;
+#X connect 69 0 70 0;
+#X connect 70 0 68 0;
+#X connect 71 0 84 0;
+#X connect 74 0 79 0;
+#X connect 74 0 81 0;
+#X connect 75 0 76 0;
+#X connect 76 0 77 0;
+#X connect 77 0 72 0;
+#X connect 77 0 82 0;
+#X connect 81 0 78 0;
+#X connect 81 0 75 0;
+#X connect 81 0 111 0;
+#X connect 83 0 74 0;
+#X connect 85 0 71 0;
+#X connect 87 0 1 0;
+#X connect 87 0 109 0;
+#X connect 91 0 92 0;
+#X connect 92 0 90 0;
+#X connect 93 0 54 0;
+#X connect 95 0 94 0;
+#X connect 97 0 98 0;
+#X connect 98 0 96 0;
+#X connect 100 0 99 0;
+#X connect 101 0 102 0;
+#X connect 103 0 104 0;
+#X connect 105 0 106 0;
+#X connect 107 0 47 0;
+#X connect 108 0 89 0;
+#X connect 109 0 86 0;
+#X connect 111 0 112 0;
+#X connect 112 0 113 0;
+#X connect 113 0 77 1;
+#X connect 114 0 110 0;
+#X connect 115 0 66 0;
+#X connect 115 0 67 0;
+#X restore 608 487 pd midictl;
+#X obj 708 272 bng 15 250 50 0 OS_ParLoad OS_ParLoad empty 0 -6 0 8
+-260818 -1 -1;
+#X text 704 249 Load;
+#X connect 2 0 3 0;
+#X connect 5 0 86 0;
+#X connect 6 0 85 0;
+#X connect 7 0 4 0;
+#X connect 7 0 6 0;
+#X connect 7 1 4 1;
+#X connect 7 1 5 0;
+#X connect 85 0 87 0;
+#X connect 86 0 88 0;
+#X connect 89 0 91 0;
+#X connect 90 0 89 0;
