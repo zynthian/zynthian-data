@@ -1,0 +1,2440 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+	a pset:Preset ;
+	lv2:appliesTo <https://surge-synthesizer.github.io/lv2/surge> ;
+	rdfs:label "LD_Semi_Clip" ;
+	lv2:port [
+		lv2:symbol "a_drift" ;
+		pset:value 0.353571
+	] , [
+		lv2:symbol "a_env1_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_env1_attack_shape" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_env1_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_env1_decay_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_env1_mode" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_env1_release" ;
+		pset:value 0.23076923
+	] , [
+		lv2:symbol "a_env1_release_shape" ;
+		pset:value 0.995
+	] , [
+		lv2:symbol "a_env1_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_env2_attack" ;
+		pset:value 0.1875
+	] , [
+		lv2:symbol "a_env2_attack_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_env2_decay" ;
+		pset:value 0.43475267
+	] , [
+		lv2:symbol "a_env2_decay_shape" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_env2_mode" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_env2_release" ;
+		pset:value 0.46153846
+	] , [
+		lv2:symbol "a_env2_release_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_env2_sustain" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_f2_cf_is_offset" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_f2_link_resonance" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_f_balance" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_fb_config" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_feedback" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_filter1_cutoff" ;
+		pset:value 0.36432663
+	] , [
+		lv2:symbol "a_filter1_envmod" ;
+		pset:value 0.5401786
+	] , [
+		lv2:symbol "a_filter1_keytrack" ;
+		pset:value 0.85357153
+	] , [
+		lv2:symbol "a_filter1_resonance" ;
+		pset:value 0.42199999
+	] , [
+		lv2:symbol "a_filter1_subtype" ;
+		pset:value 0.20299999
+	] , [
+		lv2:symbol "a_filter1_type" ;
+		pset:value 0.104
+	] , [
+		lv2:symbol "a_filter2_cutoff" ;
+		pset:value 0.48461539
+	] , [
+		lv2:symbol "a_filter2_envmod" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_filter2_keytrack" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_filter2_resonance" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_filter2_subtype" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_filter2_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_fm_depth" ;
+		pset:value 0.33333334
+	] , [
+		lv2:symbol "a_fm_switch" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_ktrkroot" ;
+		pset:value 0.47271654
+	] , [
+		lv2:symbol "a_level_noise" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_level_o1" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_level_o2" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_level_o3" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_level_pfg" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_level_ring12" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_level_ring23" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo0_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo0_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo0_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo0_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo0_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo0_magnitude" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo0_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo0_rate" ;
+		pset:value 0.5875001
+	] , [
+		lv2:symbol "a_lfo0_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo0_shape" ;
+		pset:value 0.12875
+	] , [
+		lv2:symbol "a_lfo0_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo0_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo0_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo10_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo10_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo10_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo10_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo10_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo10_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo10_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo10_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo10_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo10_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo10_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo10_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo10_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo11_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo11_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo11_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo11_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo11_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo11_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo11_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo11_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo11_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo11_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo11_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo11_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo11_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo1_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo1_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo1_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo1_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo1_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo1_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo1_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo1_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo1_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo1_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo1_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo1_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo1_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo2_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo2_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo2_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo2_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo2_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo2_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo2_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo2_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo2_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo2_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo2_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo2_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo2_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo3_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo3_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo3_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo3_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo3_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo3_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo3_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo3_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo3_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo3_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo3_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo3_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo3_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo4_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo4_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo4_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo4_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo4_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo4_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo4_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo4_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo4_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo4_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo4_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo4_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo4_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo5_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo5_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo5_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo5_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo5_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo5_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo5_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo5_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo5_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo5_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo5_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo5_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo5_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo6_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo6_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo6_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo6_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo6_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo6_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo6_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo6_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo6_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo6_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo6_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo6_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo6_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo7_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo7_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo7_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo7_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo7_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo7_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo7_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo7_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo7_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo7_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo7_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo7_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo7_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo8_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo8_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo8_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo8_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo8_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo8_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo8_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo8_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo8_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo8_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo8_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo8_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo8_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo9_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo9_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "a_lfo9_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo9_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo9_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo9_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo9_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lfo9_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "a_lfo9_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo9_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_lfo9_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_lfo9_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_lfo9_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_lowcut" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_mute_noise" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_mute_o1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_mute_o2" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_mute_o3" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_mute_ring12" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_mute_ring23" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_noisecol" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc1_keytrack" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_osc1_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc1_param0" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc1_param1" ;
+		pset:value 0.45982099
+	] , [
+		lv2:symbol "a_osc1_param2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc1_param3" ;
+		pset:value 0.33214301
+	] , [
+		lv2:symbol "a_osc1_param4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc1_param5" ;
+		pset:value 0.076786
+	] , [
+		lv2:symbol "a_osc1_param6" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_osc1_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc1_retrigger" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc1_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_osc2_keytrack" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_osc2_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc2_param0" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc2_param1" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc2_param2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc2_param3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc2_param4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc2_param5" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "a_osc2_param6" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_osc2_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc2_retrigger" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc2_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_osc3_keytrack" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_osc3_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc3_param0" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc3_param1" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc3_param2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc3_param3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc3_param4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc3_param5" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "a_osc3_param6" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_osc3_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_osc3_retrigger" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_osc3_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "a_pan" ;
+		pset:value 0.39821449
+	] , [
+		lv2:symbol "a_pan2" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "a_pbrange_dn" ;
+		pset:value 0.0875
+	] , [
+		lv2:symbol "a_pbrange_up" ;
+		pset:value 0.0875
+	] , [
+		lv2:symbol "a_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_polymode" ;
+		pset:value 0.20299999
+	] , [
+		lv2:symbol "a_portamento" ;
+		pset:value 0.18214288
+	] , [
+		lv2:symbol "a_route_noise" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_route_o1" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_route_o2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_route_o3" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_route_ring12" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_route_ring23" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "a_send_fx_1" ;
+		pset:value 0.33072948
+	] , [
+		lv2:symbol "a_send_fx_2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_solo_noise" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_solo_o1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_solo_o2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_solo_o3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_solo_ring12" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_solo_ring23" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "a_vca_level" ;
+		pset:value 0.54285717
+	] , [
+		lv2:symbol "a_vca_velsense" ;
+		pset:value 0.8499999
+	] , [
+		lv2:symbol "a_volume" ;
+		pset:value 0.89285737
+	] , [
+		lv2:symbol "a_ws_drive" ;
+		pset:value 0.69821435
+	] , [
+		lv2:symbol "a_ws_type" ;
+		pset:value 0.59899998
+	] , [
+		lv2:symbol "b_drift" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_env1_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_env1_attack_shape" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_env1_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_env1_decay_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_env1_mode" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_env1_release" ;
+		pset:value 0.23076923
+	] , [
+		lv2:symbol "b_env1_release_shape" ;
+		pset:value 0.995
+	] , [
+		lv2:symbol "b_env1_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_env2_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_env2_attack_shape" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_env2_decay" ;
+		pset:value 0.46153846
+	] , [
+		lv2:symbol "b_env2_decay_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_env2_mode" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_env2_release" ;
+		pset:value 0.46153846
+	] , [
+		lv2:symbol "b_env2_release_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_env2_sustain" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_f2_cf_is_offset" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_f2_link_resonance" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_f_balance" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_fb_config" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_feedback" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_filter1_cutoff" ;
+		pset:value 0.48461539
+	] , [
+		lv2:symbol "b_filter1_envmod" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_filter1_keytrack" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_filter1_resonance" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_filter1_subtype" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_filter1_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_filter2_cutoff" ;
+		pset:value 0.48461539
+	] , [
+		lv2:symbol "b_filter2_envmod" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_filter2_keytrack" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_filter2_resonance" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_filter2_subtype" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_filter2_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_fm_depth" ;
+		pset:value 0.33333334
+	] , [
+		lv2:symbol "b_fm_switch" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_ktrkroot" ;
+		pset:value 0.47271654
+	] , [
+		lv2:symbol "b_level_noise" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_level_o1" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_level_o2" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_level_o3" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_level_pfg" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_level_ring12" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_level_ring23" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo0_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo0_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo0_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo0_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo0_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo0_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo0_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo0_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo0_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo0_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo0_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo0_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo0_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo10_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo10_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo10_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo10_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo10_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo10_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo10_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo10_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo10_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo10_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo10_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo10_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo10_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo11_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo11_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo11_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo11_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo11_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo11_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo11_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo11_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo11_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo11_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo11_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo11_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo11_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo1_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo1_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo1_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo1_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo1_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo1_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo1_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo1_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo1_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo1_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo1_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo1_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo1_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo2_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo2_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo2_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo2_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo2_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo2_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo2_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo2_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo2_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo2_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo2_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo2_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo2_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo3_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo3_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo3_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo3_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo3_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo3_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo3_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo3_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo3_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo3_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo3_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo3_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo3_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo4_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo4_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo4_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo4_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo4_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo4_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo4_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo4_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo4_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo4_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo4_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo4_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo4_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo5_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo5_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo5_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo5_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo5_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo5_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo5_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo5_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo5_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo5_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo5_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo5_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo5_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo6_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo6_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo6_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo6_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo6_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo6_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo6_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo6_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo6_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo6_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo6_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo6_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo6_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo7_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo7_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo7_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo7_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo7_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo7_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo7_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo7_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo7_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo7_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo7_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo7_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo7_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo8_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo8_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo8_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo8_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo8_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo8_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo8_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo8_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo8_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo8_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo8_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo8_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo8_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo9_attack" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo9_decay" ;
+		pset:value 0.61538464
+	] , [
+		lv2:symbol "b_lfo9_deform" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo9_delay" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo9_hold" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo9_magnitude" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo9_phase" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lfo9_rate" ;
+		pset:value 0.4375
+	] , [
+		lv2:symbol "b_lfo9_release" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo9_shape" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_lfo9_sustain" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_lfo9_trigmode" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_lfo9_unipolar" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_lowcut" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_mute_noise" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_mute_o1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_mute_o2" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_mute_o3" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_mute_ring12" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_mute_ring23" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_noisecol" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc1_keytrack" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_osc1_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc1_param0" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc1_param1" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc1_param2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc1_param3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc1_param4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc1_param5" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "b_osc1_param6" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_osc1_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc1_retrigger" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc1_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_osc2_keytrack" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_osc2_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc2_param0" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc2_param1" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc2_param2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc2_param3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc2_param4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc2_param5" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "b_osc2_param6" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_osc2_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc2_retrigger" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc2_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_osc3_keytrack" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_osc3_octave" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc3_param0" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc3_param1" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc3_param2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc3_param3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc3_param4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc3_param5" ;
+		pset:value 0.2
+	] , [
+		lv2:symbol "b_osc3_param6" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_osc3_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_osc3_retrigger" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_osc3_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_pan" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_pan2" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_pbrange_dn" ;
+		pset:value 0.0875
+	] , [
+		lv2:symbol "b_pbrange_up" ;
+		pset:value 0.0875
+	] , [
+		lv2:symbol "b_pitch" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_polymode" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "b_portamento" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_route_noise" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_route_o1" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_route_o2" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_route_o3" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_route_ring12" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_route_ring23" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_send_fx_1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_send_fx_2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_solo_noise" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_solo_o1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_solo_o2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_solo_o3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_solo_ring12" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_solo_ring23" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "b_vca_level" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_vca_velsense" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_volume" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "b_ws_drive" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "b_ws_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "character" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "fx1_p0" ;
+		pset:value 0.38928539
+	] , [
+		lv2:symbol "fx1_p1" ;
+		pset:value 0.25937501
+	] , [
+		lv2:symbol "fx1_p10" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx1_p11" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx1_p2" ;
+		pset:value 0.66964298
+	] , [
+		lv2:symbol "fx1_p3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx1_p4" ;
+		pset:value 0.27980763
+	] , [
+		lv2:symbol "fx1_p5" ;
+		pset:value 0.96663463
+	] , [
+		lv2:symbol "fx1_p6" ;
+		pset:value 0.36785701
+	] , [
+		lv2:symbol "fx1_p7" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "fx1_p8" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx1_p9" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx1_type" ;
+		pset:value 0.64142859
+	] , [
+		lv2:symbol "fx2_p0" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "fx2_p1" ;
+		pset:value 0.17662087
+	] , [
+		lv2:symbol "fx2_p10" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "fx2_p11" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx2_p2" ;
+		pset:value 0.40000001
+	] , [
+		lv2:symbol "fx2_p3" ;
+		pset:value 0.3098214
+	] , [
+		lv2:symbol "fx2_p4" ;
+		pset:value 0.39865381
+	] , [
+		lv2:symbol "fx2_p5" ;
+		pset:value 0.24464281
+	] , [
+		lv2:symbol "fx2_p6" ;
+		pset:value 0.62321436
+	] , [
+		lv2:symbol "fx2_p7" ;
+		pset:value 0.82462931
+	] , [
+		lv2:symbol "fx2_p8" ;
+		pset:value 0.48482162
+	] , [
+		lv2:symbol "fx2_p9" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "fx2_type" ;
+		pset:value 0.42928571
+	] , [
+		lv2:symbol "fx3_p0" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p10" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p11" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p5" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p6" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p7" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p8" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_p9" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx3_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "fx4_p0" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p10" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p11" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p5" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p6" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p7" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p8" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_p9" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx4_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "fx5_p0" ;
+		pset:value 0.46153846
+	] , [
+		lv2:symbol "fx5_p1" ;
+		pset:value 0.46153846
+	] , [
+		lv2:symbol "fx5_p10" ;
+		pset:value 1.0
+	] , [
+		lv2:symbol "fx5_p11" ;
+		pset:value 0.5
+	] , [
+		lv2:symbol "fx5_p2" ;
+		pset:value 0.67500001
+	] , [
+		lv2:symbol "fx5_p3" ;
+		pset:value 0.74464297
+	] , [
+		lv2:symbol "fx5_p4" ;
+		pset:value 0.3608242
+	] , [
+		lv2:symbol "fx5_p5" ;
+		pset:value 0.67846131
+	] , [
+		lv2:symbol "fx5_p6" ;
+		pset:value 0.36378357
+	] , [
+		lv2:symbol "fx5_p7" ;
+		pset:value 0.200893
+	] , [
+		lv2:symbol "fx5_p8" ;
+		pset:value 0.69732153
+	] , [
+		lv2:symbol "fx5_p9" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx5_type" ;
+		pset:value 0.07571428
+	] , [
+		lv2:symbol "fx6_p0" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p10" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p11" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p5" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p6" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p7" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p8" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_p9" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx6_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "fx7_p0" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p10" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p11" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p5" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p6" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p7" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p8" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_p9" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx7_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "fx8_p0" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p10" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p11" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p5" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p6" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p7" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p8" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_p9" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "fx8_type" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "fx_bypass" ;
+		pset:value 0.005
+	] , [
+		lv2:symbol "meta_cc1" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "meta_cc2" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "meta_cc3" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "meta_cc4" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "meta_cc5" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "meta_cc6" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "meta_cc7" ;
+		pset:value 0.0
+	] , [
+		lv2:symbol "meta_cc8" ;
+		pset:value 0.0
+	] ;
+	state:state [
+		<https://surge-synthesizer.github.io/lv2/surge#PatchData> """c3ViM1tlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8P3htbCB2ZXJzaW9uPSIxLjAiIGVuY29k
+aW5nPSJVVEYtOCIgc3RhbmRhbG9uZT0ieWVzIiA/PjxwYXRjaCByZXZpc2lvbj0iMTQiPjxtZXRh
+IG5hbWU9IlNlbWktY2xpcCIgY2F0ZWdvcnk9IkxlYWRzIiBjb21tZW50PSIiIGF1dGhvcj0iQ2xh
+ZXMiIC8+PHBhcmFtZXRlcnM+PHZvbHVtZV9GWDEgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAv
+Pjx2b2x1bWVfRlgyIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48dm9sdW1lIHR5cGU9IjIi
+IHZhbHVlPSIwLjAwMDAwMCIgLz48c2NlbmVfYWN0aXZlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxz
+Y2VuZW1vZGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PHNwbGl0a2V5IHR5cGU9IjAiIHZhbHVlPSI2
+MCIgLz48ZnhfZGlzYWJsZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48cG9seWxpbWl0IHR5cGU9IjAi
+IHZhbHVlPSIxNiIgLz48ZnhfYnlwYXNzIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxmeDFfdHlwZSB0
+eXBlPSIwIiB2YWx1ZT0iOSIgLz48ZngxX3AwIHR5cGU9IjIiIHZhbHVlPSItNy44ODU3MTciIC8+
+PGZ4MV9wMSB0eXBlPSIyIiB2YWx1ZT0iLTIuODUwMDAwIiAvPjxmeDFfcDIgdHlwZT0iMiIgdmFs
+dWU9IjAuNjY5NjQzIiAvPjxmeDFfcDMgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxmeDFf
+cDQgdHlwZT0iMiIgdmFsdWU9Ii0yMy42MjUwMDgiIC8+PGZ4MV9wNSB0eXBlPSIyIiB2YWx1ZT0i
+NjUuNjYyNDk4IiAvPjxmeDFfcDYgdHlwZT0iMiIgdmFsdWU9IjAuMzY3ODU3IiAvPjxmeDFfcDcg
+dHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxmeDFfcDggdHlwZT0iMCIgdmFsdWU9IjAiIC8+
+PGZ4MV9wOSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48ZngxX3AxMCB0eXBlPSIwIiB2YWx1ZT0iMCIg
+Lz48ZngxX3AxMSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48ZngyX3R5cGUgdHlwZT0iMCIgdmFsdWU9
+IjYiIC8+PGZ4Ml9wMCB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGZ4Ml9wMSB0eXBlPSIy
+IiB2YWx1ZT0iLTM3LjAzOTI4OCIgLz48ZngyX3AyIHR5cGU9IjIiIHZhbHVlPSIyLjAwMDAwMCIg
+Lz48ZngyX3AzIHR5cGU9IjIiIHZhbHVlPSItMTguMjU3MTQ1IiAvPjxmeDJfcDQgdHlwZT0iMiIg
+dmFsdWU9Ii04LjE3NTAwNyIgLz48ZngyX3A1IHR5cGU9IjIiIHZhbHVlPSIxLjIyMzIxNCIgLz48
+ZngyX3A2IHR5cGU9IjIiIHZhbHVlPSIxMS44Mjg1NzkiIC8+PGZ4Ml9wNyB0eXBlPSIyIiB2YWx1
+ZT0iNDcuMjAxODEzIiAvPjxmeDJfcDggdHlwZT0iMiIgdmFsdWU9IjIuNDI0MTA4IiAvPjxmeDJf
+cDkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxmeDJfcDEwIHR5cGU9IjIiIHZhbHVlPSIx
+LjAwMDAwMCIgLz48ZngyX3AxMSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Zng1X3R5cGUgdHlwZT0i
+MCIgdmFsdWU9IjEiIC8+PGZ4NV9wMCB0eXBlPSIyIiB2YWx1ZT0iLTIuMDAwMDAwIiB0ZW1wb3N5
+bmM9IjEiIC8+PGZ4NV9wMSB0eXBlPSIyIiB2YWx1ZT0iLTIuMDAwMDAwIiB0ZW1wb3N5bmM9IjEi
+IC8+PGZ4NV9wMiB0eXBlPSIyIiB2YWx1ZT0iMC42NzUwMDAiIC8+PGZ4NV9wMyB0eXBlPSIyIiB2
+YWx1ZT0iMC43NDQ2NDMiIC8+PGZ4NV9wNCB0eXBlPSIyIiB2YWx1ZT0iLTEzLjA5Mjg1NCIgLz48
+Zng1X3A1IHR5cGU9IjIiIHZhbHVlPSIyOC4xOTk5NzQiIC8+PGZ4NV9wNiB0eXBlPSIyIiB2YWx1
+ZT0iLTEuMTc5NDYzIiAvPjxmeDVfcDcgdHlwZT0iMiIgdmFsdWU9IjAuNDAxNzg2IiAvPjxmeDVf
+cDggdHlwZT0iMiIgdmFsdWU9IjAuMzk0NjQzIiAvPjxmeDVfcDkgdHlwZT0iMCIgdmFsdWU9IjAi
+IC8+PGZ4NV9wMTAgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxmeDVfcDExIHR5cGU9IjIi
+IHZhbHVlPSIwLjAwMDAwMCIgLz48YV9vY3RhdmUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGFfcGl0
+Y2ggdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIj48bW9kcm91dGluZyBzb3VyY2U9IjE3IiBkZXB0
+aD0iMC41MjUwMDAiIC8+PC9hX3BpdGNoPjxhX3BvcnRhbWVudG8gdHlwZT0iMiIgdmFsdWU9Ii02
+LjE3ODU3MSIgcG9ydGFfY29uc3RfcmF0ZT0iMCIgcG9ydGFfZ2xpc3M9IjAiIHBvcnRhX3JldHJp
+Z2dlcj0iMCIgcG9ydGFfY3VydmU9IjAiIC8+PGFfb3NjMV90eXBlIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxhX29zYzFfb2N0YXZlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX29zYzFfcGl0Y2ggdHlw
+ZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX29zYzFfcGFyYW0wIHR5cGU9IjIiIHZhbHVlPSIt
+MS4wMDAwMDAiIC8+PGFfb3NjMV9wYXJhbTEgdHlwZT0iMiIgdmFsdWU9IjAuNDU5ODIxIiAvPjxh
+X29zYzFfcGFyYW0yIHR5cGU9IjIiIHZhbHVlPSIwLjUwMDAwMCIgLz48YV9vc2MxX3BhcmFtMyB0
+eXBlPSIyIiB2YWx1ZT0iMC4zMzIxNDMiIC8+PGFfb3NjMV9wYXJhbTQgdHlwZT0iMiIgdmFsdWU9
+IjAuMDAwMDAwIiAvPjxhX29zYzFfcGFyYW01IHR5cGU9IjIiIHZhbHVlPSIwLjA3Njc4NiIgLz48
+YV9vc2MxX3BhcmFtNiB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9vc2MxX2tleXRyYWNrIHR5cGU9
+IjAiIHZhbHVlPSIxIiAvPjxhX29zYzFfcmV0cmlnZ2VyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxh
+X29zYzJfdHlwZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48YV9vc2MyX29jdGF2ZSB0eXBlPSIwIiB2
+YWx1ZT0iMCIgLz48YV9vc2MyX3BpdGNoIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48YV9v
+c2MyX3BhcmFtMCB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfb3NjMl9wYXJhbTEgdHlw
+ZT0iMiIgdmFsdWU9IjAuNTAwMDAwIiAvPjxhX29zYzJfcGFyYW0yIHR5cGU9IjIiIHZhbHVlPSIw
+LjUwMDAwMCIgLz48YV9vc2MyX3BhcmFtMyB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFf
+b3NjMl9wYXJhbTQgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX29zYzJfcGFyYW01IHR5
+cGU9IjIiIHZhbHVlPSIwLjIwMDAwMCIgLz48YV9vc2MyX3BhcmFtNiB0eXBlPSIwIiB2YWx1ZT0i
+MSIgLz48YV9vc2MyX2tleXRyYWNrIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxhX29zYzJfcmV0cmln
+Z2VyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX29zYzNfdHlwZSB0eXBlPSIwIiB2YWx1ZT0iMCIg
+Lz48YV9vc2MzX29jdGF2ZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48YV9vc2MzX3BpdGNoIHR5cGU9
+IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48YV9vc2MzX3BhcmFtMCB0eXBlPSIyIiB2YWx1ZT0iMC4w
+MDAwMDAiIC8+PGFfb3NjM19wYXJhbTEgdHlwZT0iMiIgdmFsdWU9IjAuNTAwMDAwIiAvPjxhX29z
+YzNfcGFyYW0yIHR5cGU9IjIiIHZhbHVlPSIwLjUwMDAwMCIgLz48YV9vc2MzX3BhcmFtMyB0eXBl
+PSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfb3NjM19wYXJhbTQgdHlwZT0iMiIgdmFsdWU9IjAu
+MDAwMDAwIiAvPjxhX29zYzNfcGFyYW01IHR5cGU9IjIiIHZhbHVlPSIwLjIwMDAwMCIgLz48YV9v
+c2MzX3BhcmFtNiB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9vc2MzX2tleXRyYWNrIHR5cGU9IjAi
+IHZhbHVlPSIxIiAvPjxhX29zYzNfcmV0cmlnZ2VyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX3Bv
+bHltb2RlIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxhX2ZtX3N3aXRjaCB0eXBlPSIwIiB2YWx1ZT0i
+MCIgLz48YV9mbV9kZXB0aCB0eXBlPSIyIiB2YWx1ZT0iLTI0LjAwMDAwMCIgLz48YV9kcmlmdCB0
+eXBlPSIyIiB2YWx1ZT0iMC4zNTM1NzEiIC8+PGFfbm9pc2Vjb2wgdHlwZT0iMiIgdmFsdWU9IjAu
+MDAwMDAwIiAvPjxhX2t0cmtyb290IHR5cGU9IjAiIHZhbHVlPSI2MCIgLz48YV92b2x1bWUgdHlw
+ZT0iMiIgdmFsdWU9IjAuODkyODU3IiAvPjxhX3BhbiB0eXBlPSIyIiB2YWx1ZT0iLTAuMjAzNTcx
+IiAvPjxhX3BhbjIgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxhX3NlbmRfZnhfMSB0eXBl
+PSIyIiB2YWx1ZT0iMC41MjUwMDAiIC8+PGFfc2VuZF9meF8yIHR5cGU9IjIiIHZhbHVlPSIwLjAw
+MDAwMCIgLz48YV9sZXZlbF9vMSB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbXV0ZV9v
+MSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48YV9zb2xvX28xIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxh
+X3JvdXRlX28xIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxhX2xldmVsX28yIHR5cGU9IjIiIHZhbHVl
+PSIxLjAwMDAwMCIgLz48YV9tdXRlX28yIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxhX3NvbG9fbzIg
+dHlwZT0iMCIgdmFsdWU9IjAiIC8+PGFfcm91dGVfbzIgdHlwZT0iMCIgdmFsdWU9IjEiIC8+PGFf
+bGV2ZWxfbzMgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxhX211dGVfbzMgdHlwZT0iMCIg
+dmFsdWU9IjEiIC8+PGFfc29sb19vMyB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48YV9yb3V0ZV9vMyB0
+eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZXZlbF9yaW5nMTIgdHlwZT0iMiIgdmFsdWU9IjEuMDAw
+MDAwIiAvPjxhX211dGVfcmluZzEyIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxhX3NvbG9fcmluZzEy
+IHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX3JvdXRlX3JpbmcxMiB0eXBlPSIwIiB2YWx1ZT0iMSIg
+Lz48YV9sZXZlbF9yaW5nMjMgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxhX211dGVfcmlu
+ZzIzIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxhX3NvbG9fcmluZzIzIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxhX3JvdXRlX3JpbmcyMyB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZXZlbF9ub2lzZSB0
+eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbXV0ZV9ub2lzZSB0eXBlPSIwIiB2YWx1ZT0i
+MSIgLz48YV9zb2xvX25vaXNlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX3JvdXRlX25vaXNlIHR5
+cGU9IjAiIHZhbHVlPSIxIiAvPjxhX2xldmVsX3BmZyB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAi
+IC8+PGFfcGJyYW5nZV91cCB0eXBlPSIwIiB2YWx1ZT0iMiIgLz48YV9wYnJhbmdlX2RuIHR5cGU9
+IjAiIHZhbHVlPSIyIiAvPjxhX3ZjYV9sZXZlbCB0eXBlPSIyIiB2YWx1ZT0iNC4xMTQyODgiPjxt
+b2Ryb3V0aW5nIHNvdXJjZT0iMiIgZGVwdGg9Ii0xLjU0Mjg1NyIgLz48L2FfdmNhX2xldmVsPjxh
+X3ZjYV92ZWxzZW5zZSB0eXBlPSIyIiB2YWx1ZT0iLTcuMjAwMDA1IiAvPjxhX2ZlZWRiYWNrIHR5
+cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48YV9mYl9jb25maWcgdHlwZT0iMCIgdmFsdWU9IjAi
+IC8+PGFfZl9iYWxhbmNlIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48YV9sb3djdXQgdHlw
+ZT0iMiIgdmFsdWU9Ii03Mi4wMDAwMDAiIC8+PGFfd3NfdHlwZSB0eXBlPSIwIiB2YWx1ZT0iMyIg
+Lz48YV93c19kcml2ZSB0eXBlPSIyIiB2YWx1ZT0iOS41MTQyOTAiIC8+PGFfZmlsdGVyMV90eXBl
+IHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxhX2ZpbHRlcjFfc3VidHlwZSB0eXBlPSIwIiB2YWx1ZT0i
+MCIgLz48YV9maWx0ZXIxX2N1dG9mZiB0eXBlPSIyIiB2YWx1ZT0iLTEyLjYzNzUzOSI+PG1vZHJv
+dXRpbmcgc291cmNlPSI0IiBkZXB0aD0iMjAuNTg3NTAzIiAvPjxtb2Ryb3V0aW5nIHNvdXJjZT0i
+MSIgZGVwdGg9IjkuNDQ5OTk2IiAvPjwvYV9maWx0ZXIxX2N1dG9mZj48YV9maWx0ZXIxX3Jlc29u
+YW5jZSB0eXBlPSIyIiB2YWx1ZT0iMC40MjIwMDAiPjxtb2Ryb3V0aW5nIHNvdXJjZT0iNCIgZGVw
+dGg9IjAuMzU4OTI5IiAvPjxtb2Ryb3V0aW5nIHNvdXJjZT0iMSIgZGVwdGg9IjAuMDU2MjUwIiAv
+Pjxtb2Ryb3V0aW5nIHNvdXJjZT0iMiIgZGVwdGg9Ii0wLjA1ODkyOSIgLz48L2FfZmlsdGVyMV9y
+ZXNvbmFuY2U+PGFfZmlsdGVyMV9lbnZtb2QgdHlwZT0iMiIgdmFsdWU9IjcuNzE0Mjk0IiAvPjxh
+X2ZpbHRlcjFfa2V5dHJhY2sgdHlwZT0iMiIgdmFsdWU9IjAuNzA3MTQzIiAvPjxhX2ZpbHRlcjJf
+dHlwZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48YV9maWx0ZXIyX3N1YnR5cGUgdHlwZT0iMCIgdmFs
+dWU9IjAiIC8+PGFfZmlsdGVyMl9jdXRvZmYgdHlwZT0iMiIgdmFsdWU9IjMuMDAwMDAwIiAvPjxh
+X2YyX2NmX2lzX29mZnNldCB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48YV9maWx0ZXIyX3Jlc29uYW5j
+ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfZjJfbGlua19yZXNvbmFuY2UgdHlwZT0i
+MCIgdmFsdWU9IjAiIC8+PGFfZmlsdGVyMl9lbnZtb2QgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAw
+IiAvPjxhX2ZpbHRlcjJfa2V5dHJhY2sgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2Vu
+djFfYXR0YWNrIHR5cGU9IjIiIHZhbHVlPSItOC4wMDAwMDAiIC8+PGFfZW52MV9hdHRhY2tfc2hh
+cGUgdHlwZT0iMCIgdmFsdWU9IjEiIC8+PGFfZW52MV9kZWNheSB0eXBlPSIyIiB2YWx1ZT0iMC4w
+MDAwMDAiIC8+PGFfZW52MV9kZWNheV9zaGFwZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48YV9lbnYx
+X3N1c3RhaW4gdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxhX2VudjFfcmVsZWFzZSB0eXBl
+PSIyIiB2YWx1ZT0iLTUuMDAwMDAwIiAvPjxhX2VudjFfcmVsZWFzZV9zaGFwZSB0eXBlPSIwIiB2
+YWx1ZT0iMiIgLz48YV9lbnYxX21vZGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGFfZW52Ml9hdHRh
+Y2sgdHlwZT0iMiIgdmFsdWU9Ii01LjU2MjUwMCIgLz48YV9lbnYyX2F0dGFja19zaGFwZSB0eXBl
+PSIwIiB2YWx1ZT0iMCIgLz48YV9lbnYyX2RlY2F5IHR5cGU9IjIiIHZhbHVlPSItMi4zNDgyMTUi
+IC8+PGFfZW52Ml9kZWNheV9zaGFwZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9lbnYyX3N1c3Rh
+aW4gdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2VudjJfcmVsZWFzZSB0eXBlPSIyIiB2
+YWx1ZT0iLTIuMDAwMDAwIiAvPjxhX2VudjJfcmVsZWFzZV9zaGFwZSB0eXBlPSIwIiB2YWx1ZT0i
+MCIgLz48YV9lbnYyX21vZGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGFfbGZvMF9zaGFwZSB0eXBl
+PSIwIiB2YWx1ZT0iMSIgLz48YV9sZm8wX3JhdGUgdHlwZT0iMiIgdmFsdWU9IjIuNDAwMDAyIiBk
+ZWFjdGl2YXRlZD0iMCIgLz48YV9sZm8wX3BoYXNlIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIg
+Lz48YV9sZm8wX21hZ25pdHVkZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiPjxtb2Ryb3V0aW5n
+IHNvdXJjZT0iNiIgZGVwdGg9IjEuMDAwMDAwIiAvPjwvYV9sZm8wX21hZ25pdHVkZT48YV9sZm8w
+X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfbGZvMF90cmlnbW9kZSB0eXBl
+PSIwIiB2YWx1ZT0iMSIgLz48YV9sZm8wX3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxh
+X2xmbzBfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm8wX2F0dGFjayB0
+eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzBfaG9sZCB0eXBlPSIyIiB2YWx1ZT0i
+LTguMDAwMDAwIiAvPjxhX2xmbzBfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxh
+X2xmbzBfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvMF9yZWxlYXNl
+IHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48YV9sZm8xX3NoYXBlIHR5cGU9IjAiIHZhbHVl
+PSIwIiAvPjxhX2xmbzFfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVk
+PSIwIiAvPjxhX2xmbzFfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzFf
+bWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48YV9sZm8xX2RlZm9ybSB0eXBl
+PSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfbGZvMV90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0i
+MSIgLz48YV9sZm8xX3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzFfZGVsYXkg
+dHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm8xX2F0dGFjayB0eXBlPSIyIiB2YWx1
+ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzFfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAv
+PjxhX2xmbzFfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzFfc3VzdGFp
+biB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvMV9yZWxlYXNlIHR5cGU9IjIiIHZh
+bHVlPSI1LjAwMDAwMCIgLz48YV9sZm8yX3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xm
+bzJfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxhX2xm
+bzJfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzJfbWFnbml0dWRlIHR5
+cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48YV9sZm8yX2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0i
+MC4wMDAwMDAiIC8+PGFfbGZvMl90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZm8y
+X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzJfZGVsYXkgdHlwZT0iMiIgdmFs
+dWU9Ii04LjAwMDAwMCIgLz48YV9sZm8yX2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAw
+IiAvPjxhX2xmbzJfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzJfZGVj
+YXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzJfc3VzdGFpbiB0eXBlPSIyIiB2
+YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvMl9yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAw
+MCIgLz48YV9sZm8zX3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzNfcmF0ZSB0eXBl
+PSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxhX2xmbzNfcGhhc2UgdHlw
+ZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzNfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVl
+PSIxLjAwMDAwMCIgLz48YV9sZm8zX2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+
+PGFfbGZvM190cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZm8zX3VuaXBvbGFyIHR5
+cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzNfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAw
+MCIgLz48YV9sZm8zX2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzNf
+aG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzNfZGVjYXkgdHlwZT0iMiIg
+dmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzNfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAw
+MDAiIC8+PGFfbGZvM19yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48YV9sZm80
+X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzRfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0i
+MC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxhX2xmbzRfcGhhc2UgdHlwZT0iMiIgdmFsdWU9
+IjAuMDAwMDAwIiAvPjxhX2xmbzRfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIg
+Lz48YV9sZm80X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfbGZvNF90cmln
+bW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZm80X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVl
+PSIwIiAvPjxhX2xmbzRfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm80
+X2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzRfaG9sZCB0eXBlPSIy
+IiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzRfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAw
+MDAwIiAvPjxhX2xmbzRfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZv
+NF9yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48YV9sZm81X3NoYXBlIHR5cGU9
+IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzVfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRl
+YWN0aXZhdGVkPSIwIiAvPjxhX2xmbzVfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAv
+PjxhX2xmbzVfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48YV9sZm81X2Rl
+Zm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfbGZvNV90cmlnbW9kZSB0eXBlPSIw
+IiB2YWx1ZT0iMSIgLz48YV9sZm81X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xm
+bzVfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm81X2F0dGFjayB0eXBl
+PSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzVfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTgu
+MDAwMDAwIiAvPjxhX2xmbzVfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xm
+bzVfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvNV9yZWxlYXNlIHR5
+cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48YV9sZm82X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxhX2xmbzZfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIw
+IiAvPjxhX2xmbzZfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzZfbWFn
+bml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48YV9sZm82X2RlZm9ybSB0eXBlPSIy
+IiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfbGZvNl90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIg
+Lz48YV9sZm82X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzZfZGVsYXkgdHlw
+ZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm82X2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0i
+LTguMDAwMDAwIiAvPjxhX2xmbzZfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxh
+X2xmbzZfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzZfc3VzdGFpbiB0
+eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvNl9yZWxlYXNlIHR5cGU9IjIiIHZhbHVl
+PSI1LjAwMDAwMCIgLz48YV9sZm83X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzdf
+cmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxhX2xmbzdf
+cGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzdfbWFnbml0dWRlIHR5cGU9
+IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48YV9sZm83X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4w
+MDAwMDAiIC8+PGFfbGZvN190cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZm83X3Vu
+aXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzdfZGVsYXkgdHlwZT0iMiIgdmFsdWU9
+Ii04LjAwMDAwMCIgLz48YV9sZm83X2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAv
+PjxhX2xmbzdfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzdfZGVjYXkg
+dHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzdfc3VzdGFpbiB0eXBlPSIyIiB2YWx1
+ZT0iMS4wMDAwMDAiIC8+PGFfbGZvN19yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIg
+Lz48YV9sZm84X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzhfcmF0ZSB0eXBlPSIy
+IiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxhX2xmbzhfcGhhc2UgdHlwZT0i
+MiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxhX2xmbzhfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIx
+LjAwMDAwMCIgLz48YV9sZm84X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFf
+bGZvOF90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZm84X3VuaXBvbGFyIHR5cGU9
+IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzhfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIg
+Lz48YV9sZm84X2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzhfaG9s
+ZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzhfZGVjYXkgdHlwZT0iMiIgdmFs
+dWU9IjAuMDAwMDAwIiAvPjxhX2xmbzhfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAi
+IC8+PGFfbGZvOF9yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48YV9sZm85X3No
+YXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxhX2xmbzlfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4w
+MDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxhX2xmbzlfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAu
+MDAwMDAwIiAvPjxhX2xmbzlfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48
+YV9sZm85X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfbGZvOV90cmlnbW9k
+ZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48YV9sZm85X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxhX2xmbzlfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm85X2F0
+dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzlfaG9sZCB0eXBlPSIyIiB2
+YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzlfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAw
+IiAvPjxhX2xmbzlfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvOV9y
+ZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48YV9sZm8xMF9zaGFwZSB0eXBlPSIw
+IiB2YWx1ZT0iMCIgLz48YV9sZm8xMF9yYXRlIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgZGVh
+Y3RpdmF0ZWQ9IjAiIC8+PGFfbGZvMTBfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAv
+PjxhX2xmbzEwX21hZ25pdHVkZSB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvMTBf
+ZGVmb3JtIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48YV9sZm8xMF90cmlnbW9kZSB0eXBl
+PSIwIiB2YWx1ZT0iMSIgLz48YV9sZm8xMF91bmlwb2xhciB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48
+YV9sZm8xMF9kZWxheSB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzEwX2F0dGFj
+ayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxhX2xmbzEwX2hvbGQgdHlwZT0iMiIgdmFs
+dWU9Ii04LjAwMDAwMCIgLz48YV9sZm8xMF9kZWNheSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAi
+IC8+PGFfbGZvMTBfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGFfbGZvMTBf
+cmVsZWFzZSB0eXBlPSIyIiB2YWx1ZT0iNS4wMDAwMDAiIC8+PGFfbGZvMTFfc2hhcGUgdHlwZT0i
+MCIgdmFsdWU9IjAiIC8+PGFfbGZvMTFfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRl
+YWN0aXZhdGVkPSIwIiAvPjxhX2xmbzExX3BoYXNlIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIg
+Lz48YV9sZm8xMV9tYWduaXR1ZGUgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxhX2xmbzEx
+X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGFfbGZvMTFfdHJpZ21vZGUgdHlw
+ZT0iMCIgdmFsdWU9IjEiIC8+PGFfbGZvMTFfdW5pcG9sYXIgdHlwZT0iMCIgdmFsdWU9IjAiIC8+
+PGFfbGZvMTFfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm8xMV9hdHRh
+Y2sgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48YV9sZm8xMV9ob2xkIHR5cGU9IjIiIHZh
+bHVlPSItOC4wMDAwMDAiIC8+PGFfbGZvMTFfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAw
+IiAvPjxhX2xmbzExX3N1c3RhaW4gdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxhX2xmbzEx
+X3JlbGVhc2UgdHlwZT0iMiIgdmFsdWU9IjUuMDAwMDAwIiAvPjxiX29jdGF2ZSB0eXBlPSIwIiB2
+YWx1ZT0iMCIgLz48Yl9waXRjaCB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfcG9ydGFt
+ZW50byB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiBwb3J0YV9jb25zdF9yYXRlPSIwIiBwb3J0
+YV9nbGlzcz0iMCIgcG9ydGFfcmV0cmlnZ2VyPSIwIiBwb3J0YV9jdXJ2ZT0iMCIgLz48Yl9vc2Mx
+X3R5cGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJfb3NjMV9vY3RhdmUgdHlwZT0iMCIgdmFsdWU9
+IjAiIC8+PGJfb3NjMV9waXRjaCB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfb3NjMV9w
+YXJhbTAgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX29zYzFfcGFyYW0xIHR5cGU9IjIi
+IHZhbHVlPSIwLjUwMDAwMCIgLz48Yl9vc2MxX3BhcmFtMiB0eXBlPSIyIiB2YWx1ZT0iMC41MDAw
+MDAiIC8+PGJfb3NjMV9wYXJhbTMgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX29zYzFf
+cGFyYW00IHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48Yl9vc2MxX3BhcmFtNSB0eXBlPSIy
+IiB2YWx1ZT0iMC4yMDAwMDAiIC8+PGJfb3NjMV9wYXJhbTYgdHlwZT0iMCIgdmFsdWU9IjEiIC8+
+PGJfb3NjMV9rZXl0cmFjayB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9vc2MxX3JldHJpZ2dlciB0
+eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9vc2MyX3R5cGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJf
+b3NjMl9vY3RhdmUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJfb3NjMl9waXRjaCB0eXBlPSIyIiB2
+YWx1ZT0iMC4wMDAwMDAiIC8+PGJfb3NjMl9wYXJhbTAgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAw
+IiAvPjxiX29zYzJfcGFyYW0xIHR5cGU9IjIiIHZhbHVlPSIwLjUwMDAwMCIgLz48Yl9vc2MyX3Bh
+cmFtMiB0eXBlPSIyIiB2YWx1ZT0iMC41MDAwMDAiIC8+PGJfb3NjMl9wYXJhbTMgdHlwZT0iMiIg
+dmFsdWU9IjAuMDAwMDAwIiAvPjxiX29zYzJfcGFyYW00IHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAw
+MCIgLz48Yl9vc2MyX3BhcmFtNSB0eXBlPSIyIiB2YWx1ZT0iMC4yMDAwMDAiIC8+PGJfb3NjMl9w
+YXJhbTYgdHlwZT0iMCIgdmFsdWU9IjEiIC8+PGJfb3NjMl9rZXl0cmFjayB0eXBlPSIwIiB2YWx1
+ZT0iMSIgLz48Yl9vc2MyX3JldHJpZ2dlciB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9vc2MzX3R5
+cGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJfb3NjM19vY3RhdmUgdHlwZT0iMCIgdmFsdWU9IjAi
+IC8+PGJfb3NjM19waXRjaCB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfb3NjM19wYXJh
+bTAgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX29zYzNfcGFyYW0xIHR5cGU9IjIiIHZh
+bHVlPSIwLjUwMDAwMCIgLz48Yl9vc2MzX3BhcmFtMiB0eXBlPSIyIiB2YWx1ZT0iMC41MDAwMDAi
+IC8+PGJfb3NjM19wYXJhbTMgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX29zYzNfcGFy
+YW00IHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48Yl9vc2MzX3BhcmFtNSB0eXBlPSIyIiB2
+YWx1ZT0iMC4yMDAwMDAiIC8+PGJfb3NjM19wYXJhbTYgdHlwZT0iMCIgdmFsdWU9IjEiIC8+PGJf
+b3NjM19rZXl0cmFjayB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9vc2MzX3JldHJpZ2dlciB0eXBl
+PSIwIiB2YWx1ZT0iMCIgLz48Yl9wb2x5bW9kZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9mbV9z
+d2l0Y2ggdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJfZm1fZGVwdGggdHlwZT0iMiIgdmFsdWU9Ii0y
+NC4wMDAwMDAiIC8+PGJfZHJpZnQgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX25vaXNl
+Y29sIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48Yl9rdHJrcm9vdCB0eXBlPSIwIiB2YWx1
+ZT0iNjAiIC8+PGJfdm9sdW1lIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9wYW4gdHlw
+ZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX3BhbjIgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAw
+IiAvPjxiX3NlbmRfZnhfMSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfc2VuZF9meF8y
+IHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48Yl9sZXZlbF9vMSB0eXBlPSIyIiB2YWx1ZT0i
+MS4wMDAwMDAiIC8+PGJfbXV0ZV9vMSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9zb2xvX28xIHR5
+cGU9IjAiIHZhbHVlPSIwIiAvPjxiX3JvdXRlX28xIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxiX2xl
+dmVsX28yIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9tdXRlX28yIHR5cGU9IjAiIHZh
+bHVlPSIxIiAvPjxiX3NvbG9fbzIgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJfcm91dGVfbzIgdHlw
+ZT0iMCIgdmFsdWU9IjEiIC8+PGJfbGV2ZWxfbzMgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAv
+PjxiX211dGVfbzMgdHlwZT0iMCIgdmFsdWU9IjEiIC8+PGJfc29sb19vMyB0eXBlPSIwIiB2YWx1
+ZT0iMCIgLz48Yl9yb3V0ZV9vMyB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZXZlbF9yaW5nMTIg
+dHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxiX211dGVfcmluZzEyIHR5cGU9IjAiIHZhbHVl
+PSIxIiAvPjxiX3NvbG9fcmluZzEyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX3JvdXRlX3Jpbmcx
+MiB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZXZlbF9yaW5nMjMgdHlwZT0iMiIgdmFsdWU9IjEu
+MDAwMDAwIiAvPjxiX211dGVfcmluZzIzIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxiX3NvbG9fcmlu
+ZzIzIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX3JvdXRlX3JpbmcyMyB0eXBlPSIwIiB2YWx1ZT0i
+MSIgLz48Yl9sZXZlbF9ub2lzZSB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbXV0ZV9u
+b2lzZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9zb2xvX25vaXNlIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxiX3JvdXRlX25vaXNlIHR5cGU9IjAiIHZhbHVlPSIxIiAvPjxiX2xldmVsX3BmZyB0eXBl
+PSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfcGJyYW5nZV91cCB0eXBlPSIwIiB2YWx1ZT0iMiIg
+Lz48Yl9wYnJhbmdlX2RuIHR5cGU9IjAiIHZhbHVlPSIyIiAvPjxiX3ZjYV9sZXZlbCB0eXBlPSIy
+IiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfdmNhX3ZlbHNlbnNlIHR5cGU9IjIiIHZhbHVlPSIwLjAw
+MDAwMCIgLz48Yl9mZWVkYmFjayB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfZmJfY29u
+ZmlnIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2ZfYmFsYW5jZSB0eXBlPSIyIiB2YWx1ZT0iMC4w
+MDAwMDAiIC8+PGJfbG93Y3V0IHR5cGU9IjIiIHZhbHVlPSItNzIuMDAwMDAwIiAvPjxiX3dzX3R5
+cGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJfd3NfZHJpdmUgdHlwZT0iMiIgdmFsdWU9IjAuMDAw
+MDAwIiAvPjxiX2ZpbHRlcjFfdHlwZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9maWx0ZXIxX3N1
+YnR5cGUgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJfZmlsdGVyMV9jdXRvZmYgdHlwZT0iMiIgdmFs
+dWU9IjMuMDAwMDAwIiAvPjxiX2ZpbHRlcjFfcmVzb25hbmNlIHR5cGU9IjIiIHZhbHVlPSIwLjAw
+MDAwMCIgLz48Yl9maWx0ZXIxX2Vudm1vZCB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJf
+ZmlsdGVyMV9rZXl0cmFjayB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfZmlsdGVyMl90
+eXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2ZpbHRlcjJfc3VidHlwZSB0eXBlPSIwIiB2YWx1
+ZT0iMCIgLz48Yl9maWx0ZXIyX2N1dG9mZiB0eXBlPSIyIiB2YWx1ZT0iMy4wMDAwMDAiIC8+PGJf
+ZjJfY2ZfaXNfb2Zmc2V0IHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2ZpbHRlcjJfcmVzb25hbmNl
+IHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48Yl9mMl9saW5rX3Jlc29uYW5jZSB0eXBlPSIw
+IiB2YWx1ZT0iMCIgLz48Yl9maWx0ZXIyX2Vudm1vZCB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAi
+IC8+PGJfZmlsdGVyMl9rZXl0cmFjayB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfZW52
+MV9hdHRhY2sgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9lbnYxX2F0dGFja19zaGFw
+ZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9lbnYxX2RlY2F5IHR5cGU9IjIiIHZhbHVlPSIwLjAw
+MDAwMCIgLz48Yl9lbnYxX2RlY2F5X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2VudjFf
+c3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfZW52MV9yZWxlYXNlIHR5cGU9
+IjIiIHZhbHVlPSItNS4wMDAwMDAiIC8+PGJfZW52MV9yZWxlYXNlX3NoYXBlIHR5cGU9IjAiIHZh
+bHVlPSIyIiAvPjxiX2VudjFfbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9lbnYyX2F0dGFj
+ayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2VudjJfYXR0YWNrX3NoYXBlIHR5cGU9
+IjAiIHZhbHVlPSIxIiAvPjxiX2VudjJfZGVjYXkgdHlwZT0iMiIgdmFsdWU9Ii0yLjAwMDAwMCIg
+Lz48Yl9lbnYyX2RlY2F5X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2VudjJfc3VzdGFp
+biB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfZW52Ml9yZWxlYXNlIHR5cGU9IjIiIHZh
+bHVlPSItMi4wMDAwMDAiIC8+PGJfZW52Ml9yZWxlYXNlX3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxiX2VudjJfbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9sZm8wX3NoYXBlIHR5cGU9
+IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzBfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRl
+YWN0aXZhdGVkPSIwIiAvPjxiX2xmbzBfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAv
+PjxiX2xmbzBfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9sZm8wX2Rl
+Zm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZvMF90cmlnbW9kZSB0eXBlPSIw
+IiB2YWx1ZT0iMSIgLz48Yl9sZm8wX3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xm
+bzBfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm8wX2F0dGFjayB0eXBl
+PSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzBfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTgu
+MDAwMDAwIiAvPjxiX2xmbzBfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xm
+bzBfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvMF9yZWxlYXNlIHR5
+cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48Yl9sZm8xX3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxiX2xmbzFfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIw
+IiAvPjxiX2xmbzFfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzFfbWFn
+bml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9sZm8xX2RlZm9ybSB0eXBlPSIy
+IiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZvMV90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIg
+Lz48Yl9sZm8xX3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzFfZGVsYXkgdHlw
+ZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm8xX2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0i
+LTguMDAwMDAwIiAvPjxiX2xmbzFfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxi
+X2xmbzFfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzFfc3VzdGFpbiB0
+eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvMV9yZWxlYXNlIHR5cGU9IjIiIHZhbHVl
+PSI1LjAwMDAwMCIgLz48Yl9sZm8yX3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzJf
+cmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxiX2xmbzJf
+cGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzJfbWFnbml0dWRlIHR5cGU9
+IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9sZm8yX2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4w
+MDAwMDAiIC8+PGJfbGZvMl90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZm8yX3Vu
+aXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzJfZGVsYXkgdHlwZT0iMiIgdmFsdWU9
+Ii04LjAwMDAwMCIgLz48Yl9sZm8yX2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAv
+PjxiX2xmbzJfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzJfZGVjYXkg
+dHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzJfc3VzdGFpbiB0eXBlPSIyIiB2YWx1
+ZT0iMS4wMDAwMDAiIC8+PGJfbGZvMl9yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIg
+Lz48Yl9sZm8zX3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzNfcmF0ZSB0eXBlPSIy
+IiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxiX2xmbzNfcGhhc2UgdHlwZT0i
+MiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzNfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIx
+LjAwMDAwMCIgLz48Yl9sZm8zX2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJf
+bGZvM190cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZm8zX3VuaXBvbGFyIHR5cGU9
+IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzNfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIg
+Lz48Yl9sZm8zX2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzNfaG9s
+ZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzNfZGVjYXkgdHlwZT0iMiIgdmFs
+dWU9IjAuMDAwMDAwIiAvPjxiX2xmbzNfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAi
+IC8+PGJfbGZvM19yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48Yl9sZm80X3No
+YXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzRfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4w
+MDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxiX2xmbzRfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAu
+MDAwMDAwIiAvPjxiX2xmbzRfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48
+Yl9sZm80X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZvNF90cmlnbW9k
+ZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZm80X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIw
+IiAvPjxiX2xmbzRfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm80X2F0
+dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzRfaG9sZCB0eXBlPSIyIiB2
+YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzRfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAw
+IiAvPjxiX2xmbzRfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvNF9y
+ZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48Yl9sZm81X3NoYXBlIHR5cGU9IjAi
+IHZhbHVlPSIwIiAvPjxiX2xmbzVfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0
+aXZhdGVkPSIwIiAvPjxiX2xmbzVfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxi
+X2xmbzVfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9sZm81X2RlZm9y
+bSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZvNV90cmlnbW9kZSB0eXBlPSIwIiB2
+YWx1ZT0iMSIgLz48Yl9sZm81X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzVf
+ZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm81X2F0dGFjayB0eXBlPSIy
+IiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzVfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAw
+MDAwIiAvPjxiX2xmbzVfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzVf
+c3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvNV9yZWxlYXNlIHR5cGU9
+IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48Yl9sZm82X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAv
+PjxiX2xmbzZfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAv
+PjxiX2xmbzZfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzZfbWFnbml0
+dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9sZm82X2RlZm9ybSB0eXBlPSIyIiB2
+YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZvNl90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48
+Yl9sZm82X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzZfZGVsYXkgdHlwZT0i
+MiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm82X2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTgu
+MDAwMDAwIiAvPjxiX2xmbzZfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xm
+bzZfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzZfc3VzdGFpbiB0eXBl
+PSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvNl9yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1
+LjAwMDAwMCIgLz48Yl9sZm83X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzdfcmF0
+ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxiX2xmbzdfcGhh
+c2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzdfbWFnbml0dWRlIHR5cGU9IjIi
+IHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9sZm83X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAw
+MDAiIC8+PGJfbGZvN190cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZm83X3VuaXBv
+bGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzdfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04
+LjAwMDAwMCIgLz48Yl9sZm83X2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxi
+X2xmbzdfaG9sZCB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzdfZGVjYXkgdHlw
+ZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzdfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0i
+MS4wMDAwMDAiIC8+PGJfbGZvN19yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48
+Yl9sZm84X3NoYXBlIHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzhfcmF0ZSB0eXBlPSIyIiB2
+YWx1ZT0iMC4wMDAwMDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxiX2xmbzhfcGhhc2UgdHlwZT0iMiIg
+dmFsdWU9IjAuMDAwMDAwIiAvPjxiX2xmbzhfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAw
+MDAwMCIgLz48Yl9sZm84X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZv
+OF90cmlnbW9kZSB0eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZm84X3VuaXBvbGFyIHR5cGU9IjAi
+IHZhbHVlPSIwIiAvPjxiX2xmbzhfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48
+Yl9sZm84X2F0dGFjayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzhfaG9sZCB0
+eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzhfZGVjYXkgdHlwZT0iMiIgdmFsdWU9
+IjAuMDAwMDAwIiAvPjxiX2xmbzhfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+
+PGJfbGZvOF9yZWxlYXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48Yl9sZm85X3NoYXBl
+IHR5cGU9IjAiIHZhbHVlPSIwIiAvPjxiX2xmbzlfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAw
+MDAiIGRlYWN0aXZhdGVkPSIwIiAvPjxiX2xmbzlfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAw
+MDAwIiAvPjxiX2xmbzlfbWFnbml0dWRlIHR5cGU9IjIiIHZhbHVlPSIxLjAwMDAwMCIgLz48Yl9s
+Zm85X2RlZm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZvOV90cmlnbW9kZSB0
+eXBlPSIwIiB2YWx1ZT0iMSIgLz48Yl9sZm85X3VuaXBvbGFyIHR5cGU9IjAiIHZhbHVlPSIwIiAv
+PjxiX2xmbzlfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm85X2F0dGFj
+ayB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzlfaG9sZCB0eXBlPSIyIiB2YWx1
+ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzlfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAv
+PjxiX2xmbzlfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvOV9yZWxl
+YXNlIHR5cGU9IjIiIHZhbHVlPSI1LjAwMDAwMCIgLz48Yl9sZm8xMF9zaGFwZSB0eXBlPSIwIiB2
+YWx1ZT0iMCIgLz48Yl9sZm8xMF9yYXRlIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgZGVhY3Rp
+dmF0ZWQ9IjAiIC8+PGJfbGZvMTBfcGhhc2UgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAvPjxi
+X2xmbzEwX21hZ25pdHVkZSB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvMTBfZGVm
+b3JtIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48Yl9sZm8xMF90cmlnbW9kZSB0eXBlPSIw
+IiB2YWx1ZT0iMSIgLz48Yl9sZm8xMF91bmlwb2xhciB0eXBlPSIwIiB2YWx1ZT0iMCIgLz48Yl9s
+Zm8xMF9kZWxheSB0eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzEwX2F0dGFjayB0
+eXBlPSIyIiB2YWx1ZT0iLTguMDAwMDAwIiAvPjxiX2xmbzEwX2hvbGQgdHlwZT0iMiIgdmFsdWU9
+Ii04LjAwMDAwMCIgLz48Yl9sZm8xMF9kZWNheSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+
+PGJfbGZvMTBfc3VzdGFpbiB0eXBlPSIyIiB2YWx1ZT0iMS4wMDAwMDAiIC8+PGJfbGZvMTBfcmVs
+ZWFzZSB0eXBlPSIyIiB2YWx1ZT0iNS4wMDAwMDAiIC8+PGJfbGZvMTFfc2hhcGUgdHlwZT0iMCIg
+dmFsdWU9IjAiIC8+PGJfbGZvMTFfcmF0ZSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIGRlYWN0
+aXZhdGVkPSIwIiAvPjxiX2xmbzExX3BoYXNlIHR5cGU9IjIiIHZhbHVlPSIwLjAwMDAwMCIgLz48
+Yl9sZm8xMV9tYWduaXR1ZGUgdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxiX2xmbzExX2Rl
+Zm9ybSB0eXBlPSIyIiB2YWx1ZT0iMC4wMDAwMDAiIC8+PGJfbGZvMTFfdHJpZ21vZGUgdHlwZT0i
+MCIgdmFsdWU9IjEiIC8+PGJfbGZvMTFfdW5pcG9sYXIgdHlwZT0iMCIgdmFsdWU9IjAiIC8+PGJf
+bGZvMTFfZGVsYXkgdHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm8xMV9hdHRhY2sg
+dHlwZT0iMiIgdmFsdWU9Ii04LjAwMDAwMCIgLz48Yl9sZm8xMV9ob2xkIHR5cGU9IjIiIHZhbHVl
+PSItOC4wMDAwMDAiIC8+PGJfbGZvMTFfZGVjYXkgdHlwZT0iMiIgdmFsdWU9IjAuMDAwMDAwIiAv
+PjxiX2xmbzExX3N1c3RhaW4gdHlwZT0iMiIgdmFsdWU9IjEuMDAwMDAwIiAvPjxiX2xmbzExX3Jl
+bGVhc2UgdHlwZT0iMiIgdmFsdWU9IjUuMDAwMDAwIiAvPjxjaGFyYWN0ZXIgdHlwZT0iMCIgdmFs
+dWU9IjAiIC8+PC9wYXJhbWV0ZXJzPjxleHRyYW9zY2RhdGEgLz48c3RlcHNlcXVlbmNlcyAvPjxt
+c2VncyAvPjxjdXN0b21jb250cm9sbGVyPjxlbnRyeSBpPSIwIiBiaXBvbGFyPSIwIiB2PSIwLjAw
+MDAwMCIgbGFiZWw9Ii0iIC8+PGVudHJ5IGk9IjEiIGJpcG9sYXI9IjAiIHY9IjAuMDAwMDAwIiBs
+YWJlbD0iLSIgLz48ZW50cnkgaT0iMiIgYmlwb2xhcj0iMCIgdj0iMC4wMDAwMDAiIGxhYmVsPSIt
+IiAvPjxlbnRyeSBpPSIzIiBiaXBvbGFyPSIwIiB2PSIwLjAwMDAwMCIgbGFiZWw9Ii0iIC8+PGVu
+dHJ5IGk9IjQiIGJpcG9sYXI9IjAiIHY9IjAuMDAwMDAwIiBsYWJlbD0iLSIgLz48ZW50cnkgaT0i
+NSIgYmlwb2xhcj0iMCIgdj0iMC4wMDAwMDAiIGxhYmVsPSItIiAvPjxlbnRyeSBpPSI2IiBiaXBv
+bGFyPSIwIiB2PSIwLjAwMDAwMCIgbGFiZWw9Ii0iIC8+PGVudHJ5IGk9IjciIGJpcG9sYXI9IjAi
+IHY9IjAuMDAwMDAwIiBsYWJlbD0iLSIgLz48L2N1c3RvbWNvbnRyb2xsZXI+PG1vZHdoZWVsIHMw
+PSIwLjAwMDAwMCIgczE9IjAuMDAwMDAwIiAvPjxkYXdFeHRyYVN0YXRlIHBvcHVsYXRlZD0iMSI+
+PGluc3RhbmNlWm9vbUZhY3RvciB2PSItMSIgLz48bXBlRW5hYmxlZCB2PSIwIiAvPjxtcGVQaXRj
+aEJlbmRSYW5nZSB2PSI0OCIgLz48aGFzVHVuaW5nIHY9IjAiIC8+PHR1bmluZ0NvbnRlbnRzIHY9
+IiIgLz48aGFzTWFwcGluZyB2PSIwIiAvPjxtYXBwaW5nQ29udGVudHMgdj0iIiAvPjxtaWRpY3Ry
+bF9tYXAgLz48Y3VzdG9tY29udHJvbF9tYXA+PGMgcD0iNyIgdj0iNDgiIC8+PGMgcD0iNiIgdj0i
+NDciIC8+PGMgcD0iNSIgdj0iNDYiIC8+PGMgcD0iNCIgdj0iNDUiIC8+PGMgcD0iMyIgdj0iNDQi
+IC8+PGMgcD0iMiIgdj0iNDMiIC8+PGMgcD0iMSIgdj0iNDIiIC8+PGMgcD0iMCIgdj0iNDEiIC8+
+PC9jdXN0b21jb250cm9sX21hcD48L2Rhd0V4dHJhU3RhdGU+PC9wYXRjaD4="""^^xsd:base64Binary
+	] .
+
