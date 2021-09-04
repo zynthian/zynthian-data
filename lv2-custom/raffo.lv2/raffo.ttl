@@ -1,0 +1,467 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix midi: <http://lv2plug.in/ns/ext/midi#> .
+@prefix urid: <http://lv2plug.in/ns/ext/urid#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ll:   <http://ll-plugins.nongnu.org/lv2/namespace#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2pg:   <http://lv2plug.in/ns/ext/port-groups#> .
+
+@prefix raffosynth_lv2: <http://github.com/nicoroulet/RaffoSynth#> .
+
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#>.
+
+@prefix guiext: <http://lv2plug.in/ns/extensions/ui#>.
+
+<http://example.org/raffo/gui>
+  a guiext:GtkUI;
+  guiext:binary <raffo_gui.so>;
+  guiext:requiredFeature guiext:makeResident;
+  guiext:requiredFeature guiext:Events.
+
+<http://example.org/raffo>
+	a lv2:Plugin, lv2:InstrumentPlugin;
+	doap:name "Raffo Synth";
+	doap:license <http://opensource.org/licenses/isc>;
+	doap:maintainer [ foaf:name "Julian Palladino-Nicolas Roulet" ; ] ;
+	ll:pegName "m";
+	guiext:ui <http://example.org/raffo/gui>;
+
+	lv2:port [
+		a atom:AtomPort, lv2:InputPort;
+		atom:bufferType atom:Sequence;
+		atom:supports midi:MidiEvent;
+		lv2:index 0;
+		lv2:symbol "midi";
+		lv2:name "MIDI";
+  ],
+  [
+	a lv2:AudioPort, lv2:OutputPort;
+	lv2:index 1;
+	lv2:symbol "output";
+	lv2:name "Output";
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 2;
+	lv2:symbol "volume";
+	lv2:name "Volume";
+	lv2:minimum 0; 
+	lv2:maximum 10.01;
+	lv2:default 7;
+    lv2pg:group raffosynth_lv2:CTRL_FLT;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 3;
+	lv2:symbol "wave0";
+	lv2:name "Waveform Osc0";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 2;
+	lv2:minimum 0;
+	lv2:maximum 4;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "saw" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "triangle" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "square" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "pulse" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC0;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 4;
+	lv2:symbol "wave1";
+	lv2:name "Waveform Osc1";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 2;
+	lv2:minimum 0;
+	lv2:maximum 4;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "saw" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "triangle" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "square" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "pulse" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC1;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 5;
+	lv2:symbol "wave2";
+	lv2:name "Waveform Osc2";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 0;
+	lv2:minimum 0;
+	lv2:maximum 4;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "saw" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "triangle" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "square" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "pulse" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC2;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 6;
+	lv2:symbol "wave3";
+	lv2:name "Waveform Osc3";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 3;
+	lv2:minimum 0;
+	lv2:maximum 4;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "saw" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "triangle" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "square" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "pulse" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC3;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 7;
+	lv2:symbol "range0";
+	lv2:name "Range Osc0";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 2;
+	lv2:minimum 1;
+	lv2:maximum 6;
+	lv2:scalePoint [ rdf:value 1; rdfs:label "32'" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "16'" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "8'" ];
+	lv2:scalePoint [ rdf:value 4; rdfs:label "4'" ];
+	lv2:scalePoint [ rdf:value 5; rdfs:label "2'" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC0;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 8;
+	lv2:symbol "range1";
+	lv2:name "Range Osc1";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 2;
+	lv2:minimum 1;
+	lv2:maximum 6;
+	lv2:scalePoint [ rdf:value 1; rdfs:label "32'" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "16'" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "8'" ];
+	lv2:scalePoint [ rdf:value 4; rdfs:label "4'" ];
+	lv2:scalePoint [ rdf:value 5; rdfs:label "2'" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC1;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 9;
+	lv2:symbol "range2";
+	lv2:name "Range Osc2";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 1;
+	lv2:minimum 1;
+	lv2:maximum 6;
+	lv2:scalePoint [ rdf:value 1; rdfs:label "32'" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "16'" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "8'" ];
+	lv2:scalePoint [ rdf:value 4; rdfs:label "4'" ];
+	lv2:scalePoint [ rdf:value 5; rdfs:label "2'" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC2;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 10;
+	lv2:symbol "range3";
+	lv2:name "Range Osc3";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 2;
+	lv2:minimum 1;
+	lv2:maximum 6;
+	lv2:scalePoint [ rdf:value 1; rdfs:label "32'" ];
+	lv2:scalePoint [ rdf:value 2; rdfs:label "16'" ];
+	lv2:scalePoint [ rdf:value 3; rdfs:label "8'" ];
+	lv2:scalePoint [ rdf:value 4; rdfs:label "4'" ];
+	lv2:scalePoint [ rdf:value 5; rdfs:label "2'" ];
+    lv2pg:group raffosynth_lv2:CTRL_OSC3;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 11;
+	lv2:symbol "vol0";
+	lv2:name "Volume 0";
+	lv2:minimum 0; 
+	lv2:maximum 10.01;
+	lv2:default 7;
+    lv2pg:group raffosynth_lv2:CTRL_OSC0;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 12;
+	lv2:symbol "vol1";
+	lv2:name "Volume 1";
+	lv2:minimum 0; 
+	lv2:maximum 10.01;
+	lv2:default 5;
+    lv2pg:group raffosynth_lv2:CTRL_OSC1;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 13;
+	lv2:symbol "vol2";
+	lv2:name "Volume 2";
+	lv2:minimum 0; 
+	lv2:maximum 10.01;
+	lv2:default 4;
+    lv2pg:group raffosynth_lv2:CTRL_OSC2;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 14;
+	lv2:symbol "vol3";
+	lv2:name "Volume 3";
+	lv2:minimum 0; 
+	lv2:maximum 10.01;
+	lv2:default 7;
+    lv2pg:group raffosynth_lv2:CTRL_OSC3;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 15;
+	lv2:symbol "attack";
+	lv2:name "Attack";
+	lv2:minimum 10; 
+	lv2:maximum 1000.01;
+	lv2:default 0;
+    lv2pg:group raffosynth_lv2:ENV_AMP;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 16;
+	lv2:symbol "decay";
+	lv2:name "Decay";
+	lv2:minimum 0; 
+	lv2:maximum 1000.01;
+	lv2:default 200;
+    lv2pg:group raffosynth_lv2:ENV_AMP;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 17;
+	lv2:symbol "sustain";
+	lv2:name "Sustain";
+	lv2:minimum 0; 
+	lv2:maximum 1.01;
+	lv2:default 0.8;
+    lv2pg:group raffosynth_lv2:ENV_AMP;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 18;
+	lv2:symbol "release";
+	lv2:name "Release";
+	lv2:minimum 0.01; 
+	lv2:maximum 1.01;
+	lv2:default 0.4;
+    lv2pg:group raffosynth_lv2:ENV_AMP;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 19;
+	lv2:symbol "filter_cutoff";
+	lv2:name "Cutoff";
+	lv2:minimum 500; 
+	lv2:maximum 10000.02;
+	lv2:default 3000;
+	#lv2:PortProperty pprops:logarithmic;
+    lv2pg:group raffosynth_lv2:CTRL_FLT;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 20;
+	lv2:symbol "filter_attack";
+	lv2:name "Filter Attack";
+	lv2:minimum 0; 
+	lv2:maximum 1000.01;
+	lv2:default 200;
+    lv2pg:group raffosynth_lv2:ENV_FLT;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 21;
+	lv2:symbol "filter_decay";
+	lv2:name "Filter Decay";
+	lv2:minimum 0; 
+	lv2:maximum 1000.01;
+	lv2:default 400;
+    lv2pg:group raffosynth_lv2:ENV_FLT;
+  ],  
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 22;
+	lv2:symbol "filter_sustain";
+	lv2:name "Filter Sustain";
+	lv2:minimum 0; 
+	lv2:maximum 1.01;
+	lv2:default 0.7;
+    lv2pg:group raffosynth_lv2:ENV_FLT;
+  ],  
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 23;
+	lv2:symbol "glide";
+	lv2:name "Glide";
+	lv2:minimum 0; 
+	lv2:maximum 10.01;
+	lv2:default 1;
+    lv2pg:group raffosynth_lv2:CTRL_FLT;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 24;
+	lv2:symbol "oscButton0";
+	lv2:name "Button Osc0";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 1;
+	lv2:minimum 0;
+	lv2:maximum 2;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "Off" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "On" ];
+    lv2pg:group raffosynth_lv2:MIX_OSC;
+  ],  
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 25;
+	lv2:symbol "oscButton1";
+	lv2:name "Button Osc1";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 1;
+	lv2:minimum 0;
+	lv2:maximum 2;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "Off" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "On" ];
+    lv2pg:group raffosynth_lv2:MIX_OSC;
+  ], 
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 26;
+	lv2:symbol "oscButton2";
+	lv2:name "Button Osc2";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 1;
+	lv2:minimum 0;
+	lv2:maximum 2;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "Off" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "On" ];
+    lv2pg:group raffosynth_lv2:MIX_OSC;
+  ], 
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 27;
+	lv2:symbol "oscButton3";
+	lv2:name "Button Osc3";
+	#lv2:portProperty epp:hasStrictBounds;
+	lv2:portProperty lv2:integer , lv2:enumeration;
+	lv2:default 0;
+	lv2:minimum 0;
+	lv2:maximum 2;
+	lv2:scalePoint [ rdf:value 0; rdfs:label "Off" ];
+	lv2:scalePoint [ rdf:value 1; rdfs:label "On" ];
+    lv2pg:group raffosynth_lv2:MIX_OSC;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 28;
+	lv2:symbol "filter_resonance";
+	lv2:name "Resonance";
+	lv2:minimum 0; 
+	lv2:maximum 10.01;
+	lv2:default 3;
+    lv2pg:group raffosynth_lv2:CTRL_FLT;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 29;
+	lv2:symbol "tuning0";
+	lv2:name "Osc tuning 0";
+	lv2:minimum -12.0; 
+	lv2:maximum 12.01;
+	lv2:default 0;
+    lv2pg:group raffosynth_lv2:CTRL_OSC0;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 30;
+	lv2:symbol "tuning1";
+	lv2:name "Osc tuning 1";
+	lv2:minimum -12.0; 
+	lv2:maximum 12.01;
+	lv2:default -0.02;
+    lv2pg:group raffosynth_lv2:CTRL_OSC1;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 31;
+	lv2:symbol "tuning2";
+	lv2:name "Osc tuning2";
+	lv2:minimum -12.0; 
+	lv2:maximum 12.01;
+	lv2:default 0.02;
+    lv2pg:group raffosynth_lv2:CTRL_OSC2;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 32;
+	lv2:symbol "tuning3";
+	lv2:name "Osc tuning3";
+	lv2:minimum -12.0; 
+	lv2:maximum 12.01;
+	lv2:default 0;
+    lv2pg:group raffosynth_lv2:CTRL_OSC3;
+  ],
+  [
+	a lv2:ControlPort, lv2:InputPort;
+	lv2:index 33;
+	lv2:symbol "filter_release";
+	lv2:name "Filter release";
+	lv2:minimum 0; 
+	lv2:maximum 1.01;
+	lv2:default 0.5;
+    lv2pg:group raffosynth_lv2:ENV_FLT;
+  ].
+  
+raffosynth_lv2:CTRL_OSC0
+   a lv2pg:InputGroup;
+   lv2:name "Osc0 - ctrl" ;
+   lv2:symbol "OSC0" .
+raffosynth_lv2:CTRL_OSC1
+   a lv2pg:InputGroup;
+   lv2:name "Osc1 - ctrl" ;
+   lv2:symbol "OSC1" .
+raffosynth_lv2:CTRL_OSC2
+   a lv2pg:InputGroup;
+   lv2:name "Osc2 - ctrl" ;
+   lv2:symbol "OSC2" .
+raffosynth_lv2:CTRL_OSC3
+   a lv2pg:InputGroup;
+   lv2:name "Osc3 - ctrl" ;
+   lv2:symbol "OSC3" .
+raffosynth_lv2:ENV_FLT
+   a lv2pg:InputGroup;
+   lv2:name "Filter - env" ;
+   lv2:symbol "ENVF" .
+raffosynth_lv2:CTRL_FLT
+   a lv2pg:InputGroup;
+   lv2:name "Filter & vol - ctrl" ;
+   lv2:symbol "FLT" .
+raffosynth_lv2:MIX_OSC
+   a lv2pg:InputGroup;
+   lv2:name "Osc - Mix" ;
+   lv2:symbol "MIX" .
+raffosynth_lv2:ENV_AMP
+   a lv2pg:InputGroup;
+   lv2:name "Amp - env" ;
+   lv2:symbol "AMP" .
