@@ -128,10 +128,10 @@
             rdfs:comment "BP SV 24dB" ;
         ], [
             rdf:value 0.865 ;
-            rdfs:label "Unknown" ;
-            rdfs:comment "Unknown" ;
+            rdfs:label "Moog 24dB" ;
+            rdfs:comment "Moog 24dB" ;
         ];
-        pg:group tal_noisemaker_lv2:FILTER ;
+        pg:group tal_noisemaker_lv2:FILTER_SETUP ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -257,31 +257,31 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 19 ;
         lv2:symbol "osc1volume" ;
-        lv2:name "osc1 volume" ;
+        lv2:name "osc1 level" ;
         lv2:default 0.800000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MASTER ;
+        pg:group tal_noisemaker_lv2:MIXER ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 20 ;
         lv2:symbol "osc2volume" ;
-        lv2:name "osc2 volume" ;
+        lv2:name "osc2 level" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MASTER ;
+        pg:group tal_noisemaker_lv2:MIXER ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 21 ;
         lv2:symbol "osc3volume" ;
-        lv2:name "sub volume" ;
+        lv2:name "sub level" ;
         lv2:default 0.800000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MASTER ;
+        pg:group tal_noisemaker_lv2:MIXER ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -297,47 +297,47 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 23 ;
         lv2:symbol "osc1tune" ;
-        lv2:name "tune" ;
+        lv2:name "osc1 tune" ;
         lv2:default 0.250000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC1 ;
+        pg:group tal_noisemaker_lv2:OSC_TUNE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 24 ;
         lv2:symbol "osc2tune" ;
-        lv2:name "tune" ;
+        lv2:name "osc2 tune" ;
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC2 ;
+        pg:group tal_noisemaker_lv2:OSC_TUNE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 25 ;
         lv2:symbol "osc1finetune" ;
-        lv2:name "fine tune" ;
+        lv2:name "osc1 fine tune" ;
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC1 ;
+        pg:group tal_noisemaker_lv2:OSC_TUNE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 26 ;
         lv2:symbol "osc2finetune" ;
-        lv2:name "fine tune" ;
+        lv2:name "osc2 fine tune" ;
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC2 ;
+        pg:group tal_noisemaker_lv2:OSC_TUNE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 27 ;
         lv2:symbol "osc1waveform" ;
-        lv2:name "waveform" ;
+        lv2:name "osc1 waveform" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -354,13 +354,13 @@
             rdfs:label "Noise" ;
             rdfs:comment "Noise" ;
         ];
-        pg:group tal_noisemaker_lv2:OSC1 ;
+        pg:group tal_noisemaker_lv2:OSC_WAVE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 28 ;
         lv2:symbol "osc2waveform" ;
-        lv2:name "waveform" ;
+        lv2:name "osc2 waveform" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -385,7 +385,7 @@
             rdfs:label "Noise" ;
             rdfs:comment "Noise" ;
         ];
-        pg:group tal_noisemaker_lv2:OSC2 ;
+        pg:group tal_noisemaker_lv2:OSC_WAVE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -404,13 +404,13 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:MASTER ;
+        pg:group tal_noisemaker_lv2:OSC_MISC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 30 ;
         lv2:symbol "lfo1waveform" ;
-        lv2:name "waveform" ;
+        lv2:name "lfo1 wave" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -439,13 +439,13 @@
             rdfs:label "Noise" ;
             rdfs:comment "Noise" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO1 ;
+        pg:group tal_noisemaker_lv2:LFO_WAVE_RATE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 31 ;
         lv2:symbol "lfo2waveform" ;
-        lv2:name "waveform" ;
+        lv2:name "lfo2 wave" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -474,53 +474,53 @@
             rdfs:label "Noise" ;
             rdfs:comment "Noise" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO2 ;
+        pg:group tal_noisemaker_lv2:LFO_WAVE_RATE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 32 ;
         lv2:symbol "lfo1rate" ;
-        lv2:name "rate" ;
+        lv2:name "lfo1 rate" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:LFO1 ;
+        pg:group tal_noisemaker_lv2:LFO_WAVE_RATE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 33 ;
         lv2:symbol "lfo2rate" ;
-        lv2:name "rate" ;
+        lv2:name "lfo2 rate" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:LFO2 ;
+        pg:group tal_noisemaker_lv2:LFO_WAVE_RATE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 34 ;
         lv2:symbol "lfo1amount" ;
-        lv2:name "amount" ;
+        lv2:name "lfo1 amount" ;
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:LFO1 ;
+        pg:group tal_noisemaker_lv2:LFO_DEST ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 35 ;
         lv2:symbol "lfo2amount" ;
-        lv2:name "amount" ;
+        lv2:name "lfo2 amount" ;
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:LFO2 ;
+        pg:group tal_noisemaker_lv2:LFO_DEST ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 36 ;
         lv2:symbol "lfo1destination" ;
-        lv2:name "destination" ;
+        lv2:name "lfo1 dest" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -557,13 +557,13 @@
             rdfs:label "Osc1 & Osc2" ;
             rdfs:comment "Osc1 & Osc2" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO1 ;
+        pg:group tal_noisemaker_lv2:LFO_DEST ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 37 ;
         lv2:symbol "lfo2destination" ;
-        lv2:name "destination" ;
+        lv2:name "lfo2 dest" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -600,67 +600,67 @@
             rdfs:label "Osc1 & Osc2" ;
             rdfs:comment "Osc1 & Osc2" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO2 ;
+        pg:group tal_noisemaker_lv2:LFO_DEST ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 38 ;
         lv2:symbol "lfo1phase" ;
-        lv2:name "phase" ;
+        lv2:name "lfo1 phase" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:LFO1 ;
+        pg:group tal_noisemaker_lv2:LFO_PHASE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 39 ;
         lv2:symbol "lfo2phase" ;
-        lv2:name "phase" ;
+        lv2:name "lfo2 phase" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:LFO2 ;
+        pg:group tal_noisemaker_lv2:LFO_PHASE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 40 ;
         lv2:symbol "osc2fm" ;
-        lv2:name "fm" ;
+        lv2:name "osc2 fm" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC2 ;
+        pg:group tal_noisemaker_lv2:OSC_WAVE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 41 ;
         lv2:symbol "osc2phase" ;
-        lv2:name "phase" ;
+        lv2:name "osc2 phase" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC2 ;
+        pg:group tal_noisemaker_lv2:OSC_MISC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 42 ;
         lv2:symbol "osc1pw" ;
-        lv2:name "pw" ;
+        lv2:name "osc1 pulsewidth" ;
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC1 ;
+        pg:group tal_noisemaker_lv2:OSC_WAVE ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 43 ;
         lv2:symbol "osc1phase" ;
-        lv2:name "phase" ;
+        lv2:name "osc1 phase" ;
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:OSC1 ;
+        pg:group tal_noisemaker_lv2:OSC_MISC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -759,7 +759,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 49 ;
         lv2:symbol "lfo1sync" ;
-        lv2:name "sync" ;
+        lv2:name "lfo1 sync" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -772,13 +772,13 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO1 ;
+        pg:group tal_noisemaker_lv2:LFO_SWITCHES ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 50 ;
         lv2:symbol "lfo1keytrigger" ;
-        lv2:name "key trigger" ;
+        lv2:name "lfo1 key trigger" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -791,13 +791,13 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO1 ;
+        pg:group tal_noisemaker_lv2:LFO_SWITCHES ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 51 ;
         lv2:symbol "lfo2sync" ;
-        lv2:name "sync" ;
+        lv2:name "lfo2 sync" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -810,13 +810,13 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO2 ;
+        pg:group tal_noisemaker_lv2:LFO_SWITCHES ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 52 ;
         lv2:symbol "lfo2keytrigger" ;
-        lv2:name "key trigger" ;
+        lv2:name "lfo2 key trigger" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -829,7 +829,7 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:LFO2 ;
+        pg:group tal_noisemaker_lv2:LFO_SWITCHES ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -839,7 +839,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MASTER ;
+        pg:group tal_noisemaker_lv2:CTRL_PITCH ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -863,7 +863,7 @@
             rdfs:comment "ON" ;
 
         ];
-        pg:group tal_noisemaker_lv2:MASTER ;
+        pg:group tal_noisemaker_lv2:CTRL_PITCH ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -934,21 +934,21 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 59 ;
         lv2:symbol "pitchwheelcutoff" ;
-        lv2:name "pw cutoff" ;
+        lv2:name "bend cutoff" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_PW_CH ;
+        pg:group tal_noisemaker_lv2:CTRL_PITCH ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 60 ;
         lv2:symbol "pitchwheelpitch" ;
-        lv2:name "pw pitch" ;
+        lv2:name "bend pitch" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_PW_CH ;
+        pg:group tal_noisemaker_lv2:CTRL_PITCH ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -958,7 +958,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MASTER ;
+        pg:group tal_noisemaker_lv2:MIXER ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -977,7 +977,7 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:CTRL_PW_CH ;
+        pg:group tal_noisemaker_lv2:CHORUS ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -996,7 +996,7 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:CTRL_PW_CH ;
+        pg:group tal_noisemaker_lv2:CHORUS ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1036,7 +1036,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_REVERB ;
+        pg:group tal_noisemaker_lv2:CTRL_REVERB_EQ ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1046,7 +1046,7 @@
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_REVERB ;
+        pg:group tal_noisemaker_lv2:CTRL_REVERB_EQ ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1056,7 +1056,7 @@
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_BITCRSH ;
+        pg:group tal_noisemaker_lv2:DEGENERATION_CTRL ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1066,7 +1066,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_MASTER ;
+        pg:group tal_noisemaker_lv2:FILTER_SETUP ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1076,7 +1076,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_MASTER ;
+        pg:group tal_noisemaker_lv2:DEGENERATION_CTRL ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1086,17 +1086,16 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_MASTER ;
+        pg:group tal_noisemaker_lv2:DEGENERATION_CTRL ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 73 ;
         lv2:symbol "lv2_port_70" ;
-        lv2:name "Port 70" ;
+        lv2:name "panic" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1111,7 +1110,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 75 ;
         lv2:symbol "envelopeeditordest1" ;
-        lv2:name "dest1" ;
+        lv2:name "dest" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -1148,7 +1147,7 @@
             rdfs:label "Osc1 & Osc2" ;
             rdfs:comment "Osc1 & Osc2" ;
         ];
-        pg:group tal_noisemaker_lv2:ENV ;
+        pg:group tal_noisemaker_lv2:ENV_DEST ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1183,7 +1182,7 @@
             rdfs:label "x32" ;
             rdfs:comment "x32" ;
         ];
-        pg:group tal_noisemaker_lv2:ENV ;
+        pg:group tal_noisemaker_lv2:ENV_SETUP ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1193,7 +1192,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:ENV ;
+        pg:group tal_noisemaker_lv2:ENV_DEST ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1212,13 +1211,13 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:ENV ;
+        pg:group tal_noisemaker_lv2:ENV_SETUP;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 79 ;
         lv2:symbol "envelopefixtempo" ;
-        lv2:name "fixtempo 120BPM" ;
+        lv2:name "fixed 120 BPM" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -1231,67 +1230,63 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:ENV ;
+        pg:group tal_noisemaker_lv2:ENV_SETUP;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 80 ;
         lv2:symbol "lv2_port_77" ;
-        lv2:name "Port 77" ;
+        lv2:name "reset" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
+        pg:group tal_noisemaker_lv2:ENV_SETUP;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 81 ;
         lv2:symbol "lv2_port_78" ;
-        lv2:name "Port 78" ;
+        lv2:name "Synth1 tab" ;
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 82 ;
         lv2:symbol "lv2_port_79" ;
-        lv2:name "Port 79" ;
+        lv2:name "Synth2 tab" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 83 ;
         lv2:symbol "lv2_port_80" ;
-        lv2:name "Port 80" ;
+        lv2:name "Env tab" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 84 ;
         lv2:symbol "lv2_port_81" ;
-        lv2:name "Port 81" ;
+        lv2:name "Control tab" ;
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 85 ;
         lv2:symbol "filterdrive" ;
-        lv2:name "filterdrive" ;
+        lv2:name "drive" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_MASTER ;
+        pg:group tal_noisemaker_lv2:FILTER_SETUP ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1301,7 +1296,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_MAIN ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1311,7 +1306,7 @@
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_MAIN ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1330,7 +1325,7 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_MAIN ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1349,7 +1344,7 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_AUX ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1368,7 +1363,7 @@
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_AUX ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1378,7 +1373,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_AUX ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1388,7 +1383,7 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_AUX ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1398,27 +1393,25 @@
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:CTRL_DELAY ;
+        pg:group tal_noisemaker_lv2:CTRL_DELAY_MAIN ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 94 ;
         lv2:symbol "lv2_port_91" ;
-        lv2:name "Port 91" ;
+        lv2:name "preset load" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 95 ;
         lv2:symbol "lv2_port_92" ;
-        lv2:name "Port 92" ;
+        lv2:name "preset save" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:MIDI_CC ;
     ] ;
 
     doap:name "Noize Mak3r" ;
@@ -1430,26 +1423,36 @@ tal_noisemaker_lv2:MASTER
    lv2:name "Master" ;
    lv2:symbol "MASTER" .
 
-tal_noisemaker_lv2:OSC1
+tal_noisemaker_lv2:OSC_TUNE
    a pg:InputGroup;
-   lv2:name "OSC1" ;
-   lv2:symbol "OSC1" .
+   lv2:name "Osc Tune" ;
+   lv2:symbol "OSC TUNE" .
 
-tal_noisemaker_lv2:OSC2
+tal_noisemaker_lv2:OSC_WAVE
    a pg:InputGroup;
-   lv2:name "OSC2" ;
-   lv2:symbol "OSC2" .
+   lv2:name "Osc Waveform" ;
+   lv2:symbol "OSC_WAVE" .
 
-tal_noisemaker_lv2:LFO1
+tal_noisemaker_lv2:OSC_MISC
    a pg:InputGroup;
-   lv2:name "LFO1" ;
-   lv2:symbol "LFO1" .
+   lv2:name "Osc Sync & Phase" ;
+   lv2:symbol "OSC_MISC" .
 
-tal_noisemaker_lv2:LFO2
+tal_noisemaker_lv2:DEGENERATION_CTRL
    a pg:InputGroup;
-   lv2:name "LFO2" ;
-   lv2:symbol "LFO2" .
-  
+   lv2:name "Degeneration" ;
+   lv2:symbol "DEGENERATION_CTRL" .
+
+tal_noisemaker_lv2:MIXER
+   a pg:InputGroup;
+   lv2:name "Mixer" ;
+   lv2:symbol "MIXER" .
+
+tal_noisemaker_lv2:FILTER_SETUP
+   a pg:InputGroup;
+   lv2:name "Filter Setup" ;
+   lv2:symbol "FILTER_SETUP" .
+
 tal_noisemaker_lv2:FILTER
    a pg:InputGroup;
    lv2:name "Filter" ;
@@ -1470,42 +1473,67 @@ tal_noisemaker_lv2:FREE_AD
    lv2:name "Free AD" ;
    lv2:symbol "FREE_AD" .
 
-tal_noisemaker_lv2:ENV
+tal_noisemaker_lv2:ENV_DEST
    a pg:InputGroup;
-   lv2:name "ENV" ;
-   lv2:symbol "ENV" .
+   lv2:name "Env Destination" ;
+   lv2:symbol "ENV_DEST" .
 
-tal_noisemaker_lv2:CTRL_VEL
+tal_noisemaker_lv2:ENV_SETUP
    a pg:InputGroup;
-   lv2:name "Velocity" ;
-   lv2:symbol "CTRL_VEL" .
+   lv2:name "Env Setup" ;
+   lv2:symbol "ENV_SETUP" .
 
-tal_noisemaker_lv2:CTRL_PW_CH
+tal_noisemaker_lv2:LFO_WAVE_RATE
    a pg:InputGroup;
-   lv2:name "PitchWheel & Chorus" ;
-   lv2:symbol "CTRL_PW_CH" .
+   lv2:name "LFO Wave & Rate" ;
+   lv2:symbol "LFO_WAVE_RATE" .
 
-tal_noisemaker_lv2:CTRL_MASTER
+tal_noisemaker_lv2:LFO_DEST
    a pg:InputGroup;
-   lv2:name "Control Master" ;
-   lv2:symbol "CTRL_MASTER" .
+   lv2:name "LFO Destination" ;
+   lv2:symbol "LFO_DEST" .
 
-tal_noisemaker_lv2:CTRL_BITCRSH
+tal_noisemaker_lv2:LFO_PHASE
    a pg:InputGroup;
-   lv2:name "OSC BitCrush" ;
-   lv2:symbol "CTRL_BITCRSH" .
+   lv2:name "LFO Phase" ;
+   lv2:symbol "LFO_PHASE" .
+
+tal_noisemaker_lv2:LFO_SWITCHES
+   a pg:InputGroup;
+   lv2:name "LFO Switches" ;
+   lv2:symbol "LFO_SWITCHES" .
+
+tal_noisemaker_lv2:CHORUS
+   a pg:InputGroup;
+   lv2:name "Chorus" ;
+   lv2:symbol "CHORUS" .
 
 tal_noisemaker_lv2:CTRL_REVERB
    a pg:InputGroup;
    lv2:name "Reverb" ;
    lv2:symbol "CTRL_REVERB" .
 
-tal_noisemaker_lv2:CTRL_DELAY
+tal_noisemaker_lv2:CTRL_REVERB_EQ
    a pg:InputGroup;
-   lv2:name "Delay" ;
-   lv2:symbol "CTRL_DELAY" .
+   lv2:name "Reverb EQ" ;
+   lv2:symbol "CTRL_REVERB_EQ" .
 
-tal_noisemaker_lv2:MIDI_CC
+tal_noisemaker_lv2:CTRL_DELAY_MAIN
    a pg:InputGroup;
-   lv2:name "MIDI CC" ;
-   lv2:symbol "MIDI_CC" .
+   lv2:name "Delay Time & Amount" ;
+   lv2:symbol "CTRL_DELAY_MAIN" .
+
+tal_noisemaker_lv2:CTRL_DELAY_AUX
+   a pg:InputGroup;
+   lv2:name "Delay LR Scale & EQ" ;
+   lv2:symbol "CTRL_DELAY_AUX" .
+
+tal_noisemaker_lv2:CTRL_PITCH
+   a pg:InputGroup;
+   lv2:name "Portamento & Bend" ;
+   lv2:symbol "CTRL_PITCH" .
+
+tal_noisemaker_lv2:CTRL_VEL
+   a pg:InputGroup;
+   lv2:name "Velocity" ;
+   lv2:symbol "CTRL_VEL" .
