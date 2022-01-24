@@ -44,6 +44,15 @@
         lv2:maximum 1.0 ;
         lv2:designation <http://lv2plug.in/ns/lv2core#freeWheeling> ;
         lv2:portProperty lv2:toggled, <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
     ] ;
 
     lv2:port [
@@ -177,7 +186,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 11 ;
         lv2:symbol "filterattack" ;
-        lv2:name "attack" ;
+        lv2:name "filter attack" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -187,7 +196,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 12 ;
         lv2:symbol "filterdecay" ;
-        lv2:name "decay" ;
+        lv2:name "filter decay" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -197,7 +206,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 13 ;
         lv2:symbol "filtersustain" ;
-        lv2:name "sustain" ;
+        lv2:name "filter sustain" ;
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -207,7 +216,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 14 ;
         lv2:symbol "filterrelease" ;
-        lv2:name "release" ;
+        lv2:name "filter release" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -217,7 +226,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 15 ;
         lv2:symbol "ampattack" ;
-        lv2:name "attack" ;
+        lv2:name "amp attack" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -227,7 +236,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 16 ;
         lv2:symbol "ampdecay" ;
-        lv2:name "decay" ;
+        lv2:name "amp decay" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -237,7 +246,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 17 ;
         lv2:symbol "ampsustain" ;
-        lv2:name "sustain" ;
+        lv2:name "amp sustain" ;
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -247,7 +256,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 18 ;
         lv2:symbol "amprelease" ;
-        lv2:name "release" ;
+        lv2:name "amp release" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -301,6 +310,203 @@
         lv2:default 0.250000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "0" ;
+            rdfs:comment "0" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "1" ;
+            rdfs:comment "1" ;
+        ], [
+            rdf:value 0.025 ;
+            rdfs:label "2" ;
+            rdfs:comment "2" ;
+        ], [
+            rdf:value 0.045 ;
+            rdfs:label "3" ;
+            rdfs:comment "3" ;
+        ], [
+            rdf:value 0.065 ;
+            rdfs:label "4" ;
+            rdfs:comment "4" ;
+        ], [
+            rdf:value 0.085 ;
+            rdfs:label "5" ;
+            rdfs:comment "5" ;
+        ], [
+            rdf:value 0.105 ;
+            rdfs:label "6" ;
+            rdfs:comment "6" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "7" ;
+            rdfs:comment "7" ;
+        ], [
+            rdf:value 0.15 ;
+            rdfs:label "8" ;
+            rdfs:comment "8" ;
+        ], [
+            rdf:value 0.17 ;
+            rdfs:label "9" ;
+            rdfs:comment "9" ;
+        ], [
+            rdf:value 0.19 ;
+            rdfs:label "10" ;
+            rdfs:comment "10" ;
+        ], [
+            rdf:value 0.21 ;
+            rdfs:label "11" ;
+            rdfs:comment "11" ;
+        ], [
+            rdf:value 0.23 ;
+            rdfs:label "12" ;
+            rdfs:comment "12" ;
+        ], [
+            rdf:value 0.255 ;
+            rdfs:label "13" ;
+            rdfs:comment "13" ;
+        ], [
+            rdf:value 0.275 ;
+            rdfs:label "14" ;
+            rdfs:comment "14" ;
+        ], [
+            rdf:value 0.295 ;
+            rdfs:label "15" ;
+            rdfs:comment "15" ;
+        ], [
+            rdf:value 0.315 ;
+            rdfs:label "16" ;
+            rdfs:comment "16" ;
+        ], [
+            rdf:value 0.335 ;
+            rdfs:label "17" ;
+            rdfs:comment "17" ;
+        ], [
+            rdf:value 0.355 ;
+            rdfs:label "18" ;
+            rdfs:comment "18" ;
+        ], [
+            rdf:value 0.38 ;
+            rdfs:label "19" ;
+            rdfs:comment "19" ;
+        ], [
+            rdf:value 0.4 ;
+            rdfs:label "20" ;
+            rdfs:comment "20" ;
+        ], [
+            rdf:value 0.42 ;
+            rdfs:label "21" ;
+            rdfs:comment "21" ;
+        ], [
+            rdf:value 0.44 ;
+            rdfs:label "22" ;
+            rdfs:comment "22" ;
+        ], [
+            rdf:value 0.46 ;
+            rdfs:label "23" ;
+            rdfs:comment "23" ;
+        ], [
+            rdf:value 0.48 ;
+            rdfs:label "24" ;
+            rdfs:comment "24" ;
+        ], [
+            rdf:value 0.525 ;
+            rdfs:label "25" ;
+            rdfs:comment "25" ;
+        ], [
+            rdf:value 0.545 ;
+            rdfs:label "26" ;
+            rdfs:comment "26" ;
+        ], [
+            rdf:value 0.565 ;
+            rdfs:label "27" ;
+            rdfs:comment "27" ;
+        ], [
+            rdf:value 0.585 ;
+            rdfs:label "28" ;
+            rdfs:comment "28" ;
+        ], [
+            rdf:value 0.605 ;
+            rdfs:label "29" ;
+            rdfs:comment "29" ;
+        ], [
+            rdf:value 0.625 ;
+            rdfs:label "30" ;
+            rdfs:comment "30" ;
+        ], [
+            rdf:value 0.65 ;
+            rdfs:label "31" ;
+            rdfs:comment "31" ;
+        ], [
+            rdf:value 0.67 ;
+            rdfs:label "32" ;
+            rdfs:comment "32" ;
+        ], [
+            rdf:value 0.69 ;
+            rdfs:label "33" ;
+            rdfs:comment "33" ;
+        ], [
+            rdf:value 0.71 ;
+            rdfs:label "34" ;
+            rdfs:comment "34" ;
+        ], [
+            rdf:value 0.73 ;
+            rdfs:label "35" ;
+            rdfs:comment "35" ;
+        ], [
+            rdf:value 0.75 ;
+            rdfs:label "36" ;
+            rdfs:comment "36" ;
+        ], [
+            rdf:value 0.775 ;
+            rdfs:label "37" ;
+            rdfs:comment "37" ;
+        ], [
+            rdf:value 0.795 ;
+            rdfs:label "38" ;
+            rdfs:comment "38" ;
+        ], [
+            rdf:value 0.815;
+            rdfs:label "39" ;
+            rdfs:comment "39" ;
+        ], [
+            rdf:value 0.835 ;
+            rdfs:label "40" ;
+            rdfs:comment "40" ;
+        ], [
+            rdf:value 0.855 ;
+            rdfs:label "41" ;
+            rdfs:comment "41" ;
+        ], [
+            rdf:value 0.875 ;
+            rdfs:label "42" ;
+            rdfs:comment "42" ;
+        ], [
+            rdf:value 0.9 ;
+            rdfs:label "43" ;
+            rdfs:comment "43" ;
+        ], [
+            rdf:value 0.92 ;
+            rdfs:label "44" ;
+            rdfs:comment "44" ;
+        ], [
+            rdf:value 0.94 ;
+            rdfs:label "45" ;
+            rdfs:comment "45" ;
+        ], [
+            rdf:value 0.96 ;
+            rdfs:label "46" ;
+            rdfs:comment "46" ;
+        ], [
+            rdf:value 0.98 ;
+            rdfs:label "47" ;
+            rdfs:comment "47" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "48" ;
+            rdfs:comment "48" ;
+        ];
         pg:group tal_noisemaker_lv2:OSC_TUNE ;
     ] ,
     [
@@ -311,6 +517,203 @@
         lv2:default 0.500000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "0" ;
+            rdfs:comment "0" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "1" ;
+            rdfs:comment "1" ;
+        ], [
+            rdf:value 0.025 ;
+            rdfs:label "2" ;
+            rdfs:comment "2" ;
+        ], [
+            rdf:value 0.045 ;
+            rdfs:label "3" ;
+            rdfs:comment "3" ;
+        ], [
+            rdf:value 0.065 ;
+            rdfs:label "4" ;
+            rdfs:comment "4" ;
+        ], [
+            rdf:value 0.085 ;
+            rdfs:label "5" ;
+            rdfs:comment "5" ;
+        ], [
+            rdf:value 0.105 ;
+            rdfs:label "6" ;
+            rdfs:comment "6" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "7" ;
+            rdfs:comment "7" ;
+        ], [
+            rdf:value 0.15 ;
+            rdfs:label "8" ;
+            rdfs:comment "8" ;
+        ], [
+            rdf:value 0.17 ;
+            rdfs:label "9" ;
+            rdfs:comment "9" ;
+        ], [
+            rdf:value 0.19 ;
+            rdfs:label "10" ;
+            rdfs:comment "10" ;
+        ], [
+            rdf:value 0.21 ;
+            rdfs:label "11" ;
+            rdfs:comment "11" ;
+        ], [
+            rdf:value 0.23 ;
+            rdfs:label "12" ;
+            rdfs:comment "12" ;
+        ], [
+            rdf:value 0.255 ;
+            rdfs:label "13" ;
+            rdfs:comment "13" ;
+        ], [
+            rdf:value 0.275 ;
+            rdfs:label "14" ;
+            rdfs:comment "14" ;
+        ], [
+            rdf:value 0.295 ;
+            rdfs:label "15" ;
+            rdfs:comment "15" ;
+        ], [
+            rdf:value 0.315 ;
+            rdfs:label "16" ;
+            rdfs:comment "16" ;
+        ], [
+            rdf:value 0.335 ;
+            rdfs:label "17" ;
+            rdfs:comment "17" ;
+        ], [
+            rdf:value 0.355 ;
+            rdfs:label "18" ;
+            rdfs:comment "18" ;
+        ], [
+            rdf:value 0.38 ;
+            rdfs:label "19" ;
+            rdfs:comment "19" ;
+        ], [
+            rdf:value 0.4 ;
+            rdfs:label "20" ;
+            rdfs:comment "20" ;
+        ], [
+            rdf:value 0.42 ;
+            rdfs:label "21" ;
+            rdfs:comment "21" ;
+        ], [
+            rdf:value 0.44 ;
+            rdfs:label "22" ;
+            rdfs:comment "22" ;
+        ], [
+            rdf:value 0.46 ;
+            rdfs:label "23" ;
+            rdfs:comment "23" ;
+        ], [
+            rdf:value 0.48 ;
+            rdfs:label "24" ;
+            rdfs:comment "24" ;
+        ], [
+            rdf:value 0.525 ;
+            rdfs:label "25" ;
+            rdfs:comment "25" ;
+        ], [
+            rdf:value 0.545 ;
+            rdfs:label "26" ;
+            rdfs:comment "26" ;
+        ], [
+            rdf:value 0.565 ;
+            rdfs:label "27" ;
+            rdfs:comment "27" ;
+        ], [
+            rdf:value 0.585 ;
+            rdfs:label "28" ;
+            rdfs:comment "28" ;
+        ], [
+            rdf:value 0.605 ;
+            rdfs:label "29" ;
+            rdfs:comment "29" ;
+        ], [
+            rdf:value 0.625 ;
+            rdfs:label "30" ;
+            rdfs:comment "30" ;
+        ], [
+            rdf:value 0.65 ;
+            rdfs:label "31" ;
+            rdfs:comment "31" ;
+        ], [
+            rdf:value 0.67 ;
+            rdfs:label "32" ;
+            rdfs:comment "32" ;
+        ], [
+            rdf:value 0.69 ;
+            rdfs:label "33" ;
+            rdfs:comment "33" ;
+        ], [
+            rdf:value 0.71 ;
+            rdfs:label "34" ;
+            rdfs:comment "34" ;
+        ], [
+            rdf:value 0.73 ;
+            rdfs:label "35" ;
+            rdfs:comment "35" ;
+        ], [
+            rdf:value 0.75 ;
+            rdfs:label "36" ;
+            rdfs:comment "36" ;
+        ], [
+            rdf:value 0.775 ;
+            rdfs:label "37" ;
+            rdfs:comment "37" ;
+        ], [
+            rdf:value 0.795 ;
+            rdfs:label "38" ;
+            rdfs:comment "38" ;
+        ], [
+            rdf:value 0.815;
+            rdfs:label "39" ;
+            rdfs:comment "39" ;
+        ], [
+            rdf:value 0.835 ;
+            rdfs:label "40" ;
+            rdfs:comment "40" ;
+        ], [
+            rdf:value 0.855 ;
+            rdfs:label "41" ;
+            rdfs:comment "41" ;
+        ], [
+            rdf:value 0.875 ;
+            rdfs:label "42" ;
+            rdfs:comment "42" ;
+        ], [
+            rdf:value 0.9 ;
+            rdfs:label "43" ;
+            rdfs:comment "43" ;
+        ], [
+            rdf:value 0.92 ;
+            rdfs:label "44" ;
+            rdfs:comment "44" ;
+        ], [
+            rdf:value 0.94 ;
+            rdfs:label "45" ;
+            rdfs:comment "45" ;
+        ], [
+            rdf:value 0.96 ;
+            rdfs:label "46" ;
+            rdfs:comment "46" ;
+        ], [
+            rdf:value 0.98 ;
+            rdfs:label "47" ;
+            rdfs:comment "47" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "48" ;
+            rdfs:comment "48" ;
+        ];
         pg:group tal_noisemaker_lv2:OSC_TUNE ;
     ] ,
     [
@@ -400,7 +803,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -410,7 +813,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 30 ;
         lv2:symbol "lfo1waveform" ;
-        lv2:name "lfo1 wave" ;
+        lv2:name "lfo1 waveform" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -432,8 +835,8 @@
             rdfs:comment "Square" ;
         ], [
             rdf:value 0.80 ;
-            rdfs:label "Pulse" ;
-            rdfs:comment "Pulse" ;
+            rdfs:label "S&H" ;
+            rdfs:comment "S&H" ;
         ], [
             rdf:value 1.0 ;
             rdfs:label "Noise" ;
@@ -445,7 +848,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 31 ;
         lv2:symbol "lfo2waveform" ;
-        lv2:name "lfo2 wave" ;
+        lv2:name "lfo2 waveform" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -467,8 +870,8 @@
             rdfs:comment "Square" ;
         ], [
             rdf:value 0.80 ;
-            rdfs:label "Pulse" ;
-            rdfs:comment "Pulse" ;
+            rdfs:label "S&H" ;
+            rdfs:comment "S&H" ;
         ], [
             rdf:value 1.0 ;
             rdfs:label "Noise" ;
@@ -520,7 +923,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 36 ;
         lv2:symbol "lfo1destination" ;
-        lv2:name "lfo1 dest" ;
+        lv2:name "lfo1 destination" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -563,7 +966,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 37 ;
         lv2:symbol "lfo2destination" ;
-        lv2:name "lfo2 dest" ;
+        lv2:name "lfo2 destination" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -694,7 +1097,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 45 ;
         lv2:symbol "freeadattack" ;
-        lv2:name "attack" ;
+        lv2:name "free attack" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -704,7 +1107,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 46 ;
         lv2:symbol "freeaddecay" ;
-        lv2:name "decay" ;
+        lv2:name "free decay" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -714,7 +1117,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 47 ;
         lv2:symbol "freeadamount" ;
-        lv2:name "amount" ;
+        lv2:name "free amount" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -724,7 +1127,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 48 ;
         lv2:symbol "freeaddestination" ;
-        lv2:name "destination" ;
+        lv2:name "free destination" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -768,7 +1171,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -787,7 +1190,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -806,7 +1209,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -825,7 +1228,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -973,7 +1376,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -992,7 +1395,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -1072,7 +1475,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 71 ;
         lv2:symbol "detune" ;
-        lv2:name "detune" ;
+        lv2:name "osc slop" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -1096,6 +1499,15 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1110,7 +1522,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 75 ;
         lv2:symbol "envelopeeditordest1" ;
-        lv2:name "dest" ;
+        lv2:name "env destination" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -1153,7 +1565,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 76 ;
         lv2:symbol "envelopeeditorspeed" ;
-        lv2:name "speed" ;
+        lv2:name "env speed" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -1188,7 +1600,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 77 ;
         lv2:symbol "envelopeeditoramount" ;
-        lv2:name "amount" ;
+        lv2:name "env amount" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -1198,7 +1610,7 @@
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 78 ;
         lv2:symbol "envelopeoneshot" ;
-        lv2:name "oneshot" ;
+        lv2:name "env oneshot" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -1207,7 +1619,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -1226,7 +1638,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -1240,7 +1652,16 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
-        pg:group tal_noisemaker_lv2:ENV_SETUP;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+        pg:group tal_noisemaker_lv2:ENV_RESET;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1250,6 +1671,15 @@
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "CLOSED" ;
+            rdfs:comment "CLOSED" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "OPEN" ;
+            rdfs:comment "OPEN" ;
+        ];
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1259,15 +1689,33 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "CLOSED" ;
+            rdfs:comment "CLOSED" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "OPEN" ;
+            rdfs:comment "OPEN" ;
+        ];
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
         lv2:index 83 ;
         lv2:symbol "lv2_port_80" ;
-        lv2:name "Env tab" ;
+        lv2:name "Envelope tab" ;
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "CLOSED" ;
+            rdfs:comment "CLOSED" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "OPEN" ;
+            rdfs:comment "OPEN" ;
+        ];
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1277,6 +1725,15 @@
         lv2:default 1.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "CLOSED" ;
+            rdfs:comment "CLOSED" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "OPEN" ;
+            rdfs:comment "OPEN" ;
+        ];
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1321,7 +1778,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -1340,7 +1797,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -1359,7 +1816,7 @@
             rdfs:label "OFF" ;
             rdfs:comment "OFF" ;
         ], [
-            rdf:value 1.0 ;
+            rdf:value 0.005 ;
             rdfs:label "ON" ;
             rdfs:comment "ON" ;
         ];
@@ -1403,6 +1860,15 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1412,6 +1878,15 @@
         lv2:default 0.000000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 0.005 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
     ] ;
 
     doap:name "Noize Mak3r" ;
@@ -1496,68 +1971,74 @@ tal_noisemaker_lv2:ENV_SETUP
    lv2:name "Env Setup" ;
    lv2:symbol "ENV_SETUP" .
 
-tal_noisemaker_lv2:LFO_WAVE_RATE
+tal_noisemaker_lv2:ENV_RESET
    a pg:InputGroup;
    lv2:index 14 ;
+   lv2:name "Env Reset" ;
+   lv2:symbol "ENV_RESET" .
+
+tal_noisemaker_lv2:LFO_WAVE_RATE
+   a pg:InputGroup;
+   lv2:index 15 ;
    lv2:name "LFO Wave & Rate" ;
    lv2:symbol "LFO_WAVE_RATE" .
 
 tal_noisemaker_lv2:LFO_DEST
    a pg:InputGroup;
-   lv2:index 15 ;
+   lv2:index 16 ;
    lv2:name "LFO Destination" ;
    lv2:symbol "LFO_DEST" .
 
 tal_noisemaker_lv2:LFO_PHASE
    a pg:InputGroup;
-   lv2:index 16 ;
+   lv2:index 17 ;
    lv2:name "LFO Phase" ;
    lv2:symbol "LFO_PHASE" .
 
 tal_noisemaker_lv2:LFO_SWITCHES
    a pg:InputGroup;
-   lv2:index 17 ;
+   lv2:index 18 ;
    lv2:name "LFO Switches" ;
    lv2:symbol "LFO_SWITCHES" .
 
 tal_noisemaker_lv2:CHORUS
    a pg:InputGroup;
-   lv2:index 18 ;
+   lv2:index 19 ;
    lv2:name "Chorus" ;
    lv2:symbol "CHORUS" .
 
 tal_noisemaker_lv2:CTRL_REVERB
    a pg:InputGroup;
-   lv2:index 19 ;
+   lv2:index 20 ;
    lv2:name "Reverb" ;
    lv2:symbol "CTRL_REVERB" .
 
 tal_noisemaker_lv2:CTRL_REVERB_EQ
    a pg:InputGroup;
-   lv2:index 20 ;
+   lv2:index 21 ;
    lv2:name "Reverb EQ" ;
    lv2:symbol "CTRL_REVERB_EQ" .
 
 tal_noisemaker_lv2:CTRL_DELAY_MAIN
    a pg:InputGroup;
-   lv2:index 21 ;
+   lv2:index 22 ;
    lv2:name "Delay Time & Amount" ;
    lv2:symbol "CTRL_DELAY_MAIN" .
 
 tal_noisemaker_lv2:CTRL_DELAY_AUX
    a pg:InputGroup;
-   lv2:index 22 ;
+   lv2:index 23 ;
    lv2:name "Delay LR Scale & EQ" ;
    lv2:symbol "CTRL_DELAY_AUX" .
 
 tal_noisemaker_lv2:CTRL_PITCH
    a pg:InputGroup;
-   lv2:index 23 ;
+   lv2:index 24 ;
    lv2:name "Portamento & Bend" ;
    lv2:symbol "CTRL_PITCH" .
 
 tal_noisemaker_lv2:CTRL_VEL
    a pg:InputGroup;
-   lv2:index 24 ;
+   lv2:index 25 ;
    lv2:name "Velocity" ;
    lv2:symbol "CTRL_VEL" .
