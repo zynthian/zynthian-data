@@ -1,0 +1,103 @@
+
+main_file: " EP-MK1.pd"
+
+midi_controllers:
+ volume:
+  midi_cc: 7
+  value: 127
+ tune:
+  midi_cc: 17
+  value: 64
+ alt. scale:
+  midi_cc: 19
+  value: 0
+  labels: ["OFF", "ON"]
+  ticks: [0, 1]
+  is_toggle: True
+
+ tremolo enable:
+  midi_cc: 20
+  value: 0
+  labels: ["OFF", "ON"]
+  ticks: [0, 1]
+  is_toggle: True
+ tremolo shape:
+  midi_cc: 21
+  value: 0
+ tremolo rate:
+  midi_cc: 22
+  value: 3
+ tremolo depth:
+  midi_cc: 23
+  value: 2
+
+ tine ratio1:
+  midi_cc: 33
+  value: 7
+  value_min: 0
+  value_max: 30
+ tine ratio2:
+  midi_cc: 34
+  value: 20
+  value_min: 0
+  value_max: 30
+ tine HPF:
+  midi_cc: 35
+  value: 15
+ tine decay:
+  midi_cc: 36
+  value: 32
+ tine level:
+  midi_cc: 37
+  value: 40
+ tine pick send:
+  midi_cc: 38
+  value: 4
+
+ tb decay:
+  midi_cc: 41
+  value: 64
+ tb release:
+  midi_cc: 42
+  value: 1
+ tb level:
+  midi_cc: 43
+  value: 70
+ noteoff level:
+  midi_cc: 44
+  value: 6
+ hammer level:
+  midi_cc: 45
+  value: 11
+ sustain:
+  midi_cc: 64
+  value: 0
+  labels: ["OFF", "ON"]
+  ticks: [0, 1]
+  is_toggle: True
+
+ pickup gain:
+  midi_cc: 51
+  value: 43
+ pickup attack:
+  midi_cc: 52
+  value: 14
+ pickup LPF:
+  midi_cc: 53
+  value: 10
+ pickup symmetry:
+  midi_cc: 54
+  value: 52
+ buzz phase:
+  midi_cc: 55
+  value: 1
+  labels: ["OFF", "ON"]
+  ticks: [0, 1]
+  is_toggle: True
+ pickup level:
+  midi_cc: 56
+  value: 35
+ buzz level:
+  midi_cc: 57
+  value: 70
+ 
