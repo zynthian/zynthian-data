@@ -1,25 +1,17 @@
 # zynthian-data
 
-[Zynthian](http://zynthian.org) is an Open Synth Platform based in Raspberry Pi, Linux (Raspbian) and Open Software Synthesizers.
+[Zynthian](http://zynthian.org) is an Open Synth Platform based in Raspberry Pi, Linux (Raspbian) and Free Software Synthesizers (mostly).
 
-![Image of Zynthian Box Design](http://zynthian.org/img/github/zynthian_v3_backside.jpg)
+The [ZynthianOS SD-image](https://os.zynthian.org/zynthianos-last-stable.zip) includes all the software you need for building a ZynthianBox, including a good amount of sound libraries and presets. This repository contains presets, samples, soundfonts and config files for the different synth engines supported by Zynthian.
 
-This repository contains configuration files, presets, samples, ... for the different synth engines used in Zynthian.
+You can learn more about the Zynthian Project in any of our sites: 
 
-You have to put your samples in "zynthian-data/soundfonts", organized by type, in three subdirectories:
++ [website](https://zynthian.org)
++ [wiki](https://wiki.zynthian.org)
++ [blog](https://blog.zynthian.org)
++ [forum](https://discourse.zynthian.org) => Join the conversation!!
 
-```
-cd zynthian-data/soundfonts
-mkdir gig
-mkdir sfz
-mkdir sf2
-```
- 
-Also, you have to create a symlink to your ZynAddSubFX bank directory:
+You can buy official kits in the zynthian shop:
 
-```
-cd zynthian-data
-ln -s your/zasfx/bankdir/path zynbanks
-```
++ [shop](https://shop.zynthian.org)
 
-You can learn more about the Zynthian Project reading [the blog](http://blog.zynthian.org) or visiting [the website](http://zynthian.org). Also, you can join the conversation in [the forum](https://discourse.zynthian.org).
