@@ -1,0 +1,3621 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+@prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix helm_lv2: <http://tytel.org/helm#> .
+
+
+<http://tytel.org/helm>
+    a lv2:InstrumentPlugin, lv2:Plugin ;
+    lv2:requiredFeature <http://lv2plug.in/ns/ext/buf-size#boundedBlockLength> ,
+                        <http://lv2plug.in/ns/ext/urid#map> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/options#interface> ,
+                      <http://lv2plug.in/ns/ext/state#interface> ,
+                      <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
+
+    ui:ui <http://tytel.org/helm#ExternalUI> ,
+          <http://tytel.org/helm#ParentUI> ;
+
+
+    lv2:port [
+        a lv2:InputPort, atom:AtomPort ;
+        atom:bufferType atom:Sequence ;
+        atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
+        atom:supports <http://lv2plug.in/ns/ext/time#Position> ;
+        lv2:index 0 ;
+        lv2:symbol "lv2_events_in" ;
+        lv2:name "Events Input" ;
+        lv2:designation lv2:control ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:symbol "lv2_freewheel" ;
+        lv2:name "Freewheel" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#freeWheeling> ;
+        lv2:portProperty lv2:toggled, <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:symbol "lv2_latency" ;
+        lv2:name "Latency" ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#latency> ;
+        lv2:portProperty lv2:reportsLatency, lv2:integer ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 3 ;
+        lv2:symbol "lv2_audio_out_1" ;
+        lv2:name "Audio Output 1" ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 4 ;
+        lv2:symbol "lv2_audio_out_2" ;
+        lv2:name "Audio Output 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:symbol "amp_attack" ;
+        lv2:name "amp attack" ;
+        lv2:default 0.027386 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:AMP_ENV ;
+        lv2:displayPriority 1754 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:symbol "amp_decay" ;
+        lv2:name "amp decay" ;
+        lv2:default 0.375000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:AMP_ENV ;
+        lv2:displayPriority 1753 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:symbol "amp_release" ;
+        lv2:name "amp release" ;
+        lv2:default 0.075000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:AMP_ENV ;
+        lv2:displayPriority 1751 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:symbol "amp_sustain" ;
+        lv2:name "amp sustain" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:AMP_ENV ;
+        lv2:displayPriority 1752 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:symbol "arp_frequency" ;
+        lv2:name "arp frequency" ;
+        lv2:default 0.600000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1403 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:symbol "arp_gate" ;
+        lv2:name "arp gate" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1406 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:symbol "arp_octaves" ;
+        lv2:name "arp octaves" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.66666 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "4" ;
+        ] ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1405 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 12 ;
+        lv2:symbol "arp_on" ;
+        lv2:name "arp on" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ] ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1408 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 13 ;
+        lv2:symbol "arp_pattern" ;
+        lv2:name "arp pattern" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "up" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "down" ;
+        ], [
+            rdf:value 0.38 ;
+            rdfs:label "up-down" ;
+        ], [
+            rdf:value 0.63 ;
+            rdfs:label "as played" ;
+        ], [
+            rdf:value 0.88 ;
+            rdfs:label "random" ;
+        ] ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1407 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 14 ;
+        lv2:symbol "arp_sync" ;
+        lv2:name "arp sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.3333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.6666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ] ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1404 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 15 ;
+        lv2:symbol "arp_tempo" ;
+        lv2:name "arp tempo" ;
+        lv2:default 0.818182 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "32/1" ;
+        ], [
+            rdf:value 0.09091 ;
+            rdfs:label "16/1" ;
+        ], [
+            rdf:value 0.18182 ;
+            rdfs:label "8/1" ;
+        ], [
+            rdf:value 0.27273 ;
+            rdfs:label "4/1" ;
+        ], [
+            rdf:value 0.36364 ;
+            rdfs:label "2/1" ;
+        ], [
+            rdf:value 0.45455 ;
+            rdfs:label "1/1" ;
+        ], [
+            rdf:value 0.54545 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.63636 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.72727 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.81818 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.90909 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1402 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 16 ;
+        lv2:symbol "beats_per_minute" ;
+        lv2:name "bpm" ;
+        lv2:default 0.357143 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:ARP ;
+        lv2:displayPriority 1401 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 17 ;
+        lv2:symbol "cross_modulation" ;
+        lv2:name "cross modulation" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1900 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 18 ;
+        lv2:symbol "cutoff" ;
+        lv2:name "cutoff" ;
+        lv2:default 0.525253 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1707 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 19 ;
+        lv2:symbol "delay_dry_wet" ;
+        lv2:name "mix" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:DELAY ;
+        lv2:displayPriority 1004 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 20 ;
+        lv2:symbol "delay_feedback" ;
+        lv2:name "delay feedback" ;
+        lv2:default 0.700000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:DELAY ;
+        lv2:displayPriority 1005 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 21 ;
+        lv2:symbol "delay_frequency" ;
+        lv2:name "delay frequency" ;
+        lv2:default 0.571429 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:DELAY ;
+        lv2:displayPriority 1002 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 22 ;
+        lv2:symbol "delay_on" ;
+        lv2:name "delay on" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:DELAY ;
+        lv2:displayPriority 1006 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 23 ;
+        lv2:symbol "delay_sync" ;
+        lv2:name "delay sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.66666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ];
+        pg:group helm_lv2:DELAY ;
+        lv2:displayPriority 1003 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 24 ;
+        lv2:symbol "delay_tempo" ;
+        lv2:name "delay tempo" ;
+        lv2:default 0.818182 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "32/1" ;
+        ], [
+            rdf:value 0.09091 ;
+            rdfs:label "16/1" ;
+        ], [
+            rdf:value 0.18182 ;
+            rdfs:label "8/1" ;
+        ], [
+            rdf:value 0.27273 ;
+            rdfs:label "4/1" ;
+        ], [
+            rdf:value 0.36364 ;
+            rdfs:label "2/1" ;
+        ], [
+            rdf:value 0.45455 ;
+            rdfs:label "1/1" ;
+        ], [
+            rdf:value 0.54545 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.63636 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.72727 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.81818 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.90909 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:DELAY ;
+        lv2:displayPriority 1001 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 25 ;
+        lv2:symbol "distortion_drive" ;
+        lv2:name "distortion drive" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:DISTORTION ;
+        lv2:displayPriority 1102 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 26 ;
+        lv2:symbol "distortion_mix" ;
+        lv2:name "distortion mix" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:DISTORTION ;
+        lv2:displayPriority 1101 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 27 ;
+        lv2:symbol "distortion_on" ;
+        lv2:name "distortion on" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:DISTORTION ;
+        lv2:displayPriority 1104 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 28 ;
+        lv2:symbol "distortion_type" ;
+        lv2:name "distortion type" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "soft clip" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "hard clip" ;
+        ], [
+            rdf:value 0.66666 ;
+            rdfs:label "linear fold" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "sine fold" ;
+        ];
+        pg:group helm_lv2:DISTORTION ;
+        lv2:displayPriority 1103 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 29 ;
+        lv2:symbol "fil_attack" ;
+        lv2:name "filter attack" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER_ENV ;
+        lv2:displayPriority 1604 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 30 ;
+        lv2:symbol "fil_decay" ;
+        lv2:name "filter decay" ;
+        lv2:default 0.375000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER_ENV ;
+        lv2:displayPriority 1603 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 31 ;
+        lv2:symbol "fil_env_depth" ;
+        lv2:name "filter env depth" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority  1702;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 32 ;
+        lv2:symbol "fil_release" ;
+        lv2:name "filter release" ;
+        lv2:default 0.375000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER_ENV ;
+        lv2:displayPriority 1601 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 33 ;
+        lv2:symbol "fil_sustain" ;
+        lv2:name "filter sustain" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER_ENV ;
+        lv2:displayPriority 1602 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 34 ;
+        lv2:symbol "filter_blend" ;
+        lv2:name "filter blend" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1706 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 35 ;
+        lv2:symbol "filter_drive" ;
+        lv2:name "filter drive" ;
+        lv2:default 0.375000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1705 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 36 ;
+        lv2:symbol "filter_on" ;
+        lv2:name "filter on" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1709 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 37 ;
+        lv2:symbol "filter_shelf" ;
+        lv2:name "filter shelf" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "LP" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "BP" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "HP" ;
+        ] ;
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1703 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 38 ;
+        lv2:symbol "filter_style" ;
+        lv2:name "filter style" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "12dB/oct" ;
+        ], [
+            rdf:value 0.5 ;
+            rdfs:label "24dB/oct" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "shelf" ;
+        ];
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1704 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 39 ;
+        lv2:symbol "formant_on" ;
+        lv2:name "formant on" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:FORMANT ;
+        lv2:displayPriority 1203 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 40 ;
+        lv2:symbol "formant_x" ;
+        lv2:name "formant x" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FORMANT ;
+        lv2:displayPriority 1202 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 41 ;
+        lv2:symbol "formant_y" ;
+        lv2:name "formant y" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FORMANT ;
+        lv2:displayPriority 1201 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 42 ;
+        lv2:symbol "keytrack" ;
+        lv2:name "keytrack" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1701 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 43 ;
+        lv2:symbol "legato" ;
+        lv2:name "legato" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:KEY ;
+        lv2:displayPriority 806 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 44 ;
+        lv2:symbol "mod_attack" ;
+        lv2:name "mod attack" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MOD_ENV ;
+        lv2:displayPriority 1554 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 45 ;
+        lv2:symbol "mod_decay" ;
+        lv2:name "mod decay" ;
+        lv2:default 0.375000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MOD_ENV ;
+        lv2:displayPriority 1553 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 46 ;
+        lv2:symbol "mod_release" ;
+        lv2:name "mod release" ;
+        lv2:default 0.375000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MOD_ENV ;
+        lv2:displayPriority 1551 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 47 ;
+        lv2:symbol "mod_sustain" ;
+        lv2:name "mod sustain" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MOD_ENV ;
+        lv2:displayPriority 1552 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 48 ;
+        lv2:symbol "mono_lfo_1_amplitude" ;
+        lv2:name "mono lfo 1 amp" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MONO_LFO1 ;
+        lv2:displayPriority 1521 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 49 ;
+        lv2:symbol "mono_lfo_1_frequency" ;
+        lv2:name "mono lfo 1 freq" ;
+        lv2:default 0.615385 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MONO_LFO1 ;
+        lv2:displayPriority 1524 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 50 ;
+        lv2:symbol "mono_lfo_1_retrigger" ;
+        lv2:name "mono lfo 1 retrig" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "free" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "retrigger" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "sync to playhead" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO1 ;
+        lv2:displayPriority 1522 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 51 ;
+        lv2:symbol "mono_lfo_1_sync" ;
+        lv2:name "mono lfo 1 sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.3333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.6666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO1 ;
+        lv2:displayPriority 1525 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 52 ;
+        lv2:symbol "mono_lfo_1_tempo" ;
+        lv2:name "mono lfo 1 tempo" ;
+        lv2:default 0.545455 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "32/1" ;
+        ], [
+            rdf:value 0.09091 ;
+            rdfs:label "16/1" ;
+        ], [
+            rdf:value 0.18182 ;
+            rdfs:label "8/1" ;
+        ], [
+            rdf:value 0.27273 ;
+            rdfs:label "4/1" ;
+        ], [
+            rdf:value 0.36364 ;
+            rdfs:label "2/1" ;
+        ], [
+            rdf:value 0.45455 ;
+            rdfs:label "1/1" ;
+        ], [
+            rdf:value 0.54545 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.63636 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.72727 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.81818 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.90909 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO1 ;
+        lv2:displayPriority 1523 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 53 ;
+        lv2:symbol "mono_lfo_1_waveform" ;
+        lv2:name "mono lfo 1 waveform" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "sine" ;
+        ], [
+            rdf:value 0.08333 ;
+            rdfs:label "triangle" ;
+        ], [
+            rdf:value 0.16667 ;
+            rdfs:label "square" ;
+        ], [
+            rdf:value 0.25000 ;
+            rdfs:label "saw up" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "saw down" ;
+        ], [
+            rdf:value 0.41667 ;
+            rdfs:label "3 step" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "4 step" ;
+        ], [
+            rdf:value 0.58333 ;
+            rdfs:label "8 step" ;
+        ], [
+            rdf:value 0.66667 ;
+            rdfs:label "3 pyramid" ;
+        ], [
+            rdf:value 0.75000 ;
+            rdfs:label "5 pyramid" ;
+        ], [
+            rdf:value 0.83333 ;
+            rdfs:label "9 pyramid" ;
+        ], [
+            rdf:value 0.91667 ;
+            rdfs:label "sample & hold" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "sample & glide" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO1 ;
+        lv2:displayPriority 1526 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 54 ;
+        lv2:symbol "mono_lfo_2_amplitude" ;
+        lv2:name "mono lfo 2 amp" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MONO_LFO2 ;
+        lv2:displayPriority 1511 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 55 ;
+        lv2:symbol "mono_lfo_2_frequency" ;
+        lv2:name "mono lfo 2 freq" ;
+        lv2:default 0.615385 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MONO_LFO2 ;
+        lv2:displayPriority 1514 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 56 ;
+        lv2:symbol "mono_lfo_2_retrigger" ;
+        lv2:name "mono lfo 2 retrig" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "free" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "retrigger" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "sync to playhead" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO2 ;
+        lv2:displayPriority 1512 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 57 ;
+        lv2:symbol "mono_lfo_2_sync" ;
+        lv2:name "mono lfo 2 sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.3333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.6666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO2 ;
+        lv2:displayPriority 1515 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 58 ;
+        lv2:symbol "mono_lfo_2_tempo" ;
+        lv2:name "mono lfo 2 tempo" ;
+        lv2:default 0.636364 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "32/1" ;
+        ], [
+            rdf:value 0.09091 ;
+            rdfs:label "16/1" ;
+        ], [
+            rdf:value 0.18182 ;
+            rdfs:label "8/1" ;
+        ], [
+            rdf:value 0.27273 ;
+            rdfs:label "4/1" ;
+        ], [
+            rdf:value 0.36364 ;
+            rdfs:label "2/1" ;
+        ], [
+            rdf:value 0.45455 ;
+            rdfs:label "1/1" ;
+        ], [
+            rdf:value 0.54545 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.63636 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.72727 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.81818 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.90909 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO2 ;
+        lv2:displayPriority 1513 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 59 ;
+        lv2:symbol "mono_lfo_2_waveform" ;
+        lv2:name "mono lfo 2 waveform" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "sine" ;
+        ], [
+            rdf:value 0.08333 ;
+            rdfs:label "triangle" ;
+        ], [
+            rdf:value 0.16667 ;
+            rdfs:label "square" ;
+        ], [
+            rdf:value 0.25000 ;
+            rdfs:label "saw up" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "saw down" ;
+        ], [
+            rdf:value 0.41667 ;
+            rdfs:label "3 step" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "4 step" ;
+        ], [
+            rdf:value 0.58333 ;
+            rdfs:label "8 step" ;
+        ], [
+            rdf:value 0.66667 ;
+            rdfs:label "3 pyramid" ;
+        ], [
+            rdf:value 0.75000 ;
+            rdfs:label "5 pyramid" ;
+        ], [
+            rdf:value 0.83333 ;
+            rdfs:label "9 pyramid" ;
+        ], [
+            rdf:value 0.91667 ;
+            rdfs:label "sample & hold" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "sample & glide" ;
+        ] ;
+        pg:group helm_lv2:MONO_LFO2 ;
+        lv2:displayPriority 1516 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 60 ;
+        lv2:symbol "noise_volume" ;
+        lv2:name "noise volume" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MIXER ;
+        lv2:displayPriority 2001 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 61 ;
+        lv2:symbol "num_steps" ;
+        lv2:name "num steps" ;
+        lv2:default 0.225806 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.03225806451612903 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.06451612903225806 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.0967741935483871 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.12903225806451613 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.16129032258064516 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.1935483870967742 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.22580645161290322 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.25806451612903225 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.2903225806451613 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.3225806451612903 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.3548387096774194 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.3870967741935484 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.41935483870967744 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.45161290322580644 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.4838709677419355 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.5161290322580645 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.5483870967741935 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.5806451612903226 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.6129032258064516 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.6451612903225806 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.6774193548387096 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.7096774193548387 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 0.7419354838709677 ;
+            rdfs:label "24" ;
+        ], [
+            rdf:value 0.7741935483870968 ;
+            rdfs:label "25" ;
+        ], [
+            rdf:value 0.8064516129032258 ;
+            rdfs:label "26" ;
+        ], [
+            rdf:value 0.8387096774193549 ;
+            rdfs:label "27" ;
+        ], [
+            rdf:value 0.8709677419354839 ;
+            rdfs:label "28" ;
+        ], [
+            rdf:value 0.9032258064516129 ;
+            rdfs:label "29" ;
+        ], [
+            rdf:value 0.9354838709677419 ;
+            rdfs:label "30" ;
+        ], [
+            rdf:value 0.967741935483871 ;
+            rdfs:label "31" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "32" ;
+        ];
+        pg:group helm_lv2:SEQ ;
+        lv2:displayPriority 733 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 62 ;
+        lv2:symbol "osc_1_transpose" ;
+        lv2:name "osc 1 transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "-48" ;
+        ], [
+            rdf:value 0.01042 ;
+            rdfs:label "-47" ;
+        ], [
+            rdf:value 0.02083 ;
+            rdfs:label "-46" ;
+        ], [
+            rdf:value 0.03125 ;
+            rdfs:label "-45" ;
+        ], [
+            rdf:value 0.04167 ;
+            rdfs:label "-44" ;
+        ], [
+            rdf:value 0.05208 ;
+            rdfs:label "-43" ;
+        ], [
+            rdf:value 0.06250 ;
+            rdfs:label "-42" ;
+        ], [
+            rdf:value 0.07292 ;
+            rdfs:label "-41" ;
+        ], [
+            rdf:value 0.08333 ;
+            rdfs:label "-40" ;
+        ], [
+            rdf:value 0.09375 ;
+            rdfs:label "-39" ;
+        ], [
+            rdf:value 0.10417 ;
+            rdfs:label "-38" ;
+        ], [
+            rdf:value 0.11458 ;
+            rdfs:label "-37" ;
+        ], [
+            rdf:value 0.12500 ;
+            rdfs:label "-36" ;
+        ], [
+            rdf:value 0.13542 ;
+            rdfs:label "-35" ;
+        ], [
+            rdf:value 0.14583 ;
+            rdfs:label "-34" ;
+        ], [
+            rdf:value 0.15625 ;
+            rdfs:label "-33" ;
+        ], [
+            rdf:value 0.16667 ;
+            rdfs:label "-32" ;
+        ], [
+            rdf:value 0.17708 ;
+            rdfs:label "-31" ;
+        ], [
+            rdf:value 0.18750 ;
+            rdfs:label "-30" ;
+        ], [
+            rdf:value 0.19792 ;
+            rdfs:label "-29" ;
+        ], [
+            rdf:value 0.20833 ;
+            rdfs:label "-28" ;
+        ], [
+            rdf:value 0.21875 ;
+            rdfs:label "-27" ;
+        ], [
+            rdf:value 0.22917 ;
+            rdfs:label "-26" ;
+        ], [
+            rdf:value 0.23958 ;
+            rdfs:label "-25" ;
+        ], [
+            rdf:value 0.25000 ;
+            rdfs:label "-24" ;
+        ], [
+            rdf:value 0.26042 ;
+            rdfs:label "-23" ;
+        ], [
+            rdf:value 0.27083 ;
+            rdfs:label "-22" ;
+        ], [
+            rdf:value 0.28125 ;
+            rdfs:label "-21" ;
+        ], [
+            rdf:value 0.29167 ;
+            rdfs:label "-20" ;
+        ], [
+            rdf:value 0.30208 ;
+            rdfs:label "-19" ;
+        ], [
+            rdf:value 0.31250 ;
+            rdfs:label "-18" ;
+        ], [
+            rdf:value 0.32292 ;
+            rdfs:label "-17" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "-16" ;
+        ], [
+            rdf:value 0.34375 ;
+            rdfs:label "-15" ;
+        ], [
+            rdf:value 0.35417 ;
+            rdfs:label "-14" ;
+        ], [
+            rdf:value 0.36458 ;
+            rdfs:label "-13" ;
+        ], [
+            rdf:value 0.37500 ;
+            rdfs:label "-12" ;
+        ], [
+            rdf:value 0.38542 ;
+            rdfs:label "-11" ;
+        ], [
+            rdf:value 0.39583 ;
+            rdfs:label "-10" ;
+        ], [
+            rdf:value 0.40625 ;
+            rdfs:label "-9" ;
+        ], [
+            rdf:value 0.41667 ;
+            rdfs:label "-8" ;
+        ], [
+            rdf:value 0.42708 ;
+            rdfs:label "-7" ;
+        ], [
+            rdf:value 0.43750 ;
+            rdfs:label "-6" ;
+        ], [
+            rdf:value 0.44792 ;
+            rdfs:label "-5" ;
+        ], [
+            rdf:value 0.45833 ;
+            rdfs:label "-4" ;
+        ], [
+            rdf:value 0.46875 ;
+            rdfs:label "-3" ;
+        ], [
+            rdf:value 0.47917 ;
+            rdfs:label "-2" ;
+        ], [
+            rdf:value 0.48958 ;
+            rdfs:label "-1" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 0.51042 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.52083 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.53125 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.54167 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.55208 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.56250 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.57292 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.58333 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.59375 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.60417 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.61458 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.62500 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.63542 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.64583 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.65625 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.66667 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.67708 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.68750 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.69792 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.70833 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.71875 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.72917 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.73958 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 0.75000 ;
+            rdfs:label "24" ;
+        ], [
+            rdf:value 0.76042 ;
+            rdfs:label "25" ;
+        ], [
+            rdf:value 0.77083 ;
+            rdfs:label "26" ;
+        ], [
+            rdf:value 0.78125 ;
+            rdfs:label "27" ;
+        ], [
+            rdf:value 0.79167 ;
+            rdfs:label "28" ;
+        ], [
+            rdf:value 0.80208 ;
+            rdfs:label "29" ;
+        ], [
+            rdf:value 0.81250 ;
+            rdfs:label "30" ;
+        ], [
+            rdf:value 0.82292 ;
+            rdfs:label "31" ;
+        ], [
+            rdf:value 0.83333 ;
+            rdfs:label "32" ;
+        ], [
+            rdf:value 0.84375 ;
+            rdfs:label "33" ;
+        ], [
+            rdf:value 0.85417 ;
+            rdfs:label "34" ;
+        ], [
+            rdf:value 0.86458 ;
+            rdfs:label "35" ;
+        ], [
+            rdf:value 0.87500 ;
+            rdfs:label "36" ;
+        ], [
+            rdf:value 0.88542 ;
+            rdfs:label "37" ;
+        ], [
+            rdf:value 0.89583 ;
+            rdfs:label "38" ;
+        ], [
+            rdf:value 0.90625 ;
+            rdfs:label "39" ;
+        ], [
+            rdf:value 0.91667 ;
+            rdfs:label "40" ;
+        ], [
+            rdf:value 0.92708 ;
+            rdfs:label "41" ;
+        ], [
+            rdf:value 0.93750 ;
+            rdfs:label "42" ;
+        ], [
+            rdf:value 0.94792 ;
+            rdfs:label "43" ;
+        ], [
+            rdf:value 0.95833 ;
+            rdfs:label "44" ;
+        ], [
+            rdf:value 0.96875 ;
+            rdfs:label "45" ;
+        ], [
+            rdf:value 0.97917 ;
+            rdfs:label "46" ;
+        ], [
+            rdf:value 0.98958 ;
+            rdfs:label "47" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "48" ;
+        ] ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1914 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 63 ;
+        lv2:symbol "osc_1_tune" ;
+        lv2:name "osc 1 tune" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1915 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 64 ;
+        lv2:symbol "osc_1_unison_detune" ;
+        lv2:name "osc 1 unison detune" ;
+        lv2:default 0.100000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1911 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 65 ;
+        lv2:symbol "osc_1_unison_voices" ;
+        lv2:name "osc 1 unison voices" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.07143 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.14286 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.21429 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.28571 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.35714 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.42857 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.57143 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.64286 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.71429 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.78571 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.85714 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.92857 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "15" ;
+        ] ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1912 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 66 ;
+        lv2:symbol "osc_1_volume" ;
+        lv2:name "osc 1 volume" ;
+        lv2:default 0.547723 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MIXER ;
+        lv2:displayPriority 2004 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 67 ;
+        lv2:symbol "osc_1_waveform" ;
+        lv2:name "osc 1 waveform" ;
+        lv2:default 0.400000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "sine" ;
+        ], [
+            rdf:value 0.10000 ;
+            rdfs:label "triangle" ;
+        ], [
+            rdf:value 0.20000 ;
+            rdfs:label "square" ;
+        ], [
+            rdf:value 0.30000 ;
+            rdfs:label "saw up" ;
+        ], [
+            rdf:value 0.40000 ;
+            rdfs:label "saw down" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "3 step" ;
+        ], [
+            rdf:value 0.60000 ;
+            rdfs:label "4 step" ;
+        ], [
+            rdf:value 0.70000 ;
+            rdfs:label "8 step" ;
+        ], [
+            rdf:value 0.80000 ;
+            rdfs:label "3 pyramid" ;
+        ], [
+            rdf:value 0.90000 ;
+            rdfs:label "5 pyramid" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "9 pyramid" ;
+        ] ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1916 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 68 ;
+        lv2:symbol "osc_2_transpose" ;
+        lv2:name "osc 2 transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "-48" ;
+        ], [
+            rdf:value 0.01042 ;
+            rdfs:label "-47" ;
+        ], [
+            rdf:value 0.02083 ;
+            rdfs:label "-46" ;
+        ], [
+            rdf:value 0.03125 ;
+            rdfs:label "-45" ;
+        ], [
+            rdf:value 0.04167 ;
+            rdfs:label "-44" ;
+        ], [
+            rdf:value 0.05208 ;
+            rdfs:label "-43" ;
+        ], [
+            rdf:value 0.06250 ;
+            rdfs:label "-42" ;
+        ], [
+            rdf:value 0.07292 ;
+            rdfs:label "-41" ;
+        ], [
+            rdf:value 0.08333 ;
+            rdfs:label "-40" ;
+        ], [
+            rdf:value 0.09375 ;
+            rdfs:label "-39" ;
+        ], [
+            rdf:value 0.10417 ;
+            rdfs:label "-38" ;
+        ], [
+            rdf:value 0.11458 ;
+            rdfs:label "-37" ;
+        ], [
+            rdf:value 0.12500 ;
+            rdfs:label "-36" ;
+        ], [
+            rdf:value 0.13542 ;
+            rdfs:label "-35" ;
+        ], [
+            rdf:value 0.14583 ;
+            rdfs:label "-34" ;
+        ], [
+            rdf:value 0.15625 ;
+            rdfs:label "-33" ;
+        ], [
+            rdf:value 0.16667 ;
+            rdfs:label "-32" ;
+        ], [
+            rdf:value 0.17708 ;
+            rdfs:label "-31" ;
+        ], [
+            rdf:value 0.18750 ;
+            rdfs:label "-30" ;
+        ], [
+            rdf:value 0.19792 ;
+            rdfs:label "-29" ;
+        ], [
+            rdf:value 0.20833 ;
+            rdfs:label "-28" ;
+        ], [
+            rdf:value 0.21875 ;
+            rdfs:label "-27" ;
+        ], [
+            rdf:value 0.22917 ;
+            rdfs:label "-26" ;
+        ], [
+            rdf:value 0.23958 ;
+            rdfs:label "-25" ;
+        ], [
+            rdf:value 0.25000 ;
+            rdfs:label "-24" ;
+        ], [
+            rdf:value 0.26042 ;
+            rdfs:label "-23" ;
+        ], [
+            rdf:value 0.27083 ;
+            rdfs:label "-22" ;
+        ], [
+            rdf:value 0.28125 ;
+            rdfs:label "-21" ;
+        ], [
+            rdf:value 0.29167 ;
+            rdfs:label "-20" ;
+        ], [
+            rdf:value 0.30208 ;
+            rdfs:label "-19" ;
+        ], [
+            rdf:value 0.31250 ;
+            rdfs:label "-18" ;
+        ], [
+            rdf:value 0.32292 ;
+            rdfs:label "-17" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "-16" ;
+        ], [
+            rdf:value 0.34375 ;
+            rdfs:label "-15" ;
+        ], [
+            rdf:value 0.35417 ;
+            rdfs:label "-14" ;
+        ], [
+            rdf:value 0.36458 ;
+            rdfs:label "-13" ;
+        ], [
+            rdf:value 0.37500 ;
+            rdfs:label "-12" ;
+        ], [
+            rdf:value 0.38542 ;
+            rdfs:label "-11" ;
+        ], [
+            rdf:value 0.39583 ;
+            rdfs:label "-10" ;
+        ], [
+            rdf:value 0.40625 ;
+            rdfs:label "-9" ;
+        ], [
+            rdf:value 0.41667 ;
+            rdfs:label "-8" ;
+        ], [
+            rdf:value 0.42708 ;
+            rdfs:label "-7" ;
+        ], [
+            rdf:value 0.43750 ;
+            rdfs:label "-6" ;
+        ], [
+            rdf:value 0.44792 ;
+            rdfs:label "-5" ;
+        ], [
+            rdf:value 0.45833 ;
+            rdfs:label "-4" ;
+        ], [
+            rdf:value 0.46875 ;
+            rdfs:label "-3" ;
+        ], [
+            rdf:value 0.47917 ;
+            rdfs:label "-2" ;
+        ], [
+            rdf:value 0.48958 ;
+            rdfs:label "-1" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 0.51042 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.52083 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.53125 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.54167 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.55208 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.56250 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.57292 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.58333 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.59375 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.60417 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.61458 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.62500 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.63542 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.64583 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.65625 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.66667 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.67708 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.68750 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.69792 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.70833 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.71875 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.72917 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.73958 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 0.75000 ;
+            rdfs:label "24" ;
+        ], [
+            rdf:value 0.76042 ;
+            rdfs:label "25" ;
+        ], [
+            rdf:value 0.77083 ;
+            rdfs:label "26" ;
+        ], [
+            rdf:value 0.78125 ;
+            rdfs:label "27" ;
+        ], [
+            rdf:value 0.79167 ;
+            rdfs:label "28" ;
+        ], [
+            rdf:value 0.80208 ;
+            rdfs:label "29" ;
+        ], [
+            rdf:value 0.81250 ;
+            rdfs:label "30" ;
+        ], [
+            rdf:value 0.82292 ;
+            rdfs:label "31" ;
+        ], [
+            rdf:value 0.83333 ;
+            rdfs:label "32" ;
+        ], [
+            rdf:value 0.84375 ;
+            rdfs:label "33" ;
+        ], [
+            rdf:value 0.85417 ;
+            rdfs:label "34" ;
+        ], [
+            rdf:value 0.86458 ;
+            rdfs:label "35" ;
+        ], [
+            rdf:value 0.87500 ;
+            rdfs:label "36" ;
+        ], [
+            rdf:value 0.88542 ;
+            rdfs:label "37" ;
+        ], [
+            rdf:value 0.89583 ;
+            rdfs:label "38" ;
+        ], [
+            rdf:value 0.90625 ;
+            rdfs:label "39" ;
+        ], [
+            rdf:value 0.91667 ;
+            rdfs:label "40" ;
+        ], [
+            rdf:value 0.92708 ;
+            rdfs:label "41" ;
+        ], [
+            rdf:value 0.93750 ;
+            rdfs:label "42" ;
+        ], [
+            rdf:value 0.94792 ;
+            rdfs:label "43" ;
+        ], [
+            rdf:value 0.95833 ;
+            rdfs:label "44" ;
+        ], [
+            rdf:value 0.96875 ;
+            rdfs:label "45" ;
+        ], [
+            rdf:value 0.97917 ;
+            rdfs:label "46" ;
+        ], [
+            rdf:value 0.98958 ;
+            rdfs:label "47" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "48" ;
+        ] ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1904 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 69 ;
+        lv2:symbol "osc_2_tune" ;
+        lv2:name "osc 2 tune" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1905 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 70 ;
+        lv2:symbol "osc_2_unison_detune" ;
+        lv2:name "osc 2 unison detune" ;
+        lv2:default 0.100000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1901 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 71 ;
+        lv2:symbol "osc_2_unison_voices" ;
+        lv2:name "osc 2 unison voices" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.07143 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.14286 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.21429 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.28571 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.35714 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.42857 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.57143 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.64286 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.71429 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.78571 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.85714 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.92857 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "15" ;
+        ] ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1902 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 72 ;
+        lv2:symbol "osc_2_volume" ;
+        lv2:name "osc 2 volume" ;
+        lv2:default 0.547723 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MIXER ;
+        lv2:displayPriority 2003 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 73 ;
+        lv2:symbol "osc_2_waveform" ;
+        lv2:name "osc 2 waveform" ;
+        lv2:default 0.400000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "sine" ;
+        ], [
+            rdf:value 0.10000 ;
+            rdfs:label "triangle" ;
+        ], [
+            rdf:value 0.20000 ;
+            rdfs:label "square" ;
+        ], [
+            rdf:value 0.30000 ;
+            rdfs:label "saw up" ;
+        ], [
+            rdf:value 0.40000 ;
+            rdfs:label "saw down" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "3 step" ;
+        ], [
+            rdf:value 0.60000 ;
+            rdfs:label "4 step" ;
+        ], [
+            rdf:value 0.70000 ;
+            rdfs:label "8 step" ;
+        ], [
+            rdf:value 0.80000 ;
+            rdfs:label "3 pyramid" ;
+        ], [
+            rdf:value 0.90000 ;
+            rdfs:label "5 pyramid" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "9 pyramid" ;
+        ] ;
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1906 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 74 ;
+        lv2:symbol "osc_feedback_amount" ;
+        lv2:name "osc feedback amount" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FEEDBACK ;
+        lv2:displayPriority 1951 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 75 ;
+        lv2:symbol "osc_feedback_transpose" ;
+        lv2:name "osc feedback transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "-24" ;
+        ], [
+            rdf:value 0.02083 ;
+            rdfs:label "-23" ;
+        ], [
+            rdf:value 0.04167 ;
+            rdfs:label "-22" ;
+        ], [
+            rdf:value 0.06250 ;
+            rdfs:label "-21" ;
+        ], [
+            rdf:value 0.08333 ;
+            rdfs:label "-20" ;
+        ], [
+            rdf:value 0.10417 ;
+            rdfs:label "-19" ;
+        ], [
+            rdf:value 0.12500 ;
+            rdfs:label "-18" ;
+        ], [
+            rdf:value 0.14583 ;
+            rdfs:label "-17" ;
+        ], [
+            rdf:value 0.16667 ;
+            rdfs:label "-16" ;
+        ], [
+            rdf:value 0.18750 ;
+            rdfs:label "-15" ;
+        ], [
+            rdf:value 0.20833 ;
+            rdfs:label "-14" ;
+        ], [
+            rdf:value 0.22917 ;
+            rdfs:label "-13" ;
+        ], [
+            rdf:value 0.25000 ;
+            rdfs:label "-12" ;
+        ], [
+            rdf:value 0.27083 ;
+            rdfs:label "-11" ;
+        ], [
+            rdf:value 0.29167 ;
+            rdfs:label "-10" ;
+        ], [
+            rdf:value 0.31250 ;
+            rdfs:label "-9" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "-8" ;
+        ], [
+            rdf:value 0.35417 ;
+            rdfs:label "-7" ;
+        ], [
+            rdf:value 0.37500 ;
+            rdfs:label "-6" ;
+        ], [
+            rdf:value 0.39583 ;
+            rdfs:label "-5" ;
+        ], [
+            rdf:value 0.41667 ;
+            rdfs:label "-4" ;
+        ], [
+            rdf:value 0.43750 ;
+            rdfs:label "-3" ;
+        ], [
+            rdf:value 0.45833 ;
+            rdfs:label "-2" ;
+        ], [
+            rdf:value 0.47917 ;
+            rdfs:label "-1" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 0.52083 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.54167 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.56250 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.58333 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.60417 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.62500 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.64583 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.66667 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.68750 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.70833 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.72917 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.75000 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.77083 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.79167 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.81250 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.83333 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.85417 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.87500 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.89583 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.91667 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.93750 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.95833 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.97917 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "24" ;
+        ] ;
+        pg:group helm_lv2:FEEDBACK ;
+        lv2:displayPriority 1953 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 76 ;
+        lv2:symbol "osc_feedback_tune" ;
+        lv2:name "osc feedback tune" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FEEDBACK ;
+        lv2:displayPriority 1952 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 77 ;
+        lv2:symbol "pitch_bend_range" ;
+        lv2:name "pitchbend range" ;
+        lv2:default 0.041667 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 0.02083 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.04167 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.06250 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.08333 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.10417 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.12500 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.14583 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.16667 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.18750 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.20833 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.22917 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.25000 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.27083 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.29167 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.31250 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.35417 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.37500 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.39583 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.41667 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.43750 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.45833 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.47917 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "24" ;
+        ], [
+            rdf:value 0.52083 ;
+            rdfs:label "25" ;
+        ], [
+            rdf:value 0.54167 ;
+            rdfs:label "26" ;
+        ], [
+            rdf:value 0.56250 ;
+            rdfs:label "27" ;
+        ], [
+            rdf:value 0.58333 ;
+            rdfs:label "28" ;
+        ], [
+            rdf:value 0.60417 ;
+            rdfs:label "29" ;
+        ], [
+            rdf:value 0.62500 ;
+            rdfs:label "30" ;
+        ], [
+            rdf:value 0.64583 ;
+            rdfs:label "31" ;
+        ], [
+            rdf:value 0.66667 ;
+            rdfs:label "32" ;
+        ], [
+            rdf:value 0.68750 ;
+            rdfs:label "33" ;
+        ], [
+            rdf:value 0.70833 ;
+            rdfs:label "34" ;
+        ], [
+            rdf:value 0.72917 ;
+            rdfs:label "35" ;
+        ], [
+            rdf:value 0.75000 ;
+            rdfs:label "36" ;
+        ], [
+            rdf:value 0.77083 ;
+            rdfs:label "37" ;
+        ], [
+            rdf:value 0.79167 ;
+            rdfs:label "38" ;
+        ], [
+            rdf:value 0.81250 ;
+            rdfs:label "39" ;
+        ], [
+            rdf:value 0.83333 ;
+            rdfs:label "40" ;
+        ], [
+            rdf:value 0.85417 ;
+            rdfs:label "41" ;
+        ], [
+            rdf:value 0.87500 ;
+            rdfs:label "42" ;
+        ], [
+            rdf:value 0.89583 ;
+            rdfs:label "43" ;
+        ], [
+            rdf:value 0.91667 ;
+            rdfs:label "44" ;
+        ], [
+            rdf:value 0.93750 ;
+            rdfs:label "45" ;
+        ], [
+            rdf:value 0.95833 ;
+            rdfs:label "46" ;
+        ], [
+            rdf:value 0.97917 ;
+            rdfs:label "47" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "48" ;
+        ] ;
+        pg:group helm_lv2:KEY ;
+        lv2:displayPriority 802 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 78 ;
+        lv2:symbol "poly_lfo_amplitude" ;
+        lv2:name "poly lfo amp" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:POLY_LFO ;
+        lv2:displayPriority 1501 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 79 ;
+        lv2:symbol "poly_lfo_frequency" ;
+        lv2:name "poly lfo freq" ;
+        lv2:default 0.615385 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:POLY_LFO ;
+        lv2:displayPriority 1504 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 80 ;
+        lv2:symbol "poly_lfo_sync" ;
+        lv2:name "poly lfo sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.3333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.6666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ] ;
+        pg:group helm_lv2:POLY_LFO ;
+        lv2:displayPriority 1505 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 81 ;
+        lv2:symbol "poly_lfo_tempo" ;
+        lv2:name "poly lfo tempo" ;
+        lv2:default 0.636364 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "32/1" ;
+        ], [
+            rdf:value 0.09091 ;
+            rdfs:label "16/1" ;
+        ], [
+            rdf:value 0.18182 ;
+            rdfs:label "8/1" ;
+        ], [
+            rdf:value 0.27273 ;
+            rdfs:label "4/1" ;
+        ], [
+            rdf:value 0.36364 ;
+            rdfs:label "2/1" ;
+        ], [
+            rdf:value 0.45455 ;
+            rdfs:label "1/1" ;
+        ], [
+            rdf:value 0.54545 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.63636 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.72727 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.81818 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.90909 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:POLY_LFO ;
+        lv2:displayPriority 1503 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 82 ;
+        lv2:symbol "poly_lfo_waveform" ;
+        lv2:name "poly lfo waveform" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "sine" ;
+        ], [
+            rdf:value 0.08333 ;
+            rdfs:label "triangle" ;
+        ], [
+            rdf:value 0.16667 ;
+            rdfs:label "square" ;
+        ], [
+            rdf:value 0.25000 ;
+            rdfs:label "saw up" ;
+        ], [
+            rdf:value 0.33333 ;
+            rdfs:label "saw down" ;
+        ], [
+            rdf:value 0.41667 ;
+            rdfs:label "3 step" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "4 step" ;
+        ], [
+            rdf:value 0.58333 ;
+            rdfs:label "8 step" ;
+        ], [
+            rdf:value 0.66667 ;
+            rdfs:label "3 pyramid" ;
+        ], [
+            rdf:value 0.75000 ;
+            rdfs:label "5 pyramid" ;
+        ], [
+            rdf:value 0.83333 ;
+            rdfs:label "9 pyramid" ;
+        ], [
+            rdf:value 0.91667 ;
+            rdfs:label "sample & hold" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "sample & glide" ;
+        ] ;
+        pg:group helm_lv2:POLY_LFO ;
+        lv2:displayPriority 1506 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 83 ;
+        lv2:symbol "polyphony" ;
+        lv2:name "polyphony" ;
+        lv2:default 0.096774 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.03226 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.06452 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.09677 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.12903 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.16129 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.19355 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.22581 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.25806 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.29032 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.32258 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.35484 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.38710 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.41935 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.45161 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.48387 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.51613 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.54839 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.58065 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.61290 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.64516 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.67742 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.70968 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 0.74194 ;
+            rdfs:label "24" ;
+        ], [
+            rdf:value 0.77419 ;
+            rdfs:label "25" ;
+        ], [
+            rdf:value 0.80645 ;
+            rdfs:label "26" ;
+        ], [
+            rdf:value 0.83871 ;
+            rdfs:label "27" ;
+        ], [
+            rdf:value 0.87097 ;
+            rdfs:label "28" ;
+        ], [
+            rdf:value 0.90323 ;
+            rdfs:label "29" ;
+        ], [
+            rdf:value 0.93548 ;
+            rdfs:label "30" ;
+        ], [
+            rdf:value 0.96774 ;
+            rdfs:label "31" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "32" ;
+        ];
+        pg:group helm_lv2:KEY ;
+        lv2:displayPriority 803 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 84 ;
+        lv2:symbol "portamento" ;
+        lv2:name "portamento" ;
+        lv2:default 0.250000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:KEY ;
+        lv2:displayPriority 804 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 85 ;
+        lv2:symbol "portamento_type" ;
+        lv2:name "portamento type" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 0.5 ;
+            rdfs:label "auto" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ] ;
+        pg:group helm_lv2:KEY ;
+        lv2:displayPriority 805 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 86 ;
+        lv2:symbol "resonance" ;
+        lv2:name "resonance" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:FILTER ;
+        lv2:displayPriority 1708 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 87 ;
+        lv2:symbol "reverb_damping" ;
+        lv2:name "reverb damping" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:REVERB ;
+        lv2:displayPriority 902 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 88 ;
+        lv2:symbol "reverb_dry_wet" ;
+        lv2:name "reverb mix" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:REVERB ;
+        lv2:displayPriority 901 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 89 ;
+        lv2:symbol "reverb_feedback" ;
+        lv2:name "reverb feedback" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:REVERB ;
+        lv2:displayPriority 903 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 90 ;
+        lv2:symbol "reverb_on" ;
+        lv2:name "reverb on" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "on" ;
+        ] ;
+        pg:group helm_lv2:REVERB ;
+        lv2:displayPriority 904 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 91 ;
+        lv2:symbol "step_frequency" ;
+        lv2:name "step frequency" ;
+        lv2:default 0.636364 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+        lv2:displayPriority 737 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 92 ;
+        lv2:symbol "step_seq_00" ;
+        lv2:name "step 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 93 ;
+        lv2:symbol "step_seq_01" ;
+        lv2:name "step 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 94 ;
+        lv2:symbol "step_seq_02" ;
+        lv2:name "step 3" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 95 ;
+        lv2:symbol "step_seq_03" ;
+        lv2:name "step 4" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 96 ;
+        lv2:symbol "step_seq_04" ;
+        lv2:name "step 5" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 97 ;
+        lv2:symbol "step_seq_05" ;
+        lv2:name "step 6" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 98 ;
+        lv2:symbol "step_seq_06" ;
+        lv2:name "step 7" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 99 ;
+        lv2:symbol "step_seq_07" ;
+        lv2:name "step 8" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 100 ;
+        lv2:symbol "step_seq_08" ;
+        lv2:name "step 9" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 101 ;
+        lv2:symbol "step_seq_09" ;
+        lv2:name "step 10" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 102 ;
+        lv2:symbol "step_seq_10" ;
+        lv2:name "step 11" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 103 ;
+        lv2:symbol "step_seq_11" ;
+        lv2:name "step 12" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 104 ;
+        lv2:symbol "step_seq_12" ;
+        lv2:name "step 13" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 105 ;
+        lv2:symbol "step_seq_13" ;
+        lv2:name "step 14" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 106 ;
+        lv2:symbol "step_seq_14" ;
+        lv2:name "step 15" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 107 ;
+        lv2:symbol "step_seq_15" ;
+        lv2:name "step 16" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 108 ;
+        lv2:symbol "step_seq_16" ;
+        lv2:name "step 17" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 109 ;
+        lv2:symbol "step_seq_17" ;
+        lv2:name "step 18" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 110 ;
+        lv2:symbol "step_seq_18" ;
+        lv2:name "step 19" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 111 ;
+        lv2:symbol "step_seq_19" ;
+        lv2:name "step 20" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 112 ;
+        lv2:symbol "step_seq_20" ;
+        lv2:name "step 21" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 113 ;
+        lv2:symbol "step_seq_21" ;
+        lv2:name "step 22" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 114 ;
+        lv2:symbol "step_seq_22" ;
+        lv2:name "step 23" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 115 ;
+        lv2:symbol "step_seq_23" ;
+        lv2:name "step 24" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 116 ;
+        lv2:symbol "step_seq_24" ;
+        lv2:name "step 25" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 117 ;
+        lv2:symbol "step_seq_25" ;
+        lv2:name "step 26" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 118 ;
+        lv2:symbol "step_seq_26" ;
+        lv2:name "step 27" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 119 ;
+        lv2:symbol "step_seq_27" ;
+        lv2:name "step 28" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 120 ;
+        lv2:symbol "step_seq_28" ;
+        lv2:name "step 29" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 121 ;
+        lv2:symbol "step_seq_29" ;
+        lv2:name "step 30" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 122 ;
+        lv2:symbol "step_seq_30" ;
+        lv2:name "step 31" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 123 ;
+        lv2:symbol "step_seq_31" ;
+        lv2:name "step 32" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 124 ;
+        lv2:symbol "step_sequencer_retrigger" ;
+        lv2:name "step seq retrig" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "free" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "retrigger" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "sync to playhead" ;
+        ] ;
+        pg:group helm_lv2:SEQ ;
+        lv2:displayPriority 735 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 125 ;
+        lv2:symbol "step_sequencer_sync" ;
+        lv2:name "step seq sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.3333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.6666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ] ;
+        pg:group helm_lv2:SEQ ;
+        lv2:displayPriority 738 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 126 ;
+        lv2:symbol "step_sequencer_tempo" ;
+        lv2:name "step seq tempo" ;
+        lv2:default 0.636364 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "32/1" ;
+        ], [
+            rdf:value 0.09091 ;
+            rdfs:label "16/1" ;
+        ], [
+            rdf:value 0.18182 ;
+            rdfs:label "8/1" ;
+        ], [
+            rdf:value 0.27273 ;
+            rdfs:label "4/1" ;
+        ], [
+            rdf:value 0.36364 ;
+            rdfs:label "2/1" ;
+        ], [
+            rdf:value 0.45455 ;
+            rdfs:label "1/1" ;
+        ], [
+            rdf:value 0.54545 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.63636 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.72727 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.81818 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.90909 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:SEQ ;
+        lv2:displayPriority 736 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 127 ;
+        lv2:symbol "step_smoothing" ;
+        lv2:name "glide" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SEQ ;
+        lv2:displayPriority 734 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 128 ;
+        lv2:symbol "stutter_frequency" ;
+        lv2:name "stutter frequency" ;
+        lv2:default 0.428571 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1305 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 129 ;
+        lv2:symbol "stutter_on" ;
+        lv2:name "stutter on" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ] ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1308 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 130 ;
+        lv2:symbol "stutter_resample_frequency" ;
+        lv2:name "stutter resample freq" ;
+        lv2:default 0.727273 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1302 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 131 ;
+        lv2:symbol "stutter_resample_sync" ;
+        lv2:name "stutter resample sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.3333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.6666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ] ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1304 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 132 ;
+        lv2:symbol "stutter_resample_tempo" ;
+        lv2:name "stutter resample tempo" ;
+        lv2:default 0.545455 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "32/1" ;
+        ], [
+            rdf:value 0.09091 ;
+            rdfs:label "16/1" ;
+        ], [
+            rdf:value 0.18182 ;
+            rdfs:label "8/1" ;
+        ], [
+            rdf:value 0.27273 ;
+            rdfs:label "4/1" ;
+        ], [
+            rdf:value 0.36364 ;
+            rdfs:label "2/1" ;
+        ], [
+            rdf:value 0.45455 ;
+            rdfs:label "1/1" ;
+        ], [
+            rdf:value 0.54545 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.63636 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.72727 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.81818 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.90909 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1303 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 133 ;
+        lv2:symbol "stutter_softness" ;
+        lv2:name "stutter softness" ;
+        lv2:default 0.200000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1301 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 134 ;
+        lv2:symbol "stutter_sync" ;
+        lv2:name "stutter sync" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "seconds" ;
+        ], [
+            rdf:value 0.3333 ;
+            rdfs:label "tempo" ;
+        ], [
+            rdf:value 0.6666 ;
+            rdfs:label "tempo dotted" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "tempo triplets" ;
+        ] ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1307 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 135 ;
+        lv2:symbol "stutter_tempo" ;
+        lv2:name "stutter tempo" ;
+        lv2:default 0.400000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "1/2" ;
+        ], [
+            rdf:value 0.20000 ;
+            rdfs:label "1/4" ;
+        ], [
+            rdf:value 0.40000 ;
+            rdfs:label "1/8" ;
+        ], [
+            rdf:value 0.60000 ;
+            rdfs:label "1/16" ;
+        ], [
+            rdf:value 0.80000 ;
+            rdfs:label "1/32" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "1/64" ;
+        ] ;
+        pg:group helm_lv2:STUTTER ;
+        lv2:displayPriority 1306 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 136 ;
+        lv2:symbol "sub_octave" ;
+        lv2:name "sub octave" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "-1" ;
+        ] ;
+        pg:group helm_lv2:SUB ;
+        lv2:displayPriority 1801 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 137 ;
+        lv2:symbol "sub_shuffle" ;
+        lv2:name "sub shuffle" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:SUB ;
+        lv2:displayPriority 1802 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 138 ;
+        lv2:symbol "sub_volume" ;
+        lv2:name "sub volume" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:MIXER ;
+        lv2:displayPriority 2002 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 139 ;
+        lv2:symbol "sub_waveform" ;
+        lv2:name "sub waveform" ;
+        lv2:default 0.200000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.00000 ;
+            rdfs:label "sine" ;
+        ], [
+            rdf:value 0.10000 ;
+            rdfs:label "triangle" ;
+        ], [
+            rdf:value 0.20000 ;
+            rdfs:label "square" ;
+        ], [
+            rdf:value 0.30000 ;
+            rdfs:label "saw up" ;
+        ], [
+            rdf:value 0.40000 ;
+            rdfs:label "saw down" ;
+        ], [
+            rdf:value 0.50000 ;
+            rdfs:label "3 step" ;
+        ], [
+            rdf:value 0.60000 ;
+            rdfs:label "4 step" ;
+        ], [
+            rdf:value 0.70000 ;
+            rdfs:label "8 step" ;
+        ], [
+            rdf:value 0.80000 ;
+            rdfs:label "3 pyramid" ;
+        ], [
+            rdf:value 0.90000 ;
+            rdfs:label "5 pyramid" ;
+        ], [
+            rdf:value 1.00000 ;
+            rdfs:label "9 pyramid" ;
+        ] ;
+        pg:group helm_lv2:SUB ;
+        lv2:displayPriority 1803 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 140 ;
+        lv2:symbol "unison_1_harmonize" ;
+        lv2:name "unison 1 harmonize" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1913 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 141 ;
+        lv2:symbol "unison_2_harmonize" ;
+        lv2:name "unison 2 harmonize" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "on" ;
+        ];
+        pg:group helm_lv2:OSC ;
+        lv2:displayPriority 1903 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 142 ;
+        lv2:symbol "velocity_track" ;
+        lv2:name "velocity track" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:KEY ;
+        lv2:displayPriority 801 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 143 ;
+        lv2:symbol "volume" ;
+        lv2:name "volume" ;
+        lv2:default 0.499969 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group helm_lv2:KEY ;
+        lv2:displayPriority 807 ;
+    ] ;
+
+    doap:name "Helm" ;
+    doap:maintainer [ foaf:name "Matt Tytel" ] .
+
+
+helm_lv2:MIXER
+    a pg:InputGroup ;
+    lv2:name "Mixer" ;
+    lv2:symbol "MIXER" .
+
+helm_lv2:AMP_ENV
+    a pg:InputGroup ;
+    lv2:name "Amplitude Envelope" ;
+    lv2:symbol "AMP" .
+
+helm_lv2:ARP
+    a pg:InputGroup ;
+    lv2:name "ARP" ;
+    lv2:symbol "ARP" .
+
+helm_lv2:DELAY
+    a pg:InputGroup ;
+    lv2:name "Delay" ;
+    lv2:symbol "DELAY" .
+
+helm_lv2:DISTORTION
+    a pg:InputGroup ;
+    lv2:name "Distortion" ;
+    lv2:symbol "DISTORTION" .
+
+helm_lv2:FILTER
+    a pg:InputGroup ;
+    lv2:name "Filter" ;
+    lv2:symbol "FILTER" .
+
+helm_lv2:FILTER_ENV
+    a pg:InputGroup ;
+    lv2:name "Filter Envelope" ;
+    lv2:symbol "FILTER_ENV" .
+
+helm_lv2:FORMANT
+    a pg:InputGroup ;
+    lv2:name "Formant" ;
+    lv2:symbol "FORMANT" .
+
+helm_lv2:KEY
+    a pg:InputGroup ;
+    lv2:name "Keyboard" ;
+    lv2:symbol "KEY" .
+
+helm_lv2:MOD_ENV
+    a pg:InputGroup ;
+    lv2:name "Modulation Envelope" ;
+    lv2:symbol "MOD_ENV" .
+
+helm_lv2:MONO_LFO1
+    a pg:InputGroup ;
+    lv2:name "Mono LFO 1" ;
+    lv2:symbol "MONO_LFO1" .
+
+helm_lv2:MONO_LFO2
+    a pg:InputGroup ;
+    lv2:name "Mono LFO 2" ;
+    lv2:symbol "MONO_LFO2" .
+
+helm_lv2:POLY_LFO
+    a pg:InputGroup ;
+    lv2:name "Polyphonic LFO" ;
+    lv2:symbol "POLY_LFO LFO" .
+
+helm_lv2:SEQ
+    a pg:InputGroup ;
+    lv2:name "Step Sequencer" ;
+    lv2:symbol "SEQ" .              
+
+helm_lv2:OSC
+    a pg:InputGroup ;
+    lv2:name "Oscillators" ;
+    lv2:symbol "OSC" .
+
+helm_lv2:REVERB
+    a pg:InputGroup ;
+    lv2:name "Reverb" ;
+    lv2:symbol "REVERB" .
+
+helm_lv2:STUTTER
+    a pg:InputGroup ;
+    lv2:name "Stutter" ;
+    lv2:symbol "STUTTER" .
+
+helm_lv2:SUB
+    a pg:InputGroup ;
+    lv2:name "Sub Oscillator" ;
+    lv2:symbol "SUB" .
+
+helm_lv2:FEEDBACK
+    a pg:InputGroup ;
+    lv2:name "Feedback" ;
+    lv2:symbol "FEEDBACK" .
