@@ -1,0 +1,484 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix mda: <http://moddevices.com/plugins/mda/> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix pg: <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+mda:
+    a doap:Project ;
+    lv2:symbol "mda" ;
+    doap:name "MDA LV2" ;
+    doap:shortdesc "An LV2 port of the MDA plugins." ;
+    doap:homepage <http://drobilla.net/software/mda-lv2> ;
+    doap:maintainer [
+        foaf:name "MOD Team";
+        foaf:homepage <http://moddevices.com>;
+        foaf:mbox <mailto:devel@moddevices.com>;
+    ] ;
+    doap:developer [
+        a foaf:Person ;
+        foaf:name "Paul Kellett" ;
+        foaf:mbox <mailto:paul@mda-vst.com>
+    ] .
+
+mda:mainIn
+    a pg:StereoGroup ,
+        pg:InputGroup ;
+    lv2:name "Input" ;
+    lv2:symbol "in" .
+
+mda:mainOut
+    a pg:StereoGroup ,
+        pg:OutputGroup ;
+    pg:source mda:mainIn ;
+    lv2:name "Output" ;
+    lv2:symbol "out" .
+
+<http://moddevices.com/plugins/mda/JX10/filt_env>
+	a param:EnvelopeControls ,
+		pg:InputGroup ;
+	lv2:name "Filter Envelope" ;
+	lv2:symbol "filt_env" .
+
+<http://moddevices.com/plugins/mda/JX10/amp_env>
+	a param:EnvelopeControls ,
+		pg:InputGroup ;
+	lv2:name "Amp Envelope" ;
+	lv2:symbol "amp_env" .
+
+<http://moddevices.com/plugins/mda/JX10/filter>
+	a param:FilterControls ,
+		pg:InputGroup ;
+	lv2:name "Filter" ;
+	lv2:symbol "filter" .
+
+<http://moddevices.com/plugins/mda/JX10/glide>
+	a param:OscillatorControls ,
+		pg:InputGroup ;
+	lv2:name "Glide" ;
+	lv2:symbol "glide_grp" .
+
+<http://moddevices.com/plugins/mda/JX10/tune>
+	a pg:InputGroup ;
+	lv2:name "Tune" ;
+	lv2:symbol "tune_grp" .
+
+<http://moddevices.com/plugins/mda/JX10/mix>
+	a pg:InputGroup ;
+	lv2:name "Mix" ;
+	lv2:symbol "mix_grp" .
+
+<http://moddevices.com/plugins/mda/JX10/lfo>
+	a pg:InputGroup ;
+	lv2:name "LFO" ;
+	lv2:symbol "lfo_grp" .
+
+mda:JX10
+	a lv2:Plugin ,
+		lv2:InstrumentPlugin ;
+	lv2:project mda: ;
+	lv2:symbol "JX10" ;
+	doap:name "MDA JX10" ;
+	doap:license <http://usefulinc.com/doap/licenses/gpl> ;
+	lv2:optionalFeature lv2:hardRTCapable ;
+	lv2:requiredFeature <http://lv2plug.in/ns/ext/urid#map> ;
+	lv2:extensionData <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
+	pg:mainInput mda:mainIn ;
+	pg:mainOutput mda:mainOut ;
+	rdfs:comment """
+  A very nice polyphone synthesizer. This one has a lot of options to modulate the filter, with envelope and/or lfo.
+  When Vibrato is set to PWM, the two oscillators are phase-locked and will produce a square wave if set to the same pitch. Pitch modulation of one oscillator then causes Pulse Width Modulation. (pitch modulation of both oscillators for vibrato is still available from the modulation wheel). Unlike other synths, in PWM mode the oscillators can still be detuned to give a wider range of PWM effects.
+    """ ;
+	lv2:minorVersion 0;
+	lv2:microVersion 1;
+	mod:brand "MDA" ;
+	mod:label "JX10" ;
+
+	lv2:port[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 0 ;
+		lv2:name "OSC Mix" ;
+		lv2:symbol "osc_mix" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/mix> ;
+		rdfs:comment "Level of second oscillator" ;
+		lv2:displayPriority 70
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 1 ;
+		lv2:name "OSC Tune" ;
+		lv2:symbol "osc_tune" ;
+		lv2:default 0.37 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		units:unit units:semitone12TET ;
+		lv2:scalePoint [ rdf:value 0.0; rdfs:label "-24"; ], 
+			[ rdf:value 0.03; rdfs:label "-23"; ],
+			[ rdf:value 0.05; rdfs:label "-22"; ],
+			[ rdf:value 0.07; rdfs:label "-21"; ],
+			[ rdf:value 0.09; rdfs:label "-20"; ],
+			[ rdf:value 0.11; rdfs:label "-19"; ],
+			[ rdf:value 0.13; rdfs:label "-18"; ],
+			[ rdf:value 0.15; rdfs:label "-17"; ],
+			[ rdf:value 0.17; rdfs:label "-16"; ],
+			[ rdf:value 0.19; rdfs:label "-15"; ],
+			[ rdf:value 0.21; rdfs:label "-14"; ],
+			[ rdf:value 0.23; rdfs:label "-13"; ],
+			[ rdf:value 0.25; rdfs:label "-12"; ],
+			[ rdf:value 0.28; rdfs:label "-11"; ],
+			[ rdf:value 0.30; rdfs:label "-10"; ],
+			[ rdf:value 0.32; rdfs:label "-9"; ],
+			[ rdf:value 0.34; rdfs:label "-8"; ],
+			[ rdf:value 0.36; rdfs:label "-7"; ],
+			[ rdf:value 0.38; rdfs:label "-6"; ],
+			[ rdf:value 0.40; rdfs:label "-5"; ],
+			[ rdf:value 0.42; rdfs:label "-4"; ],
+			[ rdf:value 0.44; rdfs:label "-3"; ],
+			[ rdf:value 0.46; rdfs:label "-2"; ],
+			[ rdf:value 0.48; rdfs:label "-1"; ],
+			[ rdf:value 0.50; rdfs:label "0"; ],
+			[ rdf:value 0.54; rdfs:label "+1"; ],
+			[ rdf:value 0.56; rdfs:label "+2"; ],
+			[ rdf:value 0.58; rdfs:label "+3"; ],
+			[ rdf:value 0.60; rdfs:label "+4"; ],
+			[ rdf:value 0.62; rdfs:label "+5"; ],
+			[ rdf:value 0.64; rdfs:label "+6"; ],
+			[ rdf:value 0.66; rdfs:label "+7"; ],
+			[ rdf:value 0.68; rdfs:label "+8"; ],
+			[ rdf:value 0.70; rdfs:label "+9"; ],
+			[ rdf:value 0.72; rdfs:label "+10"; ],
+			[ rdf:value 0.74; rdfs:label "+11"; ],
+			[ rdf:value 0.76; rdfs:label "+12"; ],
+			[ rdf:value 0.78; rdfs:label "+13"; ],
+			[ rdf:value 0.80; rdfs:label "+14"; ],
+			[ rdf:value 0.82; rdfs:label "+15"; ],
+			[ rdf:value 0.84; rdfs:label "+16"; ],
+			[ rdf:value 0.86; rdfs:label "+17"; ],
+			[ rdf:value 0.88; rdfs:label "+18"; ],
+			[ rdf:value 0.90; rdfs:label "+19"; ],
+			[ rdf:value 0.92; rdfs:label "+20"; ],
+			[ rdf:value 0.94; rdfs:label "+21"; ],
+			[ rdf:value 0.96; rdfs:label "+22"; ],
+			[ rdf:value 0.98; rdfs:label "+23"; ],
+			[ rdf:value 1.00; rdfs:label "+24"; ] ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/tune> ;
+		lv2:displayPriority 60 ;
+		rdfs:comment "Tuning of second oscillator in semitones"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 2 ;
+		lv2:name "OSC Fine" ;
+		lv2:symbol "osc_fine" ;
+		lv2:default 0.25 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		units:unit units:cent ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/tune> ;
+		rdfs:comment "Tuning of second oscillator in cents"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 3 ;
+		lv2:name "Glide" ;
+		lv2:symbol "glide" ;
+		lv2:default 0.3 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:scalePoint [
+			rdf:value 0.0 ;
+			rdfs:label "Poly" ;
+		], [
+			rdf:value 0.3 ;
+			rdfs:label "Poly Legato" ;
+		], [
+			rdf:value 0.4 ;
+			rdfs:label "Poly Glide" ;
+		], [
+			rdf:value 0.6 ;
+			rdfs:label "Mono" ;
+		], [
+			rdf:value 0.8 ;
+			rdfs:label "Mono Legato" ;
+		], [
+			rdf:value 1.0 ;
+			rdfs:label "Mono Glide" ;
+		] ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/glide> ;
+		lv2:displayPriority 50
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 4 ;
+		lv2:name "Gld Rate" ;
+		lv2:symbol "gld_rate" ;
+		lv2:default 0.32 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		rdfs:comment "Pitch glide rate" ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/glide>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 5 ;
+		lv2:name "Gld Bend" ;
+		lv2:symbol "gld_bend" ;
+		lv2:default 0.5 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		rdfs:comment "Initial pitch-glide offset, for pitch-envelope effects" ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/glide>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 6 ;
+		lv2:name "VCF Freq" ;
+		lv2:symbol "vcf_freq" ;
+		lv2:default 0.9 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filter> ;
+		lv2:designation param:cutoffFrequency ;
+		lv2:displayPriority 80
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 7 ;
+		lv2:name "VCF Reso" ;
+		lv2:symbol "vcf_reso" ;
+		lv2:default 0.6 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filter> ;
+		lv2:designation param:resonance
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 8 ;
+		lv2:name "VCF Env" ;
+		lv2:symbol "vcf_env" ;
+		lv2:default 0.12 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filter> ;
+		rdfs:comment "Cutoff modulation by VCF envelope"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 9 ;
+		lv2:name "VCF LFO" ;
+		lv2:symbol "vcf_lfo" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filter> ;
+		rdfs:comment "Cutoff modulation by LFO"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 10 ;
+		lv2:name "VCF Vel" ;
+		lv2:symbol "vcf_vel" ;
+		lv2:default 0.5 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filter> ;
+		rdfs:comment "Cutoff modulation by velocity"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 11 ;
+		lv2:name "VCF Attack" ;
+		lv2:symbol "vcf_att" ;
+		lv2:default 0.9 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:attack ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>;
+		lv2:displayPriority 90
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 12 ;
+		lv2:name "VCF Decay" ;
+		lv2:symbol "vcf_dec" ;
+		lv2:default 0.89 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:decay ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 13 ;
+		lv2:name "VCF Sustain" ;
+		lv2:symbol "vcf_sus" ;
+		lv2:default 0.9 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:sustain ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 14 ;
+		lv2:name "VCF Release" ;
+		lv2:symbol "vcf_rel" ;
+		lv2:default 0.73 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:release ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/filt_env>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 15 ;
+		lv2:name "VCA Attack" ;
+		lv2:symbol "env_att" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:attack ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env> ;
+		lv2:displayPriority 100
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 16 ;
+		lv2:name "VCA Decay" ;
+		lv2:symbol "env_dec" ;
+		lv2:default 0.5 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:decay ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 17 ;
+		lv2:name "VCA Sustain" ;
+		lv2:symbol "env_sus" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:sustain ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 18 ;
+		lv2:name "VCA Release" ;
+		lv2:symbol "env_rel" ;
+		lv2:default 0.71 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:designation param:release ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/amp_env>
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 19 ;
+		lv2:name "LFO Rate" ;
+		lv2:symbol "lfo_rate" ;
+		lv2:default 0.81 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/lfo> ;
+		rdfs:comment "LFO rate (sine wave only)"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 20 ;
+		lv2:name "Vibrato" ;
+		lv2:symbol "vibrato" ;
+		lv2:default 0.65 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/lfo> ;
+		rdfs:comment "LFO modulation of pitch - turn to left for PWM effects"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 21 ;
+		lv2:name "Noise" ;
+		lv2:symbol "noise" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/mix> ;
+		rdfs:comment "White noise mix"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 22 ;
+		lv2:name "Octave" ;
+		lv2:symbol "octave" ;
+		lv2:default 0.5 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:scalePoint [
+			rdf:value 0.0 ;
+			rdfs:label "-2" ;
+		], [
+			rdf:value 0.25 ;
+			rdfs:label "-1" ;
+		], [
+			rdf:value 0.5 ;
+			rdfs:label "0" ;
+		], [
+			rdf:value 0.75 ;
+			rdfs:label "+1" ;
+		], [
+			rdf:value 1.0 ;
+			rdfs:label "+2" ;
+		] ;
+		units:unit units:oct ; 
+		pg:group <http://moddevices.com/plugins/mda/JX10/tune> ;
+		rdfs:comment "Master tuning in octaves"
+	] , [
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 23 ;
+		lv2:name "Master Tuning" ;
+		lv2:symbol "tuning" ;
+		lv2:default 0.5 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		units:unit units:cent ;
+		pg:group <http://moddevices.com/plugins/mda/JX10/tune> ;
+		rdfs:comment "Master tuning in cents"
+	] , [
+		a lv2:OutputPort ,
+			lv2:AudioPort ;
+		lv2:index 24 ;
+		lv2:symbol "left_out" ;
+		lv2:name "Left Out" ;
+		lv2:designation pg:left ;
+		pg:group mda:mainOut
+	] , [
+		a lv2:OutputPort ,
+			lv2:AudioPort ;
+		lv2:index 25 ;
+		lv2:symbol "right_out" ;
+		lv2:name "Right Out" ;
+		lv2:designation pg:right ;
+		pg:group mda:mainOut
+	] , [
+		a lv2:InputPort ,
+			atom:AtomPort ;
+		atom:bufferType atom:Sequence ;
+		atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
+		lv2:index 26 ;
+		lv2:symbol "event_in" ;
+		lv2:name "Event In"
+	] .
