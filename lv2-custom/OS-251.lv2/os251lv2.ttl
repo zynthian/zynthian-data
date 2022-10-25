@@ -1,0 +1,634 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+
+<https://github.com/utokusa/OS-251>
+    a lv2:InstrumentPlugin, lv2:Plugin ;
+    lv2:requiredFeature <http://lv2plug.in/ns/ext/buf-size#boundedBlockLength> ,
+                        <http://lv2plug.in/ns/ext/urid#map> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/options#interface> ,
+                      <http://lv2plug.in/ns/ext/state#interface> ,
+                      <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
+
+    lv2:microVersion 2 ;
+    lv2:minorVersion 3 ;
+
+    ui:ui <https://github.com/utokusa/OS-251#ExternalUI> ,
+          <https://github.com/utokusa/OS-251#ParentUI> ;
+
+    lv2:port [
+        a lv2:InputPort, atom:AtomPort ;
+        atom:bufferType atom:Sequence ;
+        atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
+        atom:supports <http://lv2plug.in/ns/ext/time#Position> ;
+        lv2:index 0 ;
+        lv2:symbol "lv2_events_in" ;
+        lv2:name "Events Input" ;
+        lv2:designation lv2:control ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:symbol "lv2_freewheel" ;
+        lv2:name "Freewheel" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#freeWheeling> ;
+        lv2:portProperty lv2:toggled, <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:symbol "lv2_latency" ;
+        lv2:name "Latency" ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#latency> ;
+        lv2:portProperty lv2:reportsLatency, lv2:integer ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 3 ;
+        lv2:symbol "lv2_audio_out_1" ;
+        lv2:name "Audio Output 1" ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 4 ;
+        lv2:symbol "lv2_audio_out_2" ;
+        lv2:name "Audio Output 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:symbol "attack" ;
+        lv2:name "Attack" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:symbol "decay" ;
+        lv2:name "Decay" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:symbol "sustain" ;
+        lv2:name "Sustain" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:symbol "release" ;
+        lv2:name "Release" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:symbol "lfo_rate" ;
+        lv2:name "LFO Rate" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:symbol "synced_lfo_rate" ;
+        lv2:name "Synced LFO Rate" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:symbol "lfo_phase" ;
+        lv2:name "LFO Phase" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 12 ;
+        lv2:symbol "lfo_delay" ;
+        lv2:name "LFO Delay" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 13 ;
+        lv2:symbol "sync" ;
+        lv2:name "LFO Sync" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0 ;
+            rdfs:label "OFF" ;
+        ] , [
+            rdf:value 1 ;
+            rdfs:label "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 14 ;
+        lv2:symbol "lfo____pitch" ;
+        lv2:name "LFO -> Pitch" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 15 ;
+        lv2:symbol "lfo____freq" ;
+        lv2:name "LFO -> Freq" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 16 ;
+        lv2:symbol "lfo____shape" ;
+        lv2:name "LFO -> Shape" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 17 ;
+        lv2:symbol "frequency" ;
+        lv2:name "Frequency" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 18 ;
+        lv2:symbol "resonance" ;
+        lv2:name "Resonance" ;
+        lv2:default 0.350000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 19 ;
+        lv2:symbol "env____filter" ;
+        lv2:name "Env -> Filter" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 20 ;
+        lv2:symbol "sin" ;
+        lv2:name "Sin" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 21 ;
+        lv2:symbol "square" ;
+        lv2:name "Square" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 22 ;
+        lv2:symbol "saw" ;
+        lv2:name "Saw" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 23 ;
+        lv2:symbol "subsquare" ;
+        lv2:name "SubSquare" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 24 ;
+        lv2:symbol "noise" ;
+        lv2:name "Noise" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 25 ;
+        lv2:symbol "shape" ;
+        lv2:name "Shape" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 26 ;
+        lv2:symbol "chorus" ;
+        lv2:name "Chorus" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0 ;
+            rdfs:label "OFF" ;
+        ] , [
+            rdf:value 1 ;
+            rdfs:label "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 27 ;
+        lv2:symbol "hpf_freq" ;
+        lv2:name "HPF Freq" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 28 ;
+        lv2:symbol "env____amp" ;
+        lv2:name "Env -> Amp" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0 ;
+            rdfs:label "OFF" ;
+        ] , [
+            rdf:value 1 ;
+            rdfs:label "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 29 ;
+        lv2:symbol "pitch_bend" ;
+        lv2:name "Pitch Bend" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 0.041666666666666664 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.08333333333333333 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.125 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.16666666666666666 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.20833333333333334 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.25 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.2916666666666667 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.3333333333333333 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.375 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.4166666666666667 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.4583333333333333 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.5 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.5416666666666666 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.5833333333333334 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.625 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.6666666666666666 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.7083333333333334 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.75 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.7916666666666666 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.8333333333333334 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.875 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.9166666666666666 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.9583333333333334 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "24" ;
+        ] ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 30 ;
+        lv2:symbol "octave" ;
+        lv2:name "Octave" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "-3" ;
+        ], [
+            rdf:value 0.16666666666666666 ;
+            rdfs:label "-2" ;
+        ], [
+            rdf:value 0.3333333333333333 ;
+            rdfs:label "-1" ;
+        ], [
+            rdf:value 0.5 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 0.6666666666666666 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.8333333333333334 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "3" ;
+        ] ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 31 ;
+        lv2:symbol "semi" ;
+        lv2:name "Semi" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "-12" ;
+        ], [
+            rdf:value 0.041666666666666664 ;
+            rdfs:label "-11" ;
+        ], [
+            rdf:value 0.08333333333333333 ;
+            rdfs:label "-10" ;
+        ], [
+            rdf:value 0.125 ;
+            rdfs:label "-9" ;
+        ], [
+            rdf:value 0.16666666666666666 ;
+            rdfs:label "-8" ;
+        ], [
+            rdf:value 0.20833333333333334 ;
+            rdfs:label "-7" ;
+        ], [
+            rdf:value 0.25 ;
+            rdfs:label "-6" ;
+        ], [
+            rdf:value 0.2916666666666667 ;
+            rdfs:label "-5" ;
+        ], [
+            rdf:value 0.3333333333333333 ;
+            rdfs:label "-4" ;
+        ], [
+            rdf:value 0.375 ;
+            rdfs:label "-3" ;
+        ], [
+            rdf:value 0.4166666666666667 ;
+            rdfs:label "-2" ;
+        ], [
+            rdf:value 0.4583333333333333 ;
+            rdfs:label "-1" ;
+        ], [
+            rdf:value 0.5 ;
+            rdfs:label "0" ;
+        ], [
+            rdf:value 0.5416666666666666 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.5833333333333334 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.625 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.6666666666666666 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.7083333333333334 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.75 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.7916666666666666 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.8333333333333334 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.875 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.9166666666666666 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.9583333333333334 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "12" ;
+        ] ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 32 ;
+        lv2:symbol "fine_tune" ;
+        lv2:name "Fine Tune" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 33 ;
+        lv2:symbol "portamento" ;
+        lv2:name "Portamento" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 34 ;
+        lv2:symbol "master_vol" ;
+        lv2:name "Master Vol" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 35 ;
+        lv2:symbol "num_voices" ;
+        lv2:name "Num Voices" ;
+        lv2:default 0.285000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "1" ;
+        ], [
+            rdf:value 0.043478260869565216 ;
+            rdfs:label "2" ;
+        ], [
+            rdf:value 0.08695652173913043 ;
+            rdfs:label "3" ;
+        ], [
+            rdf:value 0.13043478260869565 ;
+            rdfs:label "4" ;
+        ], [
+            rdf:value 0.17391304347826086 ;
+            rdfs:label "5" ;
+        ], [
+            rdf:value 0.21739130434782608 ;
+            rdfs:label "6" ;
+        ], [
+            rdf:value 0.2608695652173913 ;
+            rdfs:label "7" ;
+        ], [
+            rdf:value 0.30434782608695654 ;
+            rdfs:label "8" ;
+        ], [
+            rdf:value 0.34782608695652173 ;
+            rdfs:label "9" ;
+        ], [
+            rdf:value 0.391304347826087 ;
+            rdfs:label "10" ;
+        ], [
+            rdf:value 0.43478260869565216 ;
+            rdfs:label "11" ;
+        ], [
+            rdf:value 0.4782608695652174 ;
+            rdfs:label "12" ;
+        ], [
+            rdf:value 0.5217391304347826 ;
+            rdfs:label "13" ;
+        ], [
+            rdf:value 0.5652173913043478 ;
+            rdfs:label "14" ;
+        ], [
+            rdf:value 0.6086956521739131 ;
+            rdfs:label "15" ;
+        ], [
+            rdf:value 0.6521739130434783 ;
+            rdfs:label "16" ;
+        ], [
+            rdf:value 0.6956521739130435 ;
+            rdfs:label "17" ;
+        ], [
+            rdf:value 0.7391304347826086 ;
+            rdfs:label "18" ;
+        ], [
+            rdf:value 0.782608695652174 ;
+            rdfs:label "19" ;
+        ], [
+            rdf:value 0.8260869565217391 ;
+            rdfs:label "20" ;
+        ], [
+            rdf:value 0.8695652173913043 ;
+            rdfs:label "21" ;
+        ], [
+            rdf:value 0.9130434782608695 ;
+            rdfs:label "22" ;
+        ], [
+            rdf:value 0.9565217391304348 ;
+            rdfs:label "23" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "24" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 36 ;
+        lv2:symbol "unison" ;
+        lv2:name "Unison" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0 ;
+            rdfs:label "OFF" ;
+        ] , [
+            rdf:value 1 ;
+            rdfs:label "ON" ;
+        ];
+    ] ;
+
+    doap:name "OS-251" ;
+    doap:maintainer [ foaf:name "Onsen Audio" ] .
+
