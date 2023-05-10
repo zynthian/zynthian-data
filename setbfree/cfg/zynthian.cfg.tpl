@@ -22,3 +22,5 @@ midi.pedals.channel=#MIDI.PEDALS.CHANNEL#
 #Tonewheel configuration (Harmonics)
 #TONEWHEEL.CONFIG#
 
+#Disable automatic audio routing
+jack.connect=
