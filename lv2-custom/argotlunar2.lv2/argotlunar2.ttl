@@ -1,0 +1,1007 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+@prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
+
+@prefix argotlunar_lv2: <http://argotlunar.info/> .
+
+<http://argotlunar.info/>
+    a lv2:Plugin ;
+    lv2:requiredFeature <http://lv2plug.in/ns/ext/buf-size#boundedBlockLength> ,
+                        <http://lv2plug.in/ns/ext/urid#map> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/options#interface> ,
+                      <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
+
+    ui:ui <http://argotlunar.info/#ExternalUI> ,
+          <http://argotlunar.info/#ParentUI> ;
+
+    lv2:port [
+        a lv2:InputPort, atom:AtomPort ;
+        atom:bufferType atom:Sequence ;
+        atom:supports <http://lv2plug.in/ns/ext/time#Position> ;
+        lv2:index 0 ;
+        lv2:symbol "lv2_events_in" ;
+        lv2:name "Events Input" ;
+        lv2:designation lv2:control ;
+        lv2:portProperty lv2:connectionOptional ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:symbol "lv2_freewheel" ;
+        lv2:name "Freewheel" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#freeWheeling> ;
+        lv2:portProperty lv2:toggled, <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:symbol "lv2_latency" ;
+        lv2:name "Latency" ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#latency> ;
+        lv2:portProperty lv2:reportsLatency, lv2:integer ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:AudioPort ;
+        lv2:index 3 ;
+        lv2:symbol "lv2_audio_in_1" ;
+        lv2:name "Audio Input 1" ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:AudioPort ;
+        lv2:index 4 ;
+        lv2:symbol "lv2_audio_in_2" ;
+        lv2:name "Audio Input 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 5 ;
+        lv2:symbol "lv2_audio_out_1" ;
+        lv2:name "Audio Output 1" ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 6 ;
+        lv2:symbol "lv2_audio_out_2" ;
+        lv2:name "Audio Output 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:symbol "grains" ;
+        lv2:name "grains" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "0" ;
+            rdfs:comment "0" ;
+        ], [
+            rdf:value 0.03 ;
+            rdfs:label "1" ;
+            rdfs:comment "1" ;
+        ], [
+            rdf:value 0.08 ;
+            rdfs:label "2" ;
+            rdfs:comment "2" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "3" ;
+            rdfs:comment "3" ;
+        ], [
+            rdf:value 0.18 ;
+            rdfs:label "4" ;
+            rdfs:comment "4" ;
+        ], [
+            rdf:value 0.23 ;
+            rdfs:label "5" ;
+            rdfs:comment "5" ;
+        ], [
+            rdf:value 0.28 ;
+            rdfs:label "6" ;
+            rdfs:comment "6" ;
+        ], [
+            rdf:value 0.33 ;
+            rdfs:label "7" ;
+            rdfs:comment "7" ;
+        ], [
+            rdf:value 0.38 ;
+            rdfs:label "8" ;
+            rdfs:comment "8" ;
+        ], [
+            rdf:value 0.43 ;
+            rdfs:label "9" ;
+            rdfs:comment "9" ;
+        ], [
+            rdf:value 0.48 ;
+            rdfs:label "10" ;
+            rdfs:comment "10" ;
+        ], [
+            rdf:value 0.53 ;
+            rdfs:label "11" ;
+            rdfs:comment "11" ;
+        ], [
+            rdf:value 0.58 ;
+            rdfs:label "12" ;
+            rdfs:comment "12" ;
+        ], [
+            rdf:value 0.63 ;
+            rdfs:label "13" ;
+            rdfs:comment "13" ;
+        ], [
+            rdf:value 0.68 ;
+            rdfs:label "14" ;
+            rdfs:comment "14" ;
+        ], [
+            rdf:value 0.73 ;
+            rdfs:label "15" ;
+            rdfs:comment "15" ;
+        ], [
+            rdf:value 0.78 ;
+            rdfs:label "16" ;
+            rdfs:comment "16" ;
+        ], [
+            rdf:value 0.83 ;
+            rdfs:label "17" ;
+            rdfs:comment "17" ;
+        ], [
+            rdf:value 0.88 ;
+            rdfs:label "18" ;
+            rdfs:comment "18" ;
+        ], [
+            rdf:value 0.93 ;
+            rdfs:label "19" ;
+            rdfs:comment "19" ;
+        ], [
+            rdf:value 0.98 ;
+            rdfs:label "20" ;
+            rdfs:comment "20" ;
+        ];
+        pg:group argotlunar_lv2:G01_MAIN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:symbol "mix" ;
+        lv2:name "mix" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G01_MAIN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:symbol "input_gain" ;
+        lv2:name "input gain" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G01_MAIN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:symbol "feedback" ;
+        lv2:name "feedback" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G01_MAIN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:symbol "amp" ;
+        lv2:name "amplitude" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G02_AMPAN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 12 ;
+        lv2:symbol "ampv" ;
+        lv2:name "amplitude var" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G02_AMPAN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 13 ;
+        lv2:symbol "pan" ;
+        lv2:name "panning" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G02_AMPAN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 14 ;
+        lv2:symbol "panv" ;
+        lv2:name "panning var" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G02_AMPAN ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 15 ;
+        lv2:symbol "delay" ;
+        lv2:name "delay" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G03_DELAY ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 16 ;
+        lv2:symbol "delayv" ;
+        lv2:name "delay var" ;
+        lv2:default 0.050000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G03_DELAY ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 17 ;
+        lv2:symbol "iot" ;
+        lv2:name "IOT" ;
+        lv2:default 0.250000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G04_IOT ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 18 ;
+        lv2:symbol "iotv" ;
+        lv2:name "IOT var" ;
+        lv2:default 0.100000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G04_IOT ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 19 ;
+        lv2:symbol "dur" ;
+        lv2:name "duration" ;
+        lv2:default 0.300000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G05_DURATION ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 20 ;
+        lv2:symbol "durv" ;
+        lv2:name "duration var" ;
+        lv2:default 0.100000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G05_DURATION ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 21 ;
+        lv2:symbol "transpose" ;
+        lv2:name "pitch" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G06_PITCH ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 22 ;
+        lv2:symbol "transv" ;
+        lv2:name "pitch var" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G06_PITCH ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 23 ;
+        lv2:symbol "gliss" ;
+        lv2:name "glissando" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G07_GLISSANDO ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 24 ;
+        lv2:symbol "glissv" ;
+        lv2:name "glissando var" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G07_GLISSANDO ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 25 ;
+        lv2:symbol "filter_type" ;
+        lv2:name "filter type" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "off" ;
+            rdfs:comment "off" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "band" ;
+            rdfs:comment "band" ;
+        ], [
+            rdf:value 0.26 ;
+            rdfs:label "low" ;
+            rdfs:comment "low" ;
+        ], [
+            rdf:value 0.44 ;
+            rdfs:label "high" ;
+            rdfs:comment "high" ;
+        ], [
+            rdf:value 0.60 ;
+            rdfs:label "notch" ;
+            rdfs:comment "notch" ;
+        ], [
+            rdf:value 0.8 ;
+            rdfs:label "comb" ;
+            rdfs:comment "comb" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "random" ;
+            rdfs:comment "random" ;
+        ];
+        pg:group argotlunar_lv2:G08_FILTER ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 26 ;
+        lv2:symbol "ffreq" ;
+        lv2:name "frequency" ;
+        lv2:default 0.300000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G08_FILTER ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 27 ;
+        lv2:symbol "ffreqv" ;
+        lv2:name "frequency var" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G08_FILTER ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 28 ;
+        lv2:symbol "fq" ;
+        lv2:name "filter Q" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G08_FILTER_Q ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 29 ;
+        lv2:symbol "fqv" ;
+        lv2:name "filter Q var" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G08_FILTER_Q ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 30 ;
+        lv2:symbol "env_type" ;
+        lv2:name "envolope type" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "RCB" ;
+            rdfs:comment "RCB" ;
+        ], [
+            rdf:value 0.5 ;
+            rdfs:label "parabola" ;
+            rdfs:comment "parabola" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "triangle" ;
+            rdfs:comment "triangle" ;
+        ];
+        pg:group argotlunar_lv2:G09_ENVELOPE ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 31 ;
+        lv2:symbol "env_sustain" ;
+        lv2:name "envelope sustain" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G09_ENVELOPE ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 32 ;
+        lv2:symbol "env_skew" ;
+        lv2:name "envelope skew" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G09_ENVELOPE ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 33 ;
+        lv2:symbol "delay_quantize" ;
+        lv2:name "delay quantize" ;
+        lv2:default 0.076923 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "ms" ;
+            rdfs:comment "ms" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "128" ;
+            rdfs:comment "128" ;
+        ], [
+            rdf:value 0.20 ;
+            rdfs:label "128T" ;
+            rdfs:comment "128T" ;
+        ], [
+            rdf:value 0.28 ;
+            rdfs:label "64" ;
+            rdfs:comment "64" ;
+        ], [
+            rdf:value 0.36 ;
+            rdfs:label "64T" ;
+            rdfs:comment "64T" ;
+        ], [
+            rdf:value 0.43 ;
+            rdfs:label "32" ;
+            rdfs:comment "32" ;
+        ], [
+            rdf:value 0.51 ;
+            rdfs:label "32T" ;
+            rdfs:comment "32T" ;
+        ], [
+            rdf:value 0.59 ;
+            rdfs:label "16" ;
+            rdfs:comment "16" ;
+        ], [
+            rdf:value 0.67 ;
+            rdfs:label "16T" ;
+            rdfs:comment "16T" ;
+        ], [
+            rdf:value 0.74 ;
+            rdfs:label "8" ;
+            rdfs:comment "8" ;
+        ], [
+            rdf:value 0.82 ;
+            rdfs:label "8T" ;
+            rdfs:comment "8T" ;
+        ], [
+            rdf:value 0.89 ;
+            rdfs:label "4" ;
+            rdfs:comment "4" ;
+        ], [
+            rdf:value 0.97 ;
+            rdfs:label "4T" ;
+            rdfs:comment "4T" ;
+        ];
+        pg:group argotlunar_lv2:G03_DELAY ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 34 ;
+        lv2:symbol "dur_quantize" ;
+        lv2:name "duration quantize" ;
+        lv2:default 0.071429 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "ms" ;
+            rdfs:comment "ms" ;
+        ], [
+            rdf:value 0.12 ;
+            rdfs:label "128" ;
+            rdfs:comment "128" ;
+        ], [
+            rdf:value 0.19 ;
+            rdfs:label "128T" ;
+            rdfs:comment "128T" ;
+        ], [
+            rdf:value 0.26 ;
+            rdfs:label "64" ;
+            rdfs:comment "64" ;
+        ], [
+            rdf:value 0.33 ;
+            rdfs:label "64T" ;
+            rdfs:comment "64T" ;
+        ], [
+            rdf:value 0.40 ;
+            rdfs:label "32" ;
+            rdfs:comment "32" ;
+        ], [
+            rdf:value 0.47 ;
+            rdfs:label "32T" ;
+            rdfs:comment "32T" ;
+        ], [
+            rdf:value 0.55 ;
+            rdfs:label "16" ;
+            rdfs:comment "16" ;
+        ], [
+            rdf:value 0.62 ;
+            rdfs:label "16T" ;
+            rdfs:comment "16T" ;
+        ], [
+            rdf:value 0.69 ;
+            rdfs:label "8" ;
+            rdfs:comment "8" ;
+        ], [
+            rdf:value 0.76 ;
+            rdfs:label "8T" ;
+            rdfs:comment "8T" ;
+        ], [
+            rdf:value 0.83 ;
+            rdfs:label "4" ;
+            rdfs:comment "4" ;
+        ], [
+            rdf:value 0.90 ;
+            rdfs:label "4T" ;
+            rdfs:comment "4T" ;
+        ], [
+            rdf:value 0.97 ;
+            rdfs:label "long" ;
+            rdfs:comment "long" ;
+
+        ];
+        pg:group argotlunar_lv2:G05_DURATION ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 35 ;
+        lv2:symbol "iot_quantize" ;
+        lv2:name "IOT quantize" ;
+        lv2:default 0.076923 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "ms" ;
+            rdfs:comment "ms" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "128" ;
+            rdfs:comment "128" ;
+        ], [
+            rdf:value 0.20 ;
+            rdfs:label "128T" ;
+            rdfs:comment "128T" ;
+        ], [
+            rdf:value 0.28 ;
+            rdfs:label "64" ;
+            rdfs:comment "64" ;
+        ], [
+            rdf:value 0.36 ;
+            rdfs:label "64T" ;
+            rdfs:comment "64T" ;
+        ], [
+            rdf:value 0.43 ;
+            rdfs:label "32" ;
+            rdfs:comment "32" ;
+        ], [
+            rdf:value 0.51 ;
+            rdfs:label "32T" ;
+            rdfs:comment "32T" ;
+        ], [
+            rdf:value 0.59 ;
+            rdfs:label "16" ;
+            rdfs:comment "16" ;
+        ], [
+            rdf:value 0.67 ;
+            rdfs:label "16T" ;
+            rdfs:comment "16T" ;
+        ], [
+            rdf:value 0.74 ;
+            rdfs:label "8" ;
+            rdfs:comment "8" ;
+        ], [
+            rdf:value 0.82 ;
+            rdfs:label "8T" ;
+            rdfs:comment "8T" ;
+        ], [
+            rdf:value 0.89 ;
+            rdfs:label "4" ;
+            rdfs:comment "4" ;
+        ], [
+            rdf:value 0.97 ;
+            rdfs:label "4T" ;
+            rdfs:comment "4T" ;
+        ];
+        pg:group argotlunar_lv2:G04_IOT ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 36 ;
+        lv2:symbol "trans_toggle" ;
+        lv2:name "pitch on/off" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+        pg:group argotlunar_lv2:G06_PITCH ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 37 ;
+        lv2:symbol "gliss_toggle" ;
+        lv2:name "glissando on/off" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+        pg:group argotlunar_lv2:G07_GLISSANDO ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 38 ;
+        lv2:symbol "freeze_toggle" ;
+        lv2:name "freeze on/off" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+        pg:group argotlunar_lv2:G11_FREEZE ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 39 ;
+        lv2:symbol "scale_key" ;
+        lv2:name "scale key" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "C" ;
+            rdfs:comment "C" ;
+        ], [
+            rdf:value 0.05 ;
+            rdfs:label "C#" ;
+            rdfs:comment "C#" ;
+        ], [
+            rdf:value 0.13 ;
+            rdfs:label "D" ;
+            rdfs:comment "D" ;
+        ], [
+            rdf:value 0.22 ;
+            rdfs:label "D#" ;
+            rdfs:comment "D#" ;
+        ], [
+            rdf:value 0.31 ;
+            rdfs:label "E" ;
+            rdfs:comment "E" ;
+        ], [
+            rdf:value 0.39 ;
+            rdfs:label "F" ;
+            rdfs:comment "F" ;
+        ], [
+            rdf:value 0.47 ;
+            rdfs:label "F#" ;
+            rdfs:comment "F#" ;
+        ], [
+            rdf:value 0.56 ;
+            rdfs:label "G" ;
+            rdfs:comment "G" ;
+        ], [
+            rdf:value 0.64 ;
+            rdfs:label "G#" ;
+            rdfs:comment "G#" ;
+        ], [
+            rdf:value 0.72 ;
+            rdfs:label "A" ;
+            rdfs:comment "A" ;
+        ], [
+            rdf:value 0.81 ;
+            rdfs:label "A#" ;
+            rdfs:comment "A#" ;
+        ], [
+            rdf:value 0.89 ;
+            rdfs:label "B" ;
+            rdfs:comment "B" ;
+        ];
+        pg:group argotlunar_lv2:G10_SCALE ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 40 ;
+        lv2:symbol "matrix_mod_1" ;
+        lv2:name "matrix-1 mod" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G12_CORR1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 41 ;
+        lv2:symbol "matrix_mod_2" ;
+        lv2:name "matrix-2 mod" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G12_CORR1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 42 ;
+        lv2:symbol "matrix_mod_3" ;
+        lv2:name "matrix-2 mod" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G12_CORR1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 43 ;
+        lv2:symbol "program" ;
+        lv2:name "program" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group argotlunar_lv2:G11_FREEZE ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 44 ;
+        lv2:symbol "scale" ;
+        lv2:name "scale" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "unquantized" ;
+            rdfs:comment "unquantized" ;
+        ], [
+            rdf:value 0.04 ;
+            rdfs:label "chromatic" ;
+            rdfs:comment "chromatic" ;
+        ], [
+            rdf:value 0.08 ;
+            rdfs:label "major" ;
+            rdfs:comment "major" ;
+        ], [
+            rdf:value 0.12 ;
+            rdfs:label "natural minor" ;
+            rdfs:comment "natural minor" ;
+        ], [
+            rdf:value 0.16 ;
+            rdfs:label "harmonic minor" ;
+            rdfs:comment "harmonic minor" ;
+        ], [
+            rdf:value 0.20 ;
+            rdfs:label "major pentatonic" ;
+            rdfs:comment "major pentatonic" ;
+        ], [
+            rdf:value 0.24 ;
+            rdfs:label "minor pentatonic" ;
+            rdfs:comment "minor pentatonic" ;
+        ], [
+            rdf:value 0.28 ;
+            rdfs:label "blues major" ;
+            rdfs:comment "blues major" ;
+        ], [
+            rdf:value 0.32 ;
+            rdfs:label "blues minor" ;
+            rdfs:comment "blues minor" ;
+        ], [
+            rdf:value 0.36 ;
+            rdfs:label "whole tone" ;
+            rdfs:comment "whole tone" ;
+        ], [
+            rdf:value 0.40 ;
+            rdfs:label "octatonic" ;
+            rdfs:comment "octatonic" ;
+        ], [
+            rdf:value 0.44 ;
+            rdfs:label "maj 7" ;
+            rdfs:comment "maj 7" ;
+        ], [
+            rdf:value 0.48 ;
+            rdfs:label "dom 7" ;
+            rdfs:comment "dom 7" ;
+        ], [
+            rdf:value 0.52 ;
+            rdfs:label "min 7" ;
+            rdfs:comment "min 7" ;
+        ], [
+            rdf:value 0.56 ;
+            rdfs:label "aug maj 7" ;
+            rdfs:comment "aug maj 7" ;
+        ], [
+            rdf:value 0.60 ;
+            rdfs:label "aug 7" ;
+            rdfs:comment "aug 7" ;
+        ], [
+            rdf:value 0.64 ;
+            rdfs:label "dim 7" ;
+            rdfs:comment "dim 7" ;
+        ], [
+            rdf:value 0.68 ;
+            rdfs:label "dom 7 dim 5" ;
+            rdfs:comment "dom 7 dim 5" ;
+        ], [
+            rdf:value 0.72 ;
+            rdfs:label "maj triad" ;
+            rdfs:comment "maj triad" ;
+        ], [
+            rdf:value 0.76 ;
+            rdfs:label "min triad" ;
+            rdfs:comment "min triad" ;
+        ], [
+            rdf:value 0.80 ;
+            rdfs:label "aug triad" ;
+            rdfs:comment "aug triad" ;
+        ], [
+            rdf:value 0.84 ;
+            rdfs:label "dim triad" ;
+            rdfs:comment "dim triad" ;
+        ], [
+            rdf:value 0.88 ;
+            rdfs:label "5th" ;
+            rdfs:comment "5th" ;
+        ], [
+            rdf:value 0.92 ;
+            rdfs:label "dim 5th" ;
+            rdfs:comment "dim 5th" ;
+        ], [
+            rdf:value 0.96 ;
+            rdfs:label "aug 5th" ;
+            rdfs:comment "aug 5th" ;
+        ];
+        pg:group argotlunar_lv2:G10_SCALE ;
+    ] ;
+
+    doap:name "Argotlunar2" ;
+    doap:maintainer [ foaf:name "Michael Ourednik" ] .
+
+  
+argotlunar_lv2:G01_MAIN
+	a pg:InputGroup;
+	lv2:name "Main" ;
+	lv2:symbol "g01_main" .
+
+argotlunar_lv2:G02_AMPAN
+	a pg:InputGroup;
+	lv2:name "Amplitude/Panning" ;
+	lv2:symbol "g02_ampan" .
+
+argotlunar_lv2:G03_DELAY
+	a pg:InputGroup;
+	lv2:name "Delay" ;
+	lv2:symbol "g03_delay" .
+
+argotlunar_lv2:G04_IOT
+	a pg:InputGroup;
+	lv2:name "IOT" ;
+	lv2:symbol "g04_iot" .
+
+argotlunar_lv2:G05_DURATION
+	a pg:InputGroup;
+	lv2:name "Duration" ;
+	lv2:symbol "g05_duration" .
+
+argotlunar_lv2:G06_PITCH
+	a pg:InputGroup;
+	lv2:name "Pitch" ;
+	lv2:symbol "g06_pitch" .
+
+argotlunar_lv2:G07_GLISSANDO
+	a pg:InputGroup;
+	lv2:name "Glissando" ;
+	lv2:symbol "g07_glissando" .
+
+argotlunar_lv2:G08_FILTER
+	a pg:InputGroup;
+	lv2:name "Filter" ;
+	lv2:symbol "g08_filter" .
+
+argotlunar_lv2:G08_FILTER_Q
+	a pg:InputGroup;
+	lv2:name "Filter Q" ;
+	lv2:symbol "g08_filter_q" .
+
+argotlunar_lv2:G09_ENVELOPE
+	a pg:InputGroup;
+	lv2:name "Envelope" ;
+	lv2:symbol "g09_envelope" .
+
+argotlunar_lv2:G10_SCALE
+	a pg:InputGroup;
+	lv2:name "Scale" ;
+	lv2:symbol "g10_scale" .
+
+argotlunar_lv2:G11_FREEZE
+	a pg:InputGroup;
+	lv2:name "Freeze" ;
+	lv2:symbol "g11_freeze" .
+
+argotlunar_lv2:G12_CORR1
+	a pg:InputGroup;
+	lv2:name "Correlation 1" ;
+	lv2:symbol "g12_correlation_1" .
+
+argotlunar_lv2:G12_CORR2
+	a pg:InputGroup;
+	lv2:name "Correlation 2" ;
+	lv2:symbol "g12_correlation_2" .
+
+argotlunar_lv2:G12_CORR3
+	a pg:InputGroup;
+	lv2:name "Correlation 3" ;
+	lv2:symbol "g12_correlation_3" .
+
