@@ -6,6 +6,7 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
 @prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix param:   <http://lv2plug.in/ns/ext/parameters#> .
 
 @prefix obxd_lv2: <https://obxd.wordpress.com#> .
 
@@ -816,6 +817,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G602_LOUD_ENV ;
+        lv2:portProperty param:attack ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -826,6 +828,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G602_LOUD_ENV ;
+        lv2:portProperty param:decay ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -836,6 +839,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G602_LOUD_ENV ;
+        lv2:portProperty param:sustain ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -846,6 +850,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G602_LOUD_ENV ;
+        lv2:portProperty param:release ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -856,6 +861,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G601_FLTR_ENV ;
+        lv2:portProperty param:attack ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -866,6 +872,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G601_FLTR_ENV ;
+        lv2:portProperty param:decay ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -876,6 +883,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G601_FLTR_ENV ;
+        lv2:portProperty param:sustain ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -886,6 +894,7 @@
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
         pg:group obxd_lv2:G601_FLTR_ENV ;
+        lv2:portProperty param:release ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -1170,12 +1179,12 @@ obxd_lv2:G501_FLTR
 	lv2:symbol "g501_fltr" .
 
 obxd_lv2:G601_FLTR_ENV
-	a pg:InputGroup;
+	a pg:InputGroup, pg:ControlGroup;
 	lv2:name "Filter Env" ;
 	lv2:symbol "g601_fltr_env" .
 
 obxd_lv2:G602_LOUD_ENV
-	a pg:InputGroup;
+	a pg:InputGroup, pg:ControlGroup;
 	lv2:name "Loudness Env" ;
 	lv2:symbol "g602_loud_env" .
 
