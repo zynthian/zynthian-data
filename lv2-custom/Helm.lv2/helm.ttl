@@ -7,6 +7,8 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 
 @prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix param:   <http://lv2plug.in/ns/ext/parameters#> .
+
 @prefix helm_lv2: <http://tytel.org/helm#> .
 
 
@@ -77,6 +79,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:AMP_ENV ;
         lv2:displayPriority 1754 ;
+        lv2:designation param:attack ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -88,6 +91,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:AMP_ENV ;
         lv2:displayPriority 1753 ;
+        lv2:designation param:decay ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -99,6 +103,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:AMP_ENV ;
         lv2:displayPriority 1751 ;
+        lv2:designation param:release ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -110,6 +115,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:AMP_ENV ;
         lv2:displayPriority 1752 ;
+        lv2:designation param:sustain ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -504,6 +510,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:FILTER_ENV ;
         lv2:displayPriority 1604 ;
+        lv2:designation param:attack ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -515,6 +522,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:FILTER_ENV ;
         lv2:displayPriority 1603 ;
+        lv2:designation param:decay ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -537,6 +545,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:FILTER_ENV ;
         lv2:displayPriority 1601 ;
+        lv2:designation param:release ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -548,6 +557,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:FILTER_ENV ;
         lv2:displayPriority 1602 ;
+        lv2:designation param:sustain ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -717,6 +727,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:MOD_ENV ;
         lv2:displayPriority 1554 ;
+        lv2:designation param:attack ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -728,6 +739,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:MOD_ENV ;
         lv2:displayPriority 1553 ;
+        lv2:designation param:decay ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -739,6 +751,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:MOD_ENV ;
         lv2:displayPriority 1551 ;
+        lv2:designation param:release ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
@@ -750,6 +763,7 @@
         lv2:maximum 1.0 ;
         pg:group helm_lv2:MOD_ENV ;
         lv2:displayPriority 1552 ;
+        lv2:designation param:sustain ;
     ] ,
     [
         a lv2:InputPort, lv2:ControlPort ;
