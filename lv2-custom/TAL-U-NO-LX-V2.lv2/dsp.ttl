@@ -1,0 +1,1602 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix bufs:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <https://tal-software.com/TAL-U-NO-LX-V2:> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix time:  <http://lv2plug.in/ns/ext/time#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+plug:G101_MASTER
+	a pg:InputGroup;
+	lv2:index 1 ;
+	lv2:name "Master" ;
+	lv2:symbol "g101_master" .
+
+plug:G101_VOICE
+	a pg:InputGroup;
+	lv2:index 2 ;
+	lv2:name "Voice" ;
+	lv2:symbol "g101_voice" .
+
+plug:G101_UNISON
+	a pg:InputGroup;
+	lv2:index 3 ;
+	lv2:name "Unison" ;
+	lv2:symbol "g101_unison" .
+
+plug:G102_DCO
+	a pg:InputGroup;
+	lv2:index 4 ;
+	lv2:name "DCO" ;
+	lv2:symbol "g102_dco" .
+
+plug:G103_FILTER
+	a pg:InputGroup;
+	lv2:index 5 ;
+	lv2:name "Filter" ;
+	lv2:symbol "g103_filter" .
+
+plug:G104_ADSR
+	a pg:InputGroup;
+	lv2:index 6 ;
+	lv2:name "ADSR" ;
+	lv2:symbol "g104_adsr" .
+
+plug:G105_CHORUS
+	a pg:InputGroup;
+	lv2:index 7 ;
+	lv2:name "Chorus" ;
+	lv2:symbol "g105_chorus" .
+
+plug:G106_LFO
+	a pg:InputGroup;
+	lv2:index 8 ;
+	lv2:name "LFO" ;
+	lv2:symbol "g106_lfo" .
+
+plug:G107_PORT
+	a pg:InputGroup;
+	lv2:index 9 ;
+	lv2:name "Portamento" ;
+	lv2:symbol "g107_port" .
+
+plug:G108_CONTROL
+	a pg:InputGroup;
+	lv2:index 10 ;
+	lv2:name "Control" ;
+	lv2:symbol "g108_control" .
+
+plug:G109_ARP
+	a pg:InputGroup;
+	lv2:index 11 ;
+	lv2:name "Arpeggiator" ;
+	lv2:symbol "g109_arp" .
+
+plug:G110_FX_DELAY
+	a pg:InputGroup;
+	lv2:index 12 ;
+	lv2:name "FX Delay" ;
+	lv2:symbol "g110_fx_delay" .
+
+plug:G111_FX_REVERB
+	a pg:InputGroup;
+	lv2:index 13 ;
+	lv2:name "FX Reverb" ;
+	lv2:symbol "g110_fx_reverb" .
+
+
+plug:volume
+	a lv2:Parameter ;
+	rdfs:label "volume" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 299 ;
+	pg:group plug:G101_MASTER .
+
+plug:masterfinetune
+	a lv2:Parameter ;
+	rdfs:label "fine tune" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 298 ;
+	pg:group plug:G101_MASTER .
+
+plug:octavetranspose
+	a lv2:Parameter ;
+	rdfs:label "octave transpose" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "-1" ;
+		rdfs:comment "-1" ;
+	], [
+		rdf:value 0.5 ;
+		rdfs:label "0" ;
+		rdfs:comment "0" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "+1" ;
+		rdfs:comment "+1" ;
+	];
+	lv2:displayPriority 297 ;
+	pg:group plug:G101_MASTER .
+
+plug:keytranspose
+	a lv2:Parameter ;
+	rdfs:label "keytranspose" ;
+	rdfs:range atom:Float ;
+	lv2:default 12 ;
+	lv2:minimum 0 ;
+	lv2:maximum 24 ;
+	lv2:scalePoint [
+		rdf:value 0 ;
+		rdfs:label "-12" ;
+		rdfs:comment "-12" ;
+	], [
+		rdf:value 1 ;
+		rdfs:label "-11" ;
+		rdfs:comment "-11" ;
+	], [
+		rdf:value 2 ;
+		rdfs:label "-10" ;
+		rdfs:comment "-10" ;
+	], [
+		rdf:value 3 ;
+		rdfs:label "-9" ;
+		rdfs:comment "-9" ;
+	], [
+		rdf:value 4 ;
+		rdfs:label "-8" ;
+		rdfs:comment "-8" ;
+	], [
+		rdf:value 5 ;
+		rdfs:label "-7" ;
+		rdfs:comment "-7" ;
+	], [
+		rdf:value 6 ;
+		rdfs:label "-6" ;
+		rdfs:comment "-6" ;
+	], [
+		rdf:value 7 ;
+		rdfs:label "-5" ;
+		rdfs:comment "-5" ;
+	], [
+		rdf:value 8 ;
+		rdfs:label "-4" ;
+		rdfs:comment "-4" ;
+	], [
+		rdf:value 9 ;
+		rdfs:label "-3" ;
+		rdfs:comment "-3" ;
+	], [
+		rdf:value 10 ;
+		rdfs:label "-2" ;
+		rdfs:comment "-2" ;
+	], [
+		rdf:value 11 ;
+		rdfs:label "-1" ;
+		rdfs:comment "-1" ;
+	], [
+		rdf:value 12 ;
+		rdfs:label "0" ;
+		rdfs:comment "0" ;
+	], [
+		rdf:value 13 ;
+		rdfs:label "+1" ;
+		rdfs:comment "+1" ;
+	], [
+		rdf:value 14 ;
+		rdfs:label "+2" ;
+		rdfs:comment "+2" ;
+	], [
+		rdf:value 15 ;
+		rdfs:label "+3" ;
+		rdfs:comment "+3" ;
+	], [
+		rdf:value 16 ;
+		rdfs:label "+4" ;
+		rdfs:comment "+4" ;
+	], [
+		rdf:value 17 ;
+		rdfs:label "+5" ;
+		rdfs:comment "+5" ;
+	], [
+		rdf:value 18 ;
+		rdfs:label "+6" ;
+		rdfs:comment "+6" ;
+	], [
+		rdf:value 19 ;
+		rdfs:label "+7" ;
+		rdfs:comment "+7" ;
+	], [
+		rdf:value 20 ;
+		rdfs:label "+8" ;
+		rdfs:comment "+8" ;
+	], [
+		rdf:value 21 ;
+		rdfs:label "+9" ;
+		rdfs:comment "+9" ;
+	], [
+		rdf:value 22 ;
+		rdfs:label "+10" ;
+		rdfs:comment "+10" ;
+	], [
+		rdf:value 23 ;
+		rdfs:label "+11" ;
+		rdfs:comment "+11" ;
+	], [
+		rdf:value 24 ;
+		rdfs:label "+12" ;
+		rdfs:comment "+12" ;
+	];
+	lv2:displayPriority 296 ;
+	pg:group plug:G101_MASTER .
+
+plug:vcamode
+	a lv2:Parameter ;
+	rdfs:label "vca mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "GATE" ;
+		rdfs:comment "GATE" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ENV" ;
+		rdfs:comment "ENV" ;
+	];
+	lv2:displayPriority 295 ;
+	pg:group plug:G101_MASTER .
+
+plug:modulation
+	a lv2:Parameter ;
+	rdfs:label "modulation" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 294 ;
+	pprop:notOnGUI 1;
+	pg:group plug:G101_MASTER .
+
+plug:mtsEnabled
+	a lv2:Parameter ;
+	rdfs:label "MTS Microtuning Active" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 293 ;
+	pg:group plug:G101_MASTER .
+
+plug:engineoff
+	a lv2:Parameter ;
+	rdfs:label "sound engine disabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "ENABLED" ;
+		rdfs:comment "ENABLED" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "DISABLED" ;
+		rdfs:comment "DISABLED" ;
+	];
+	lv2:displayPriority 292 ;
+	pg:group plug:G101_MASTER .
+
+
+plug:voicemode
+	a lv2:Parameter ;
+	rdfs:label "Voice Mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "N" ;
+		rdfs:comment "N" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "RR" ;
+		rdfs:comment "RR" ;
+	];
+	lv2:displayPriority 289 ;
+	pg:group plug:G101_VOICE .
+
+plug:maxpoly
+	a lv2:Parameter ;
+	rdfs:label "max voices" ;
+	rdfs:range atom:Float ;
+	lv2:default 5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 11 ;
+	lv2:scalePoint [
+		rdf:value 0 ;
+		rdfs:label "1" ;
+		rdfs:comment "1" ;
+	], [
+		rdf:value 1 ;
+		rdfs:label "2" ;
+		rdfs:comment "2" ;
+	], [
+		rdf:value 2 ;
+		rdfs:label "3" ;
+		rdfs:comment "3" ;
+	], [
+		rdf:value 3 ;
+		rdfs:label "4" ;
+		rdfs:comment "4" ;
+	], [
+		rdf:value 4 ;
+		rdfs:label "5" ;
+		rdfs:comment "5" ;
+	], [
+		rdf:value 5 ;
+		rdfs:label "6" ;
+		rdfs:comment "6" ;
+	], [
+		rdf:value 6 ;
+		rdfs:label "7" ;
+		rdfs:comment "7" ;
+	], [
+		rdf:value 7 ;
+		rdfs:label "8" ;
+		rdfs:comment "8" ;
+	], [
+		rdf:value 8 ;
+		rdfs:label "9" ;
+		rdfs:comment "9" ;
+	], [
+		rdf:value 9 ;
+		rdfs:label "10" ;
+		rdfs:comment "10" ;
+	], [
+		rdf:value 10 ;
+		rdfs:label "11" ;
+		rdfs:comment "11" ;
+	], [
+		rdf:value 11 ;
+		rdfs:label "12" ;
+		rdfs:comment "12" ;
+	];
+	lv2:displayPriority 288 ;
+	pg:group plug:G101_VOICE .
+
+plug:mpeEnabled
+	a lv2:Parameter ;
+	rdfs:label "MPE enabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 287 ;
+	pg:group plug:G101_VOICE .
+
+
+plug:unisonovoices
+	a lv2:Parameter ;
+	rdfs:label "Unisono Voices" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 279 ;
+	pg:group plug:G101_UNISON .
+
+plug:unisonodetune
+	a lv2:Parameter ;
+	rdfs:label "Unisono Detune" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 278 ;
+	pg:group plug:G101_UNISON .
+
+plug:unsionospread
+	a lv2:Parameter ;
+	rdfs:label "Unisono Spread" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 277 ;
+	pg:group plug:G101_UNISON .
+
+
+plug:dcolfovalue
+	a lv2:Parameter ;
+	rdfs:label "lfo value" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 189 ;
+	pg:group plug:G102_DCO .
+
+plug:dcopwmvalue
+	a lv2:Parameter ;
+	rdfs:label "pwm value" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 188 ;
+    pg:group plug:G102_DCO .
+
+plug:dcopwmmode
+	a lv2:Parameter ;
+	rdfs:label "pwm mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "ENV" ;
+		rdfs:comment "ENV" ;
+	], [
+		rdf:value 0.5 ;
+		rdfs:label "MAN" ;
+		rdfs:comment "MAN" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "LFO" ;
+		rdfs:comment "LFO" ;
+	];
+	lv2:displayPriority 187 ;
+    pg:group plug:G102_DCO .
+
+plug:dcopulseenabled
+	a lv2:Parameter ;
+	rdfs:label "pulse enabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 186 ;
+    pg:group plug:G102_DCO .
+
+plug:dcosawenabled
+	a lv2:Parameter ;
+	rdfs:label "saw enabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 185 ;
+    pg:group plug:G102_DCO .
+
+plug:dcosuboscenabled
+	a lv2:Parameter ;
+	rdfs:label "sub osc enabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 184;
+    pg:group plug:G102_DCO .
+
+plug:dcosuboscvolume
+	a lv2:Parameter ;
+	rdfs:label "sub osc volume" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 183;
+    pg:group plug:G102_DCO .
+
+plug:dconoisevolume
+	a lv2:Parameter ;
+	rdfs:label "noise volume" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 182;
+    pg:group plug:G102_DCO .
+
+
+plug:hpfvalue
+	a lv2:Parameter ;
+	rdfs:label "HPF freq" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 179 ;
+	pg:group plug:G103_FILTER .
+
+plug:filtercutoff
+	a lv2:Parameter ;
+	rdfs:label "VCF cutoff" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 178 ;
+	pg:group plug:G103_FILTER .
+
+plug:filterresonance
+	a lv2:Parameter ;
+	rdfs:label "VCF resonance" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 177 ;
+	pg:group plug:G103_FILTER .
+
+plug:filterenvelopemode
+	a lv2:Parameter ;
+	rdfs:label "VCF env mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "INVERTED" ;
+		rdfs:comment "INVERTED" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "NORMAL" ;
+		rdfs:comment "NORMAL" ;
+	];
+	lv2:displayPriority 176 ;
+	pg:group plug:G103_FILTER .
+
+plug:filterenvelopevalue
+	a lv2:Parameter ;
+	rdfs:label "VCF env" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 175 ;
+	pg:group plug:G103_FILTER .
+
+plug:filtermodulationvalue
+	a lv2:Parameter ;
+	rdfs:label "VCF modulation" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 174 ;
+	pg:group plug:G103_FILTER .
+
+plug:filterkeyboardvalue
+	a lv2:Parameter ;
+	rdfs:label "VCF keyboard" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 173 ;
+	pg:group plug:G103_FILTER .
+
+
+plug:adsrattack
+	a lv2:Parameter ;
+	rdfs:label "attack" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 169 ;
+	lv2:designation param:attack ;
+	pg:group plug:G104_ADSR .
+
+plug:adsrdecay
+	a lv2:Parameter ;
+	rdfs:label "decay" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 168 ;
+	lv2:designation param:decay ;
+	pg:group plug:G104_ADSR .
+
+plug:adsrsustain
+	a lv2:Parameter ;
+	rdfs:label "sustain" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 167 ;
+	lv2:designation param:sustain ;
+	pg:group plug:G104_ADSR .
+
+plug:adsrrelease
+	a lv2:Parameter ;
+	rdfs:label "release" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 166 ;
+	lv2:designation param:release ;
+	pg:group plug:G104_ADSR .
+
+
+plug:chorus1enable
+	a lv2:Parameter ;
+	rdfs:label "chorus 1" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 159 ;
+	pg:group plug:G105_CHORUS .
+
+plug:chorus2enable
+	a lv2:Parameter ;
+	rdfs:label "chorus 2" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 158 ;
+	pg:group plug:G105_CHORUS .
+
+
+plug:lforate
+	a lv2:Parameter ;
+	rdfs:label "lfo rate" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 149 ;
+	pg:group plug:G106_LFO .
+
+plug:lfodelaytime
+	a lv2:Parameter ;
+	rdfs:label "lfo delay" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 148 ;
+	pg:group plug:G106_LFO .
+
+plug:lfotriggermode
+	a lv2:Parameter ;
+	rdfs:label "lfo trigger mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "SYNC" ;
+		rdfs:comment "SYNC" ;
+	], [
+		rdf:value 0.5 ;
+		rdfs:label "FREE" ;
+		rdfs:comment "FREE" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "KEY" ;
+		rdfs:comment "KEY" ;
+	];
+	lv2:displayPriority 147 ;
+	pg:group plug:G106_LFO .
+
+plug:lfowaveform
+	a lv2:Parameter ;
+	rdfs:label "lfo waveform" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 4 ;
+	lv2:scalePoint [
+		rdf:value 0 ;
+		rdfs:label "SINE" ;
+		rdfs:comment "SINE" ;
+	], [
+		rdf:value 1 ;
+		rdfs:label "TRI" ;
+		rdfs:comment "TRI" ;
+	], [
+		rdf:value 2 ;
+		rdfs:label "SAW" ;
+		rdfs:comment "SAW" ;
+	], [
+		rdf:value 3 ;
+		rdfs:label "REC" ;
+		rdfs:comment "REC" ;
+	], [
+		rdf:value 4 ;
+		rdfs:label "RND" ;
+		rdfs:comment "RND" ;
+	];
+	lv2:displayPriority 146 ;
+	pg:group plug:G106_LFO .
+
+plug:lfomanualtriggerenabled
+	a lv2:Parameter ;
+	rdfs:label "lfo manual trigger" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "MAN" ;
+		rdfs:comment "MAN" ;
+	];
+	lv2:displayPriority 145 ;
+	pg:group plug:G106_LFO .
+
+plug:lfomanualtriggeractive
+	a lv2:Parameter ;
+	rdfs:label "lfo trigger active" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 145 ;
+	pprop:notOnGUI 1;
+	pg:group plug:G106_LFO .
+
+plug:lfoinverted
+	a lv2:Parameter ;
+	rdfs:label "lfo inverted" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "INV" ;
+		rdfs:comment "INV" ;
+	];
+	lv2:displayPriority 144 ;
+	pg:group plug:G106_LFO .
+
+
+plug:portamentotimeenabled
+	a lv2:Parameter ;
+	rdfs:label "portamento time enabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "TIME" ;
+		rdfs:comment "TIME" ;
+	];
+	lv2:displayPriority 139 ;
+	pg:group plug:G107_PORT .
+
+plug:portamentomode
+	a lv2:Parameter ;
+	rdfs:label "portamento mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 0.5 ;
+		rdfs:label "1" ;
+		rdfs:comment "1" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "2" ;
+		rdfs:comment "2" ;
+	];
+	lv2:displayPriority 138 ;
+	pg:group plug:G107_PORT .
+
+plug:portamentopoly
+	a lv2:Parameter ;
+	rdfs:label "portamento poly" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "POLY" ;
+		rdfs:comment "POLY" ;
+	];
+	lv2:displayPriority 137 ;
+	pg:group plug:G107_PORT .
+
+plug:portamentointensity
+	a lv2:Parameter ;
+	rdfs:label "portamento time" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1;
+	lv2:displayPriority 136 ;
+	pg:group plug:G107_PORT .
+
+
+plug:controlbenderdco
+	a lv2:Parameter ;
+	rdfs:label "control pitch bend dco" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 129 ;
+	pg:group plug:G108_CONTROL .
+
+plug:controlbenderfilter
+	a lv2:Parameter ;
+	rdfs:label "control pitch bend filter" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 128 ;
+	pg:group plug:G108_CONTROL .
+
+plug:controlvelocityenvelope
+	a lv2:Parameter ;
+	rdfs:label "control velocity envelope" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 127 ;
+	pg:group plug:G108_CONTROL .
+
+plug:controlvelocityvolume
+	a lv2:Parameter ;
+	rdfs:label "control velocity volume" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 126 ;
+	pg:group plug:G108_CONTROL .
+
+
+plug:arpenabled
+	a lv2:Parameter ;
+	rdfs:label "arp enabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 119 ;
+	pg:group plug:G109_ARP .
+
+plug:arpsyncenabled
+	a lv2:Parameter ;
+	rdfs:label "arp sync enabled" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 118 ;
+	pg:group plug:G109_ARP .
+
+plug:arpmode
+	a lv2:Parameter ;
+	rdfs:label "arp mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "DOWN" ;
+		rdfs:comment "DOWN" ;
+	], [
+		rdf:value 0.5 ;
+		rdfs:label "UP-DOWN" ;
+		rdfs:comment "UP-DOWN" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "UP" ;
+		rdfs:comment "UP" ;
+	];
+	lv2:displayPriority 117 ;
+	pg:group plug:G109_ARP .
+
+plug:arpspecialmode
+	a lv2:Parameter ;
+	rdfs:label "special mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 3 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "NORMAL" ;
+		rdfs:comment "NORMAL" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "AS PLAYED" ;
+		rdfs:comment "AS PLAYED" ;
+	], [
+		rdf:value 2.0 ;
+		rdfs:label "RANDOM" ;
+		rdfs:comment "RANDOM" ;
+	], [
+		rdf:value 3.0 ;
+		rdfs:label "UP-DOWN" ;
+		rdfs:comment "UP-DOWN" ;
+	];
+	lv2:displayPriority 116 ;
+	pg:group plug:G109_ARP .
+
+plug:arprange
+	a lv2:Parameter ;
+	rdfs:label "arp range" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "1" ;
+		rdfs:comment "1" ;
+	], [
+		rdf:value 0.5 ;
+		rdfs:label "2" ;
+		rdfs:comment "2" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "3" ;
+		rdfs:comment "3" ;
+	];
+	lv2:displayPriority 115 ;
+	pg:group plug:G109_ARP .
+
+plug:arprate
+	a lv2:Parameter ;
+	rdfs:label "arp rate" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 114 ;
+	pg:group plug:G109_ARP .
+
+plug:arpsyncmode
+	a lv2:Parameter ;
+	rdfs:label "unused!" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "0" ;
+		rdfs:comment "0" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "1" ;
+		rdfs:comment "1" ;
+	], [
+		rdf:value 2.0 ;
+		rdfs:label "2" ;
+		rdfs:comment "2" ;
+	];
+	lv2:displayPriority 113 ;
+	pprop:notOnGUI 1;
+	pg:group plug:G109_ARP .
+
+plug:arpnotloadsettings
+	a lv2:Parameter ;
+	rdfs:label "arp locked" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "LOCK" ;
+		rdfs:comment "LOCK" ;
+	];
+	lv2:displayPriority 113 ;
+	pg:group plug:G109_ARP .
+
+plug:voicehold
+	a lv2:Parameter ;
+	rdfs:label "voice hold" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "HOLD" ;
+		rdfs:comment "HOLD" ;
+	];
+	lv2:displayPriority 112 ;
+	pg:group plug:G109_ARP .
+
+plug:miditriggerarp16sync
+	a lv2:Parameter ;
+	rdfs:label "trigger by MIDI CH16" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "ON" ;
+		rdfs:comment "ON" ;
+	];
+	lv2:displayPriority 111 ;
+	pg:group plug:G109_ARP .
+
+plug:midiclocksync
+	a lv2:Parameter ;
+	rdfs:label "clock sync" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "SYNC" ;
+		rdfs:comment "SYNC" ;
+	];
+	lv2:displayPriority 110 ;
+	pg:group plug:G109_ARP .
+
+plug:hostsync
+	a lv2:Parameter ;
+	rdfs:label "host sync" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "SYNC" ;
+		rdfs:comment "SYNC" ;
+	];
+	lv2:displayPriority 109 ;
+	pg:group plug:G109_ARP .
+
+
+plug:paramfxlock
+	a lv2:Parameter ;
+	rdfs:label "FX Lock" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "LOCK" ;
+		rdfs:comment "LOCK" ;
+	];
+	lv2:displayPriority 99 ;
+	pg:group plug:G110_FX_DELAY .
+
+plug:delayDryWet
+	a lv2:Parameter ;
+	rdfs:label "FX Delay Dry / Wet" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 98 ;
+	pg:group plug:G110_FX_DELAY .
+
+plug:delayTime
+	a lv2:Parameter ;
+	rdfs:label "FX Delay Time" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 97 ;
+	pg:group plug:G110_FX_DELAY .
+
+plug:delaySync
+	a lv2:Parameter ;
+	rdfs:label "FX Delay Sync" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdf:value 0.0 ;
+		rdfs:label "OFF" ;
+		rdfs:comment "OFF" ;
+	], [
+		rdf:value 1.0 ;
+		rdfs:label "SYNC" ;
+		rdfs:comment "SYNC" ;
+	];
+	lv2:displayPriority 96 ;
+	pg:group plug:G110_FX_DELAY .
+
+plug:delaySpread
+	a lv2:Parameter ;
+	rdfs:label "FX Delay Spread" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 95 ;
+	pg:group plug:G110_FX_DELAY .
+
+plug:delayTone
+	a lv2:Parameter ;
+	rdfs:label "FX Delay Tone" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 94 ;
+	pg:group plug:G110_FX_DELAY .
+
+plug:delayFeedback
+	a lv2:Parameter ;
+	rdfs:label "FX Delay Feedback" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 94 ;
+	pg:group plug:G110_FX_DELAY .
+
+
+plug:reverbDryWet
+	a lv2:Parameter ;
+	rdfs:label "FX Reverb Dry / Wet" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 89 ;
+	pg:group plug:G111_FX_REVERB .
+
+plug:reverbSize
+	a lv2:Parameter ;
+	rdfs:label "FX Reverb Size" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.8 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 87 ;
+	pg:group plug:G111_FX_REVERB .
+
+plug:reverbDelay
+	a lv2:Parameter ;
+	rdfs:label "FX Reverb Delay" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 86 ;
+	pg:group plug:G111_FX_REVERB .
+
+plug:reverbTone
+	a lv2:Parameter ;
+	rdfs:label "FX Reverb Tone" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:displayPriority 85 ;
+	pg:group plug:G111_FX_REVERB .
+
+
+plug:output_group_1
+	a pg:OutputGroup ;
+	lv2:name "Output" ;
+	lv2:symbol "output_group_1" .
+
+<https://tal-software.com/TAL-U-NO-LX-V2>
+	ui:ui <https://tal-software.com/TAL-U-NO-LX-V2:UI> ;
+	a lv2:InstrumentPlugin ;
+	doap:name "TAL U-No-LX-V2" ;
+	doap:description "TAL-U-NO-LX-V2" ;
+	lv2:minorVersion 9 ;
+	lv2:microVersion 5 ;
+	doap:maintainer [
+		a foaf:Person ;
+		foaf:name "TAL-Togu Audio Line" ;
+		foaf:homepage <> ;
+		foaf:mbox <> ;
+	] ;
+	doap:release [
+		a doap:Version ;
+		doap:revision "4.9.5" ;
+	] ;
+	lv2:optionalFeature
+		lv2:hardRTCapable ;
+	lv2:extensionData
+		state:interface ;
+	lv2:requiredFeature
+		urid:map ,
+		opts:options ,
+		bufs:boundedBlockLength ;
+	pg:mainOutput plug:output_group_1 ;
+	patch:writable
+		plug:modulation ,
+		plug:dcolfovalue ,
+		plug:dcopwmvalue ,
+		plug:dcopwmmode ,
+		plug:dcopulseenabled ,
+		plug:dcosawenabled ,
+		plug:dcosuboscenabled ,
+		plug:dcosuboscvolume ,
+		plug:dconoisevolume ,
+		plug:hpfvalue ,
+		plug:filtercutoff ,
+		plug:filterresonance ,
+		plug:filterenvelopemode ,
+		plug:filterenvelopevalue ,
+		plug:filtermodulationvalue ,
+		plug:filterkeyboardvalue ,
+		plug:volume ,
+		plug:masterfinetune ,
+		plug:octavetranspose ,
+		plug:vcamode ,
+		plug:adsrattack ,
+		plug:adsrdecay ,
+		plug:adsrsustain ,
+		plug:adsrrelease ,
+		plug:lforate ,
+		plug:lfodelaytime ,
+		plug:lfotriggermode ,
+		plug:lfomanualtriggerenabled ,
+		plug:lfomanualtriggeractive ,
+		plug:lfowaveform ,
+		plug:chorus1enable ,
+		plug:chorus2enable ,
+		plug:arpenabled ,
+		plug:arpsyncenabled ,
+		plug:arpmode ,
+		plug:arprange ,
+		plug:arprate ,
+		plug:arpnotloadsettings ,
+		plug:controlvelocityvolume ,
+		plug:controlvelocityenvelope ,
+		plug:controlbenderfilter ,
+		plug:controlbenderdco ,
+		plug:portamentomode ,
+		plug:portamentointensity ,
+		plug:voicehold ,
+		plug:miditriggerarp16sync ,
+		plug:midiclocksync ,
+		plug:hostsync ,
+		plug:maxpoly ,
+		plug:keytranspose ,
+		plug:arpsyncmode ,
+		plug:arpspecialmode ,
+		plug:lfoinverted ,
+		plug:portamentopoly ,
+		plug:engineoff ,
+		plug:mpeEnabled ,
+		plug:portamentotimeenabled ,
+		plug:paramfxlock ,
+		plug:reverbDryWet ,
+		plug:reverbSize ,
+		plug:reverbDelay ,
+		plug:reverbTone ,
+		plug:delayDryWet ,
+		plug:delayTime ,
+		plug:delaySync ,
+		plug:delaySpread ,
+		plug:delayTone ,
+		plug:delayFeedback ,
+		plug:mtsEnabled ,
+		plug:unisonovoices ,
+		plug:unisonodetune ,
+		plug:unsionospread ,
+		plug:voicemode ;
+	patch:readable
+		plug:modulation ,
+		plug:dcolfovalue ,
+		plug:dcopwmvalue ,
+		plug:dcopwmmode ,
+		plug:dcopulseenabled ,
+		plug:dcosawenabled ,
+		plug:dcosuboscenabled ,
+		plug:dcosuboscvolume ,
+		plug:dconoisevolume ,
+		plug:hpfvalue ,
+		plug:filtercutoff ,
+		plug:filterresonance ,
+		plug:filterenvelopemode ,
+		plug:filterenvelopevalue ,
+		plug:filtermodulationvalue ,
+		plug:filterkeyboardvalue ,
+		plug:volume ,
+		plug:masterfinetune ,
+		plug:octavetranspose ,
+		plug:vcamode ,
+		plug:adsrattack ,
+		plug:adsrdecay ,
+		plug:adsrsustain ,
+		plug:adsrrelease ,
+		plug:lforate ,
+		plug:lfodelaytime ,
+		plug:lfotriggermode ,
+		plug:lfomanualtriggerenabled ,
+		plug:lfomanualtriggeractive ,
+		plug:lfowaveform ,
+		plug:chorus1enable ,
+		plug:chorus2enable ,
+		plug:arpenabled ,
+		plug:arpsyncenabled ,
+		plug:arpmode ,
+		plug:arprange ,
+		plug:arprate ,
+		plug:arpnotloadsettings ,
+		plug:controlvelocityvolume ,
+		plug:controlvelocityenvelope ,
+		plug:controlbenderfilter ,
+		plug:controlbenderdco ,
+		plug:portamentomode ,
+		plug:portamentointensity ,
+		plug:voicehold ,
+		plug:miditriggerarp16sync ,
+		plug:midiclocksync ,
+		plug:hostsync ,
+		plug:maxpoly ,
+		plug:keytranspose ,
+		plug:arpsyncmode ,
+		plug:arpspecialmode ,
+		plug:lfoinverted ,
+		plug:portamentopoly ,
+		plug:engineoff ,
+		plug:mpeEnabled ,
+		plug:portamentotimeenabled ,
+		plug:paramfxlock ,
+		plug:reverbDryWet ,
+		plug:reverbSize ,
+		plug:reverbDelay ,
+		plug:reverbTone ,
+		plug:delayDryWet ,
+		plug:delayTime ,
+		plug:delaySync ,
+		plug:delaySpread ,
+		plug:delayTone ,
+		plug:delayFeedback ,
+		plug:mtsEnabled ,
+		plug:unisonovoices ,
+		plug:unisonodetune ,
+		plug:unsionospread ,
+		plug:voicemode ;
+	lv2:port [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 0 ;
+		lv2:symbol "audio_out_1" ;
+		lv2:name "Audio Out 1" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_out_2" ;
+		lv2:name "Audio Out 2" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:InputPort , atom:AtomPort ;
+		rsz:minimumSize 13448 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			midi:MidiEvent ,
+			patch:Message ,
+			time:Position ;
+		lv2:designation lv2:control ;
+		lv2:index 2 ;
+		lv2:symbol "in" ;
+		lv2:name "In" ;
+	] , [
+		a lv2:OutputPort , atom:AtomPort ;
+		rsz:minimumSize 13448 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			midi:MidiEvent ,
+			patch:Message ;
+		lv2:designation lv2:control ;
+		lv2:index 3 ;
+		lv2:symbol "out" ;
+		lv2:name "Out" ;
+	] , [
+		a lv2:OutputPort , lv2:ControlPort ;
+		lv2:designation lv2:latency ;
+		lv2:symbol "latency" ;
+		lv2:name "Latency" ;
+		lv2:index 4 ;
+		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
+		units:unit units:frame ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:freeWheeling ;
+		lv2:symbol "freeWheeling" ;
+		lv2:name "Free Wheeling" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 5 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:enabled ;
+		lv2:symbol "enabled" ;
+		lv2:name "Enabled" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 6 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] ;
+	opts:supportedOption
+		bufs:maxBlockLength .
