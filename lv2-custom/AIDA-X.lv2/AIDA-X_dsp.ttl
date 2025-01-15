@@ -1,0 +1,457 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix spdx:  <http://spdx.org/rdf/terms#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix unit:  <http://lv2plug.in/ns/extensions/units#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix plug:   <http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader#> .
+
+plug:G101_MAIN
+	a pg:InputGroup;
+	lv2:index 1 ;
+	lv2:name "Main" ;
+	lv2:symbol "g101_main" .
+
+plug:G102_MODEL
+	a pg:InputGroup;
+	lv2:index 2 ;
+	lv2:name "Model" ;
+	lv2:symbol "g102_model" .
+
+plug:G103_EQTONE
+	a pg:InputGroup;
+	lv2:index 3 ;
+	lv2:name "EQ Tone" ;
+	lv2:symbol "g103_eqtone" .
+
+
+plug:json
+    a lv2:Parameter ;
+    mod:fileTypes "aidax,aidadspmodel";
+    rdfs:label "Amp Neural Model" ;
+    rdfs:range atom:Path ;
+    pg:group plug:G102_MODEL ;
+    lv2:displayPriority 77 .
+
+plug:cabinet
+    a lv2:Parameter ;
+    mod:fileTypes "wav";
+    rdfs:label "Cabinet Impulse Response" ;
+    rdfs:range atom:Path ;
+    pg:group plug:G102_MODEL ;
+    lv2:displayPriority 76 .
+
+<http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader>
+    a lv2:SimulatorPlugin, lv2:Plugin, doap:Project ;
+
+    lv2:extensionData opts:interface ,
+                      <http://lv2plug.in/ns/ext/state#interface> ,
+                      <http://lv2plug.in/ns/ext/worker#interface> ;
+
+    lv2:optionalFeature <http://lv2plug.in/ns/lv2core#hardRTCapable> ,
+                        <http://lv2plug.in/ns/ext/buf-size#boundedBlockLength> ,
+                        <http://lv2plug.in/ns/ext/state#mapPath> ,
+                        <http://lv2plug.in/ns/ext/state#freePath> ;
+
+    lv2:requiredFeature opts:options ,
+                        <http://lv2plug.in/ns/ext/urid#map> ,
+                        <http://lv2plug.in/ns/ext/worker#schedule> ;
+
+    opts:supportedOption <http://lv2plug.in/ns/ext/buf-size#nominalBlockLength> ,
+                         <http://lv2plug.in/ns/ext/buf-size#maxBlockLength> ,
+                         <http://lv2plug.in/ns/ext/parameters#sampleRate> ;
+
+    patch:writable <http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader#json> ;
+    patch:writable <http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader#cabinet> ;
+
+    ui:ui <http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader#DPF_UI> ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:AudioPort ;
+        lv2:index 0 ;
+        lv2:symbol "lv2_audio_in_1" ;
+        lv2:name "Audio Input 1" ;
+        pg:group <http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader#portGroup_dpf_mono> ;
+        lv2:designation pg:center ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 1 ;
+        lv2:symbol "lv2_audio_out_1" ;
+        lv2:name "Audio Output 1" ;
+        pg:group <http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader#portGroup_dpf_mono> ;
+        lv2:designation pg:center ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, atom:AtomPort ;
+        lv2:index 2 ;
+        lv2:name "Events Input" ;
+        lv2:symbol "lv2_events_in" ;
+        rsz:minimumSize 2048 ;
+        atom:bufferType atom:Sequence ;
+        atom:supports atom:String ;
+        atom:supports <http://lv2plug.in/ns/ext/patch#Message> ;
+        lv2:designation lv2:control ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, atom:AtomPort ;
+        lv2:index 3 ;
+        lv2:name "Events Output" ;
+        lv2:symbol "lv2_events_out" ;
+        rsz:minimumSize 2048 ;
+        atom:bufferType atom:Sequence ;
+        atom:supports atom:String ;
+        atom:supports <http://lv2plug.in/ns/ext/patch#Message> ;
+        lv2:designation lv2:control ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 21 ;
+        lv2:name "Enabled" ;
+        lv2:symbol "lv2_enabled" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+        pg:group plug:G101_MAIN ;
+        lv2:displayPriority 89 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:name "INPUT" ;
+        lv2:symbol "PREGAIN" ;
+        lv2:default 0 ;
+        lv2:minimum -12 ;
+        lv2:maximum 12 ;
+        unit:unit unit:db ;
+        pg:group plug:G101_MAIN ;
+        lv2:displayPriority 88 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 19 ;
+        lv2:name "OUTPUT" ;
+        lv2:symbol "MASTER" ;
+        lv2:default 0 ;
+        lv2:minimum -15 ;
+        lv2:maximum 15 ;
+        unit:unit unit:db ;
+        pg:group plug:G101_MAIN ;
+        lv2:displayPriority 87 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 4 ;
+        lv2:name "Antialiasing" ;
+        lv2:symbol "ANTIALIASING" ;
+        lv2:default 66.216003418 ;
+        lv2:minimum 0 ;
+        lv2:maximum 100 ;
+        unit:unit unit:pc ;
+        pg:group plug:G101_MAIN ;
+        lv2:displayPriority 86 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 24 ;
+        lv2:name "DC Blocker" ;
+        lv2:symbol "DCBLOCKER" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G101_MAIN ;
+        lv2:displayPriority 85 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:name "Amp Bypass" ;
+        lv2:symbol "NETBYPASS" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G102_MODEL ;
+        lv2:displayPriority 79 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 20 ;
+        lv2:name "Cabinet Bypass" ;
+        lv2:symbol "CABSIMBYPASS" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G102_MODEL ;
+        lv2:displayPriority 78 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 22 ;
+        lv2:name "Param 1" ;
+        lv2:symbol "PARAM1" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G102_MODEL ;
+        lv2:displayPriority 75 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 23 ;
+        lv2:name "Param 2" ;
+        lv2:symbol "PARAM2" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G102_MODEL ;
+        lv2:displayPriority 74 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:name "EQ Bypass" ;
+        lv2:symbol "EQBYPASS" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 69 ;
+
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:name "EQ Position" ;
+        lv2:symbol "EQPOS" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:enumeration ;
+        lv2:scalePoint [
+            rdfs:label  "POST" ;
+            rdf:value 0 ;
+        ] ,
+        [
+            rdfs:label  "PRE" ;
+            rdf:value 1 ;
+        ] ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 68 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:name "Bass Gain" ;
+        lv2:symbol "BASS" ;
+        lv2:default 0 ;
+        lv2:minimum -8 ;
+        lv2:maximum 8 ;
+        unit:unit unit:db ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 67 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:name "Bass Freq" ;
+        lv2:symbol "BFREQ" ;
+        lv2:default 305 ;
+        lv2:minimum 75 ;
+        lv2:maximum 600 ;
+        unit:unit unit:hz ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 66 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:name "Mid Gain" ;
+        lv2:symbol "MID" ;
+        lv2:default 0 ;
+        lv2:minimum -8 ;
+        lv2:maximum 8 ;
+        unit:unit unit:db ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 65 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 12 ;
+        lv2:name "Mid Freq" ;
+        lv2:symbol "MFREQ" ;
+        lv2:default 750 ;
+        lv2:minimum 150 ;
+        lv2:maximum 5000 ;
+        unit:unit unit:hz ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 64 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 13 ;
+        lv2:name "Mid Resonance" ;
+        lv2:symbol "MIDQ" ;
+        lv2:default 0.707000017166 ;
+        lv2:minimum 0.20000000298 ;
+        lv2:maximum 5 ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 63 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 14 ;
+        lv2:name "Mid Type" ;
+        lv2:symbol "MTYPE" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:enumeration ;
+        lv2:scalePoint [
+            rdfs:label  "PEAK" ;
+            rdf:value 0 ;
+        ] ,
+        [
+            rdfs:label  "BANDPASS" ;
+            rdf:value 1 ;
+        ] ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 62 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 15 ;
+        lv2:name "Treble Gain" ;
+        lv2:symbol "TREBLE" ;
+        lv2:default 0 ;
+        lv2:minimum -8 ;
+        lv2:maximum 8 ;
+        unit:unit unit:db ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 61 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 16 ;
+        lv2:name "Treble Freq" ;
+        lv2:symbol "TFREQ" ;
+        lv2:default 2000 ;
+        lv2:minimum 1000 ;
+        lv2:maximum 4000 ;
+        unit:unit unit:hz ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 60 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 17 ;
+        lv2:name "Depth" ;
+        lv2:symbol "DEPTH" ;
+        lv2:default 0 ;
+        lv2:minimum -8 ;
+        lv2:maximum 8 ;
+        unit:unit unit:db ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 59 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 18 ;
+        lv2:name "Presence" ;
+        lv2:symbol "PRESENCE" ;
+        lv2:default 0 ;
+        lv2:minimum -8 ;
+        lv2:maximum 8 ;
+        unit:unit unit:db ;
+        pg:group plug:G103_EQTONE ;
+        lv2:displayPriority 58 ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 25 ;
+        lv2:name "Model Input Size" ;
+        lv2:symbol "ModelInSize" ;
+        lv2:minimum 0 ;
+        lv2:maximum 3 ;
+        lv2:portProperty lv2:enumeration ;
+        lv2:scalePoint [
+            rdfs:label  "ERROR" ;
+            rdf:value 0 ;
+        ] ,
+        [
+            rdfs:label  "SNAPSHOT" ;
+            rdf:value 1 ;
+        ] ,
+        [
+            rdfs:label  "WITH 1 PARAM" ;
+            rdf:value 2 ;
+        ] ,
+        [
+            rdfs:label  "WITH 2 PARAMS" ;
+            rdf:value 3 ;
+        ] ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 26 ;
+        lv2:name "Meter In" ;
+        lv2:symbol "MeterIn" ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        unit:unit unit:db ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 27 ;
+        lv2:name "Meter Out" ;
+        lv2:symbol "MeterOut" ;
+        lv2:minimum 0 ;
+        lv2:maximum 2 ;
+        unit:unit unit:db ;
+    ] ;
+
+    rdfs:comment "Simple loader for neural models using RTNeural inference engine." ;
+
+    mod:brand "AIDA DSP" ;
+    mod:label "AIDA-X" ;
+
+    doap:name "AIDA-X" ;
+    doap:license <http://spdx.org/licenses/GPL-3.0-or-later.html> ;
+
+    doap:maintainer [
+        foaf:name "AIDA DSP" ;
+        foaf:homepage <https://aidadsp.github.io/> ;
+    ] ;
+
+    lv2:microVersion 0 ;
+    lv2:minorVersion 3 .
+
+<http://aidadsp.cc/plugins/aidadsp-bundle/rt-neural-loader#portGroup_dpf_mono>
+    a pg:Group , pg:MonoGroup ;
+    lv2:name "Mono" ;
+    lv2:symbol "dpf_mono" .
