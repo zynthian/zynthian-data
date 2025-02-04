@@ -1,0 +1,55 @@
+#N canvas 312 199 931 469 10;
+#X obj 20 269 tb_compressor~;
+#X obj 129 201 tb_compressorUI;
+#N canvas 0 22 545 320 noiseBurst 0;
+#X obj 250 106 noise~;
+#X obj 354 116 *~ 100;
+#X obj 354 138 clip~ -1 1;
+#X obj 354 182 +~ 0.5;
+#X obj 250 227 *~;
+#X obj 303 60 inlet;
+#X obj 250 162 *~ 0;
+#X obj 250 249 outlet~;
+#X obj 303 125 * 0.5;
+#X obj 354 84 osc~ 0.5;
+#X obj 354 160 *~ 0.4;
+#X connect 0 0 6 0;
+#X connect 1 0 2 0;
+#X connect 2 0 10 0;
+#X connect 3 0 4 1;
+#X connect 4 0 7 0;
+#X connect 5 0 8 0;
+#X connect 6 0 4 0;
+#X connect 8 0 6 1;
+#X connect 9 0 1 0;
+#X connect 10 0 3 0;
+#X restore 20 160 pd noiseBurst;
+#X obj 20 125 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 20 416 dac~;
+#X text 541 16 tb_compressor~;
+#X text 542 31 Mono lookahead compressor;
+#X msg 544 126 threshold -2 \, ratio 2 \, response 40 \, gain 0 \,
+rmspeak 0 \, lookahead 0;
+#X text 542 165 All dB values (threshold and gain) are dBFS;
+#X text 542 179 Response (attack/release) is in ms;
+#X text 542 193 Lookahead is in ms;
+#X text 542 219 rmspeak 1 = peak detection;
+#X text 542 206 rmspeak 0 = rms detection;
+#X text 542 105 Messages to tb_compressor~:;
+#X text 541 58 tb_compressorUI;
+#X text 541 73 UI abstraction for tb_compressor~;
+#X msg 15 39 \; pd dsp 1;
+#X text 542 238 -----------------------------------------------------------
+;
+#X text 41 125 STEP 2: Turn on;
+#X text 193 181 STEP 3: Tweak and have fun!;
+#X text 104 38 STEP 1: turn on DSP;
+#X text 149 51 (and make sure your speakers/headphones arent too loud)
+;
+#X connect 0 0 4 0;
+#X connect 0 0 4 1;
+#X connect 0 1 1 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;

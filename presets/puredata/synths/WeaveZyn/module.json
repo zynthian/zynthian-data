@@ -1,0 +1,26 @@
+{
+    "name" : "macrosynth",
+    "display" : "macrosynth",
+    "parameters" :  [ 
+        ["int","model","Model",0,15,0],
+        ["int","semitone","Semitone",-48,48,0],
+        ["bool","trigger_active","Trigger",1],
+        ["float","harmonics","Harmonics",0,100,50],
+        ["float","timbre","Timbre",0,100,50],
+        ["float","morph","Morph",0,100,50],
+        ["float","lpg_colour","LPG Colour",0,100,50],
+        ["float","decay","Decay",0,100,50], 
+        ["bool","aux","Main/Aux",0],        
+        ["float","mod_timbre","Mod Timbre",-1,1,0],
+        ["float","mod_fm","Mod FM",-1,1,0],
+        ["float","mod_morph","Mod Morph",-1,1,0]       
+    ],
+    "pages" : [ 
+        ["pg_1","P1",["model","harmonics","timbre","morph"]],
+        ["pg_2","P2",["semitone","aux","trigger_active"]],
+        ["pg_3","P3",["lpg_colour","decay"]],
+        ["pg_4","Mod",["mod_timbre","mod_fm","mod_morph"]]
+        
+    ]
+}
+
