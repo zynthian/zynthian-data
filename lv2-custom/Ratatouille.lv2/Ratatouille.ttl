@@ -1,0 +1,402 @@
+
+@prefix doap:   <http://usefulinc.com/ns/doap#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix guiext: <http://lv2plug.in/ns/extensions/ui#>.
+@prefix opts:   <http://lv2plug.in/ns/ext/options#> .
+@prefix time:   <http://lv2plug.in/ns/ext/time#>.
+@prefix units:  <http://lv2plug.in/ns/extensions/units#> .
+@prefix atom:   <http://lv2plug.in/ns/ext/atom#> .
+@prefix urid:   <http://lv2plug.in/ns/ext/urid#> .
+@prefix pprop:  <http://lv2plug.in/ns/ext/port-props#> .
+@prefix midi:   <http://lv2plug.in/ns/ext/midi#> .
+@prefix patch:  <http://lv2plug.in/ns/ext/patch#> .
+@prefix work:   <http://lv2plug.in/ns/ext/worker#> .
+@prefix bufsz:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix state:  <http://lv2plug.in/ns/ext/state#> .
+@prefix pg:     <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix mod:    <http://moddevices.com/ns/mod#> .
+@prefix rata:   <urn:brummer:ratatouille#> .
+@prefix spdx:   <http://spdx.org/rdf/terms#> .
+
+<rata:me>
+   a foaf:Person ;
+   foaf:name "brummer" .
+
+rata:G1_MAIN
+	a pg:InputGroup;
+	lv2:index 1 ;
+	lv2:name "Main" ;
+	lv2:symbol "g1_main" .
+
+rata:G2_MIX
+	a pg:InputGroup;
+	lv2:index 2 ;
+	lv2:name "Mix" ;
+	lv2:symbol "g2_mix" .
+
+rata:G3_MODELS
+	a pg:InputGroup;
+	lv2:index 3 ;
+	lv2:name "Models" ;
+	lv2:symbol "g3_models" .
+
+rata:G4_IRS
+	a pg:InputGroup;
+	lv2:index 4 ;
+	lv2:name "IRs" ;
+	lv2:symbol "g4_irs" .
+
+rata:G5_NORMALIZATION
+	a pg:InputGroup;
+	lv2:index 5 ;
+	lv2:name "Normalization" ;
+	lv2:symbol "g5_normalization" .
+
+rata:G6_OPTIONS
+	a pg:InputGroup;
+	lv2:index 6 ;
+	lv2:name "Options" ;
+	lv2:symbol "g6_options" .
+
+
+rata:Neural_Model
+    a lv2:Parameter ;
+    mod:fileTypes "nammodel,aidadspmodel,nam,aidiax,json" ;
+    rdfs:label "Neural Model A" ;
+    rdfs:range atom:Path ;
+    pg:group rata:G3_MODELS ;
+    lv2:displayPriority 799 .
+
+rata:Neural_Model1
+    a lv2:Parameter ;
+    mod:fileTypes "nammodel,aidadspmodel,nam,aidiax,json" ;
+    rdfs:label "Neural Model B" ;
+    rdfs:range atom:Path ;
+    pg:group rata:G3_MODELS ;
+    lv2:displayPriority 797 .
+
+rata:irfile
+    a lv2:Parameter ;
+    mod:fileTypes "cabsim,ir,wav,audio" ;
+    rdfs:label "IR A" ;
+    rdfs:range atom:Path ;
+    pg:group rata:G4_IRS ;
+    lv2:displayPriority 699 .
+
+rata:irfile1
+    a lv2:Parameter ;
+    mod:fileTypes "cabsim,ir,wav,audio" ;
+    rdfs:label "IR B" ;
+    rdfs:range atom:Path ;
+    pg:group rata:G4_IRS ;
+    lv2:displayPriority 697 .
+
+
+<urn:brummer:ratatouille>
+   a lv2:Plugin ,
+       lv2:SimulatorPlugin ;
+   doap:maintainer <rata:me> ;
+   doap:name "Ratatouille" ;
+   doap:license <https://spdx.org/licenses/BSD-3-Clause> ;
+   lv2:project <urn:brummer:ratatouille> ;
+   lv2:optionalFeature lv2:hardRTCapable ,
+       opts:options ;
+   lv2:requiredFeature urid:map ,
+       bufsz:boundedBlockLength ,
+       work:schedule ;
+   lv2:extensionData work:interface ,
+                    state:interface ;
+   lv2:minorVersion 9 ;
+   lv2:microVersion 5 ;
+
+guiext:ui <urn:brummer:ratatouille_ui> ;
+
+patch:writable rata:Neural_Model ;
+patch:writable rata:Neural_Model1 ;
+
+patch:writable rata:irfile ;
+patch:writable rata:irfile1 ;
+
+rdfs:comment """
+A Neural Model loader and mixer. Supports *.nam, *.aidax and *.json based model files.
+Ratatouille allow to load up to two model files and mix there output to archive the wanted sound.
+The input could be controlled separate for each model.
+It provide a delta delay control to overcome possible phasing issues between the models in use. 
+Additional it allow to load up to two Impulse Response files and mix them as well.
+Ratatouille using parallel processing to process the second slot, that reduce the CPU load.
+It provide a additional buffered Mode which introduce a one frame latency 
+and moves the complete processing into a background thread, that reduce the CPU load even more. 
+""";
+
+
+   lv2:port  [
+       a lv2:AudioPort ,
+          lv2:InputPort ;
+      lv2:index 0 ;
+      lv2:symbol "in0" ;
+      lv2:name "In0" ;
+   ], [
+      a lv2:AudioPort ,
+           lv2:OutputPort ;
+      lv2:index 1 ;
+      lv2:symbol "out0" ;
+      lv2:name "Out0" ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 2 ;
+      lv2:symbol "Knob0" ;
+      lv2:name "Input A" ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+      pg:group rata:G1_MAIN ;
+      lv2:displayPriority 998 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 3 ;
+      lv2:symbol "Knob1" ;
+      lv2:name "Output" ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+      pg:group rata:G1_MAIN ;
+      lv2:displayPriority 996 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 4 ;
+      lv2:symbol "Knob2" ;
+      lv2:name "Blend A/B" ;
+      lv2:default 0.500000 ;
+      lv2:minimum 0.000000 ;
+      lv2:maximum 1.000000 ;
+      pg:group rata:G2_MIX ;
+      lv2:displayPriority 899 ;
+
+   ], [
+        a lv2:InputPort ,
+            atom:AtomPort ;
+        <http://lv2plug.in/ns/ext/resize-port#minimumSize> 8192 ;
+        atom:bufferType atom:Sequence ;
+        atom:supports patch:Message ;
+        lv2:designation lv2:control ;
+        lv2:index 5 ;
+        lv2:symbol "CONTROL" ;
+        lv2:name "CONTROL" ;
+    ], [
+        a lv2:OutputPort ,
+            atom:AtomPort ;
+        <http://lv2plug.in/ns/ext/resize-port#minimumSize> 8192 ;
+        atom:bufferType atom:Sequence ;
+        atom:supports patch:Message ;
+        lv2:designation lv2:control ;
+        lv2:index 6 ;
+        lv2:symbol "NOTIFY" ;
+        lv2:name "NOTIFY";
+    ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 7 ;
+      lv2:symbol "Knob3" ;
+      lv2:name "Mix IR" ;
+      lv2:default 0.500000 ;
+      lv2:minimum 0.000000 ;
+      lv2:maximum 1.000000 ;
+      pg:group rata:G2_MIX ;
+      lv2:displayPriority 897 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 8 ;
+      lv2:symbol "Knob4" ;
+      lv2:name "Delay" ;
+      lv2:portProperty lv2:integer ;
+      lv2:default 0 ;
+      lv2:minimum -4096;
+      lv2:maximum 4096 ;
+      pg:group rata:G2_MIX ;
+      lv2:displayPriority 898 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 9 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeA" ;
+      lv2:name "Normalize IR A" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G5_NORMALIZATION ;
+      lv2:displayPriority 597 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 10 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeB" ;
+      lv2:name "Normalize IR B" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G5_NORMALIZATION ;
+      lv2:displayPriority 596 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 11 ;
+      lv2:symbol "Knob5" ;
+      lv2:name "Input B" ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+      pg:group rata:G1_MAIN ;
+      lv2:displayPriority 997 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 12 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeSlotA" ;
+      lv2:name "Normalize Model A" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G5_NORMALIZATION ;
+      lv2:displayPriority 599 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 13 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeSlotB" ;
+      lv2:name "Normalize Model B" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G5_NORMALIZATION ;
+      lv2:displayPriority 598 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 14 ;
+      lv2:designation lv2:enabled;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "ENABLE" ;
+      lv2:name "Enable" ;
+      lv2:default 1.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G1_MAIN ;
+      lv2:displayPriority 999 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 15 ;
+      lv2:portProperty pprop:trigger ;
+      lv2:symbol "eraseSlotA" ;
+      lv2:name "Remove Model A" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G3_MODELS ;
+      lv2:displayPriority 798 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 16 ;
+      lv2:portProperty pprop:trigger ;
+      lv2:symbol "eraseSlotB" ;
+      lv2:name "Remove Model B" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G3_MODELS ;
+      lv2:displayPriority 796 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 17 ;
+      lv2:portProperty pprop:trigger ;
+      lv2:symbol "eraseIr" ;
+      lv2:name "Remove IR A" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G4_IRS ;
+      lv2:displayPriority 698 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 18 ;
+      lv2:portProperty pprop:trigger ;
+      lv2:symbol "eraseIr1" ;
+      lv2:name "Remove IR B" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G4_IRS ;
+      lv2:displayPriority 696 ;
+   ], [
+      a lv2:OutputPort,
+           lv2:ControlPort ;
+      lv2:index 19 ;
+      lv2:designation <http://lv2plug.in/ns/lv2core#latency>;
+      lv2:portProperty lv2:reportsLatency, lv2:integer;
+      units:unit units:frame;
+      lv2:symbol "latency" ;
+      lv2:name "Latency" ;
+      lv2:minimum 0 ;
+      lv2:maximum 192000 ;
+    ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 20 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "buffered" ;
+      lv2:name "Buffered" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G6_OPTIONS ;
+      lv2:displayPriority 499 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 21 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "phase" ;
+      lv2:name "Phase Correction" ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+      pg:group rata:G6_OPTIONS ;
+      lv2:displayPriority 498 ;
+   ], [
+      a lv2:OutputPort,
+           lv2:ControlPort ;
+      lv2:index 22 ;
+      lv2:symbol "ms_latency" ;
+      lv2:name "Latency ms" ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 171.0 ;
+    ].
+
+<urn:brummer:ratatouille_ui>
+   a guiext:X11UI;
+   guiext:binary <Ratatouille_ui.so> ;
+       lv2:extensionData guiext::idle ;
+       lv2:extensionData guiext:resize ;
+       lv2:extensionData guiext:idleInterface ;
+       lv2:requiredFeature guiext:idleInterface ;
+       lv2:optionalFeature opts:options ;
+       opts:supportedOption guiext:scaleFactor ; 
+        guiext:portNotification [
+            guiext:plugin  <urn:brummer:ratatouille> ;
+            lv2:symbol "NOTIFY" ;
+            guiext:notifyType atom:Blank
+        ] .
