@@ -22,7 +22,7 @@
 
 plug:mallet_mix
 	a lv2:Parameter ;
-	pg:group plug:G5_MIX ;
+	pg:group plug:G5_GLOBAL_MIX ;
 	lv2:displayPriority 38 ;
 	rdfs:label "Mallet Mix" ;
 	rdfs:range atom:Float ;
@@ -440,7 +440,7 @@ plug:b_fine
 
 plug:noise_mix
 	a lv2:Parameter ;
-	pg:group plug:G5_MIX ;
+	pg:group plug:G5_GLOBAL_MIX ;
 	lv2:displayPriority 37 ;
 	rdfs:label "Noise Mix" ;
 	rdfs:range atom:Float ;
@@ -655,8 +655,8 @@ plug:vel_b_inharm
 
 plug:couple
 	a lv2:Parameter ;
-	pg:group plug:G6_SETUP ;
-	lv2:displayPriority 33;
+	pg:group plug:G6_RES_MIX ;
+	lv2:displayPriority 35;
 	rdfs:label "Coupling" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -673,8 +673,8 @@ plug:couple
 
 plug:ab_mix
 	a lv2:Parameter ;
-	pg:group plug:G6_SETUP ;
-	lv2:displayPriority 35;
+	pg:group plug:G6_RES_MIX ;
+	lv2:displayPriority 34;
 	rdfs:label "A+B Mix" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.5 ;
@@ -683,8 +683,8 @@ plug:ab_mix
 
 plug:ab_split
 	a lv2:Parameter ;
-	pg:group plug:G6_SETUP ;
-	lv2:displayPriority 34;
+	pg:group plug:G6_RES_MIX ;
+	lv2:displayPriority 33;
 	rdfs:label "A>B Split" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.01 ;
@@ -693,7 +693,7 @@ plug:ab_split
 
 plug:gain
 	a lv2:Parameter ;
-	pg:group plug:G5_MIX ;
+	pg:group plug:G5_GLOBAL_MIX ;
 	lv2:displayPriority 39 ;
 	rdfs:label "Res Gain" ;
 	rdfs:range atom:Float ;
@@ -916,84 +916,101 @@ plug:output_group_1
 plug:G1A_RES_A_SETUP
     a pg:InputGroup ;
     lv2:name "Resonator A - Setup" ;
-    lv2:symbol "g1a_res_a_setup" .
+    lv2:symbol "g1a_res_a_setup" ;
+    lv2:displayPriority 20 .
 
 plug:G1B_RES_A_MAT
     a pg:InputGroup ;
     lv2:name "Resonator A - Material" ;
-    lv2:symbol "g1b_res_a_mat" .
+    lv2:symbol "g1b_res_a_mat" ;
+    lv2:displayPriority 19 .
 
 plug:G1C_RES_A_TONE
     a pg:InputGroup ;
     lv2:name "Resonator A - Tone" ;
-    lv2:symbol "g1c_res_a_tone" .
+    lv2:symbol "g1c_res_a_tone" ;
+    lv2:displayPriority 18 .
 
 plug:G1D_RES_A_TIME
     a pg:InputGroup ;
     lv2:name "Resonator A - Time" ;
-    lv2:symbol "g1d_res_a_time" .
+    lv2:symbol "g1d_res_a_time" ;
+    lv2:displayPriority 17 .
 
 plug:G1E_RES_A_VELMOD
     a pg:InputGroup ;
     lv2:name "Resonator A - Velocity Modulation" ;
-    lv2:symbol "g1e_res_a_velmod" .
+    lv2:symbol "g1e_res_a_velmod" ;
+    lv2:displayPriority 16 .
 
 plug:G2A_RES_B_SETUP
     a pg:InputGroup ;
     lv2:name "Resonator B - Setup" ;
-    lv2:symbol "g2a_res_b_setup" .
+    lv2:symbol "g2a_res_b_setup" ;
+    lv2:displayPriority 15 .
 
 plug:G2B_RES_B_MAT
     a pg:InputGroup ;
     lv2:name "Resonator B - Material" ;
-    lv2:symbol "g2b_res_b_mat" .
+    lv2:symbol "g2b_res_b_mat" ;
+    lv2:displayPriority 14 .
 
 plug:G2C_RES_B_TONE
     a pg:InputGroup ;
     lv2:name "Resonator B - Tone" ;
-    lv2:symbol "g2c_res_b_tone" .
+    lv2:symbol "g2c_res_b_tone" ;
+    lv2:displayPriority 13 .
 
 plug:G2D_RES_B_TIME
     a pg:InputGroup ;
     lv2:name "Resonator B - Time" ;
-    lv2:symbol "g2d_res_b_time" .
+    lv2:symbol "g2d_res_b_time" ;
+    lv2:displayPriority 12 .
 
 plug:G2E_RES_B_VELMOD
     a pg:InputGroup ;
     lv2:name "Resonator B - Velocity Modulation" ;
-    lv2:symbol "g2e_res_b_velmod" .
+    lv2:symbol "g2e_res_b_velmod" ;
+    lv2:displayPriority 11 .
 
 plug:G3A_MALLET_SETUP
     a pg:InputGroup ;
     lv2:name "Mallet - Setup" ;
-    lv2:symbol "g3_mallet_setup" .
+    lv2:symbol "g3_mallet_setup" ;
+    lv2:displayPriority 8 .
 
 plug:G3B_MALLET_VELMOD
     a pg:InputGroup ;
     lv2:name "Mallet - Velocity Modulation" ;
-    lv2:symbol "g3b_mallet_velmod" .
+    lv2:symbol "g3b_mallet_velmod" ;
+    lv2:displayPriority 7 .
 
 plug:G4A_NOISE_FILT
     a pg:InputGroup ;
     lv2:name "Noise - Filter" ;
-    lv2:symbol "g4a_noise_filt" .
+    lv2:symbol "g4a_noise_filt" ;
+    lv2:displayPriority 6 .
 
 plug:G4B_NOISE_ENV
     a pg:InputGroup ;
     lv2:name "Noise - Envelope" ;
-    lv2:symbol "g4b_noise_env" .
+    lv2:symbol "g4b_noise_env" ;
+    lv2:displayPriority 5 .
 
 plug:G4C_NOISE_VELMOD
     a pg:InputGroup ;
     lv2:name "Noise - Velocity Modulation" ;
-    lv2:symbol "g4c_noise_velmod" .
+    lv2:symbol "g4c_noise_velmod" ;
+    lv2:displayPriority 4 .
 
-plug:G5_MIX
+plug:G5_GLOBAL_MIX
     a pg:InputGroup ;
-    lv2:name "Mix" ;
-    lv2:symbol "g5_mix" .
+    lv2:name "Global Mix" ;
+    lv2:symbol "g5_global_mix" ;
+    lv2:displayPriority 3 .
 
-plug:G6_SETUP
+plug:G6_RES_MIX
     a pg:InputGroup ;
-    lv2:name "Setup" ;
-    lv2:symbol "g6_setup" .
+    lv2:name "Resonator Mix" ;
+    lv2:symbol "g6_res_mix" ;
+    lv2:displayPriority 10 .
