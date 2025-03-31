@@ -1,0 +1,41 @@
+#N canvas 0 22 1066 794 10;
+#X msg 168 296 \$1 50;
+#X obj 168 321 line~;
+#X obj 168 481 +~;
+#X obj 326 402 *~;
+#X msg 446 313 \$1 10;
+#X obj 446 341 line~;
+#X obj 590 257 t b f;
+#X obj 446 289 expr ((1 - $f1) - 0.02) * $f2;
+#X obj 326 323 inlet~;
+#X text 697 220 Pulse Width Modulation depth slider input (0. \, 1.)
+;
+#X text 308 289 LFO input (signal), f 9;
+#X text 663 29 Pulse Width Modulation controls;
+#X obj 168 551 outlet~;
+#X text 157 582 To oscillator's PWM input...;
+#X text 648 286 Here we make sure that the PW will never be higher
+than 0.98 or lower than 0.02.;
+#X obj 446 129 r 106_manual_PW;
+#X obj 590 220 r 106_PWM_depth;
+#X text 647 445 In the original Juno 106 \, you either control the
+pulse width (PW) manually or with the LFO. There's a switch to select
+one or the other method. Here \, I made it so that you can control
+the PW manually and the Pulse width modulation (LFO depth) simultaneously
+without the possibility of being a DC wave (only high (or low) all
+the time)., f 51;
+#X text 444 93 Manual Pulse Width slider input (0. \, 0.9.), f 24
+;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 12 0;
+#X connect 3 0 2 1;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X connect 6 0 7 0;
+#X connect 6 1 7 1;
+#X connect 7 0 4 0;
+#X connect 8 0 3 0;
+#X connect 15 0 0 0;
+#X connect 15 0 7 0;
+#X connect 16 0 6 0;

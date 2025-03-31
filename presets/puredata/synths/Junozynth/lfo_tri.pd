@@ -1,0 +1,27 @@
+#N canvas 0 22 1219 583 10;
+#X obj 85 226 phasor~;
+#X obj 85 253 expr~ if ($v1 < 0.5 \, ($v1 * 4) - 1 \, ((1 - $v1) *
+4) - 1);
+#X text 440 252 Triangular waveform from [phasor~];
+#X obj 85 55 inlet;
+#X obj 85 447 outlet~;
+#X text 147 447 Triangle LFO output (signal);
+#X obj 85 200 line~;
+#X msg 85 167 \$1 5;
+#X text 689 211 [phasor~] generates a sawtooth waveform scaled from
+0 to 1 To produce a triangle wave \, we need to make the wave flip
+when it gets to 0.5 (halfway through its cycle) \, so that from this
+point the wave will go from 0.5 to 0 To do this \, we need to compare
+each sample and tell it that if it's lower than 0.5 \, stay as is \,
+if it's higher \, then reverse it (1 - sample value). That gives us
+a triangle waveform that goes from 0 to 0.5 and then back to 0 Since
+we need to have a bipolar waveform that must be scaled to (-1. to 1.)
+\, we need to multiply the samples by 4 (which will give us a triangle
+that goes from 0 to 2 to 0) and then subtract 1 so that it goes from
+-1 to 1 to -1...;
+#X text 129 56 LFO Frequency input (0.1 \, 30);
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 3 0 7 0;
+#X connect 6 0 0 0;
+#X connect 7 0 6 0;
