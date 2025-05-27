@@ -1,0 +1,594 @@
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix bufsz:   <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <http://epihaumut.com/plugins/novachord/:> .
+
+
+plug:G101_MAIN
+	a pg:InputGroup;
+	lv2:index 1 ;
+	lv2:name "Main" ;
+	lv2:symbol "g101_main" .
+
+plug:G102_RESONATOR
+	a pg:InputGroup;
+	lv2:index 2 ;
+	lv2:name "Resonators" ;
+	lv2:symbol "g102_resonators" .
+
+plug:G103_TONE
+	a pg:InputGroup;
+	lv2:index 3 ;
+	lv2:name "Tone" ;
+	lv2:symbol "g103_tone" .
+
+plug:G104_MODULATION
+	a pg:InputGroup;
+	lv2:index 4 ;
+	lv2:name "Modulation" ;
+	lv2:symbol "g104_modulation" .
+
+plug:G105_PEDALS
+	a pg:InputGroup;
+	lv2:index 5 ;
+	lv2:name "Pedals" ;
+	lv2:symbol "g105_pedals" .
+
+
+<http://epihaumut.com/plugins/novachord>
+	a lv2:Plugin,
+	  lv2:InstrumentPlugin ;
+
+	lv2:project <http://lv2plug.in/ns/lv2> ;
+	ui:ui <http://epihaumut.com/plugins/novachord#ui>;
+
+	doap:name "Novachord" ;
+	doap:license <http://opensource.org/licenses/isc> ;
+	lv2:requiredFeature urid:map ;
+	lv2:optionalFeature lv2:hardRTCapable ;
+	lv2:extensionData state:interface ;
+
+	lv2:port 
+	[
+		a lv2:InputPort ,
+			atom:AtomPort ;
+		atom:bufferType atom:Sequence ;
+		atom:supports midi:MidiEvent ;
+		lv2:designation lv2:control ;
+		lv2:index 0 ;
+		lv2:symbol "in" ;
+		lv2:name "In"
+	], 
+
+    [
+		a lv2:AudioPort ,
+			lv2:OutputPort ;
+		lv2:index 1 ;
+		lv2:symbol "out" ;
+		lv2:name "Out"
+	], 
+
+	[
+		a atom:AtomPort ,
+			lv2:InputPort ;
+		atom:bufferType atom:Sequence ;
+		
+		lv2:index 2 ;
+		lv2:symbol "control" ;
+		lv2:name "Control"
+	],
+
+	[
+		a atom:AtomPort ,
+			lv2:OutputPort ;
+		atom:bufferType atom:Sequence ;
+		lv2:designation lv2:control ;
+		lv2:index 3 ;
+		lv2:symbol "notify" ;
+		lv2:name "Notify" ;
+		# 8192 * sizeof(float) + LV2-Atoms
+		bufsz:minimumSize 32832 ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 4 ;
+		lv2:symbol "gain" ;
+		lv2:name "Gain" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum -90.0 ;
+		lv2:maximum 24.0 ;
+
+		units:unit units:db ;
+		lv2:scalePoint 
+		[
+			rdfs:label "+5" ;
+			rdf:value 5.0 ;
+		], 
+		[
+			rdfs:label "0" ;
+			rdf:value 0.0 ;
+		], 
+		[
+			rdfs:label "-5" ;
+			rdf:value -5.0 ;
+		],
+		[
+			rdfs:label "-10" ;
+			rdf:value -10.0 ;
+		] ;
+		lv2:displayPriority 999 ;
+		pg:group plug:G101_MAIN ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 5 ;
+		lv2:symbol "deepTone" ;
+		lv2:name "Deep Tone" ;
+
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 3.0 ;
+
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "1" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 3.0 ;
+		] ;
+		lv2:displayPriority 799 ;
+		pg:group plug:G103_TONE ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 6 ;
+		lv2:symbol "firstResonator" ;
+		lv2:name "First Resonator" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 3.0 ;
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "1" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 3.0 ;
+		] ;
+		lv2:displayPriority 899 ;
+		pg:group plug:G102_RESONATOR ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 7 ;
+		lv2:symbol "secondResonator" ;
+		lv2:name "Second Resonator" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 3.0 ;
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "1" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 3.0 ;
+		] ;
+		lv2:displayPriority 890 ;
+		pg:group plug:G102_RESONATOR ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 8 ;
+		lv2:symbol "thirdResonator" ;
+		lv2:name "Third Resonator" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 3.0 ;
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "1" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 3.0 ;
+		] ;
+		lv2:displayPriority 870 ;
+		pg:group plug:G102_RESONATOR ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 9 ;
+		lv2:symbol "brilliantTone" ;
+		lv2:name "Brilliant Tone" ;
+
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 3.0 ;
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "1" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 3.0 ;
+		] ;
+		lv2:displayPriority 790 ;
+		pg:group plug:G103_TONE ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 10 ;
+		lv2:symbol "fullTone" ;
+		lv2:name "Full Tone" ;
+
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 3.0 ;
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "1" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 3.0 ;
+		] ;
+		lv2:displayPriority 780 ;
+		pg:group plug:G103_TONE ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 11 ;
+		lv2:symbol "mellow" ;
+		lv2:name "Bright / Mellow" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:scalePoint [
+			rdfs:label "Bright" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "Mellow" ;
+			rdf:value 1.0 ;
+		] ;
+		lv2:displayPriority 980 ;
+		pg:group plug:G101_MAIN ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 12 ;
+		lv2:symbol "balance" ;
+		lv2:name "Balancer" ;
+
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 2.0 ;
+		lv2:scalePoint [
+			rdfs:label "Soft Bass" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "Medium Bass" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "Strong Bass" ;
+			rdf:value 2.0 ;
+		] ;
+		lv2:displayPriority 970 ;
+		pg:group plug:G101_MAIN ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 13 ;
+		lv2:symbol "attack" ;
+		lv2:name "Attack" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 7.0 ;
+		lv2:scalePoint [
+			rdfs:label "1" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "4" ;
+			rdf:value 3.0 ;
+		], [
+			rdfs:label "5" ;
+			rdf:value 4.0 ;
+		], [
+			rdfs:label "6" ;
+			rdf:value 5.0 ;
+		], [
+			rdfs:label "7" ;
+			rdf:value 6.0 ;
+		], [
+			rdfs:label "8" ;
+			rdf:value 7.0 ;
+		] ;
+		lv2:displayPriority 699 ;
+		pg:group plug:G104_MODULATION ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 14 ;
+		lv2:symbol "volume" ;
+		lv2:name "Volume" ;
+
+		lv2:default 3.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 3.0 ;
+		lv2:scalePoint [
+			rdfs:label "1" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "2" ;
+			rdf:value 1.0 ;
+		], [
+			rdfs:label "3" ;
+			rdf:value 2.0 ;
+		], [
+			rdfs:label "4" ;
+			rdf:value 3.0 ;
+		] ;
+		lv2:displayPriority 990 ;
+		pg:group plug:G101_MAIN ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 15 ;
+		lv2:symbol "normalVibrato" ;
+		lv2:name "Normal Vibrato" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "On" ;
+			rdf:value 1.0 ;
+		] ;
+		lv2:displayPriority 690 ;
+		pg:group plug:G104_MODULATION ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 16 ;
+		lv2:symbol "smallVibrato" ;
+		lv2:name "Small Vibrato" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:scalePoint [
+			rdfs:label "Off" ;
+			rdf:value 0 ;
+		], [
+			rdfs:label "On" ;
+			rdf:value 1.0 ;
+		] ;
+		lv2:displayPriority 680 ;
+		pg:group plug:G104_MODULATION ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 17 ;
+		lv2:symbol "leftSustain" ;
+		lv2:name "Left Sustain" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:displayPriority 599 ;
+		pg:group plug:G105_PEDALS ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 18 ;
+		lv2:symbol "swell" ;
+		lv2:name "Swell" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:displayPriority 590 ;
+		pg:group plug:G105_PEDALS ;
+	],
+
+	[
+		a lv2:InputPort ,
+			lv2:ControlPort ;
+		lv2:index 19 ;
+		lv2:symbol "rightSustain" ;
+		lv2:name "Right Sustain" ;
+
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:displayPriority 580 ;
+		pg:group plug:G105_PEDALS ;
+	].
+	
+<http://epihaumut.com/plugins/novachord#ui>
+    a ui:GtkUI ;
+    lv2:requiredFeature urid:map ;
+    lv2:optionalFeature ui:noUserResize ,
+                        ui:resize ,
+                        ui:touch ;
+    lv2:extensionData ui:showInterface ;
+    ui:portNotification[
+        ui:plugin <http://epihaumut.com/plugins/novachord> ;
+        lv2:symbol "notify" ;
+        ui:notifyType atom:Blank
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "deepTone" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "firstResonator" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "secondResonator" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "thirdResonator" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "brilliantTone" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "fullTone" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "mellow" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "balance" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "attack" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "volume" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "normalVibrato" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "smallVibrato" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "leftSustain" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "swell" ;
+		ui:protocol atom:floatProtocol;
+    ],
+
+    [
+    	ui:plugin <http://epihaumut.com/plugins/novachord> ;
+    	lv2:symbol "rightSustain" ;
+		ui:protocol atom:floatProtocol;
+    ] .
