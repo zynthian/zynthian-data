@@ -20,7 +20,7 @@
 #X text 489 229 length of sound in seconds and samples;
 #X text 39 66 max recording time 1 min;
 #X text 39 90 knobs control speed \, speed modulation \, loop start \, and duration, f 66;
-#N canvas 288 113 1161 613 record-load-sample 0;
+#N canvas 288 113 1161 613 record-load-sample 1;
 #X msg 247 286 bang;
 #X obj 468 15 r aux;
 #X obj 306 261 r~ inL;
@@ -60,13 +60,15 @@
 #X text 532 55 don't do things twice;
 #X text 728 215 autostopper;
 #X obj 685 236 delay 60000;
-#X obj 616 356 expr if($f1 < 4410 \, 4410 \, $f1);
 #X obj 879 237 loadbang;
 #X obj 879 295 soundfiler;
 #X msg 879 265 read ./sound.wav newsample;
-#X text 865 371 it must be at least 4410 cause this;
 #X text 874 401 is what the player assumes;
 #X msg 19 398 write -nframes \$1 /tmp/state/sound.wav newsample;
+#X obj 661 268 r KSR;
+#X obj 661 291 * 100;
+#X obj 616 356 expr if($f1 < $f2 \, $f2 \, $f1);
+#X text 865 371 it must be at least samplerate/10 cause this;
 #X connect 0 0 4 0;
 #X connect 1 0 31 0;
 #X connect 2 0 12 0;
@@ -76,7 +78,7 @@
 #X connect 8 0 28 0;
 #X connect 8 1 30 0;
 #X connect 9 0 11 0;
-#X connect 11 0 36 0;
+#X connect 11 0 43 0;
 #X connect 12 0 4 0;
 #X connect 13 0 12 1;
 #X connect 14 0 13 0;
@@ -86,7 +88,7 @@
 #X connect 21 0 4 0;
 #X connect 23 0 25 0;
 #X connect 23 1 21 0;
-#X connect 25 0 42 0;
+#X connect 25 0 40 0;
 #X connect 26 0 25 1;
 #X connect 27 0 35 0;
 #X connect 28 0 0 0;
@@ -103,11 +105,14 @@
 #X connect 31 0 32 0;
 #X connect 32 0 8 0;
 #X connect 35 0 29 0;
-#X connect 36 0 10 0;
-#X connect 37 0 39 0;
-#X connect 38 0 36 0;
-#X connect 39 0 38 0;
-#X connect 42 0 22 0;
+#X connect 36 0 38 0;
+#X connect 37 0 43 0;
+#X connect 38 0 37 0;
+#X connect 40 0 22 0;
+#X connect 41 0 11 1;
+#X connect 41 0 42 0;
+#X connect 42 0 43 1;
+#X connect 43 0 10 0;
 #X restore 559 181 pd record-load-sample;
 #X obj 148 368 samplervoice;
 #X msg 679 62 \; screenLine1 1: Speed \; screenLine2 2: Modulation \; screenLine3 3: Start Point \; screenLine4 4: Duration \; screenLine5 Aux/FS: Hold to REC \;;
@@ -165,6 +170,7 @@
 #X obj 26 141 declare -path /usr/lib/pd/extra/ggee;
 #X obj 25 10 declare -path /zynthian/zynthian-data/puredata/organelle;
 #X restore 511 10 pd paths;
+#X obj 666 255 r SR;
 #X connect 0 0 18 0;
 #X connect 4 0 63 0;
 #X connect 5 0 19 0;
@@ -219,3 +225,4 @@
 #X connect 59 0 60 0;
 #X connect 60 0 61 0;
 #X connect 63 0 17 0;
+#X connect 65 0 8 1;

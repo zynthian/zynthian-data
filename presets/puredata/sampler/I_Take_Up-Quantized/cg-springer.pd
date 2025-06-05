@@ -1,10 +1,10 @@
-#N canvas 130 50 1484 882 10;
+#N canvas 193 45 1484 882 10;
 #X obj 92 232 phasor~;
 #X text 202 196 TAPE;
 #X obj 617 88 r \$0-pitch-shift;
 #X obj 617 152 t b f;
 #X obj 617 268 phasor~;
-#X obj 617 310 +~ 0.5;
+#X obj 617 307 +~ 0.5;
 #X obj 617 384 -~ 0.5;
 #X obj 617 406 *~ 0.5;
 #X obj 617 428 cos~;
@@ -49,12 +49,12 @@
 #X obj 1073 514 t b b;
 #X obj 1073 578 array size \$1;
 #X text 495 -72 Time Compression Looper;
-#X text 1129 623 get size of sample in ms;
+#X text 1129 594 get size of sample in ms;
 #X obj 154 9 max 0.01;
 #X obj 1189 665 s \$0-sample-length;
 #X obj 1131 666 / 44.1;
 #X obj 1131 692 s \$0-sample-length-ms;
-#X obj 1073 642 t f f f, f 17;
+#X obj 1073 613 t f f f, f 17;
 #X obj 769 271 r \$0-pointer;
 #X obj 769 293 list prepend set;
 #X obj 769 315 route list;
@@ -85,8 +85,7 @@
 #X obj 535 88 r \$0-speed;
 #X text 11 475 caluculate playback speed based on loop length;
 #X obj 240 8 wrap;
-#X obj 154 -32 route length read speed point switch decay pitch, f
-100;
+#X obj 154 -32 route length read speed point switch decay pitch, f 100;
 #X text 436 108 speed make up;
 #X text 664 123 over all shift;
 #X obj 112 256 s~ \$0-master-phase;
@@ -141,6 +140,10 @@
 #X obj 1073 492 del 5;
 #X obj 70 67 del 5;
 #X msg 451 632 0 5 \, 1 5 5;
+#X obj 1144 641 r KSR;
+#X obj 1021 462 r KSR;
+#X obj 516 220 r KSR;
+#X obj 516 243 / 0.02;
 #X connect 0 0 61 0;
 #X connect 0 0 89 0;
 #X connect 2 0 3 0;
@@ -283,3 +286,8 @@
 #X connect 138 0 47 0;
 #X connect 139 0 94 0;
 #X connect 140 0 35 0;
+#X connect 141 0 53 1;
+#X connect 142 0 135 1;
+#X connect 143 0 144 0;
+#X connect 144 0 19 1;
+#X connect 144 0 11 1;

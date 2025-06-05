@@ -65,7 +65,7 @@
 #X obj 471 90 sel 1 0;
 #X obj 614 261 timer;
 #X obj 616 439 s dur;
-#X obj 614 291 * 44.1;
+#X obj 614 303 * 44.1;
 #X obj 355 409 *~;
 #X obj 403 377 line~;
 #X msg 426 264 1 1;
@@ -94,12 +94,14 @@
 #X text 532 55 don't do things twice;
 #X text 728 215 autostopper;
 #X obj 685 236 delay 60000;
-#X obj 616 356 expr if($f1 < 4410 \, 4410 \, $f1);
 #X obj 879 237 loadbang;
 #X obj 879 295 soundfiler;
 #X msg 879 265 read ./sound.wav newsample;
-#X text 865 371 it must be at least 4410 cause this;
 #X text 874 401 is what the player assumes;
+#X obj 670 275 r KSR;
+#X obj 670 298 * 100;
+#X obj 616 356 expr if($f1 < $f2 \, $f2 \, $f1);
+#X text 865 371 it must be at least samplerate/10 cause this;
 #X connect 0 0 4 0;
 #X connect 1 0 32 0;
 #X connect 2 0 12 0;
@@ -109,7 +111,7 @@
 #X connect 8 0 29 0;
 #X connect 8 1 31 0;
 #X connect 9 0 11 0;
-#X connect 11 0 37 0;
+#X connect 11 0 43 0;
 #X connect 12 0 4 0;
 #X connect 13 0 12 1;
 #X connect 14 0 13 0;
@@ -137,10 +139,13 @@
 #X connect 32 0 33 0;
 #X connect 33 0 8 0;
 #X connect 36 0 30 0;
-#X connect 37 0 10 0;
-#X connect 38 0 40 0;
-#X connect 39 0 37 0;
-#X connect 40 0 39 0;
+#X connect 37 0 39 0;
+#X connect 38 0 43 0;
+#X connect 39 0 38 0;
+#X connect 41 0 11 1;
+#X connect 41 0 42 0;
+#X connect 42 0 43 1;
+#X connect 43 0 10 0;
 #X restore 559 181 pd record-load-sample;
 #X obj 111 367 samplervoice;
 #X obj 159 398 samplervoice;
@@ -167,6 +172,7 @@
 #X obj 26 141 declare -path /usr/lib/pd/extra/ggee;
 #X obj 25 10 declare -path /zynthian/zynthian-data/puredata/organelle;
 #X restore 511 31 pd paths;
+#X obj 672 251 r SR;
 #X connect 0 0 39 0;
 #X connect 4 0 65 0;
 #X connect 5 0 40 0;
@@ -228,3 +234,4 @@
 #X connect 61 0 62 0;
 #X connect 62 0 63 0;
 #X connect 65 0 56 0;
+#X connect 67 0 22 1;
