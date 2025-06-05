@@ -1,22 +1,20 @@
-#N canvas 322 57 1071 788 10;
+#N canvas 73 31 1071 788 10;
 #N canvas 0 50 450 278 (subpatch) 0;
 #X array \$1-array 15043 float 2;
 #X coords 0 1 15043 -1 335 251 1 0 0;
 #X restore 478 153 graph;
 #X obj 842 289 soundfiler;
-#X floatatom 842 419 10 0 0 0 - - -, f 10;
+#X floatatom 842 419 10 0 0 0 - - - 0;
 #X obj 842 388 / 44.1;
 #X text 898 388 sample rate / 1000;
 #X obj 842 450 s \$1-duration;
-#X obj 842 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 842 91 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 842 117 symbol \$1-array;
 #X obj 842 203 list prepend -resize;
 #X obj 842 231 list prepend read;
 #X obj 842 259 list trim;
 #X obj 842 64 loadbang;
-#X text 492 27 construct the read message using the sound file name
-(\$1);
+#X text 492 27 construct the read message using the sound file name (\$1);
 #X obj 842 139 list;
 #X obj 842 170 list prepend \$1;
 #X text 918 418 milliseconds;
@@ -32,7 +30,7 @@
 #X obj 404 580 *~;
 #X obj 174 372 r ramp-time;
 #X obj 121 398 pack 0 0;
-#X floatatom 234 204 5 0 0 0 - - -, f 5;
+#X floatatom 234 204 5 0 0 0 - - - 0;
 #X obj 139 288 expr $f2 / $f1;
 #X obj 139 258 f;
 #X obj 121 612 *~;
@@ -47,7 +45,7 @@
 #X msg 288 148 500;
 #X msg 269 174 250;
 #X msg 244 153 125;
-#X floatatom 139 309 5 0 0 0 - - -, f 5;
+#X floatatom 139 309 5 0 0 0 - - - 0;
 #X obj 26 -70 % 12;
 #X obj 26 -49 sel \$2;
 #X obj 26 -93 t f f, f 15;
@@ -59,7 +57,7 @@
 #X obj 26 39 t b b;
 #X msg 228 175 63;
 #X obj 180 476 r \$1-duration-s;
-#X obj 874 349 s \$1-duration-s;
+#X obj 870 340 s \$1-duration-s;
 #X obj 842 311 t f f;
 #X obj 267 535 *~ 0.5;
 #X obj 267 557 cos~;
@@ -74,6 +72,7 @@
 #X obj 139 192 r \$1-duration, f 11;
 #X msg 404 483 0 15;
 #X msg -5 331 0 0;
+#X obj 883 365 r KSR;
 #X connect 1 0 56 0;
 #X connect 2 0 5 0;
 #X connect 3 0 2 0;
@@ -154,3 +153,4 @@
 #X connect 67 0 30 0;
 #X connect 68 0 23 0;
 #X connect 69 0 62 0;
+#X connect 70 0 3 1;

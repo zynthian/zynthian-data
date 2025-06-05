@@ -1,4 +1,4 @@
-#N canvas 240 53 1471 580 10;
+#N canvas 426 45 1471 580 10;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array itake-\$1 441000 float 0;
 #X coords 0 1 440999 -1 400 130 1 0 0;
@@ -13,13 +13,13 @@
 #X obj 555 19 r loadsamps;
 #X obj 555 314 t f b;
 #X obj 821 408 soundfiler;
-#X obj 821 69 r saveState;
+#X obj 821 55 r saveState;
 #X obj 937 280 loadbang;
-#X obj 821 91 b;
+#X obj 821 77 b;
 #X obj 664 365 - 1;
 #X obj 937 309 symbol itake-\$1;
-#X obj 821 140 tabread lengths;
-#X obj 821 114 \$1;
+#X obj 821 126 tabread lengths;
+#X obj 821 100 \$1;
 #X obj 821 173 * 44.1;
 #X obj 821 338 pack 0 \$1 s, f 17;
 #X obj 821 195 i;
@@ -30,6 +30,8 @@
 #X obj 803 309 f;
 #X msg 876 290 1;
 #X obj 853 243 <= 1;
+#X obj 588 234 r KSR;
+#X obj 852 148 r KSR;
 #X connect 1 0 2 0;
 #X connect 2 0 9 0;
 #X connect 3 0 22 0;
@@ -58,3 +60,5 @@
 #X connect 25 0 19 0;
 #X connect 26 0 19 0;
 #X connect 27 0 23 0;
+#X connect 28 0 2 1;
+#X connect 29 0 18 1;

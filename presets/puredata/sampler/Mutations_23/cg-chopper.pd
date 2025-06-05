@@ -1,4 +1,4 @@
-#N canvas 228 50 1518 893 10;
+#N canvas 558 31 1518 893 10;
 #X obj 521 477 tabread4~;
 #X obj 641 477 tabread4~;
 #X obj 239 25 inlet;
@@ -9,8 +9,7 @@
 #X obj 49 46 r \$0-playback;
 #X obj 49 374 s~ \$0-master-phase;
 #X obj 95 310 r \$0-retrigger;
-#X text 567 17 wavetable to chop sample \, a window for each 'chunk'
-;
+#X text 567 17 wavetable to chop sample \, a window for each 'chunk';
 #X obj 778 396 -~ 0.5;
 #X obj 778 418 *~ 0.5;
 #X obj 778 279 r~ \$0-master-phase;
@@ -25,7 +24,7 @@
 #X obj 1225 645 s \$0-sample-length;
 #X obj 1167 646 / 44.1;
 #X obj 1167 672 s \$0-sample-length-ms;
-#X obj 1109 622 t f f f, f 17;
+#X obj 1109 577 t f f f, f 17;
 #X obj 896 130 r \$0-pointer;
 #X obj 896 209 list prepend set;
 #X obj 896 231 route list;
@@ -74,11 +73,9 @@
 #X obj 495 95 s \$0-wie-vie-chunks;
 #X obj 176 359 del 5;
 #X obj 422 328 del 5;
-#X obj 68 61 route length read speed point decay chunks tabPoint,
-f 100;
+#X obj 68 61 route length read speed point decay chunks tabPoint, f 100;
 #X obj 665 98 s \$0-tabPoint;
-#X text 774 100 name the array \$1(name)-tab-than number e.g. mutate-tab-1
-;
+#X text 774 100 name the array \$1(name)-tab-than number e.g. mutate-tab-1;
 #X connect 0 0 18 0;
 #X connect 4 0 13 0;
 #X connect 7 0 16 0;
@@ -192,6 +189,9 @@ f 100;
 #X obj 685 240 route list;
 #X obj 685 191 makefilename \$1-tab-%d;
 #X obj 490 107 tabread4~;
+#X obj 1186 610 r KSR;
+#X obj 1020 479 r KSR;
+#X obj 1020 502 * 10;
 #X connect 0 0 47 0;
 #X connect 1 0 48 0;
 #X connect 2 0 55 0;
@@ -341,3 +341,7 @@ f 100;
 #X connect 142 0 144 0;
 #X connect 143 0 141 0;
 #X connect 144 0 91 0;
+#X connect 145 0 23 1;
+#X connect 146 0 147 0;
+#X connect 147 0 133 1;
+#X connect 147 0 137 1;

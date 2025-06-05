@@ -1,7 +1,7 @@
-#N canvas 809 200 953 501 10;
+#N canvas 654 31 953 501 10;
 #X obj 84 18 inlet~ sound-in;
 #X obj 252 15 inlet~ sound-for-trigger;
-#N canvas 812 193 940 442 peak-trigger 0;
+#N canvas 812 193 940 442 peak-trigger 1;
 #X obj 56 30 inlet~;
 #X obj 56 292 outlet;
 #X obj 56 212 spigot 0;
@@ -19,8 +19,7 @@
 #X obj 381 17 inlet;
 #X obj 56 149 threshold~ 0.1 5 0.1 5;
 #X msg 381 88 set \$1 5 \$1 5;
-#X text 331 137 delay to avod the 'click' when triggering the record
-with the internal mic on;
+#X text 331 137 delay to avod the 'click' when triggering the record with the internal mic on;
 #X obj 381 38 clip 0 1;
 #X connect 0 0 15 0;
 #X connect 2 0 3 0;
@@ -44,7 +43,7 @@ with the internal mic on;
 #X connect 18 0 16 0;
 #X restore 252 115 pd peak-trigger;
 #X obj 295 45 r \$0-open-trig;
-#N canvas 221 136 853 578 soundfiler 0;
+#N canvas 231 31 853 578 soundfiler 0;
 #X obj 396 269 * 44.1;
 #X msg 396 321 resize \$1;
 #X obj 39 464 soundfiler;
@@ -150,7 +149,7 @@ with the internal mic on;
 #X obj 38 166 t b b b b, f 35;
 #X obj 629 521 t f f, f 13;
 #X obj 704 549 * 0.1;
-#X obj 629 579 * 0.001;
+#X obj 629 548 * 0.001;
 #X obj 629 448 r \$0-load-params;
 #X obj 327 298 s 2-vline-\$0;
 #X msg 327 275 1;
@@ -338,13 +337,11 @@ with the internal mic on;
 #X restore 617 69 pd actions;
 #X obj 25 297 r \$0-state;
 #X obj 25 341 list trim;
-#X text 108 408 <---- all states run to one send with same "sample
-name";
+#X text 108 408 <---- all states run to one send with same "sample name";
 #X text 578 141 Arg1: Sample name(symbol \, e.g. "samp);
 #X text 579 164 Arg2: Sample number (integer 0-inf);
 #X text 577 186 Arg3: Max Time in ms (integer);
-#X text 576 216 Arg4: Name of Folder to save sounds to \, located in
-the main patch folder (e.g. "Sounds");
+#X text 576 216 Arg4: Name of Folder to save sounds to \, located in the main patch folder (e.g. "Sounds");
 #X text 578 256 Arg5: normalize on/off (default 0);
 #X obj 85 145 *~, f 16;
 #N canvas 8 50 749 525 vline 0;

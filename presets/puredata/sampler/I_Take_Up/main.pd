@@ -1,4 +1,4 @@
-#N canvas 123 47 1348 761 10;
+#N canvas 396 55 1348 761 10;
 #X declare -path /usr/lib/pd/extra/hcs;
 #X declare -path /usr/lib/pd/extra/cyclone;
 #X declare -path /usr/lib/pd/extra/iemlib;
@@ -147,8 +147,8 @@
 #X connect 21 0 17 0;
 #X restore 930 354 pd set-buf;
 #X obj 702 93 r notes;
-#N canvas 810 161 921 687 player 0;
-#X obj 447 282 r duration;
+#N canvas 372 31 921 687 player 0;
+#X obj 443 259 r duration;
 #X obj 310 382 *~ 44100;
 #X obj 229 -24 r duration;
 #X obj 229 -2 / 1000;
@@ -207,10 +207,11 @@
 #X connect 1 1 3 1;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
-#X restore 437 310 pd delay5ms;
+#X restore 433 287 pd delay5ms;
 #X obj 218 48 t b f b;
 #X obj 169 137 t b b;
 #X text 666 244 allow 5 ms rampout \, then update;
+#X obj 455 310 r KSR;
 #X connect 0 0 37 0;
 #X connect 1 0 11 0;
 #X connect 2 0 3 0;
@@ -253,9 +254,10 @@
 #X connect 38 2 34 0;
 #X connect 39 0 35 0;
 #X connect 39 1 32 0;
+#X connect 41 0 5 1;
 #X restore 47 355 pd player;
 #X obj 879 301 t b a;
-#N canvas 295 50 809 936 recorder 0;
+#N canvas 442 31 809 936 recorder 0;
 #X obj 157 595 r~ inL;
 #X obj 206 595 r~ inR;
 #X msg 87 555 start \$1;
@@ -274,7 +276,7 @@
 #X obj 628 753 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 514 836 s duration;
 #X obj 108 430 r duration;
-#X obj 108 455 * 44.1;
+#X obj 108 486 * 44.1;
 #X obj 306 614 line~;
 #X obj 156 697 *~;
 #X obj 321 85 r fs;
@@ -325,6 +327,7 @@
 #X obj 307 122 t b f;
 #X text 310 151 dont rec if full;
 #X obj 380 272 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 123 459 r KSR;
 #X connect 0 0 20 0;
 #X connect 1 0 20 0;
 #X connect 2 0 33 0;
@@ -405,6 +408,7 @@
 #X connect 65 0 12 0;
 #X connect 66 0 64 0;
 #X connect 66 1 65 1;
+#X connect 69 0 18 1;
 #X restore 55 277 pd recorder;
 #N canvas 10 50 1297 753 detent-knob-4 0;
 #X obj 683 215 bang;
@@ -516,7 +520,7 @@
 #X msg 535 557 \; screenLine1 1: Input Mon \$1 % \;;
 #N canvas 0 50 450 250 (subpatch) 0;
 #X array lengths 25 float 3;
-#A 0 0 4874.74 0 2612.24 0 2581.77 937.506 0 3120.18 0 0 811.247 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 0 0 2976.51 0 2612.24 0 2581.77 10177.6 0 3120.18 0 0 811.247 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 20000 25 0 200 140 1 0 0;
 #X restore 1013 114 graph;
 #N canvas 12 50 1618 830 states-and-led 0;
@@ -611,14 +615,14 @@
 #X array backupstat 24 float 2;
 #X coords 0 2 25 0 200 100 1 0 0;
 #X restore 207 61 graph;
-#N canvas 1073 89 794 885 save-one 0;
+#N canvas 413 31 794 885 save-one 0;
 #X msg 54 480 start;
 #X obj 376 538 line~;
 #X obj 306 832 writesf~;
 #X floatatom 361 402 50 0 0 0 - - - 0;
 #X msg 445 495 0;
 #X obj 342 499 pack 0 0;
-#X obj 346 465 * 44.1;
+#X obj 324 474 * 44.1;
 #X obj 373 427 t f f;
 #X obj 250 213 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 377 577 tabread~ itake-1;
@@ -639,6 +643,7 @@
 #X msg 229 636 stop;
 #X obj 234 505 r quitting;
 #X obj 133 443 makefilename ./sound-%d.wav;
+#X obj 364 451 r KSR;
 #X connect 0 0 2 0;
 #X connect 1 0 9 0;
 #X connect 3 0 7 0;
@@ -671,6 +676,7 @@
 #X connect 24 0 2 0;
 #X connect 25 0 24 0;
 #X connect 26 0 21 0;
+#X connect 27 0 6 1;
 #X restore 326 503 pd save-one;
 #X obj 322 461 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X floatatom 422 474 5 0 0 0 - - - 0;

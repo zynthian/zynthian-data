@@ -1,15 +1,14 @@
 #N canvas 318 89 1331 850 10;
 #X obj 969 261 soundfiler;
-#X obj 969 349 / 44.1;
-#X text 1025 349 sample rate / 1000;
-#X obj 969 381 s \$1-duration;
+#X obj 969 377 / 44.1;
+#X text 1025 377 sample rate / 1000;
+#X obj 969 409 s \$1-duration;
 #X obj 969 89 symbol \$1-array;
 #X obj 969 175 list prepend -resize;
 #X obj 969 203 list prepend read;
 #X obj 969 231 list trim;
 #X obj 969 36 loadbang;
-#X text 555 28 construct the read message using the sound file name
-(\$1);
+#X text 555 28 construct the read message using the sound file name (\$1);
 #X obj 969 111 list;
 #X obj 969 142 list prepend \$1;
 #X obj 62 450 phasor~;
@@ -73,7 +72,7 @@
 #X connect 17 0 12 0;
 #X connect 19 0 6 1;
 #X restore 371 580 pd decay;
-#N canvas 581 242 1138 740 HZ-control 1;
+#N canvas 581 242 1138 740 HZ-control 0;
 #X obj 361 48 r bar-length;
 #X obj 83 376 f;
 #X obj 360 433 f;
@@ -96,10 +95,8 @@
 #X obj 83 183 *, f 6;
 #X obj 195 118 t b f;
 #X text 127 199 scale speed to global speed when not in sync mode;
-#X text 501 323 stretch sample to fit to bar length set by BPM when
-in sync mode;
-#X text 705 59 arg3(from sample voice argument3): length to round sample
-;
+#X text 501 323 stretch sample to fit to bar length set by BPM when in sync mode;
+#X text 705 59 arg3(from sample voice argument3): length to round sample;
 #X obj 482 165 / \$3;
 #X obj 361 321 / 1000;
 #X obj 361 342 swap 1;
@@ -215,17 +212,15 @@ in sync mode;
 #X obj 201 229 s i-am-playing;
 #X obj 201 126 r are-you-playing;
 #X text 677 516 Argument 1: which file to read;
-#X text 677 546 Argument 2: which note number to trigger(moudulated
-by 24 e.g. 0-24);
-#X text 676 585 Argument 3: reads voice-banks argument 1 for setting
-length to round to.;
+#X text 677 546 Argument 2: which note number to trigger(moudulated by 24 e.g. 0-24);
+#X text 676 585 Argument 3: reads voice-banks argument 1 for setting length to round to.;
 #X text 104 270 sync or no sync play modes;
 #X text 227 109 screenline 5 display of active voices;
 #X text 136 50 all midi notes trigger loops 0-24;
 #X obj 1001 311 s \$1-duration-samp;
 #X obj 113 516 r \$1-duration-samp;
 #X text 1026 294 duration of sample in samples;
-#X text 1055 382 duration of sample in ms;
+#X text 1055 410 duration of sample in ms;
 #X obj 387 529 threshold~ 0.0001 0 0.9999 0;
 #X obj 324 248 s tracker;
 #X obj 324 225 list prepend \$2;
@@ -251,7 +246,8 @@ length to round to.;
 #X connect 3 0 1 1;
 #X restore 62 172 pd toggle-noGui;
 #X obj 62 211 t f f f f;
-#X floatatom 118 363 5 0 0 0 - - -;
+#X floatatom 118 363 5 0 0 0 - - - 0;
+#X obj 1002 338 r KSR;
 #X connect 0 0 55 0;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
@@ -312,3 +308,4 @@ length to round to.;
 #X connect 72 1 44 1;
 #X connect 72 2 24 0;
 #X connect 72 3 45 0;
+#X connect 74 0 1 1;

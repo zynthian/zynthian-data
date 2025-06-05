@@ -1,4 +1,4 @@
-#N canvas 247 50 808 682 10;
+#N canvas 142 31 808 682 10;
 #X declare -path cg-pd-library-local/sampling;
 #X declare -path cg-pd-library-local/sequencer;
 #X declare -path cg-pd-library-local/externals;
@@ -97,7 +97,7 @@
 #X restore 527 190 pd metro-here;
 #X text 102 77 init sequence;
 #X text 194 108 critter library of abstractions;
-#N canvas 85 358 1415 642 shortcuts 0;
+#N canvas 384 31 1415 642 shortcuts 0;
 #X obj 1337 62 r cgSc-1-1;
 #X obj 1337 83 sel 0;
 #X obj 1364 106 t b;
@@ -912,7 +912,7 @@
 #X obj 58 130 declare -path cg-pd-library-local/externals;
 #X obj 59 165 declare -path cg-pd-library-local/metronome;
 #X restore 53 107 pd cg-pd-library-local;
-#N canvas 4 50 1358 702 4-arrays 0;
+#N canvas 287 49 1358 702 4-arrays 0;
 #X obj 398 157 r saveState;
 #X obj 399 574 soundfiler;
 #X obj 399 384 text get locked-loop-info;
@@ -922,7 +922,7 @@
 #X msg 455 295 0;
 #X obj 564 387 + 1;
 #X obj 399 414 *;
-#X obj 399 436 * 44.1;
+#X obj 399 469 * 44.1;
 #X obj 36 207 r load-arrays;
 #X obj 36 257 t a b;
 #X obj 36 345 f;
@@ -963,10 +963,10 @@
 #X obj 940 566 tabread loop-knobs;
 #N canvas 357 109 1005 623 arrays 0;
 #X text 96 229 resize to max time;
-#X obj 80 171 * 1000;
-#X obj 80 201 * 44.1;
-#X text 124 168 miliseconds;
-#X text 136 199 samples;
+#X obj 80 144 * 1000;
+#X obj 80 207 * 44.1;
+#X text 124 141 miliseconds;
+#X text 136 205 samples;
 #X obj 80 34 r resize-arrays;
 #X obj 454 40 array define locked-loop-1-0;
 #X obj 454 70 array define locked-loop-2-0;
@@ -1014,11 +1014,11 @@
 #X msg 80 246 \; locked-loop-1-0 resize \$1 \; locked-loop-2-0 resize \$1 \; locked-loop-3-0 resize \$1 \; locked-loop-4-0 resize \$1 \; locked-loop-1-1 resize \$1 \; locked-loop-2-1 resize \$1 \; locked-loop-3-1 resize \$1 \; locked-loop-4-1 resize \$1;
 #X msg 752 424 symbol loop-\$1-startP;
 #X msg 560 427 symbol loop-\$1-startP;
-#X obj 80 141 f 96;
-#X text 129 97 @ 20 BPM \, one bar is 12 secs long.;
-#X text 108 141 seconds;
-#X text 184 132 8 bars @ 12 secs = 96 secs;
-#X text 129 116 96 seconds is max track length for Organelle 1;
+#X obj 80 114 f 96;
+#X text 129 70 @ 20 BPM \, one bar is 12 secs long.;
+#X text 108 114 seconds;
+#X text 184 105 8 bars @ 12 secs = 96 secs;
+#X text 129 89 96 seconds is max track length for Organelle 1;
 #X connect 1 0 2 0;
 #X connect 2 0 49 0;
 #X connect 5 0 52 0;
@@ -1150,6 +1150,7 @@
 #X connect 17 0 15 0;
 #X restore 1291 147 pd init;
 #X text 36 83 Organelle 1 max track record time: 8 bars at 20bpm (96 secs);
+#X obj 440 425 r KSR;
 #X connect 0 0 61 0;
 #X connect 2 0 8 0;
 #X connect 3 0 38 0;
@@ -1225,6 +1226,7 @@
 #X connect 63 1 64 0;
 #X connect 65 0 66 0;
 #X connect 65 1 60 0;
+#X connect 68 0 9 1;
 #X restore 304 318 pd 4-arrays;
 #X obj 572 89 r lock-bpm!;
 #N canvas 826 178 527 570 analyze-arrays 0;
@@ -1807,7 +1809,7 @@
 #X obj 271 272 t b;
 #X obj 117 575 shell, f 26;
 #X obj 118 138 t a b, f 42;
-#N canvas 4 50 1031 737 soundfiler 0;
+#N canvas 399 49 1031 737 soundfiler 0;
 #X obj 312 499 soundfiler;
 #X obj 312 289 text get locked-loop-info;
 #X obj 312 129 t a b;
@@ -1817,7 +1819,7 @@
 #X obj 312 259 t a a, f 32;
 #X obj 501 289 + 1;
 #X obj 312 319 *;
-#X obj 312 341 * 44.1;
+#X obj 312 370 * 44.1;
 #X obj 312 99 f 4;
 #X text 693 348 bounce folder number;
 #X obj 681 131 inlet;
@@ -1929,7 +1931,7 @@
 #X obj 530 428 loop-voice 2;
 #X obj 530 458 loop-voice 3;
 #X obj 530 488 loop-voice 4;
-#N canvas 530 230 900 538 record 0;
+#N canvas 159 55 900 538 record 0;
 #X obj 166 28 r rec-start;
 #X obj 16 366 clone -s 1 4 record-countdown-and-free;
 #X obj 205 74 s global-stop;
