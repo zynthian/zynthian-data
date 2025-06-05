@@ -1,4 +1,4 @@
-#N canvas 75 50 1447 949 10;
+#N canvas 208 31 1447 949 10;
 #X obj 92 222 phasor~;
 #X obj 617 58 r \$0-pitch-shift;
 #X obj 617 122 t b f;
@@ -17,7 +17,7 @@
 #X obj 332 350 -~ 0.5;
 #X obj 332 372 *~ 0.5;
 #X obj 332 394 cos~;
-#X obj 390 276 *~ 2205;
+#X obj 391 296 *~ 2205;
 #X obj 391 397 tabread4~;
 #X obj 470 345 r~ \$0-index;
 #X obj 372 443 *~;
@@ -41,7 +41,7 @@
 #X obj 1330 665 s \$0-sample-length;
 #X obj 1272 666 / 44.1;
 #X obj 1272 692 s \$0-sample-length-ms;
-#X obj 1214 642 t f f f, f 17;
+#X obj 1214 599 t f f f, f 17;
 #X obj 860 150 r \$0-pointer;
 #X obj 860 229 list prepend set;
 #X obj 860 251 route list;
@@ -203,6 +203,10 @@
 #X obj 1214 406 delay 5;
 #X obj 215 108 t f f f, f 8;
 #X obj 259 78 t b f f;
+#X obj 1284 633 r KSR;
+#X obj 559 241 / 0.02;
+#X obj 559 213 r KSR;
+#X obj 1071 522 r KSR;
 #X connect 0 0 71 0;
 #X connect 0 0 135 0;
 #X connect 1 0 2 0;
@@ -375,3 +379,8 @@
 #X connect 163 0 145 0;
 #X connect 163 1 146 1;
 #X connect 163 2 143 0;
+#X connect 164 0 40 1;
+#X connect 165 0 10 1;
+#X connect 165 0 18 1;
+#X connect 166 0 165 0;
+#X connect 167 0 158 1;
