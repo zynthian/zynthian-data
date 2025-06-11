@@ -42,7 +42,7 @@
 #X obj 307 719 s \$0-done-rec;
 #X obj 367 292 r \$0-length-ms;
 #X obj 715 156 t a a a, f 22;
-#N canvas 507 173 1376 785 set-length-and-bpm 0;
+#N canvas 821 148 1376 785 set-length-and-bpm 0;
 #X obj 137 102 inlet;
 #X obj 842 387 /, f 10;
 #X obj 842 363 swap 60000;
@@ -74,6 +74,7 @@
 #X obj 830 159 t b b;
 #X obj 857 188 v \$0-rec-num;
 #X obj 89 487 t b a;
+#X obj 900 494 r KSR;
 #X connect 0 0 15 0;
 #X connect 1 0 4 0;
 #X connect 2 0 1 0;
@@ -109,6 +110,7 @@
 #X connect 29 0 27 0;
 #X connect 30 0 22 0;
 #X connect 30 1 21 0;
+#X connect 31 0 17 1;
 #X restore 552 269 pd set-length-and-bpm;
 #X obj 955 357 s loop-set-record;
 #X obj 955 307 pack 0 1;
@@ -118,14 +120,14 @@
 #X obj 280 404 t b b b, f 15;
 #X msg 367 433 stop;
 #X obj 955 158 v \$0-rec-num;
-#N canvas 4 50 836 589 analyze-trail 0;
+#N canvas 4 50 836 589 analyze-trail 1;
 #X obj 288 346 pack 0 0;
 #X obj 336 212 text get locked-loop-info;
 #X obj 336 188 - 1;
-#X obj 336 263 *;
+#X obj 336 242 *;
 #X obj 336 284 * 44.1;
 #X obj 336 305 i;
-#X text 366 262 times the 2 item list together;
+#X text 366 241 times the 2 item list together;
 #X obj 231 460 s messages-2-locks;
 #X text 431 356 anaylze the sample;
 #X obj 231 375 list store;
@@ -135,6 +137,7 @@
 #X obj 288 51 v \$0-rec-num;
 #X obj 231 396 list prepend analyze;
 #X obj 231 417 list trim;
+#X obj 376 261 r KSR;
 #X connect 0 0 9 1;
 #X connect 1 0 3 0;
 #X connect 2 0 1 0;
@@ -150,6 +153,7 @@
 #X connect 13 0 12 0;
 #X connect 14 0 15 0;
 #X connect 15 0 7 0;
+#X connect 16 0 4 1;
 #X restore 61 399 pd analyze-trail;
 #X obj 61 338 t b b;
 #X obj 1225 294 v;
@@ -187,8 +191,7 @@
 #X text 109 53 bang;
 #X text 407 171 mute the player but keep playhead running;
 #X text 294 344 reset the tracking stuff;
-#X text 294 235 return the playhead to begining \, and play if not
-;
+#X text 294 235 return the playhead to begining \, and play if not;
 #X msg 173 226 \; loop-\$1-play start;
 #X connect 0 0 3 0;
 #X connect 2 0 9 0;

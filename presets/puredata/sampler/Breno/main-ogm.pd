@@ -1,8 +1,14 @@
-#N canvas 327 145 789 587 10;
+#N canvas 304 31 789 587 10;
 #X declare -path cg-pd-library-local/sampling;
 #X declare -path cg-pd-library-local/sequencer;
 #X declare -path cg-pd-library-local/externals;
 #X declare -path cg-pd-library-local/metronome;
+#X declare -path /usr/lib/pd/extra/hcs;
+#X declare -path /usr/lib/pd/extra/cyclone;
+#X declare -path /usr/lib/pd/extra/iemlib;
+#X declare -path /usr/lib/pd/extra/osc;
+#X declare -path /usr/lib/pd/extra/ggee;
+#X declare -path /zynthian/zynthian-data/puredata/organelle;
 #N canvas 4 50 552 392 load 0;
 #X obj 67 34 loadbang;
 #X obj 127 148 s resize-arrays;
@@ -11,8 +17,7 @@
 #X obj 112 176 s load-arrays;
 #X obj 97 205 s init-analyze;
 #X obj 60 267 s load-line5;
-#X obj 149 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 149 15 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 157 312 s cgSc-1-mute-print;
 #X obj 154 278 0;
 #X obj 67 55 t b b b b b b;
@@ -1009,10 +1014,7 @@
 #X obj 312 407 v loop-2-startP;
 #X obj 312 438 v loop-3-startP;
 #X obj 313 469 v loop-4-startP;
-#X msg 80 211 \; locked-loop-1-0 resize \$1 \; locked-loop-2-0 resize
-\$1 \; locked-loop-3-0 resize \$1 \; locked-loop-4-0 resize \$1 \;
-locked-loop-1-1 resize \$1 \; locked-loop-2-1 resize \$1 \; locked-loop-3-1
-resize \$1 \; locked-loop-4-1 resize \$1;
+#X msg 80 211 \; locked-loop-1-0 resize \$1 \; locked-loop-2-0 resize \$1 \; locked-loop-3-0 resize \$1 \; locked-loop-4-0 resize \$1 \; locked-loop-1-1 resize \$1 \; locked-loop-2-1 resize \$1 \; locked-loop-3-1 resize \$1 \; locked-loop-4-1 resize \$1;
 #X msg 722 424 symbol loop-\$1-startP;
 #X msg 530 427 symbol loop-\$1-startP;
 #X obj 80 106 f 192;
@@ -1063,8 +1065,7 @@ resize \$1 \; locked-loop-4-1 resize \$1;
 #X msg 603 441 symbol loop-\$1-AB;
 #X obj 564 408 t a b a;
 #X obj 399 494 pack 0 0 0, f 27;
-#X msg 399 525 write -wave -nframes \$1 loops/\$2.wav locked-loop-\$2-\$3
-;
+#X msg 399 525 write -wave -nframes \$1 loops/\$2.wav locked-loop-\$2-\$3;
 #X msg 36 474 read loops/\$1.wav locked-loop-\$1-0;
 #X msg 786 615 \; knob-\$2-vol-recall \$1;
 #X msg 940 613 \; knob-\$2-loop-recall \$1;
@@ -1286,7 +1287,7 @@ resize \$1 \; locked-loop-4-1 resize \$1;
 #X obj 247 148 t b b;
 #X obj 140 483 r recall-params;
 #X obj 247 57 == 0;
-#X floatatom 812 747 5 0 0 0 - - -;
+#X floatatom 812 747 5 0 0 0 - - - 0;
 #X obj 812 726 + 12;
 #X msg 812 703 46;
 #X obj 728 783 cg-draw-status-bar 60 42 64 9 4;
@@ -1825,8 +1826,7 @@ resize \$1 \; locked-loop-4-1 resize \$1;
 #X obj 312 159 until;
 #X obj 525 372 v;
 #X msg 540 349 symbol loop-\$1-AB;
-#X msg 312 459 write -wave -nframes \$1 stems/stems-\$4/\$2.wav locked-loop-\$2-\$3
-;
+#X msg 312 459 write -wave -nframes \$1 stems/stems-\$4/\$2.wav locked-loop-\$2-\$3;
 #X obj 312 429 pack 0 0 0 0, f 62;
 #X obj 501 310 t a b a;
 #X connect 1 0 8 0;
@@ -2326,6 +2326,15 @@ resize \$1 \; locked-loop-4-1 resize \$1;
 #X restore 309 192 pd play-modes;
 #X text 320 156 play modes should be buttons;
 #X text 225 26 BRENO - this version for Organelle M;
+#N canvas 237 379 497 300 paths 0;
+#X obj 25 39 declare -path /usr/lib/pd/extra/hcs, f 36;
+#X obj 25 63 declare -path /usr/lib/pd/extra/cyclone;
+#X obj 24 91 declare -path /usr/lib/pd/extra/iemlib;
+#X obj 25 115 declare -path /usr/lib/pd/extra/osc;
+#X obj 26 141 declare -path /usr/lib/pd/extra/ggee;
+#X obj 25 10 declare -path /zynthian/zynthian-data/puredata/organelle;
+#X restore 53 40 pd paths;
+#X obj 53 132 WCTL;
 #X connect 5 0 25 0;
 #X connect 6 0 25 1;
 #X connect 7 0 16 0;

@@ -6,25 +6,22 @@
 #X obj 1398 899 soundfiler;
 #X obj 196 751 line~;
 #X obj 140 219 inlet;
-#X obj 138 248 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 138 248 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 238 646 0 0;
 #X obj 128 668 pack 0 0;
-#X floatatom 161 532 5 0 0 0 - - -, f 5;
-#X floatatom 169 465 5 0 0 0 - - -, f 5;
+#X floatatom 161 532 5 0 0 0 - - - 0;
+#X floatatom 169 465 5 0 0 0 - - - 0;
 #X obj 115 488 f;
-#X obj 101 540 * 44.1;
+#X obj 100 585 * 44.1;
 #X obj 197 778 tabread4~ \$1-array;
 #X obj 160 501 r \$1-duration;
 #X obj 169 440 r \$1-duration;
-#X obj 1398 727 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 1398 727 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 1398 753 symbol \$1-array;
 #X obj 1398 843 list prepend read;
 #X obj 1398 871 list trim;
 #X obj 1398 700 loadbang;
-#X text 1118 125 construct the read message using the sound file name
-(\$1);
+#X text 1118 125 construct the read message using the sound file name (\$1);
 #X obj 1398 775 list;
 #X obj 1398 806 list prepend \$1;
 #X obj 180 57 r notes;
@@ -106,11 +103,9 @@
 #X text 515 678 set state = recording;
 #X text 514 701 then after 1 second set state = finishing;
 #X text 518 725 then after 250 ms sate = done;
-#X text 502 908 normalize and saving happen async \, so we just wait
-250 ms;
+#X text 502 908 normalize and saving happen async \, so we just wait 250 ms;
 #X msg 779 641 0;
-#X text 936 387 record states are 0=play mode \, 1=select key \, 2=wait
-for trig \, 3= recording \, 4=finishing up;
+#X text 936 387 record states are 0=play mode \, 1=select key \, 2=wait for trig \, 3= recording \, 4=finishing up;
 #X msg 700 862 0;
 #X obj 849 576 *~ 1;
 #X obj 818 423 t b b b;
@@ -126,6 +121,7 @@ for trig \, 3= recording \, 4=finishing up;
 #X obj 310 478 / 2;
 #X obj 326 345 r knob1-detent;
 #X obj 1208 757 list prepend /tmp/state/\$1;
+#X obj 133 554 r KSR;
 #X connect 2 0 11 0;
 #X connect 3 0 4 0;
 #X connect 4 0 38 0;
@@ -232,3 +228,4 @@ for trig \, 3= recording \, 4=finishing up;
 #X connect 116 0 30 0;
 #X connect 117 0 115 0;
 #X connect 118 0 77 0;
+#X connect 119 0 10 1;

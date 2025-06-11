@@ -4,33 +4,30 @@
 #X coords 0 1 12701 -1 335 251 1 0 0;
 #X restore 882 260 graph;
 #X obj 1238 395 soundfiler;
-#X floatatom 1238 426 10 0 0 0 - - -, f 10;
-#X floatatom 1238 485 10 0 0 0 - - -, f 10;
-#X obj 1238 454 / 44.1;
-#X text 1294 454 sample rate / 1000;
+#X floatatom 1238 426 10 0 0 0 - - - 0;
+#X floatatom 1238 531 10 0 0 0 - - - 0;
+#X obj 1238 500 / 44.1;
+#X text 1294 500 sample rate / 1000;
 #X obj 202 693 line~;
 #X obj 140 219 inlet;
-#X obj 140 285 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 140 285 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 280 383 0 0;
 #X obj 152 637 pack 0 0;
-#X floatatom 167 474 5 0 0 0 - - -, f 5;
-#X floatatom 175 407 5 0 0 0 - - -, f 5;
+#X floatatom 167 474 5 0 0 0 - - - 0;
+#X floatatom 175 407 5 0 0 0 - - - 0;
 #X obj 121 430 f;
-#X obj 107 482 * 44.1;
-#X obj 1238 516 s \$1-duration;
+#X obj 106 541 * 44.1;
+#X obj 1238 562 s \$1-duration;
 #X obj 203 720 tabread4~ \$1-array;
 #X obj 166 443 r \$1-duration;
 #X obj 175 382 r \$1-duration;
-#X obj 1238 197 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
+#X obj 1238 197 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 1238 223 symbol \$1-array;
 #X obj 1238 309 list prepend -resize;
 #X obj 1238 337 list prepend read;
 #X obj 1238 365 list trim;
 #X obj 1238 170 loadbang;
-#X text 1118 125 construct the read message using the sound file name
-(\$1);
+#X text 1118 125 construct the read message using the sound file name (\$1);
 #X obj 1238 245 list;
 #X obj 230 175 stripnote;
 #X obj 230 288 sel \$2;
@@ -50,7 +47,7 @@
 #X obj 424 723 *~;
 #X obj 429 600 f 1000;
 #X obj 487 507 r \$1-duration;
-#X text 1314 484 milliseconds;
+#X text 1314 530 milliseconds;
 #X obj 469 564 *;
 #X obj 469 479 *;
 #X obj 469 457 t f f;
@@ -75,6 +72,8 @@
 #X obj 186 101 r the-notes;
 #X obj 469 360 r decay-local;
 #X obj 1239 277 list prepend Sounds/\$1;
+#X obj 139 502 r KSR;
+#X obj 1282 456 r KSR;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
 #X connect 3 0 15 0;
@@ -136,3 +135,5 @@
 #X connect 67 0 27 0;
 #X connect 68 0 52 0;
 #X connect 69 0 21 0;
+#X connect 70 0 14 1;
+#X connect 71 0 4 1;

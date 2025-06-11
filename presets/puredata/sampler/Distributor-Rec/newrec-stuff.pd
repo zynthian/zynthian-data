@@ -5,7 +5,7 @@
 #X msg 257 134 1;
 #X obj 257 206 f;
 #X obj 332 133 t b;
-#N canvas 10 50 938 636 play-selected-note 0;
+#N canvas 10 50 938 636 play-selected-note 1;
 #X obj 79 330 phasor~, f 10;
 #X obj 81 619 throw~ samp_voice_out;
 #X obj 79 270 f;
@@ -37,8 +37,8 @@
 #X msg 293 78 symbol samp-\$1-length;
 #X obj 307 178 / 1;
 #X obj 137 136 s \$0-duration-s;
-#X obj 122 188 s \$0-duration;
-#X obj 122 165 / 44.1;
+#X obj 122 207 s \$0-duration;
+#X obj 122 184 / 44.1;
 #X msg 26 256 0 10;
 #X obj 79 153 t b;
 #X msg 79 174 0.88;
@@ -46,6 +46,7 @@
 #X obj 122 -45 abs;
 #X obj 122 -66 expr if ($f1 > 59 \, $f1 - 60 \, $f1 - 12);
 #X obj 122 3 + 1;
+#X obj 155 159 r KSR;
 #X connect 0 0 9 0;
 #X connect 2 0 0 0;
 #X connect 3 0 21 0;
@@ -92,11 +93,12 @@
 #X connect 37 0 36 0;
 #X connect 38 0 37 0;
 #X connect 39 0 19 0;
+#X connect 40 0 32 1;
 #X restore 212 295 pd play-selected-note;
 #X obj 77 68 r rec-notes;
 #X obj 212 261 spigot 1;
 #X obj 77 257 spigot 1;
-#N canvas 189 103 1140 700 choose-trig-rec 1;
+#N canvas 189 103 1140 700 choose-trig-rec 0;
 #X obj 77 40 inlet;
 #X obj 77 77 stripnote;
 #X obj 77 162 % 24;

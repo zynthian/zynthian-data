@@ -45,8 +45,7 @@
 #X text 483 722 sets sharpness of the ends of window;
 #X text 227 590 wrap around 0-1 to keep inside sample;
 #X text 39 676 times sample length;
-#X text 709 173 Argument 1: which table to read (use this object with
-the cg-load-array);
+#X text 709 173 Argument 1: which table to read (use this object with the cg-load-array);
 #X text 850 135 Simple looper with wrap-around.;
 #X text 74 11 control arguments;
 #X obj 324 838 outlet~;
@@ -94,6 +93,7 @@ the cg-load-array);
 #X obj 830 526 tabread jam-loop-lengths;
 #X obj 830 568 s \$0-size;
 #X obj 396 721 *~ 300, f 11;
+#X obj 817 256 r KSR;
 #X connect 0 0 1 0;
 #X connect 2 0 3 0;
 #X connect 3 0 4 0;
@@ -174,3 +174,4 @@ the cg-load-array);
 #X connect 89 0 59 0;
 #X connect 91 0 92 0;
 #X connect 93 0 11 0;
+#X connect 94 0 34 1;

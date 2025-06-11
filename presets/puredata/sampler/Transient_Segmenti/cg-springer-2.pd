@@ -1,4 +1,4 @@
-#N canvas 8 50 941 550 10;
+#N canvas 430 49 941 550 10;
 #X obj 92 272 phasor~;
 #X obj 587 28 r \$0-pitch-shift;
 #X obj 587 92 t b f;
@@ -36,7 +36,7 @@
 #X obj 1279 665 s \$0-sample-length;
 #X obj 1221 666 / 44.1;
 #X obj 1221 692 s \$0-sample-length-ms;
-#X obj 1163 642 t f f f, f 17;
+#X obj 1172 579 t f f f, f 17;
 #X obj 860 70 r \$0-pointer;
 #X obj 860 149 list prepend set;
 #X obj 860 171 route list;
@@ -159,7 +159,7 @@
 #X obj 1163 794 *;
 #X obj 1181 739 r \$0-chunk-size;
 #X obj 1181 761 t b a;
-#N canvas 4 50 1009 708 clipped-cos-envelope 0;
+#N canvas 273 44 1009 708 clipped-cos-envelope 1;
 #X obj 407 259 r~ \$0-master-phase;
 #X obj 643 467 -~ 0.5;
 #X obj 643 489 *~ 0.5;
@@ -184,6 +184,8 @@
 #X obj 818 295 / 441;
 #X obj 642 626 outlet~ original in/out click avoider;
 #X obj 407 629 outlet~ in/out envelope;
+#X obj 861 271 r KSR;
+#X obj 861 294 * 10;
 #X connect 0 0 13 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -209,6 +211,8 @@
 #X connect 20 1 19 1;
 #X connect 21 0 8 1;
 #X connect 21 0 17 1;
+#X connect 24 0 25 0;
+#X connect 25 0 21 1;
 #X restore 502 475 pd clipped-cos-envelope _ _ _ _;
 #X obj 1163 459 t f f, f 6;
 #X obj 1163 816 change -1;
@@ -250,6 +254,9 @@
 #X obj 514 538 r~ \$0-master-phase;
 #X obj 373 654 *~;
 #X obj 791 662 *~;
+#X obj 1235 618 r KSR;
+#X obj 508 143 r KSR;
+#X obj 508 166 / 0.02;
 #X connect 0 0 66 0;
 #X connect 0 0 112 0;
 #X connect 1 0 2 0;
@@ -403,3 +410,7 @@
 #X connect 147 0 136 0;
 #X connect 148 0 86 0;
 #X connect 148 0 137 0;
+#X connect 149 0 35 1;
+#X connect 150 0 151 0;
+#X connect 151 0 18 1;
+#X connect 151 0 10 1;
