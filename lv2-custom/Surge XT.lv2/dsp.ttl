@@ -1,0 +1,8822 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix bufs:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <https://surge-synthesizer.github.io/lv2/surge-xt:> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix time:  <http://lv2plug.in/ns/ext/time#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+plug:surgext-bypass
+	a lv2:Parameter ;
+	rdfs:label "Bypass Surge XT" ;
+	pg:group plug:paramgroup_Root ;
+	lv2:displayPriority 79 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_octave
+	a lv2:Parameter ;
+	rdfs:label "A Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_pitch
+	a lv2:Parameter ;
+	rdfs:label "A Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_portamento
+	a lv2:Parameter ;
+	rdfs:label "A Portamento" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_polymode
+	a lv2:Parameter ;
+	rdfs:label "A Play Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_fm_switch
+	a lv2:Parameter ;
+	rdfs:label "A FM Routing" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_fm_depth
+	a lv2:Parameter ;
+	rdfs:label "A FM Depth" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_drift
+	a lv2:Parameter ;
+	rdfs:label "A Osc Drift" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_noisecol
+	a lv2:Parameter ;
+	rdfs:label "A Noise Color" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_ktrkroot
+	a lv2:Parameter ;
+	rdfs:label "A Keytrack Root Key" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_volume
+	a lv2:Parameter ;
+	rdfs:label "A Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_pan
+	a lv2:Parameter ;
+	rdfs:label "A Pan" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_pan2
+	a lv2:Parameter ;
+	rdfs:label "A Width" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_send_fx_1
+	a lv2:Parameter ;
+	rdfs:label "A Send FX 1 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_send_fx_2
+	a lv2:Parameter ;
+	rdfs:label "A Send FX 2 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_send_fx_3
+	a lv2:Parameter ;
+	rdfs:label "A Send FX 3 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_send_fx_4
+	a lv2:Parameter ;
+	rdfs:label "A Send FX 4 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_pbrange_up
+	a lv2:Parameter ;
+	rdfs:label "A Pitch Bend Up Range" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_pbrange_dn
+	a lv2:Parameter ;
+	rdfs:label "A Pitch Bend Down Range" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_vca_level
+	a lv2:Parameter ;
+	rdfs:label "A VCA Gain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_vca_velsense
+	a lv2:Parameter ;
+	rdfs:label "A Velocity > VCA Gain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_feedback
+	a lv2:Parameter ;
+	rdfs:label "A Feedback" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_fb_config
+	a lv2:Parameter ;
+	rdfs:label "A Filter Configuration" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_f_balance
+	a lv2:Parameter ;
+	rdfs:label "A Filter Balance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lowcut
+	a lv2:Parameter ;
+	rdfs:label "A Highpass" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_ws_type
+	a lv2:Parameter ;
+	rdfs:label "A Waveshaper Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_ws_drive
+	a lv2:Parameter ;
+	rdfs:label "A Waveshaper Drive" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_f2_cf_is_offset
+	a lv2:Parameter ;
+	rdfs:label "A Filter 2 Offset Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_f2_link_resonance
+	a lv2:Parameter ;
+	rdfs:label "A Link Resonance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_type
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_octave
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_pitch
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_param0
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_param1
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Width 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_param2
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Width 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_param3
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Sub Mix" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_param4
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Sync" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_param5
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Unison Detune" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_param6
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Unison Voices" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_keytrack
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc1_retrigger
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Retrigger" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_type
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_octave
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_pitch
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_param0
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_param1
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Width 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_param2
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Width 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_param3
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Sub Mix" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_param4
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Sync" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_param5
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Unison Detune" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_param6
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Unison Voices" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_keytrack
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc2_retrigger
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Retrigger" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_type
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_octave
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_pitch
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_param0
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_param1
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Width 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_param2
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Width 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_param3
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Sub Mix" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_param4
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Sync" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_param5
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Unison Detune" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_param6
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Unison Voices" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_keytrack
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_osc3_retrigger
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Retrigger" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_0
+	a lv2:Parameter ;
+	rdfs:label "M1: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_1
+	a lv2:Parameter ;
+	rdfs:label "M2: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_2
+	a lv2:Parameter ;
+	rdfs:label "M3: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_3
+	a lv2:Parameter ;
+	rdfs:label "M4: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_4
+	a lv2:Parameter ;
+	rdfs:label "M5: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_5
+	a lv2:Parameter ;
+	rdfs:label "M6: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_6
+	a lv2:Parameter ;
+	rdfs:label "M7: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:macro_7
+	a lv2:Parameter ;
+	rdfs:label "M8: -" ;
+	pg:group plug:paramgroup_Root_macros ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:volume_FX1
+	a lv2:Parameter ;
+	rdfs:label "Send FX 1 Return" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:volume_FX2
+	a lv2:Parameter ;
+	rdfs:label "Send FX 2 Return" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:volume_FX3
+	a lv2:Parameter ;
+	rdfs:label "Send FX 3 Return" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:volume_FX4
+	a lv2:Parameter ;
+	rdfs:label "Send FX 4 Return" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:volume
+	a lv2:Parameter ;
+	rdfs:label "Global Volume" ;
+	pg:group plug:paramgroup_Root ;
+	lv2:displayPriority 99 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:scene_active
+	a lv2:Parameter ;
+	rdfs:label "Active Scene" ;
+	pg:group plug:paramgroup_Root ;
+	lv2:displayPriority 97 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:scenemode
+	a lv2:Parameter ;
+	rdfs:label "Scene Mode" ;
+	lv2:displayPriority 96 ;
+	pg:group plug:paramgroup_Root ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:splitkey
+	a lv2:Parameter ;
+	rdfs:label "Split Point" ;
+	lv2:displayPriority 88 ;
+	pg:group plug:paramgroup_Root ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx_disable
+	a lv2:Parameter ;
+	rdfs:label "FX Disable" ;
+	lv2:displayPriority 77 ;
+	pg:group plug:paramgroup_Root ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:polylimit
+	a lv2:Parameter ;
+	rdfs:label "Polyphony Limit" ;
+	pg:group plug:paramgroup_Root ;
+	lv2:displayPriority 98 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx_bypass
+	a lv2:Parameter ;
+	rdfs:label "FX Chain Bypass" ;
+	pg:group plug:paramgroup_Root ;
+	lv2:displayPriority 78 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_type
+	a lv2:Parameter ;
+	rdfs:label "FX A1 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p0
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p1
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p2
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p3
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p4
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p5
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p6
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p7
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p8
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p9
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p10
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx1_p11
+	a lv2:Parameter ;
+	rdfs:label "FX A1 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_type
+	a lv2:Parameter ;
+	rdfs:label "FX A2 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p0
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p1
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p2
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p3
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p4
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p5
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p6
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p7
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p8
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p9
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p10
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx2_p11
+	a lv2:Parameter ;
+	rdfs:label "FX A2 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_type
+	a lv2:Parameter ;
+	rdfs:label "FX B1 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p0
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p1
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p2
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p3
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p4
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p5
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p6
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p7
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p8
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p9
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p10
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx3_p11
+	a lv2:Parameter ;
+	rdfs:label "FX B1 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_type
+	a lv2:Parameter ;
+	rdfs:label "FX B2 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p0
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p1
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p2
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p3
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p4
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p5
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p6
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p7
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p8
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p9
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p10
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx4_p11
+	a lv2:Parameter ;
+	rdfs:label "FX B2 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_type
+	a lv2:Parameter ;
+	rdfs:label "FX S1 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p0
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p1
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p2
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p3
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p4
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p5
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p6
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p7
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p8
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p9
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p10
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx5_p11
+	a lv2:Parameter ;
+	rdfs:label "FX S1 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_type
+	a lv2:Parameter ;
+	rdfs:label "FX S2 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p0
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p1
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p2
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p3
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p4
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p5
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p6
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p7
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p8
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p9
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p10
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx6_p11
+	a lv2:Parameter ;
+	rdfs:label "FX S2 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_type
+	a lv2:Parameter ;
+	rdfs:label "FX G1 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p0
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p1
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p2
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p3
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p4
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p5
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p6
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p7
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p8
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p9
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p10
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx7_p11
+	a lv2:Parameter ;
+	rdfs:label "FX G1 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_type
+	a lv2:Parameter ;
+	rdfs:label "FX G2 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p0
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p1
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p2
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p3
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p4
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p5
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p6
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p7
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p8
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p9
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p10
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx8_p11
+	a lv2:Parameter ;
+	rdfs:label "FX G2 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_type
+	a lv2:Parameter ;
+	rdfs:label "FX A3 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p0
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p1
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p2
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p3
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p4
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p5
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p6
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p7
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p8
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p9
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p10
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx9_p11
+	a lv2:Parameter ;
+	rdfs:label "FX A3 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_type
+	a lv2:Parameter ;
+	rdfs:label "FX A4 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p0
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p1
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p2
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p3
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p4
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p5
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p6
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p7
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p8
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p9
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p10
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx10_p11
+	a lv2:Parameter ;
+	rdfs:label "FX A4 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_type
+	a lv2:Parameter ;
+	rdfs:label "FX B3 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p0
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p1
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p2
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p3
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p4
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p5
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p6
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p7
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p8
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p9
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p10
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx11_p11
+	a lv2:Parameter ;
+	rdfs:label "FX B3 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_type
+	a lv2:Parameter ;
+	rdfs:label "FX B4 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p0
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p1
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p2
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p3
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p4
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p5
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p6
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p7
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p8
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p9
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p10
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx12_p11
+	a lv2:Parameter ;
+	rdfs:label "FX B4 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_type
+	a lv2:Parameter ;
+	rdfs:label "FX S3 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p0
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p1
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p2
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p3
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p4
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p5
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p6
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p7
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p8
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p9
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p10
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx13_p11
+	a lv2:Parameter ;
+	rdfs:label "FX S3 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_type
+	a lv2:Parameter ;
+	rdfs:label "FX S4 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p0
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p1
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p2
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p3
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p4
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p5
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p6
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p7
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p8
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p9
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p10
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx14_p11
+	a lv2:Parameter ;
+	rdfs:label "FX S4 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_type
+	a lv2:Parameter ;
+	rdfs:label "FX G3 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p0
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p1
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p2
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p3
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p4
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p5
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p6
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p7
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p8
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p9
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p10
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx15_p11
+	a lv2:Parameter ;
+	rdfs:label "FX G3 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_type
+	a lv2:Parameter ;
+	rdfs:label "FX G4 FX Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p0
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p1
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p2
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 3" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p3
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 4" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p4
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 5" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p5
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 6" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p6
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 7" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p7
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 8" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p8
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 9" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p9
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 10" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p10
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 11" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:fx16_p11
+	a lv2:Parameter ;
+	rdfs:label "FX G4 Param 12" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:character
+	a lv2:Parameter ;
+	rdfs:label "Character" ;
+	pg:group plug:paramgroup_Root ;
+	lv2:displayPriority 89 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_level_o1
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_mute_o1
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_solo_o1
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_route_o1
+	a lv2:Parameter ;
+	rdfs:label "A Osc 1 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_level_o2
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_mute_o2
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_solo_o2
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_route_o2
+	a lv2:Parameter ;
+	rdfs:label "A Osc 2 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_level_o3
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_mute_o3
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_solo_o3
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_route_o3
+	a lv2:Parameter ;
+	rdfs:label "A Osc 3 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_level_ring12
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 1x2 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_mute_ring12
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 1x2 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_solo_ring12
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 1x2 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_route_ring12
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 1x2 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_level_ring23
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 2x3 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_mute_ring23
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 2x3 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_solo_ring23
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 2x3 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_route_ring23
+	a lv2:Parameter ;
+	rdfs:label "A Ring Modulation 2x3 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_level_noise
+	a lv2:Parameter ;
+	rdfs:label "A Noise Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_mute_noise
+	a lv2:Parameter ;
+	rdfs:label "A Noise Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_solo_noise
+	a lv2:Parameter ;
+	rdfs:label "A Noise Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_route_noise
+	a lv2:Parameter ;
+	rdfs:label "A Noise Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_level_pfg
+	a lv2:Parameter ;
+	rdfs:label "A Pre-Filter Gain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter1_type
+	a lv2:Parameter ;
+	rdfs:label "A Filter 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter1_subtype
+	a lv2:Parameter ;
+	rdfs:label "A Filter 1 Subtype" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter1_cutoff
+	a lv2:Parameter ;
+	rdfs:label "A Filter 1 Cutoff" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter1_resonance
+	a lv2:Parameter ;
+	rdfs:label "A Filter 1 Resonance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter1_envmod
+	a lv2:Parameter ;
+	rdfs:label "A Filter 1 FEG Mod Amount" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter1_keytrack
+	a lv2:Parameter ;
+	rdfs:label "A Filter 1 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter2_type
+	a lv2:Parameter ;
+	rdfs:label "A Filter 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter2_subtype
+	a lv2:Parameter ;
+	rdfs:label "A Filter 2 Subtype" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter2_cutoff
+	a lv2:Parameter ;
+	rdfs:label "A Filter 2 Cutoff" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter2_resonance
+	a lv2:Parameter ;
+	rdfs:label "A Filter 2 Resonance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter2_envmod
+	a lv2:Parameter ;
+	rdfs:label "A Filter 2 FEG Mod Amount" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_filter2_keytrack
+	a lv2:Parameter ;
+	rdfs:label "A Filter 2 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_attack
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_attack_shape
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Attack Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_decay
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_decay_shape
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Decay Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_release
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_release_shape
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Release Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env1_mode
+	a lv2:Parameter ;
+	rdfs:label "A Amp EG Envelope Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_attack
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_attack_shape
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Attack Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_decay
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_decay_shape
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Decay Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_release
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_release_shape
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Release Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_env2_mode
+	a lv2:Parameter ;
+	rdfs:label "A Filter EG Envelope Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_shape
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_rate
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_phase
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_deform
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_delay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_attack
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_hold
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_decay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_sustain
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo0_release
+	a lv2:Parameter ;
+	rdfs:label "A LFO 1 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_shape
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_rate
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_phase
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_deform
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_delay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_attack
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_hold
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_decay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_sustain
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo1_release
+	a lv2:Parameter ;
+	rdfs:label "A LFO 2 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_shape
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_rate
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_phase
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_deform
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_delay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_attack
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_hold
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_decay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_sustain
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo2_release
+	a lv2:Parameter ;
+	rdfs:label "A LFO 3 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_shape
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_rate
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_phase
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_deform
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_delay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_attack
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_hold
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_decay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_sustain
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo3_release
+	a lv2:Parameter ;
+	rdfs:label "A LFO 4 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_shape
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_rate
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_phase
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_deform
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_delay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_attack
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_hold
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_decay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_sustain
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo4_release
+	a lv2:Parameter ;
+	rdfs:label "A LFO 5 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_shape
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_rate
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_phase
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_deform
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_delay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_attack
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_hold
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_decay
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_sustain
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo5_release
+	a lv2:Parameter ;
+	rdfs:label "A LFO 6 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_shape
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_rate
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_phase
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_deform
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_delay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_attack
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_hold
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_decay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo6_release
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 1 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_shape
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_rate
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_phase
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_deform
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_delay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_attack
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_hold
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_decay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo7_release
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 2 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_shape
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_rate
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_phase
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_deform
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_delay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_attack
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_hold
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_decay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo8_release
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 3 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_shape
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_rate
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_phase
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_deform
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_delay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_attack
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_hold
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_decay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo9_release
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 4 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_shape
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_rate
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_phase
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_deform
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_delay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_attack
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_hold
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_decay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo10_release
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 5 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_shape
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_rate
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_phase
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_magnitude
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_deform
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_trigmode
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_unipolar
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_delay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_attack
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_hold
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_decay
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_sustain
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:a_lfo11_release
+	a lv2:Parameter ;
+	rdfs:label "A Scene LFO 6 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_octave
+	a lv2:Parameter ;
+	rdfs:label "B Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_pitch
+	a lv2:Parameter ;
+	rdfs:label "B Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_portamento
+	a lv2:Parameter ;
+	rdfs:label "B Portamento" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_polymode
+	a lv2:Parameter ;
+	rdfs:label "B Play Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_fm_switch
+	a lv2:Parameter ;
+	rdfs:label "B FM Routing" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_fm_depth
+	a lv2:Parameter ;
+	rdfs:label "B FM Depth" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_drift
+	a lv2:Parameter ;
+	rdfs:label "B Osc Drift" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_noisecol
+	a lv2:Parameter ;
+	rdfs:label "B Noise Color" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_ktrkroot
+	a lv2:Parameter ;
+	rdfs:label "B Keytrack Root Key" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_volume
+	a lv2:Parameter ;
+	rdfs:label "B Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_pan
+	a lv2:Parameter ;
+	rdfs:label "B Pan" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_pan2
+	a lv2:Parameter ;
+	rdfs:label "B Width" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_send_fx_1
+	a lv2:Parameter ;
+	rdfs:label "B Send FX 1 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_send_fx_2
+	a lv2:Parameter ;
+	rdfs:label "B Send FX 2 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_send_fx_3
+	a lv2:Parameter ;
+	rdfs:label "B Send FX 3 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_send_fx_4
+	a lv2:Parameter ;
+	rdfs:label "B Send FX 4 Level" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_pbrange_up
+	a lv2:Parameter ;
+	rdfs:label "B Pitch Bend Up Range" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_pbrange_dn
+	a lv2:Parameter ;
+	rdfs:label "B Pitch Bend Down Range" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_vca_level
+	a lv2:Parameter ;
+	rdfs:label "B VCA Gain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_vca_velsense
+	a lv2:Parameter ;
+	rdfs:label "B Velocity > VCA Gain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_feedback
+	a lv2:Parameter ;
+	rdfs:label "B Feedback" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_fb_config
+	a lv2:Parameter ;
+	rdfs:label "B Filter Configuration" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_f_balance
+	a lv2:Parameter ;
+	rdfs:label "B Filter Balance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lowcut
+	a lv2:Parameter ;
+	rdfs:label "B Highpass" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_ws_type
+	a lv2:Parameter ;
+	rdfs:label "B Waveshaper Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_ws_drive
+	a lv2:Parameter ;
+	rdfs:label "B Waveshaper Drive" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_f2_cf_is_offset
+	a lv2:Parameter ;
+	rdfs:label "B Filter 2 Offset Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_f2_link_resonance
+	a lv2:Parameter ;
+	rdfs:label "B Link Resonance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_9 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_type
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_octave
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_pitch
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_param0
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_param1
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Width 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_param2
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Width 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_param3
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Sub Mix" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_param4
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Sync" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_param5
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Unison Detune" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_param6
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Unison Voices" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_keytrack
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc1_retrigger
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Retrigger" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_type
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_octave
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_pitch
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_param0
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_param1
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Width 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_param2
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Width 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_param3
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Sub Mix" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_param4
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Sync" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_param5
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Unison Detune" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_param6
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Unison Voices" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_keytrack
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc2_retrigger
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Retrigger" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_type
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_octave
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Octave" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_pitch
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Pitch" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_param0
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_param1
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Width 1" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_param2
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Width 2" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_param3
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Sub Mix" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_param4
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Sync" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_param5
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Unison Detune" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_param6
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Unison Voices" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_keytrack
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_osc3_retrigger
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Retrigger" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_level_o1
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_mute_o1
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_solo_o1
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_route_o1
+	a lv2:Parameter ;
+	rdfs:label "B Osc 1 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_level_o2
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_mute_o2
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_solo_o2
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_route_o2
+	a lv2:Parameter ;
+	rdfs:label "B Osc 2 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_level_o3
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_mute_o3
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_solo_o3
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_route_o3
+	a lv2:Parameter ;
+	rdfs:label "B Osc 3 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_level_ring12
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 1x2 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_mute_ring12
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 1x2 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_solo_ring12
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 1x2 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_route_ring12
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 1x2 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_level_ring23
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 2x3 Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_mute_ring23
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 2x3 Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_solo_ring23
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 2x3 Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_route_ring23
+	a lv2:Parameter ;
+	rdfs:label "B Ring Modulation 2x3 Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_level_noise
+	a lv2:Parameter ;
+	rdfs:label "B Noise Volume" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_mute_noise
+	a lv2:Parameter ;
+	rdfs:label "B Noise Mute" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_solo_noise
+	a lv2:Parameter ;
+	rdfs:label "B Noise Solo" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_route_noise
+	a lv2:Parameter ;
+	rdfs:label "B Noise Route" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_level_pfg
+	a lv2:Parameter ;
+	rdfs:label "B Pre-Filter Gain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter1_type
+	a lv2:Parameter ;
+	rdfs:label "B Filter 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter1_subtype
+	a lv2:Parameter ;
+	rdfs:label "B Filter 1 Subtype" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter1_cutoff
+	a lv2:Parameter ;
+	rdfs:label "B Filter 1 Cutoff" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter1_resonance
+	a lv2:Parameter ;
+	rdfs:label "B Filter 1 Resonance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter1_envmod
+	a lv2:Parameter ;
+	rdfs:label "B Filter 1 FEG Mod Amount" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter1_keytrack
+	a lv2:Parameter ;
+	rdfs:label "B Filter 1 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter2_type
+	a lv2:Parameter ;
+	rdfs:label "B Filter 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter2_subtype
+	a lv2:Parameter ;
+	rdfs:label "B Filter 2 Subtype" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter2_cutoff
+	a lv2:Parameter ;
+	rdfs:label "B Filter 2 Cutoff" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter2_resonance
+	a lv2:Parameter ;
+	rdfs:label "B Filter 2 Resonance" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter2_envmod
+	a lv2:Parameter ;
+	rdfs:label "B Filter 2 FEG Mod Amount" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_filter2_keytrack
+	a lv2:Parameter ;
+	rdfs:label "B Filter 2 Keytrack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_12 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_attack
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_attack_shape
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Attack Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_decay
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_decay_shape
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Decay Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_release
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_release_shape
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Release Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env1_mode
+	a lv2:Parameter ;
+	rdfs:label "B Amp EG Envelope Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_attack
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_attack_shape
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Attack Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_decay
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_decay_shape
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Decay Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_release
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_release_shape
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Release Shape" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_env2_mode
+	a lv2:Parameter ;
+	rdfs:label "B Filter EG Envelope Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_13 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_shape
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_rate
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_phase
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_deform
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_delay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_attack
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_hold
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_decay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_sustain
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo0_release
+	a lv2:Parameter ;
+	rdfs:label "B LFO 1 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_shape
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_rate
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_phase
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_deform
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_delay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_attack
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_hold
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_decay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_sustain
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo1_release
+	a lv2:Parameter ;
+	rdfs:label "B LFO 2 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_shape
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_rate
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_phase
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_deform
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_delay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_attack
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_hold
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_decay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_sustain
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo2_release
+	a lv2:Parameter ;
+	rdfs:label "B LFO 3 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_shape
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_rate
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_phase
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_deform
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_delay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_attack
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_hold
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_decay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_sustain
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo3_release
+	a lv2:Parameter ;
+	rdfs:label "B LFO 4 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_shape
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_rate
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_phase
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_deform
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_delay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_attack
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_hold
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_decay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_sustain
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo4_release
+	a lv2:Parameter ;
+	rdfs:label "B LFO 5 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_shape
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_rate
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_phase
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_deform
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_delay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_attack
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_hold
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_decay
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_sustain
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo5_release
+	a lv2:Parameter ;
+	rdfs:label "B LFO 6 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_shape
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_rate
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_phase
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_deform
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_delay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_attack
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_hold
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_decay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo6_release
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 1 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_shape
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_rate
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_phase
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_deform
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_delay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_attack
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_hold
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_decay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo7_release
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 2 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_shape
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_rate
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_phase
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_deform
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_delay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_attack
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_hold
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_decay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo8_release
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 3 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_shape
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_rate
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_phase
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_deform
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_delay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_attack
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_hold
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_decay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo9_release
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 4 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_shape
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_rate
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_phase
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_deform
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_delay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_attack
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_hold
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_decay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo10_release
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 5 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_shape
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Type" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_rate
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Rate" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_phase
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Phase" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_magnitude
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Amplitude" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_deform
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Deform" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_trigmode
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Trigger Mode" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_unipolar
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Unipolar" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_delay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Delay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_attack
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Attack" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_hold
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Hold" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_decay
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Decay" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_sustain
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Sustain" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:b_lfo11_release
+	a lv2:Parameter ;
+	rdfs:label "B Scene LFO 6 Release" ;
+	pg:group plug:paramgroup_Root_SRG_GRP_14 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:paramgroup_Root
+	a pg:Group ;
+	lv2:displayPriority 80 ;
+	lv2:symbol "paramgroup_Root" ;
+	lv2:name "Global" .
+
+plug:paramgroup_Root_SRG_GRP_3
+	a pg:Group ;
+	lv2:displayPriority 49 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_3" ;
+	lv2:name "A Common" .
+
+plug:paramgroup_Root_SRG_GRP_4
+	a pg:Group ;
+	lv2:displayPriority 47 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_4" ;
+	lv2:name "A Oscillators" .
+
+plug:paramgroup_Root_macros
+	a pg:Group ;
+	lv2:displayPriority 70 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_macros" ;
+	lv2:name "Macros" .
+
+plug:paramgroup_Root_SRG_GRP_2
+	a pg:Group ;
+	lv2:displayPriority 60 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_2" ;
+	lv2:name "FX" .
+
+plug:paramgroup_Root_SRG_GRP_5
+	a pg:Group ;
+	lv2:displayPriority 48 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_5" ;
+	lv2:name "A Mixer" .
+
+plug:paramgroup_Root_SRG_GRP_6
+	a pg:Group ;
+	lv2:displayPriority 46 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_6" ;
+	lv2:name "A Filters" .
+
+plug:paramgroup_Root_SRG_GRP_7
+	a pg:Group ;
+	lv2:displayPriority 45 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_7" ;
+	lv2:name "A Envelopes" .
+
+plug:paramgroup_Root_SRG_GRP_8
+	a pg:Group ;
+	lv2:displayPriority 44 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_8" ;
+	lv2:name "A LFOs" .
+
+plug:paramgroup_Root_SRG_GRP_9
+	a pg:Group ;
+	lv2:displayPriority 29 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_9" ;
+	lv2:name "B Common" .
+
+plug:paramgroup_Root_SRG_GRP_10
+	a pg:Group ;
+	lv2:displayPriority 27 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_10" ;
+	lv2:name "B Oscillators" .
+
+plug:paramgroup_Root_SRG_GRP_11
+	a pg:Group ;
+	lv2:displayPriority 28 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_11" ;
+	lv2:name "B Mixer" .
+
+plug:paramgroup_Root_SRG_GRP_12
+	a pg:Group ;
+	lv2:displayPriority 26 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_12" ;
+	lv2:name "B Filters" .
+
+plug:paramgroup_Root_SRG_GRP_13
+	a pg:Group ;
+	lv2:displayPriority 25 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_13" ;
+	lv2:name "B Envelopes" .
+
+plug:paramgroup_Root_SRG_GRP_14
+	a pg:Group ;
+	lv2:displayPriority 24 ;
+	pg:subGroupOf plug:paramgroup_Root ;
+	lv2:symbol "paramgroup_Root_SRG_GRP_14" ;
+	lv2:name "B LFOs" .
+
+plug:input_group_1
+	a pg:InputGroup ;
+	lv2:name "Sidechain" ;
+	lv2:symbol "input_group_1" .
+
+plug:output_group_1
+	a pg:OutputGroup ;
+	lv2:name "Output" ;
+	lv2:symbol "output_group_1" .
+
+plug:output_group_2
+	a pg:OutputGroup ;
+	lv2:name "Scene A" ;
+	lv2:symbol "output_group_2" .
+
+plug:output_group_3
+	a pg:OutputGroup ;
+	lv2:name "Scene B" ;
+	lv2:symbol "output_group_3" .
+
+<https://surge-synthesizer.github.io/lv2/surge-xt>
+	ui:ui <https://surge-synthesizer.github.io/lv2/surge-xt:UI> ;
+	a lv2:InstrumentPlugin ;
+	doap:name "Surge XT" ;
+	doap:description "Surge XT" ;
+	lv2:minorVersion 3 ;
+	lv2:microVersion 2 ;
+	doap:maintainer [
+		a foaf:Person ;
+		foaf:name "Surge Synth Team" ;
+		foaf:homepage <https://surge-synth-team.org/> ;
+		foaf:mbox <> ;
+	] ;
+	doap:release [
+		a doap:Version ;
+		doap:revision "1.3.2" ;
+	] ;
+	lv2:optionalFeature
+		lv2:hardRTCapable ;
+	lv2:extensionData
+		state:interface ;
+	lv2:requiredFeature
+		urid:map ,
+		opts:options ,
+		bufs:boundedBlockLength ;
+	pg:mainInput plug:input_group_1 ;
+	pg:mainOutput plug:output_group_1 ;
+	patch:writable
+		plug:macro_0 ,
+		plug:macro_1 ,
+		plug:macro_2 ,
+		plug:macro_3 ,
+		plug:macro_4 ,
+		plug:macro_5 ,
+		plug:macro_6 ,
+		plug:macro_7 ,
+		plug:volume_FX1 ,
+		plug:volume_FX2 ,
+		plug:volume_FX3 ,
+		plug:volume_FX4 ,
+		plug:volume ,
+		plug:scene_active ,
+		plug:scenemode ,
+		plug:splitkey ,
+		plug:fx_disable ,
+		plug:polylimit ,
+		plug:fx_bypass ,
+		plug:fx1_type ,
+		plug:fx1_p0 ,
+		plug:fx1_p1 ,
+		plug:fx1_p2 ,
+		plug:fx1_p3 ,
+		plug:fx1_p4 ,
+		plug:fx1_p5 ,
+		plug:fx1_p6 ,
+		plug:fx1_p7 ,
+		plug:fx1_p8 ,
+		plug:fx1_p9 ,
+		plug:fx1_p10 ,
+		plug:fx1_p11 ,
+		plug:fx2_type ,
+		plug:fx2_p0 ,
+		plug:fx2_p1 ,
+		plug:fx2_p2 ,
+		plug:fx2_p3 ,
+		plug:fx2_p4 ,
+		plug:fx2_p5 ,
+		plug:fx2_p6 ,
+		plug:fx2_p7 ,
+		plug:fx2_p8 ,
+		plug:fx2_p9 ,
+		plug:fx2_p10 ,
+		plug:fx2_p11 ,
+		plug:fx3_type ,
+		plug:fx3_p0 ,
+		plug:fx3_p1 ,
+		plug:fx3_p2 ,
+		plug:fx3_p3 ,
+		plug:fx3_p4 ,
+		plug:fx3_p5 ,
+		plug:fx3_p6 ,
+		plug:fx3_p7 ,
+		plug:fx3_p8 ,
+		plug:fx3_p9 ,
+		plug:fx3_p10 ,
+		plug:fx3_p11 ,
+		plug:fx4_type ,
+		plug:fx4_p0 ,
+		plug:fx4_p1 ,
+		plug:fx4_p2 ,
+		plug:fx4_p3 ,
+		plug:fx4_p4 ,
+		plug:fx4_p5 ,
+		plug:fx4_p6 ,
+		plug:fx4_p7 ,
+		plug:fx4_p8 ,
+		plug:fx4_p9 ,
+		plug:fx4_p10 ,
+		plug:fx4_p11 ,
+		plug:fx5_type ,
+		plug:fx5_p0 ,
+		plug:fx5_p1 ,
+		plug:fx5_p2 ,
+		plug:fx5_p3 ,
+		plug:fx5_p4 ,
+		plug:fx5_p5 ,
+		plug:fx5_p6 ,
+		plug:fx5_p7 ,
+		plug:fx5_p8 ,
+		plug:fx5_p9 ,
+		plug:fx5_p10 ,
+		plug:fx5_p11 ,
+		plug:fx6_type ,
+		plug:fx6_p0 ,
+		plug:fx6_p1 ,
+		plug:fx6_p2 ,
+		plug:fx6_p3 ,
+		plug:fx6_p4 ,
+		plug:fx6_p5 ,
+		plug:fx6_p6 ,
+		plug:fx6_p7 ,
+		plug:fx6_p8 ,
+		plug:fx6_p9 ,
+		plug:fx6_p10 ,
+		plug:fx6_p11 ,
+		plug:fx7_type ,
+		plug:fx7_p0 ,
+		plug:fx7_p1 ,
+		plug:fx7_p2 ,
+		plug:fx7_p3 ,
+		plug:fx7_p4 ,
+		plug:fx7_p5 ,
+		plug:fx7_p6 ,
+		plug:fx7_p7 ,
+		plug:fx7_p8 ,
+		plug:fx7_p9 ,
+		plug:fx7_p10 ,
+		plug:fx7_p11 ,
+		plug:fx8_type ,
+		plug:fx8_p0 ,
+		plug:fx8_p1 ,
+		plug:fx8_p2 ,
+		plug:fx8_p3 ,
+		plug:fx8_p4 ,
+		plug:fx8_p5 ,
+		plug:fx8_p6 ,
+		plug:fx8_p7 ,
+		plug:fx8_p8 ,
+		plug:fx8_p9 ,
+		plug:fx8_p10 ,
+		plug:fx8_p11 ,
+		plug:fx9_type ,
+		plug:fx9_p0 ,
+		plug:fx9_p1 ,
+		plug:fx9_p2 ,
+		plug:fx9_p3 ,
+		plug:fx9_p4 ,
+		plug:fx9_p5 ,
+		plug:fx9_p6 ,
+		plug:fx9_p7 ,
+		plug:fx9_p8 ,
+		plug:fx9_p9 ,
+		plug:fx9_p10 ,
+		plug:fx9_p11 ,
+		plug:fx10_type ,
+		plug:fx10_p0 ,
+		plug:fx10_p1 ,
+		plug:fx10_p2 ,
+		plug:fx10_p3 ,
+		plug:fx10_p4 ,
+		plug:fx10_p5 ,
+		plug:fx10_p6 ,
+		plug:fx10_p7 ,
+		plug:fx10_p8 ,
+		plug:fx10_p9 ,
+		plug:fx10_p10 ,
+		plug:fx10_p11 ,
+		plug:fx11_type ,
+		plug:fx11_p0 ,
+		plug:fx11_p1 ,
+		plug:fx11_p2 ,
+		plug:fx11_p3 ,
+		plug:fx11_p4 ,
+		plug:fx11_p5 ,
+		plug:fx11_p6 ,
+		plug:fx11_p7 ,
+		plug:fx11_p8 ,
+		plug:fx11_p9 ,
+		plug:fx11_p10 ,
+		plug:fx11_p11 ,
+		plug:fx12_type ,
+		plug:fx12_p0 ,
+		plug:fx12_p1 ,
+		plug:fx12_p2 ,
+		plug:fx12_p3 ,
+		plug:fx12_p4 ,
+		plug:fx12_p5 ,
+		plug:fx12_p6 ,
+		plug:fx12_p7 ,
+		plug:fx12_p8 ,
+		plug:fx12_p9 ,
+		plug:fx12_p10 ,
+		plug:fx12_p11 ,
+		plug:fx13_type ,
+		plug:fx13_p0 ,
+		plug:fx13_p1 ,
+		plug:fx13_p2 ,
+		plug:fx13_p3 ,
+		plug:fx13_p4 ,
+		plug:fx13_p5 ,
+		plug:fx13_p6 ,
+		plug:fx13_p7 ,
+		plug:fx13_p8 ,
+		plug:fx13_p9 ,
+		plug:fx13_p10 ,
+		plug:fx13_p11 ,
+		plug:fx14_type ,
+		plug:fx14_p0 ,
+		plug:fx14_p1 ,
+		plug:fx14_p2 ,
+		plug:fx14_p3 ,
+		plug:fx14_p4 ,
+		plug:fx14_p5 ,
+		plug:fx14_p6 ,
+		plug:fx14_p7 ,
+		plug:fx14_p8 ,
+		plug:fx14_p9 ,
+		plug:fx14_p10 ,
+		plug:fx14_p11 ,
+		plug:fx15_type ,
+		plug:fx15_p0 ,
+		plug:fx15_p1 ,
+		plug:fx15_p2 ,
+		plug:fx15_p3 ,
+		plug:fx15_p4 ,
+		plug:fx15_p5 ,
+		plug:fx15_p6 ,
+		plug:fx15_p7 ,
+		plug:fx15_p8 ,
+		plug:fx15_p9 ,
+		plug:fx15_p10 ,
+		plug:fx15_p11 ,
+		plug:fx16_type ,
+		plug:fx16_p0 ,
+		plug:fx16_p1 ,
+		plug:fx16_p2 ,
+		plug:fx16_p3 ,
+		plug:fx16_p4 ,
+		plug:fx16_p5 ,
+		plug:fx16_p6 ,
+		plug:fx16_p7 ,
+		plug:fx16_p8 ,
+		plug:fx16_p9 ,
+		plug:fx16_p10 ,
+		plug:fx16_p11 ,
+		plug:character ,
+		plug:a_octave ,
+		plug:a_pitch ,
+		plug:a_portamento ,
+		plug:a_polymode ,
+		plug:a_fm_switch ,
+		plug:a_fm_depth ,
+		plug:a_drift ,
+		plug:a_noisecol ,
+		plug:a_ktrkroot ,
+		plug:a_volume ,
+		plug:a_pan ,
+		plug:a_pan2 ,
+		plug:a_send_fx_1 ,
+		plug:a_send_fx_2 ,
+		plug:a_send_fx_3 ,
+		plug:a_send_fx_4 ,
+		plug:a_pbrange_up ,
+		plug:a_pbrange_dn ,
+		plug:a_vca_level ,
+		plug:a_vca_velsense ,
+		plug:a_feedback ,
+		plug:a_fb_config ,
+		plug:a_f_balance ,
+		plug:a_lowcut ,
+		plug:a_ws_type ,
+		plug:a_ws_drive ,
+		plug:a_f2_cf_is_offset ,
+		plug:a_f2_link_resonance ,
+		plug:a_osc1_type ,
+		plug:a_osc1_octave ,
+		plug:a_osc1_pitch ,
+		plug:a_osc1_param0 ,
+		plug:a_osc1_param1 ,
+		plug:a_osc1_param2 ,
+		plug:a_osc1_param3 ,
+		plug:a_osc1_param4 ,
+		plug:a_osc1_param5 ,
+		plug:a_osc1_param6 ,
+		plug:a_osc1_keytrack ,
+		plug:a_osc1_retrigger ,
+		plug:a_osc2_type ,
+		plug:a_osc2_octave ,
+		plug:a_osc2_pitch ,
+		plug:a_osc2_param0 ,
+		plug:a_osc2_param1 ,
+		plug:a_osc2_param2 ,
+		plug:a_osc2_param3 ,
+		plug:a_osc2_param4 ,
+		plug:a_osc2_param5 ,
+		plug:a_osc2_param6 ,
+		plug:a_osc2_keytrack ,
+		plug:a_osc2_retrigger ,
+		plug:a_osc3_type ,
+		plug:a_osc3_octave ,
+		plug:a_osc3_pitch ,
+		plug:a_osc3_param0 ,
+		plug:a_osc3_param1 ,
+		plug:a_osc3_param2 ,
+		plug:a_osc3_param3 ,
+		plug:a_osc3_param4 ,
+		plug:a_osc3_param5 ,
+		plug:a_osc3_param6 ,
+		plug:a_osc3_keytrack ,
+		plug:a_osc3_retrigger ,
+		plug:a_level_o1 ,
+		plug:a_mute_o1 ,
+		plug:a_solo_o1 ,
+		plug:a_route_o1 ,
+		plug:a_level_o2 ,
+		plug:a_mute_o2 ,
+		plug:a_solo_o2 ,
+		plug:a_route_o2 ,
+		plug:a_level_o3 ,
+		plug:a_mute_o3 ,
+		plug:a_solo_o3 ,
+		plug:a_route_o3 ,
+		plug:a_level_ring12 ,
+		plug:a_mute_ring12 ,
+		plug:a_solo_ring12 ,
+		plug:a_route_ring12 ,
+		plug:a_level_ring23 ,
+		plug:a_mute_ring23 ,
+		plug:a_solo_ring23 ,
+		plug:a_route_ring23 ,
+		plug:a_level_noise ,
+		plug:a_mute_noise ,
+		plug:a_solo_noise ,
+		plug:a_route_noise ,
+		plug:a_level_pfg ,
+		plug:a_filter1_type ,
+		plug:a_filter1_subtype ,
+		plug:a_filter1_cutoff ,
+		plug:a_filter1_resonance ,
+		plug:a_filter1_envmod ,
+		plug:a_filter1_keytrack ,
+		plug:a_filter2_type ,
+		plug:a_filter2_subtype ,
+		plug:a_filter2_cutoff ,
+		plug:a_filter2_resonance ,
+		plug:a_filter2_envmod ,
+		plug:a_filter2_keytrack ,
+		plug:a_env1_attack ,
+		plug:a_env1_attack_shape ,
+		plug:a_env1_decay ,
+		plug:a_env1_decay_shape ,
+		plug:a_env1_sustain ,
+		plug:a_env1_release ,
+		plug:a_env1_release_shape ,
+		plug:a_env1_mode ,
+		plug:a_env2_attack ,
+		plug:a_env2_attack_shape ,
+		plug:a_env2_decay ,
+		plug:a_env2_decay_shape ,
+		plug:a_env2_sustain ,
+		plug:a_env2_release ,
+		plug:a_env2_release_shape ,
+		plug:a_env2_mode ,
+		plug:a_lfo0_shape ,
+		plug:a_lfo0_rate ,
+		plug:a_lfo0_phase ,
+		plug:a_lfo0_magnitude ,
+		plug:a_lfo0_deform ,
+		plug:a_lfo0_trigmode ,
+		plug:a_lfo0_unipolar ,
+		plug:a_lfo0_delay ,
+		plug:a_lfo0_attack ,
+		plug:a_lfo0_hold ,
+		plug:a_lfo0_decay ,
+		plug:a_lfo0_sustain ,
+		plug:a_lfo0_release ,
+		plug:a_lfo1_shape ,
+		plug:a_lfo1_rate ,
+		plug:a_lfo1_phase ,
+		plug:a_lfo1_magnitude ,
+		plug:a_lfo1_deform ,
+		plug:a_lfo1_trigmode ,
+		plug:a_lfo1_unipolar ,
+		plug:a_lfo1_delay ,
+		plug:a_lfo1_attack ,
+		plug:a_lfo1_hold ,
+		plug:a_lfo1_decay ,
+		plug:a_lfo1_sustain ,
+		plug:a_lfo1_release ,
+		plug:a_lfo2_shape ,
+		plug:a_lfo2_rate ,
+		plug:a_lfo2_phase ,
+		plug:a_lfo2_magnitude ,
+		plug:a_lfo2_deform ,
+		plug:a_lfo2_trigmode ,
+		plug:a_lfo2_unipolar ,
+		plug:a_lfo2_delay ,
+		plug:a_lfo2_attack ,
+		plug:a_lfo2_hold ,
+		plug:a_lfo2_decay ,
+		plug:a_lfo2_sustain ,
+		plug:a_lfo2_release ,
+		plug:a_lfo3_shape ,
+		plug:a_lfo3_rate ,
+		plug:a_lfo3_phase ,
+		plug:a_lfo3_magnitude ,
+		plug:a_lfo3_deform ,
+		plug:a_lfo3_trigmode ,
+		plug:a_lfo3_unipolar ,
+		plug:a_lfo3_delay ,
+		plug:a_lfo3_attack ,
+		plug:a_lfo3_hold ,
+		plug:a_lfo3_decay ,
+		plug:a_lfo3_sustain ,
+		plug:a_lfo3_release ,
+		plug:a_lfo4_shape ,
+		plug:a_lfo4_rate ,
+		plug:a_lfo4_phase ,
+		plug:a_lfo4_magnitude ,
+		plug:a_lfo4_deform ,
+		plug:a_lfo4_trigmode ,
+		plug:a_lfo4_unipolar ,
+		plug:a_lfo4_delay ,
+		plug:a_lfo4_attack ,
+		plug:a_lfo4_hold ,
+		plug:a_lfo4_decay ,
+		plug:a_lfo4_sustain ,
+		plug:a_lfo4_release ,
+		plug:a_lfo5_shape ,
+		plug:a_lfo5_rate ,
+		plug:a_lfo5_phase ,
+		plug:a_lfo5_magnitude ,
+		plug:a_lfo5_deform ,
+		plug:a_lfo5_trigmode ,
+		plug:a_lfo5_unipolar ,
+		plug:a_lfo5_delay ,
+		plug:a_lfo5_attack ,
+		plug:a_lfo5_hold ,
+		plug:a_lfo5_decay ,
+		plug:a_lfo5_sustain ,
+		plug:a_lfo5_release ,
+		plug:a_lfo6_shape ,
+		plug:a_lfo6_rate ,
+		plug:a_lfo6_phase ,
+		plug:a_lfo6_magnitude ,
+		plug:a_lfo6_deform ,
+		plug:a_lfo6_trigmode ,
+		plug:a_lfo6_unipolar ,
+		plug:a_lfo6_delay ,
+		plug:a_lfo6_attack ,
+		plug:a_lfo6_hold ,
+		plug:a_lfo6_decay ,
+		plug:a_lfo6_sustain ,
+		plug:a_lfo6_release ,
+		plug:a_lfo7_shape ,
+		plug:a_lfo7_rate ,
+		plug:a_lfo7_phase ,
+		plug:a_lfo7_magnitude ,
+		plug:a_lfo7_deform ,
+		plug:a_lfo7_trigmode ,
+		plug:a_lfo7_unipolar ,
+		plug:a_lfo7_delay ,
+		plug:a_lfo7_attack ,
+		plug:a_lfo7_hold ,
+		plug:a_lfo7_decay ,
+		plug:a_lfo7_sustain ,
+		plug:a_lfo7_release ,
+		plug:a_lfo8_shape ,
+		plug:a_lfo8_rate ,
+		plug:a_lfo8_phase ,
+		plug:a_lfo8_magnitude ,
+		plug:a_lfo8_deform ,
+		plug:a_lfo8_trigmode ,
+		plug:a_lfo8_unipolar ,
+		plug:a_lfo8_delay ,
+		plug:a_lfo8_attack ,
+		plug:a_lfo8_hold ,
+		plug:a_lfo8_decay ,
+		plug:a_lfo8_sustain ,
+		plug:a_lfo8_release ,
+		plug:a_lfo9_shape ,
+		plug:a_lfo9_rate ,
+		plug:a_lfo9_phase ,
+		plug:a_lfo9_magnitude ,
+		plug:a_lfo9_deform ,
+		plug:a_lfo9_trigmode ,
+		plug:a_lfo9_unipolar ,
+		plug:a_lfo9_delay ,
+		plug:a_lfo9_attack ,
+		plug:a_lfo9_hold ,
+		plug:a_lfo9_decay ,
+		plug:a_lfo9_sustain ,
+		plug:a_lfo9_release ,
+		plug:a_lfo10_shape ,
+		plug:a_lfo10_rate ,
+		plug:a_lfo10_phase ,
+		plug:a_lfo10_magnitude ,
+		plug:a_lfo10_deform ,
+		plug:a_lfo10_trigmode ,
+		plug:a_lfo10_unipolar ,
+		plug:a_lfo10_delay ,
+		plug:a_lfo10_attack ,
+		plug:a_lfo10_hold ,
+		plug:a_lfo10_decay ,
+		plug:a_lfo10_sustain ,
+		plug:a_lfo10_release ,
+		plug:a_lfo11_shape ,
+		plug:a_lfo11_rate ,
+		plug:a_lfo11_phase ,
+		plug:a_lfo11_magnitude ,
+		plug:a_lfo11_deform ,
+		plug:a_lfo11_trigmode ,
+		plug:a_lfo11_unipolar ,
+		plug:a_lfo11_delay ,
+		plug:a_lfo11_attack ,
+		plug:a_lfo11_hold ,
+		plug:a_lfo11_decay ,
+		plug:a_lfo11_sustain ,
+		plug:a_lfo11_release ,
+		plug:b_octave ,
+		plug:b_pitch ,
+		plug:b_portamento ,
+		plug:b_polymode ,
+		plug:b_fm_switch ,
+		plug:b_fm_depth ,
+		plug:b_drift ,
+		plug:b_noisecol ,
+		plug:b_ktrkroot ,
+		plug:b_volume ,
+		plug:b_pan ,
+		plug:b_pan2 ,
+		plug:b_send_fx_1 ,
+		plug:b_send_fx_2 ,
+		plug:b_send_fx_3 ,
+		plug:b_send_fx_4 ,
+		plug:b_pbrange_up ,
+		plug:b_pbrange_dn ,
+		plug:b_vca_level ,
+		plug:b_vca_velsense ,
+		plug:b_feedback ,
+		plug:b_fb_config ,
+		plug:b_f_balance ,
+		plug:b_lowcut ,
+		plug:b_ws_type ,
+		plug:b_ws_drive ,
+		plug:b_f2_cf_is_offset ,
+		plug:b_f2_link_resonance ,
+		plug:b_osc1_type ,
+		plug:b_osc1_octave ,
+		plug:b_osc1_pitch ,
+		plug:b_osc1_param0 ,
+		plug:b_osc1_param1 ,
+		plug:b_osc1_param2 ,
+		plug:b_osc1_param3 ,
+		plug:b_osc1_param4 ,
+		plug:b_osc1_param5 ,
+		plug:b_osc1_param6 ,
+		plug:b_osc1_keytrack ,
+		plug:b_osc1_retrigger ,
+		plug:b_osc2_type ,
+		plug:b_osc2_octave ,
+		plug:b_osc2_pitch ,
+		plug:b_osc2_param0 ,
+		plug:b_osc2_param1 ,
+		plug:b_osc2_param2 ,
+		plug:b_osc2_param3 ,
+		plug:b_osc2_param4 ,
+		plug:b_osc2_param5 ,
+		plug:b_osc2_param6 ,
+		plug:b_osc2_keytrack ,
+		plug:b_osc2_retrigger ,
+		plug:b_osc3_type ,
+		plug:b_osc3_octave ,
+		plug:b_osc3_pitch ,
+		plug:b_osc3_param0 ,
+		plug:b_osc3_param1 ,
+		plug:b_osc3_param2 ,
+		plug:b_osc3_param3 ,
+		plug:b_osc3_param4 ,
+		plug:b_osc3_param5 ,
+		plug:b_osc3_param6 ,
+		plug:b_osc3_keytrack ,
+		plug:b_osc3_retrigger ,
+		plug:b_level_o1 ,
+		plug:b_mute_o1 ,
+		plug:b_solo_o1 ,
+		plug:b_route_o1 ,
+		plug:b_level_o2 ,
+		plug:b_mute_o2 ,
+		plug:b_solo_o2 ,
+		plug:b_route_o2 ,
+		plug:b_level_o3 ,
+		plug:b_mute_o3 ,
+		plug:b_solo_o3 ,
+		plug:b_route_o3 ,
+		plug:b_level_ring12 ,
+		plug:b_mute_ring12 ,
+		plug:b_solo_ring12 ,
+		plug:b_route_ring12 ,
+		plug:b_level_ring23 ,
+		plug:b_mute_ring23 ,
+		plug:b_solo_ring23 ,
+		plug:b_route_ring23 ,
+		plug:b_level_noise ,
+		plug:b_mute_noise ,
+		plug:b_solo_noise ,
+		plug:b_route_noise ,
+		plug:b_level_pfg ,
+		plug:b_filter1_type ,
+		plug:b_filter1_subtype ,
+		plug:b_filter1_cutoff ,
+		plug:b_filter1_resonance ,
+		plug:b_filter1_envmod ,
+		plug:b_filter1_keytrack ,
+		plug:b_filter2_type ,
+		plug:b_filter2_subtype ,
+		plug:b_filter2_cutoff ,
+		plug:b_filter2_resonance ,
+		plug:b_filter2_envmod ,
+		plug:b_filter2_keytrack ,
+		plug:b_env1_attack ,
+		plug:b_env1_attack_shape ,
+		plug:b_env1_decay ,
+		plug:b_env1_decay_shape ,
+		plug:b_env1_sustain ,
+		plug:b_env1_release ,
+		plug:b_env1_release_shape ,
+		plug:b_env1_mode ,
+		plug:b_env2_attack ,
+		plug:b_env2_attack_shape ,
+		plug:b_env2_decay ,
+		plug:b_env2_decay_shape ,
+		plug:b_env2_sustain ,
+		plug:b_env2_release ,
+		plug:b_env2_release_shape ,
+		plug:b_env2_mode ,
+		plug:b_lfo0_shape ,
+		plug:b_lfo0_rate ,
+		plug:b_lfo0_phase ,
+		plug:b_lfo0_magnitude ,
+		plug:b_lfo0_deform ,
+		plug:b_lfo0_trigmode ,
+		plug:b_lfo0_unipolar ,
+		plug:b_lfo0_delay ,
+		plug:b_lfo0_attack ,
+		plug:b_lfo0_hold ,
+		plug:b_lfo0_decay ,
+		plug:b_lfo0_sustain ,
+		plug:b_lfo0_release ,
+		plug:b_lfo1_shape ,
+		plug:b_lfo1_rate ,
+		plug:b_lfo1_phase ,
+		plug:b_lfo1_magnitude ,
+		plug:b_lfo1_deform ,
+		plug:b_lfo1_trigmode ,
+		plug:b_lfo1_unipolar ,
+		plug:b_lfo1_delay ,
+		plug:b_lfo1_attack ,
+		plug:b_lfo1_hold ,
+		plug:b_lfo1_decay ,
+		plug:b_lfo1_sustain ,
+		plug:b_lfo1_release ,
+		plug:b_lfo2_shape ,
+		plug:b_lfo2_rate ,
+		plug:b_lfo2_phase ,
+		plug:b_lfo2_magnitude ,
+		plug:b_lfo2_deform ,
+		plug:b_lfo2_trigmode ,
+		plug:b_lfo2_unipolar ,
+		plug:b_lfo2_delay ,
+		plug:b_lfo2_attack ,
+		plug:b_lfo2_hold ,
+		plug:b_lfo2_decay ,
+		plug:b_lfo2_sustain ,
+		plug:b_lfo2_release ,
+		plug:b_lfo3_shape ,
+		plug:b_lfo3_rate ,
+		plug:b_lfo3_phase ,
+		plug:b_lfo3_magnitude ,
+		plug:b_lfo3_deform ,
+		plug:b_lfo3_trigmode ,
+		plug:b_lfo3_unipolar ,
+		plug:b_lfo3_delay ,
+		plug:b_lfo3_attack ,
+		plug:b_lfo3_hold ,
+		plug:b_lfo3_decay ,
+		plug:b_lfo3_sustain ,
+		plug:b_lfo3_release ,
+		plug:b_lfo4_shape ,
+		plug:b_lfo4_rate ,
+		plug:b_lfo4_phase ,
+		plug:b_lfo4_magnitude ,
+		plug:b_lfo4_deform ,
+		plug:b_lfo4_trigmode ,
+		plug:b_lfo4_unipolar ,
+		plug:b_lfo4_delay ,
+		plug:b_lfo4_attack ,
+		plug:b_lfo4_hold ,
+		plug:b_lfo4_decay ,
+		plug:b_lfo4_sustain ,
+		plug:b_lfo4_release ,
+		plug:b_lfo5_shape ,
+		plug:b_lfo5_rate ,
+		plug:b_lfo5_phase ,
+		plug:b_lfo5_magnitude ,
+		plug:b_lfo5_deform ,
+		plug:b_lfo5_trigmode ,
+		plug:b_lfo5_unipolar ,
+		plug:b_lfo5_delay ,
+		plug:b_lfo5_attack ,
+		plug:b_lfo5_hold ,
+		plug:b_lfo5_decay ,
+		plug:b_lfo5_sustain ,
+		plug:b_lfo5_release ,
+		plug:b_lfo6_shape ,
+		plug:b_lfo6_rate ,
+		plug:b_lfo6_phase ,
+		plug:b_lfo6_magnitude ,
+		plug:b_lfo6_deform ,
+		plug:b_lfo6_trigmode ,
+		plug:b_lfo6_unipolar ,
+		plug:b_lfo6_delay ,
+		plug:b_lfo6_attack ,
+		plug:b_lfo6_hold ,
+		plug:b_lfo6_decay ,
+		plug:b_lfo6_sustain ,
+		plug:b_lfo6_release ,
+		plug:b_lfo7_shape ,
+		plug:b_lfo7_rate ,
+		plug:b_lfo7_phase ,
+		plug:b_lfo7_magnitude ,
+		plug:b_lfo7_deform ,
+		plug:b_lfo7_trigmode ,
+		plug:b_lfo7_unipolar ,
+		plug:b_lfo7_delay ,
+		plug:b_lfo7_attack ,
+		plug:b_lfo7_hold ,
+		plug:b_lfo7_decay ,
+		plug:b_lfo7_sustain ,
+		plug:b_lfo7_release ,
+		plug:b_lfo8_shape ,
+		plug:b_lfo8_rate ,
+		plug:b_lfo8_phase ,
+		plug:b_lfo8_magnitude ,
+		plug:b_lfo8_deform ,
+		plug:b_lfo8_trigmode ,
+		plug:b_lfo8_unipolar ,
+		plug:b_lfo8_delay ,
+		plug:b_lfo8_attack ,
+		plug:b_lfo8_hold ,
+		plug:b_lfo8_decay ,
+		plug:b_lfo8_sustain ,
+		plug:b_lfo8_release ,
+		plug:b_lfo9_shape ,
+		plug:b_lfo9_rate ,
+		plug:b_lfo9_phase ,
+		plug:b_lfo9_magnitude ,
+		plug:b_lfo9_deform ,
+		plug:b_lfo9_trigmode ,
+		plug:b_lfo9_unipolar ,
+		plug:b_lfo9_delay ,
+		plug:b_lfo9_attack ,
+		plug:b_lfo9_hold ,
+		plug:b_lfo9_decay ,
+		plug:b_lfo9_sustain ,
+		plug:b_lfo9_release ,
+		plug:b_lfo10_shape ,
+		plug:b_lfo10_rate ,
+		plug:b_lfo10_phase ,
+		plug:b_lfo10_magnitude ,
+		plug:b_lfo10_deform ,
+		plug:b_lfo10_trigmode ,
+		plug:b_lfo10_unipolar ,
+		plug:b_lfo10_delay ,
+		plug:b_lfo10_attack ,
+		plug:b_lfo10_hold ,
+		plug:b_lfo10_decay ,
+		plug:b_lfo10_sustain ,
+		plug:b_lfo10_release ,
+		plug:b_lfo11_shape ,
+		plug:b_lfo11_rate ,
+		plug:b_lfo11_phase ,
+		plug:b_lfo11_magnitude ,
+		plug:b_lfo11_deform ,
+		plug:b_lfo11_trigmode ,
+		plug:b_lfo11_unipolar ,
+		plug:b_lfo11_delay ,
+		plug:b_lfo11_attack ,
+		plug:b_lfo11_hold ,
+		plug:b_lfo11_decay ,
+		plug:b_lfo11_sustain ,
+		plug:b_lfo11_release ,
+		plug:surgext-bypass ;
+	patch:readable
+		plug:macro_0 ,
+		plug:macro_1 ,
+		plug:macro_2 ,
+		plug:macro_3 ,
+		plug:macro_4 ,
+		plug:macro_5 ,
+		plug:macro_6 ,
+		plug:macro_7 ,
+		plug:volume_FX1 ,
+		plug:volume_FX2 ,
+		plug:volume_FX3 ,
+		plug:volume_FX4 ,
+		plug:volume ,
+		plug:scene_active ,
+		plug:scenemode ,
+		plug:splitkey ,
+		plug:fx_disable ,
+		plug:polylimit ,
+		plug:fx_bypass ,
+		plug:fx1_type ,
+		plug:fx1_p0 ,
+		plug:fx1_p1 ,
+		plug:fx1_p2 ,
+		plug:fx1_p3 ,
+		plug:fx1_p4 ,
+		plug:fx1_p5 ,
+		plug:fx1_p6 ,
+		plug:fx1_p7 ,
+		plug:fx1_p8 ,
+		plug:fx1_p9 ,
+		plug:fx1_p10 ,
+		plug:fx1_p11 ,
+		plug:fx2_type ,
+		plug:fx2_p0 ,
+		plug:fx2_p1 ,
+		plug:fx2_p2 ,
+		plug:fx2_p3 ,
+		plug:fx2_p4 ,
+		plug:fx2_p5 ,
+		plug:fx2_p6 ,
+		plug:fx2_p7 ,
+		plug:fx2_p8 ,
+		plug:fx2_p9 ,
+		plug:fx2_p10 ,
+		plug:fx2_p11 ,
+		plug:fx3_type ,
+		plug:fx3_p0 ,
+		plug:fx3_p1 ,
+		plug:fx3_p2 ,
+		plug:fx3_p3 ,
+		plug:fx3_p4 ,
+		plug:fx3_p5 ,
+		plug:fx3_p6 ,
+		plug:fx3_p7 ,
+		plug:fx3_p8 ,
+		plug:fx3_p9 ,
+		plug:fx3_p10 ,
+		plug:fx3_p11 ,
+		plug:fx4_type ,
+		plug:fx4_p0 ,
+		plug:fx4_p1 ,
+		plug:fx4_p2 ,
+		plug:fx4_p3 ,
+		plug:fx4_p4 ,
+		plug:fx4_p5 ,
+		plug:fx4_p6 ,
+		plug:fx4_p7 ,
+		plug:fx4_p8 ,
+		plug:fx4_p9 ,
+		plug:fx4_p10 ,
+		plug:fx4_p11 ,
+		plug:fx5_type ,
+		plug:fx5_p0 ,
+		plug:fx5_p1 ,
+		plug:fx5_p2 ,
+		plug:fx5_p3 ,
+		plug:fx5_p4 ,
+		plug:fx5_p5 ,
+		plug:fx5_p6 ,
+		plug:fx5_p7 ,
+		plug:fx5_p8 ,
+		plug:fx5_p9 ,
+		plug:fx5_p10 ,
+		plug:fx5_p11 ,
+		plug:fx6_type ,
+		plug:fx6_p0 ,
+		plug:fx6_p1 ,
+		plug:fx6_p2 ,
+		plug:fx6_p3 ,
+		plug:fx6_p4 ,
+		plug:fx6_p5 ,
+		plug:fx6_p6 ,
+		plug:fx6_p7 ,
+		plug:fx6_p8 ,
+		plug:fx6_p9 ,
+		plug:fx6_p10 ,
+		plug:fx6_p11 ,
+		plug:fx7_type ,
+		plug:fx7_p0 ,
+		plug:fx7_p1 ,
+		plug:fx7_p2 ,
+		plug:fx7_p3 ,
+		plug:fx7_p4 ,
+		plug:fx7_p5 ,
+		plug:fx7_p6 ,
+		plug:fx7_p7 ,
+		plug:fx7_p8 ,
+		plug:fx7_p9 ,
+		plug:fx7_p10 ,
+		plug:fx7_p11 ,
+		plug:fx8_type ,
+		plug:fx8_p0 ,
+		plug:fx8_p1 ,
+		plug:fx8_p2 ,
+		plug:fx8_p3 ,
+		plug:fx8_p4 ,
+		plug:fx8_p5 ,
+		plug:fx8_p6 ,
+		plug:fx8_p7 ,
+		plug:fx8_p8 ,
+		plug:fx8_p9 ,
+		plug:fx8_p10 ,
+		plug:fx8_p11 ,
+		plug:fx9_type ,
+		plug:fx9_p0 ,
+		plug:fx9_p1 ,
+		plug:fx9_p2 ,
+		plug:fx9_p3 ,
+		plug:fx9_p4 ,
+		plug:fx9_p5 ,
+		plug:fx9_p6 ,
+		plug:fx9_p7 ,
+		plug:fx9_p8 ,
+		plug:fx9_p9 ,
+		plug:fx9_p10 ,
+		plug:fx9_p11 ,
+		plug:fx10_type ,
+		plug:fx10_p0 ,
+		plug:fx10_p1 ,
+		plug:fx10_p2 ,
+		plug:fx10_p3 ,
+		plug:fx10_p4 ,
+		plug:fx10_p5 ,
+		plug:fx10_p6 ,
+		plug:fx10_p7 ,
+		plug:fx10_p8 ,
+		plug:fx10_p9 ,
+		plug:fx10_p10 ,
+		plug:fx10_p11 ,
+		plug:fx11_type ,
+		plug:fx11_p0 ,
+		plug:fx11_p1 ,
+		plug:fx11_p2 ,
+		plug:fx11_p3 ,
+		plug:fx11_p4 ,
+		plug:fx11_p5 ,
+		plug:fx11_p6 ,
+		plug:fx11_p7 ,
+		plug:fx11_p8 ,
+		plug:fx11_p9 ,
+		plug:fx11_p10 ,
+		plug:fx11_p11 ,
+		plug:fx12_type ,
+		plug:fx12_p0 ,
+		plug:fx12_p1 ,
+		plug:fx12_p2 ,
+		plug:fx12_p3 ,
+		plug:fx12_p4 ,
+		plug:fx12_p5 ,
+		plug:fx12_p6 ,
+		plug:fx12_p7 ,
+		plug:fx12_p8 ,
+		plug:fx12_p9 ,
+		plug:fx12_p10 ,
+		plug:fx12_p11 ,
+		plug:fx13_type ,
+		plug:fx13_p0 ,
+		plug:fx13_p1 ,
+		plug:fx13_p2 ,
+		plug:fx13_p3 ,
+		plug:fx13_p4 ,
+		plug:fx13_p5 ,
+		plug:fx13_p6 ,
+		plug:fx13_p7 ,
+		plug:fx13_p8 ,
+		plug:fx13_p9 ,
+		plug:fx13_p10 ,
+		plug:fx13_p11 ,
+		plug:fx14_type ,
+		plug:fx14_p0 ,
+		plug:fx14_p1 ,
+		plug:fx14_p2 ,
+		plug:fx14_p3 ,
+		plug:fx14_p4 ,
+		plug:fx14_p5 ,
+		plug:fx14_p6 ,
+		plug:fx14_p7 ,
+		plug:fx14_p8 ,
+		plug:fx14_p9 ,
+		plug:fx14_p10 ,
+		plug:fx14_p11 ,
+		plug:fx15_type ,
+		plug:fx15_p0 ,
+		plug:fx15_p1 ,
+		plug:fx15_p2 ,
+		plug:fx15_p3 ,
+		plug:fx15_p4 ,
+		plug:fx15_p5 ,
+		plug:fx15_p6 ,
+		plug:fx15_p7 ,
+		plug:fx15_p8 ,
+		plug:fx15_p9 ,
+		plug:fx15_p10 ,
+		plug:fx15_p11 ,
+		plug:fx16_type ,
+		plug:fx16_p0 ,
+		plug:fx16_p1 ,
+		plug:fx16_p2 ,
+		plug:fx16_p3 ,
+		plug:fx16_p4 ,
+		plug:fx16_p5 ,
+		plug:fx16_p6 ,
+		plug:fx16_p7 ,
+		plug:fx16_p8 ,
+		plug:fx16_p9 ,
+		plug:fx16_p10 ,
+		plug:fx16_p11 ,
+		plug:character ,
+		plug:a_octave ,
+		plug:a_pitch ,
+		plug:a_portamento ,
+		plug:a_polymode ,
+		plug:a_fm_switch ,
+		plug:a_fm_depth ,
+		plug:a_drift ,
+		plug:a_noisecol ,
+		plug:a_ktrkroot ,
+		plug:a_volume ,
+		plug:a_pan ,
+		plug:a_pan2 ,
+		plug:a_send_fx_1 ,
+		plug:a_send_fx_2 ,
+		plug:a_send_fx_3 ,
+		plug:a_send_fx_4 ,
+		plug:a_pbrange_up ,
+		plug:a_pbrange_dn ,
+		plug:a_vca_level ,
+		plug:a_vca_velsense ,
+		plug:a_feedback ,
+		plug:a_fb_config ,
+		plug:a_f_balance ,
+		plug:a_lowcut ,
+		plug:a_ws_type ,
+		plug:a_ws_drive ,
+		plug:a_f2_cf_is_offset ,
+		plug:a_f2_link_resonance ,
+		plug:a_osc1_type ,
+		plug:a_osc1_octave ,
+		plug:a_osc1_pitch ,
+		plug:a_osc1_param0 ,
+		plug:a_osc1_param1 ,
+		plug:a_osc1_param2 ,
+		plug:a_osc1_param3 ,
+		plug:a_osc1_param4 ,
+		plug:a_osc1_param5 ,
+		plug:a_osc1_param6 ,
+		plug:a_osc1_keytrack ,
+		plug:a_osc1_retrigger ,
+		plug:a_osc2_type ,
+		plug:a_osc2_octave ,
+		plug:a_osc2_pitch ,
+		plug:a_osc2_param0 ,
+		plug:a_osc2_param1 ,
+		plug:a_osc2_param2 ,
+		plug:a_osc2_param3 ,
+		plug:a_osc2_param4 ,
+		plug:a_osc2_param5 ,
+		plug:a_osc2_param6 ,
+		plug:a_osc2_keytrack ,
+		plug:a_osc2_retrigger ,
+		plug:a_osc3_type ,
+		plug:a_osc3_octave ,
+		plug:a_osc3_pitch ,
+		plug:a_osc3_param0 ,
+		plug:a_osc3_param1 ,
+		plug:a_osc3_param2 ,
+		plug:a_osc3_param3 ,
+		plug:a_osc3_param4 ,
+		plug:a_osc3_param5 ,
+		plug:a_osc3_param6 ,
+		plug:a_osc3_keytrack ,
+		plug:a_osc3_retrigger ,
+		plug:a_level_o1 ,
+		plug:a_mute_o1 ,
+		plug:a_solo_o1 ,
+		plug:a_route_o1 ,
+		plug:a_level_o2 ,
+		plug:a_mute_o2 ,
+		plug:a_solo_o2 ,
+		plug:a_route_o2 ,
+		plug:a_level_o3 ,
+		plug:a_mute_o3 ,
+		plug:a_solo_o3 ,
+		plug:a_route_o3 ,
+		plug:a_level_ring12 ,
+		plug:a_mute_ring12 ,
+		plug:a_solo_ring12 ,
+		plug:a_route_ring12 ,
+		plug:a_level_ring23 ,
+		plug:a_mute_ring23 ,
+		plug:a_solo_ring23 ,
+		plug:a_route_ring23 ,
+		plug:a_level_noise ,
+		plug:a_mute_noise ,
+		plug:a_solo_noise ,
+		plug:a_route_noise ,
+		plug:a_level_pfg ,
+		plug:a_filter1_type ,
+		plug:a_filter1_subtype ,
+		plug:a_filter1_cutoff ,
+		plug:a_filter1_resonance ,
+		plug:a_filter1_envmod ,
+		plug:a_filter1_keytrack ,
+		plug:a_filter2_type ,
+		plug:a_filter2_subtype ,
+		plug:a_filter2_cutoff ,
+		plug:a_filter2_resonance ,
+		plug:a_filter2_envmod ,
+		plug:a_filter2_keytrack ,
+		plug:a_env1_attack ,
+		plug:a_env1_attack_shape ,
+		plug:a_env1_decay ,
+		plug:a_env1_decay_shape ,
+		plug:a_env1_sustain ,
+		plug:a_env1_release ,
+		plug:a_env1_release_shape ,
+		plug:a_env1_mode ,
+		plug:a_env2_attack ,
+		plug:a_env2_attack_shape ,
+		plug:a_env2_decay ,
+		plug:a_env2_decay_shape ,
+		plug:a_env2_sustain ,
+		plug:a_env2_release ,
+		plug:a_env2_release_shape ,
+		plug:a_env2_mode ,
+		plug:a_lfo0_shape ,
+		plug:a_lfo0_rate ,
+		plug:a_lfo0_phase ,
+		plug:a_lfo0_magnitude ,
+		plug:a_lfo0_deform ,
+		plug:a_lfo0_trigmode ,
+		plug:a_lfo0_unipolar ,
+		plug:a_lfo0_delay ,
+		plug:a_lfo0_attack ,
+		plug:a_lfo0_hold ,
+		plug:a_lfo0_decay ,
+		plug:a_lfo0_sustain ,
+		plug:a_lfo0_release ,
+		plug:a_lfo1_shape ,
+		plug:a_lfo1_rate ,
+		plug:a_lfo1_phase ,
+		plug:a_lfo1_magnitude ,
+		plug:a_lfo1_deform ,
+		plug:a_lfo1_trigmode ,
+		plug:a_lfo1_unipolar ,
+		plug:a_lfo1_delay ,
+		plug:a_lfo1_attack ,
+		plug:a_lfo1_hold ,
+		plug:a_lfo1_decay ,
+		plug:a_lfo1_sustain ,
+		plug:a_lfo1_release ,
+		plug:a_lfo2_shape ,
+		plug:a_lfo2_rate ,
+		plug:a_lfo2_phase ,
+		plug:a_lfo2_magnitude ,
+		plug:a_lfo2_deform ,
+		plug:a_lfo2_trigmode ,
+		plug:a_lfo2_unipolar ,
+		plug:a_lfo2_delay ,
+		plug:a_lfo2_attack ,
+		plug:a_lfo2_hold ,
+		plug:a_lfo2_decay ,
+		plug:a_lfo2_sustain ,
+		plug:a_lfo2_release ,
+		plug:a_lfo3_shape ,
+		plug:a_lfo3_rate ,
+		plug:a_lfo3_phase ,
+		plug:a_lfo3_magnitude ,
+		plug:a_lfo3_deform ,
+		plug:a_lfo3_trigmode ,
+		plug:a_lfo3_unipolar ,
+		plug:a_lfo3_delay ,
+		plug:a_lfo3_attack ,
+		plug:a_lfo3_hold ,
+		plug:a_lfo3_decay ,
+		plug:a_lfo3_sustain ,
+		plug:a_lfo3_release ,
+		plug:a_lfo4_shape ,
+		plug:a_lfo4_rate ,
+		plug:a_lfo4_phase ,
+		plug:a_lfo4_magnitude ,
+		plug:a_lfo4_deform ,
+		plug:a_lfo4_trigmode ,
+		plug:a_lfo4_unipolar ,
+		plug:a_lfo4_delay ,
+		plug:a_lfo4_attack ,
+		plug:a_lfo4_hold ,
+		plug:a_lfo4_decay ,
+		plug:a_lfo4_sustain ,
+		plug:a_lfo4_release ,
+		plug:a_lfo5_shape ,
+		plug:a_lfo5_rate ,
+		plug:a_lfo5_phase ,
+		plug:a_lfo5_magnitude ,
+		plug:a_lfo5_deform ,
+		plug:a_lfo5_trigmode ,
+		plug:a_lfo5_unipolar ,
+		plug:a_lfo5_delay ,
+		plug:a_lfo5_attack ,
+		plug:a_lfo5_hold ,
+		plug:a_lfo5_decay ,
+		plug:a_lfo5_sustain ,
+		plug:a_lfo5_release ,
+		plug:a_lfo6_shape ,
+		plug:a_lfo6_rate ,
+		plug:a_lfo6_phase ,
+		plug:a_lfo6_magnitude ,
+		plug:a_lfo6_deform ,
+		plug:a_lfo6_trigmode ,
+		plug:a_lfo6_unipolar ,
+		plug:a_lfo6_delay ,
+		plug:a_lfo6_attack ,
+		plug:a_lfo6_hold ,
+		plug:a_lfo6_decay ,
+		plug:a_lfo6_sustain ,
+		plug:a_lfo6_release ,
+		plug:a_lfo7_shape ,
+		plug:a_lfo7_rate ,
+		plug:a_lfo7_phase ,
+		plug:a_lfo7_magnitude ,
+		plug:a_lfo7_deform ,
+		plug:a_lfo7_trigmode ,
+		plug:a_lfo7_unipolar ,
+		plug:a_lfo7_delay ,
+		plug:a_lfo7_attack ,
+		plug:a_lfo7_hold ,
+		plug:a_lfo7_decay ,
+		plug:a_lfo7_sustain ,
+		plug:a_lfo7_release ,
+		plug:a_lfo8_shape ,
+		plug:a_lfo8_rate ,
+		plug:a_lfo8_phase ,
+		plug:a_lfo8_magnitude ,
+		plug:a_lfo8_deform ,
+		plug:a_lfo8_trigmode ,
+		plug:a_lfo8_unipolar ,
+		plug:a_lfo8_delay ,
+		plug:a_lfo8_attack ,
+		plug:a_lfo8_hold ,
+		plug:a_lfo8_decay ,
+		plug:a_lfo8_sustain ,
+		plug:a_lfo8_release ,
+		plug:a_lfo9_shape ,
+		plug:a_lfo9_rate ,
+		plug:a_lfo9_phase ,
+		plug:a_lfo9_magnitude ,
+		plug:a_lfo9_deform ,
+		plug:a_lfo9_trigmode ,
+		plug:a_lfo9_unipolar ,
+		plug:a_lfo9_delay ,
+		plug:a_lfo9_attack ,
+		plug:a_lfo9_hold ,
+		plug:a_lfo9_decay ,
+		plug:a_lfo9_sustain ,
+		plug:a_lfo9_release ,
+		plug:a_lfo10_shape ,
+		plug:a_lfo10_rate ,
+		plug:a_lfo10_phase ,
+		plug:a_lfo10_magnitude ,
+		plug:a_lfo10_deform ,
+		plug:a_lfo10_trigmode ,
+		plug:a_lfo10_unipolar ,
+		plug:a_lfo10_delay ,
+		plug:a_lfo10_attack ,
+		plug:a_lfo10_hold ,
+		plug:a_lfo10_decay ,
+		plug:a_lfo10_sustain ,
+		plug:a_lfo10_release ,
+		plug:a_lfo11_shape ,
+		plug:a_lfo11_rate ,
+		plug:a_lfo11_phase ,
+		plug:a_lfo11_magnitude ,
+		plug:a_lfo11_deform ,
+		plug:a_lfo11_trigmode ,
+		plug:a_lfo11_unipolar ,
+		plug:a_lfo11_delay ,
+		plug:a_lfo11_attack ,
+		plug:a_lfo11_hold ,
+		plug:a_lfo11_decay ,
+		plug:a_lfo11_sustain ,
+		plug:a_lfo11_release ,
+		plug:b_octave ,
+		plug:b_pitch ,
+		plug:b_portamento ,
+		plug:b_polymode ,
+		plug:b_fm_switch ,
+		plug:b_fm_depth ,
+		plug:b_drift ,
+		plug:b_noisecol ,
+		plug:b_ktrkroot ,
+		plug:b_volume ,
+		plug:b_pan ,
+		plug:b_pan2 ,
+		plug:b_send_fx_1 ,
+		plug:b_send_fx_2 ,
+		plug:b_send_fx_3 ,
+		plug:b_send_fx_4 ,
+		plug:b_pbrange_up ,
+		plug:b_pbrange_dn ,
+		plug:b_vca_level ,
+		plug:b_vca_velsense ,
+		plug:b_feedback ,
+		plug:b_fb_config ,
+		plug:b_f_balance ,
+		plug:b_lowcut ,
+		plug:b_ws_type ,
+		plug:b_ws_drive ,
+		plug:b_f2_cf_is_offset ,
+		plug:b_f2_link_resonance ,
+		plug:b_osc1_type ,
+		plug:b_osc1_octave ,
+		plug:b_osc1_pitch ,
+		plug:b_osc1_param0 ,
+		plug:b_osc1_param1 ,
+		plug:b_osc1_param2 ,
+		plug:b_osc1_param3 ,
+		plug:b_osc1_param4 ,
+		plug:b_osc1_param5 ,
+		plug:b_osc1_param6 ,
+		plug:b_osc1_keytrack ,
+		plug:b_osc1_retrigger ,
+		plug:b_osc2_type ,
+		plug:b_osc2_octave ,
+		plug:b_osc2_pitch ,
+		plug:b_osc2_param0 ,
+		plug:b_osc2_param1 ,
+		plug:b_osc2_param2 ,
+		plug:b_osc2_param3 ,
+		plug:b_osc2_param4 ,
+		plug:b_osc2_param5 ,
+		plug:b_osc2_param6 ,
+		plug:b_osc2_keytrack ,
+		plug:b_osc2_retrigger ,
+		plug:b_osc3_type ,
+		plug:b_osc3_octave ,
+		plug:b_osc3_pitch ,
+		plug:b_osc3_param0 ,
+		plug:b_osc3_param1 ,
+		plug:b_osc3_param2 ,
+		plug:b_osc3_param3 ,
+		plug:b_osc3_param4 ,
+		plug:b_osc3_param5 ,
+		plug:b_osc3_param6 ,
+		plug:b_osc3_keytrack ,
+		plug:b_osc3_retrigger ,
+		plug:b_level_o1 ,
+		plug:b_mute_o1 ,
+		plug:b_solo_o1 ,
+		plug:b_route_o1 ,
+		plug:b_level_o2 ,
+		plug:b_mute_o2 ,
+		plug:b_solo_o2 ,
+		plug:b_route_o2 ,
+		plug:b_level_o3 ,
+		plug:b_mute_o3 ,
+		plug:b_solo_o3 ,
+		plug:b_route_o3 ,
+		plug:b_level_ring12 ,
+		plug:b_mute_ring12 ,
+		plug:b_solo_ring12 ,
+		plug:b_route_ring12 ,
+		plug:b_level_ring23 ,
+		plug:b_mute_ring23 ,
+		plug:b_solo_ring23 ,
+		plug:b_route_ring23 ,
+		plug:b_level_noise ,
+		plug:b_mute_noise ,
+		plug:b_solo_noise ,
+		plug:b_route_noise ,
+		plug:b_level_pfg ,
+		plug:b_filter1_type ,
+		plug:b_filter1_subtype ,
+		plug:b_filter1_cutoff ,
+		plug:b_filter1_resonance ,
+		plug:b_filter1_envmod ,
+		plug:b_filter1_keytrack ,
+		plug:b_filter2_type ,
+		plug:b_filter2_subtype ,
+		plug:b_filter2_cutoff ,
+		plug:b_filter2_resonance ,
+		plug:b_filter2_envmod ,
+		plug:b_filter2_keytrack ,
+		plug:b_env1_attack ,
+		plug:b_env1_attack_shape ,
+		plug:b_env1_decay ,
+		plug:b_env1_decay_shape ,
+		plug:b_env1_sustain ,
+		plug:b_env1_release ,
+		plug:b_env1_release_shape ,
+		plug:b_env1_mode ,
+		plug:b_env2_attack ,
+		plug:b_env2_attack_shape ,
+		plug:b_env2_decay ,
+		plug:b_env2_decay_shape ,
+		plug:b_env2_sustain ,
+		plug:b_env2_release ,
+		plug:b_env2_release_shape ,
+		plug:b_env2_mode ,
+		plug:b_lfo0_shape ,
+		plug:b_lfo0_rate ,
+		plug:b_lfo0_phase ,
+		plug:b_lfo0_magnitude ,
+		plug:b_lfo0_deform ,
+		plug:b_lfo0_trigmode ,
+		plug:b_lfo0_unipolar ,
+		plug:b_lfo0_delay ,
+		plug:b_lfo0_attack ,
+		plug:b_lfo0_hold ,
+		plug:b_lfo0_decay ,
+		plug:b_lfo0_sustain ,
+		plug:b_lfo0_release ,
+		plug:b_lfo1_shape ,
+		plug:b_lfo1_rate ,
+		plug:b_lfo1_phase ,
+		plug:b_lfo1_magnitude ,
+		plug:b_lfo1_deform ,
+		plug:b_lfo1_trigmode ,
+		plug:b_lfo1_unipolar ,
+		plug:b_lfo1_delay ,
+		plug:b_lfo1_attack ,
+		plug:b_lfo1_hold ,
+		plug:b_lfo1_decay ,
+		plug:b_lfo1_sustain ,
+		plug:b_lfo1_release ,
+		plug:b_lfo2_shape ,
+		plug:b_lfo2_rate ,
+		plug:b_lfo2_phase ,
+		plug:b_lfo2_magnitude ,
+		plug:b_lfo2_deform ,
+		plug:b_lfo2_trigmode ,
+		plug:b_lfo2_unipolar ,
+		plug:b_lfo2_delay ,
+		plug:b_lfo2_attack ,
+		plug:b_lfo2_hold ,
+		plug:b_lfo2_decay ,
+		plug:b_lfo2_sustain ,
+		plug:b_lfo2_release ,
+		plug:b_lfo3_shape ,
+		plug:b_lfo3_rate ,
+		plug:b_lfo3_phase ,
+		plug:b_lfo3_magnitude ,
+		plug:b_lfo3_deform ,
+		plug:b_lfo3_trigmode ,
+		plug:b_lfo3_unipolar ,
+		plug:b_lfo3_delay ,
+		plug:b_lfo3_attack ,
+		plug:b_lfo3_hold ,
+		plug:b_lfo3_decay ,
+		plug:b_lfo3_sustain ,
+		plug:b_lfo3_release ,
+		plug:b_lfo4_shape ,
+		plug:b_lfo4_rate ,
+		plug:b_lfo4_phase ,
+		plug:b_lfo4_magnitude ,
+		plug:b_lfo4_deform ,
+		plug:b_lfo4_trigmode ,
+		plug:b_lfo4_unipolar ,
+		plug:b_lfo4_delay ,
+		plug:b_lfo4_attack ,
+		plug:b_lfo4_hold ,
+		plug:b_lfo4_decay ,
+		plug:b_lfo4_sustain ,
+		plug:b_lfo4_release ,
+		plug:b_lfo5_shape ,
+		plug:b_lfo5_rate ,
+		plug:b_lfo5_phase ,
+		plug:b_lfo5_magnitude ,
+		plug:b_lfo5_deform ,
+		plug:b_lfo5_trigmode ,
+		plug:b_lfo5_unipolar ,
+		plug:b_lfo5_delay ,
+		plug:b_lfo5_attack ,
+		plug:b_lfo5_hold ,
+		plug:b_lfo5_decay ,
+		plug:b_lfo5_sustain ,
+		plug:b_lfo5_release ,
+		plug:b_lfo6_shape ,
+		plug:b_lfo6_rate ,
+		plug:b_lfo6_phase ,
+		plug:b_lfo6_magnitude ,
+		plug:b_lfo6_deform ,
+		plug:b_lfo6_trigmode ,
+		plug:b_lfo6_unipolar ,
+		plug:b_lfo6_delay ,
+		plug:b_lfo6_attack ,
+		plug:b_lfo6_hold ,
+		plug:b_lfo6_decay ,
+		plug:b_lfo6_sustain ,
+		plug:b_lfo6_release ,
+		plug:b_lfo7_shape ,
+		plug:b_lfo7_rate ,
+		plug:b_lfo7_phase ,
+		plug:b_lfo7_magnitude ,
+		plug:b_lfo7_deform ,
+		plug:b_lfo7_trigmode ,
+		plug:b_lfo7_unipolar ,
+		plug:b_lfo7_delay ,
+		plug:b_lfo7_attack ,
+		plug:b_lfo7_hold ,
+		plug:b_lfo7_decay ,
+		plug:b_lfo7_sustain ,
+		plug:b_lfo7_release ,
+		plug:b_lfo8_shape ,
+		plug:b_lfo8_rate ,
+		plug:b_lfo8_phase ,
+		plug:b_lfo8_magnitude ,
+		plug:b_lfo8_deform ,
+		plug:b_lfo8_trigmode ,
+		plug:b_lfo8_unipolar ,
+		plug:b_lfo8_delay ,
+		plug:b_lfo8_attack ,
+		plug:b_lfo8_hold ,
+		plug:b_lfo8_decay ,
+		plug:b_lfo8_sustain ,
+		plug:b_lfo8_release ,
+		plug:b_lfo9_shape ,
+		plug:b_lfo9_rate ,
+		plug:b_lfo9_phase ,
+		plug:b_lfo9_magnitude ,
+		plug:b_lfo9_deform ,
+		plug:b_lfo9_trigmode ,
+		plug:b_lfo9_unipolar ,
+		plug:b_lfo9_delay ,
+		plug:b_lfo9_attack ,
+		plug:b_lfo9_hold ,
+		plug:b_lfo9_decay ,
+		plug:b_lfo9_sustain ,
+		plug:b_lfo9_release ,
+		plug:b_lfo10_shape ,
+		plug:b_lfo10_rate ,
+		plug:b_lfo10_phase ,
+		plug:b_lfo10_magnitude ,
+		plug:b_lfo10_deform ,
+		plug:b_lfo10_trigmode ,
+		plug:b_lfo10_unipolar ,
+		plug:b_lfo10_delay ,
+		plug:b_lfo10_attack ,
+		plug:b_lfo10_hold ,
+		plug:b_lfo10_decay ,
+		plug:b_lfo10_sustain ,
+		plug:b_lfo10_release ,
+		plug:b_lfo11_shape ,
+		plug:b_lfo11_rate ,
+		plug:b_lfo11_phase ,
+		plug:b_lfo11_magnitude ,
+		plug:b_lfo11_deform ,
+		plug:b_lfo11_trigmode ,
+		plug:b_lfo11_unipolar ,
+		plug:b_lfo11_delay ,
+		plug:b_lfo11_attack ,
+		plug:b_lfo11_hold ,
+		plug:b_lfo11_decay ,
+		plug:b_lfo11_sustain ,
+		plug:b_lfo11_release ,
+		plug:surgext-bypass ;
+	lv2:port [
+		a lv2:InputPort , lv2:AudioPort ;
+		lv2:index 0 ;
+		lv2:symbol "audio_in_1" ;
+		lv2:name "Audio In 1" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:InputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_in_2" ;
+		lv2:name "Audio In 2" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 2 ;
+		lv2:symbol "audio_out_1" ;
+		lv2:name "Audio Out 1" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 3 ;
+		lv2:symbol "audio_out_2" ;
+		lv2:name "Audio Out 2" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 4 ;
+		lv2:symbol "audio_out_3" ;
+		lv2:name "Audio Out 3" ;
+		pg:group plug:output_group_2 ;
+		lv2:portProperty lv2:connectionOptional ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 5 ;
+		lv2:symbol "audio_out_4" ;
+		lv2:name "Audio Out 4" ;
+		pg:group plug:output_group_2 ;
+		lv2:portProperty lv2:connectionOptional ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 6 ;
+		lv2:symbol "audio_out_5" ;
+		lv2:name "Audio Out 5" ;
+		pg:group plug:output_group_3 ;
+		lv2:portProperty lv2:connectionOptional ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 7 ;
+		lv2:symbol "audio_out_6" ;
+		lv2:name "Audio Out 6" ;
+		pg:group plug:output_group_3 ;
+		lv2:portProperty lv2:connectionOptional ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:InputPort , atom:AtomPort ;
+		rsz:minimumSize 63992 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			midi:MidiEvent ,
+			patch:Message ,
+			time:Position ;
+		lv2:designation lv2:control ;
+		lv2:index 8 ;
+		lv2:symbol "in" ;
+		lv2:name "In" ;
+	] , [
+		a lv2:OutputPort , atom:AtomPort ;
+		rsz:minimumSize 63992 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			patch:Message ;
+		lv2:designation lv2:control ;
+		lv2:index 9 ;
+		lv2:symbol "out" ;
+		lv2:name "Out" ;
+	] , [
+		a lv2:OutputPort , lv2:ControlPort ;
+		lv2:designation lv2:latency ;
+		lv2:symbol "latency" ;
+		lv2:name "Latency" ;
+		lv2:index 10 ;
+		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
+		units:unit units:frame ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:freeWheeling ;
+		lv2:symbol "freeWheeling" ;
+		lv2:name "Free Wheeling" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 11 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:enabled ;
+		lv2:symbol "enabled" ;
+		lv2:name "Enabled" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 12 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] ;
+	opts:supportedOption
+		bufs:maxBlockLength .
