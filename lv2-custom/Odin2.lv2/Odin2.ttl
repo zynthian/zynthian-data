@@ -1,0 +1,3505 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+@prefix plug: <https://thewavewarden.com/odin2> .
+@prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+<https://thewavewarden.com/odin2>
+    a lv2:InstrumentPlugin, lv2:Plugin ;
+    lv2:requiredFeature <http://lv2plug.in/ns/ext/buf-size#boundedBlockLength> ,
+                        <http://lv2plug.in/ns/ext/urid#map> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/options#interface> ,
+                      <http://lv2plug.in/ns/ext/state#interface> ,
+                      <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
+
+    lv2:microVersion 3 ;
+    lv2:minorVersion 6 ;
+
+    ui:ui <https://thewavewarden.com/odin2#ExternalUI> ,
+          <https://thewavewarden.com/odin2#ParentUI> ;
+
+    lv2:port [
+        a lv2:InputPort, atom:AtomPort ;
+        atom:bufferType atom:Sequence ;
+        atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ;
+        atom:supports <http://lv2plug.in/ns/ext/time#Position> ;
+        lv2:index 0 ;
+        lv2:symbol "lv2_events_in" ;
+        lv2:name "Events Input" ;
+        lv2:designation lv2:control ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:symbol "lv2_freewheel" ;
+        lv2:name "Freewheel" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#freeWheeling> ;
+        lv2:portProperty lv2:toggled, <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:symbol "lv2_latency" ;
+        lv2:name "Latency" ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#latency> ;
+        lv2:portProperty lv2:reportsLatency, lv2:integer ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 3 ;
+        lv2:symbol "lv2_audio_out_1" ;
+        lv2:name "Audio Output 1" ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 4 ;
+        lv2:symbol "lv2_audio_out_2" ;
+        lv2:name "Audio Output 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:symbol "osc1_octave" ;
+        lv2:name "Osc1 Octave" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 25 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:symbol "osc1_semitones" ;
+        lv2:name "Osc1 Semitones" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 24 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:symbol "osc1_finetune" ;
+        lv2:name "Osc1 Finetune" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 23 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:symbol "osc1_volume" ;
+        lv2:name "Osc1 Volume" ;
+        lv2:default 0.833333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 22 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:symbol "osc1_reset" ;
+        lv2:name "Osc1 Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 21 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:symbol "osc1_wavetble_position" ;
+        lv2:name "Osc1 Wavetble Position" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 20 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:symbol "osc1_detune" ;
+        lv2:name "Osc1 Detune" ;
+        lv2:default 0.200000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 19 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 12 ;
+        lv2:symbol "osc1_position_modulation" ;
+        lv2:name "Osc1 Position Modulation" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 18 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 13 ;
+        lv2:symbol "osc1_multi_position" ;
+        lv2:name "Osc1 Multi Position" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 17 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 14 ;
+        lv2:symbol "osc1_wavetable_spread" ;
+        lv2:name "Osc1 Wavetable Spread" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 16 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 15 ;
+        lv2:symbol "osc1_pulsewidth" ;
+        lv2:name "Osc1 PulseWidth" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 15 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 16 ;
+        lv2:symbol "osc1_drift" ;
+        lv2:name "Osc1 Drift" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 14 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 17 ;
+        lv2:symbol "osc1_vector_x" ;
+        lv2:name "Osc1 Vector X" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 13 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 18 ;
+        lv2:symbol "osc1_vector_y" ;
+        lv2:name "Osc1 Vector Y" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 12 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 19 ;
+        lv2:symbol "osc1_arpeggiator_speed" ;
+        lv2:name "Osc1 Arpeggiator Speed" ;
+        lv2:default 0.557144 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 11 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 20 ;
+        lv2:symbol "osc1_step1" ;
+        lv2:name "Osc1 Step1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 10 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 21 ;
+        lv2:symbol "osc1_step2" ;
+        lv2:name "Osc1 Step2" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 9 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 22 ;
+        lv2:symbol "osc1_step3" ;
+        lv2:name "Osc1 Step3" ;
+        lv2:default 0.791667 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 8 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 23 ;
+        lv2:symbol "osc1_arpeggiator_on" ;
+        lv2:name "Osc1 Arpeggiator On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 7 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 24 ;
+        lv2:symbol "osc1_step3_on" ;
+        lv2:name "Osc1 Step3 On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 6 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 25 ;
+        lv2:symbol "osc1_chipnoise" ;
+        lv2:name "Osc1 Chipnoise" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 5 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 26 ;
+        lv2:symbol "osc1_exponential_fm" ;
+        lv2:name "Osc1 Exponential FM" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 27 ;
+        lv2:symbol "osc1_fm_pm_amount" ;
+        lv2:name "Osc1 FM/PM amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 28 ;
+        lv2:symbol "osc1_noise_lowpass" ;
+        lv2:name "Osc1 Noise Lowpass" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 29 ;
+        lv2:symbol "osc1_noise_highpass" ;
+        lv2:name "Osc1 Noise Highpass" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC1 ;
+	    lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 30 ;
+        lv2:symbol "osc2_octave" ;
+        lv2:name "Osc2 Octave" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 31 ;
+        lv2:symbol "osc2_semitones" ;
+        lv2:name "Osc2 Semitones" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 32 ;
+        lv2:symbol "osc2_finetune" ;
+        lv2:name "Osc2 Finetune" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 33 ;
+        lv2:symbol "osc2_volume" ;
+        lv2:name "Osc2 Volume" ;
+        lv2:default 0.833333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 34 ;
+        lv2:symbol "osc2_reset" ;
+        lv2:name "Osc2 Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 35 ;
+        lv2:symbol "osc2_sync" ;
+        lv2:name "Osc2 Sync" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 36 ;
+        lv2:symbol "osc2_wavetable_position" ;
+        lv2:name "Osc2 Wavetable Position" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 37 ;
+        lv2:symbol "osc2_detune" ;
+        lv2:name "Osc2 Detune" ;
+        lv2:default 0.200000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 38 ;
+        lv2:symbol "osc2_position_modulation" ;
+        lv2:name "Osc2 Position Modulation" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 39 ;
+        lv2:symbol "osc2_multi_position" ;
+        lv2:name "Osc2 Multi Position" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 40 ;
+        lv2:symbol "osc2_wavetable_spread" ;
+        lv2:name "Osc2 Wavetable Spread" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 41 ;
+        lv2:symbol "osc2_pulsewidth" ;
+        lv2:name "Osc2 PulseWidth" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 42 ;
+        lv2:symbol "osc2_drift" ;
+        lv2:name "Osc2 Drift" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 43 ;
+        lv2:symbol "osc2_vector_x" ;
+        lv2:name "Osc2 Vector X" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 44 ;
+        lv2:symbol "osc2_vector_y" ;
+        lv2:name "Osc2 Vector Y" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 45 ;
+        lv2:symbol "osc2_arpeggiator_speed" ;
+        lv2:name "Osc2 Arpeggiator Speed" ;
+        lv2:default 0.557144 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 46 ;
+        lv2:symbol "osc2_step1" ;
+        lv2:name "Osc2 Step1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 47 ;
+        lv2:symbol "osc2_step2" ;
+        lv2:name "Osc2 Step2" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 48 ;
+        lv2:symbol "osc2_step3" ;
+        lv2:name "Osc2 Step3" ;
+        lv2:default 0.791667 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 49 ;
+        lv2:symbol "osc2_arpeggiator_on" ;
+        lv2:name "Osc2 Arpeggiator On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 50 ;
+        lv2:symbol "osc2_step3_on" ;
+        lv2:name "Osc2 Step3 On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 51 ;
+        lv2:symbol "osc2_chipnoise" ;
+        lv2:name "Osc2 Chipnoise" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 52 ;
+        lv2:symbol "osc2_exponential_fm" ;
+        lv2:name "Osc2 Exponential FM" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 53 ;
+        lv2:symbol "osc2_fm_pm_amount" ;
+        lv2:name "Osc2 FM/PM amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 54 ;
+        lv2:symbol "osc2_noise_lowpass" ;
+        lv2:name "Osc2 Noise Lowpass" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 55 ;
+        lv2:symbol "osc2_noise_highpass" ;
+        lv2:name "Osc2 Noise Highpass" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 56 ;
+        lv2:symbol "osc3_octave" ;
+        lv2:name "Osc3 Octave" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 57 ;
+        lv2:symbol "osc3_semitones" ;
+        lv2:name "Osc3 Semitones" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 58 ;
+        lv2:symbol "osc3_finetune" ;
+        lv2:name "Osc3 Finetune" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 59 ;
+        lv2:symbol "osc3_volume" ;
+        lv2:name "Osc3 Volume" ;
+        lv2:default 0.833333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 60 ;
+        lv2:symbol "osc3_reset" ;
+        lv2:name "Osc3 Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 61 ;
+        lv2:symbol "osc3_sync" ;
+        lv2:name "Osc3 Sync" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 62 ;
+        lv2:symbol "osc3_wavetable_position" ;
+        lv2:name "Osc3 Wavetable Position" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 63 ;
+        lv2:symbol "osc3_detune" ;
+        lv2:name "Osc3 Detune" ;
+        lv2:default 0.200000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 64 ;
+        lv2:symbol "osc3_position_modulation" ;
+        lv2:name "Osc3 Position Modulation" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 65 ;
+        lv2:symbol "osc3_multi_position" ;
+        lv2:name "Osc3 Multi Position" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 66 ;
+        lv2:symbol "osc3_wavetable_spread" ;
+        lv2:name "Osc3 Wavetable Spread" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 67 ;
+        lv2:symbol "osc3_pulsewidth" ;
+        lv2:name "Osc3 PulseWidth" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 68 ;
+        lv2:symbol "osc3_drift" ;
+        lv2:name "Osc3 Drift" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 69 ;
+        lv2:symbol "osc3_vector_x" ;
+        lv2:name "Osc3 Vector X" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 70 ;
+        lv2:symbol "osc3_vector_y" ;
+        lv2:name "Osc3 Vector Y" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 71 ;
+        lv2:symbol "osc3_arpeggiator_speed" ;
+        lv2:name "Osc3 Arpeggiator Speed" ;
+        lv2:default 0.557144 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 72 ;
+        lv2:symbol "osc3_step1" ;
+        lv2:name "Osc3 Step1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 73 ;
+        lv2:symbol "osc3_step2" ;
+        lv2:name "Osc3 Step2" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 74 ;
+        lv2:symbol "osc3_step3" ;
+        lv2:name "Osc3 Step3" ;
+        lv2:default 0.791667 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 75 ;
+        lv2:symbol "osc3_arpeggiator_on" ;
+        lv2:name "Osc3 Arpeggiator On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 76 ;
+        lv2:symbol "osc3_step3_on" ;
+        lv2:name "Osc3 Step3 On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 77 ;
+        lv2:symbol "osc3_chipnoise" ;
+        lv2:name "Osc3 Chipnoise" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 78 ;
+        lv2:symbol "osc3_exponential_fm" ;
+        lv2:name "Osc3 Exponential FM" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 79 ;
+        lv2:symbol "osc3_fm_pm_amount" ;
+        lv2:name "Osc3 FM/PM amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 80 ;
+        lv2:symbol "osc3_noise_lowpass" ;
+        lv2:name "Osc3 Noise Lowpass" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 81 ;
+        lv2:symbol "osc3_noise_highpass" ;
+        lv2:name "Osc3 Noise Highpass" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OSC3 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 82 ;
+        lv2:symbol "filter1_osc1_input" ;
+        lv2:name "Filter1 Osc1 Input" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ROUTFIL1 ;
+	    lv2:displayPriority 4 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 83 ;
+        lv2:symbol "filter1_osc2_input" ;
+        lv2:name "Filter1 Osc2 Input" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ROUTFIL1 ;
+	    lv2:displayPriority 3 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 84 ;
+        lv2:symbol "filter1_osc3_input" ;
+        lv2:name "Filter1 Osc3 Input" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ROUTFIL1 ;
+	    lv2:displayPriority 2 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 85 ;
+        lv2:symbol "filter1_velocity_amount" ;
+        lv2:name "Filter1 Velocity Amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1MOD ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 86 ;
+        lv2:symbol "filter1_envelope_amount" ;
+        lv2:name "Filter1 Envelope Amount" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1MOD ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 87 ;
+        lv2:symbol "filter1_keyboard_follow" ;
+        lv2:name "Filter1 Keyboard Follow" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1MOD ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 88 ;
+        lv2:symbol "filter1_gain" ;
+        lv2:name "Filter1 Gain" ;
+        lv2:default 0.833333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1MAIN ;
+	    lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 89 ;
+        lv2:symbol "filter1_frequency" ;
+        lv2:name "Filter1 Frequency" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1MAIN ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 90 ;
+        lv2:symbol "filter1_resonance" ;
+        lv2:name "Filter1 Resonance" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1MAIN ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 91 ;
+        lv2:symbol "filter1_saturation" ;
+        lv2:name "Filter1 Saturation" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1MAIN ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 92 ;
+        lv2:symbol "filter1_sem_transition" ;
+        lv2:name "Filter1 SEM Transition" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1SPEC ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 93 ;
+        lv2:symbol "filter1_formant_transition" ;
+        lv2:name "Filter1 Formant Transition" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1SPEC ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 94 ;
+        lv2:symbol "filter1_ringmod_amount" ;
+        lv2:name "Filter1 RingMod Amount" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL1SPEC ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 95 ;
+        lv2:symbol "filter2_osc1_input" ;
+        lv2:name "Filter2 Osc1 Input" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ROUTFIL2 ;
+	    lv2:displayPriority 4 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 96 ;
+        lv2:symbol "filter2_osc2_input" ;
+        lv2:name "Filter2 Osc2 Input" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ROUTFIL2 ;
+	    lv2:displayPriority 3 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 97 ;
+        lv2:symbol "filter2_osc3_input" ;
+        lv2:name "Filter2 Osc3 Input" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ROUTFIL2 ;
+	    lv2:displayPriority 2 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 98 ;
+        lv2:symbol "filter2_filter1_input" ;
+        lv2:name "Filter2 Filter1 Input" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ROUTFIL2 ;
+	    lv2:displayPriority 1 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 99 ;
+        lv2:symbol "filter2_velocity_amount" ;
+        lv2:name "Filter2 Velocity Amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2MOD ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 100 ;
+        lv2:symbol "filter2_envelope_amount" ;
+        lv2:name "Filter2 Envelope Amount" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2MOD ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 101 ;
+        lv2:symbol "filter2_keyboard_follow" ;
+        lv2:name "Filter2 Keyboard Follow" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2MOD ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 102 ;
+        lv2:symbol "filter2_gain" ;
+        lv2:name "Filter2 Gain" ;
+        lv2:default 0.833333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2MAIN ;
+	    lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 103 ;
+        lv2:symbol "filter2_frequency" ;
+        lv2:name "Filter2 Frequency" ;
+        lv2:default 0.561071 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2MAIN ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 104 ;
+        lv2:symbol "filter2_resonance" ;
+        lv2:name "Filter2 Resonance" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2MAIN ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 105 ;
+        lv2:symbol "filter2_saturation" ;
+        lv2:name "Filter2 Saturation" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2MAIN ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 106 ;
+        lv2:symbol "filter2_sem_transition" ;
+        lv2:name "Filter2 SEM Transition" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2SPEC ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 107 ;
+        lv2:symbol "filter2_formant_transition" ;
+        lv2:name "Filter2 Formant Transition" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2SPEC ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 108 ;
+        lv2:symbol "filter2_ringmod_amount" ;
+        lv2:name "Filter2 RingMod Amount" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2SPEC ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 109 ;
+        lv2:symbol "filter3_velocity_amount" ;
+        lv2:name "Filter3 Velocity Amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3MOD ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 110 ;
+        lv2:symbol "filter3_envelope_amount" ;
+        lv2:name "Filter3 Envelope Amount" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3MOD ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 111 ;
+        lv2:symbol "filter3_keyboard_follow" ;
+        lv2:name "Filter3 Keyboard Follow" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3MOD ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 112 ;
+        lv2:symbol "filter3_gain" ;
+        lv2:name "Filter3 Gain" ;
+        lv2:default 0.833333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3MAIN ;
+	    lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 113 ;
+        lv2:symbol "filter3_frequency" ;
+        lv2:name "Filter3 Frequency" ;
+        lv2:default 0.561071 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3MAIN ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 114 ;
+        lv2:symbol "filter3_resonance" ;
+        lv2:name "Filter3 Resonance" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3MAIN ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 115 ;
+        lv2:symbol "filter3_saturation" ;
+        lv2:name "Filter3 Saturation" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3MAIN ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 116 ;
+        lv2:symbol "filter3_sem_transition" ;
+        lv2:name "Filter3 SEM Transition" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3SPEC ;
+	    lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 117 ;
+        lv2:symbol "filter3_formant_transition" ;
+        lv2:name "Filter3 Formant Transition" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3SPEC ;
+	    lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 118 ;
+        lv2:symbol "filter3_ringmod_amount" ;
+        lv2:name "Filter3 RingMod Amount" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL3SPEC ;
+	    lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 119 ;
+        lv2:symbol "amplifier_velocity" ;
+        lv2:name "Amplifier Velocity" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_AMP ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 120 ;
+        lv2:symbol "amplifier_panorama" ;
+        lv2:name "Amplifier Panorama" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_AMP ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 121 ;
+        lv2:symbol "amplifier_gain" ;
+        lv2:name "Amplifier Gain" ;
+        lv2:default 0.714286 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_AMP ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 122 ;
+        lv2:symbol "distortion_boost" ;
+        lv2:name "Distortion Boost" ;
+        lv2:default 0.300000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DIST ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 123 ;
+        lv2:symbol "distortion_drywet" ;
+        lv2:name "Distortion DryWet" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DIST ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 124 ;
+        lv2:symbol "ampenv_attack" ;
+        lv2:name "AmpEnv Attack" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_AMPENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:attack ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 125 ;
+        lv2:symbol "ampenv_decay" ;
+        lv2:name "AmpEnv Decay" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_AMPENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:decay ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 126 ;
+        lv2:symbol "ampenv_sustain" ;
+        lv2:name "AmpEnv Sustain" ;
+        lv2:default 0.670953 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_AMPENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:sustain ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 127 ;
+        lv2:symbol "ampenv_release" ;
+        lv2:name "AmpEnv Release" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_AMPENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:release ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 128 ;
+        lv2:symbol "ampenv_loop" ;
+        lv2:name "AmpEnv Loop" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ENVLOOP ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 129 ;
+        lv2:symbol "filterenv_attack" ;
+        lv2:name "FilterEnv Attack" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:attack ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 130 ;
+        lv2:symbol "filterenv_decay" ;
+        lv2:name "FilterEnv Decay" ;
+        lv2:default 0.467494 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:decay ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 131 ;
+        lv2:symbol "filterenv_sustain" ;
+        lv2:name "FilterEnv Sustain" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:sustain ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 132 ;
+        lv2:symbol "filterenv_release" ;
+        lv2:name "FilterEnv Release" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:release ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 133 ;
+        lv2:symbol "filterenv_loop" ;
+        lv2:name "FilterEnv Loop" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ENVLOOP ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 134 ;
+        lv2:symbol "modenv_attack" ;
+        lv2:name "ModEnv Attack" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_MODENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:attack ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 135 ;
+        lv2:symbol "modenv_decay" ;
+        lv2:name "ModEnv Decay" ;
+        lv2:default 0.467494 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_MODENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:decay ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 136 ;
+        lv2:symbol "modenv_sustain" ;
+        lv2:name "ModEnv Sustain" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_MODENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:sustain ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 137 ;
+        lv2:symbol "modenv_release" ;
+        lv2:name "ModEnv Release" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_MODENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:release ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 138 ;
+        lv2:symbol "modenv_loop" ;
+        lv2:name "ModEnv Loop" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ENVLOOP ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 139 ;
+        lv2:symbol "globalenv_attack" ;
+        lv2:name "GlobalEnv Attack" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:attack ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 140 ;
+        lv2:symbol "globalenv_decay" ;
+        lv2:name "GlobalEnv Decay" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:decay ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 141 ;
+        lv2:symbol "globalenv_sustain" ;
+        lv2:name "GlobalEnv Sustain" ;
+        lv2:default 0.670953 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:sustain ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 142 ;
+        lv2:symbol "globalenv_release" ;
+        lv2:name "GlobalEnv Release" ;
+        lv2:default 0.121202 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBENV ;
+	    lv2:displayPriority 0 ;
+    	lv2:designation param:release ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 143 ;
+        lv2:symbol "globalenv_loop" ;
+        lv2:name "GlobalEnv Loop" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ENVLOOP ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 144 ;
+        lv2:symbol "lfo1_reset" ;
+        lv2:name "LFO1 Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 145 ;
+        lv2:symbol "lfo1_frequency" ;
+        lv2:name "LFO1 Frequency" ;
+        lv2:default 0.400079 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 146 ;
+        lv2:symbol "lfo2_reset" ;
+        lv2:name "LFO2 Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 147 ;
+        lv2:symbol "lfo2_frequency" ;
+        lv2:name "LFO2 Frequency" ;
+        lv2:default 0.400079 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 148 ;
+        lv2:symbol "lfo3_reset" ;
+        lv2:name "LFO3 Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 149 ;
+        lv2:symbol "lfo3_frequency" ;
+        lv2:name "LFO3 Frequency" ;
+        lv2:default 0.400079 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 150 ;
+        lv2:symbol "lfo4_reset" ;
+        lv2:name "LFO4 Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 151 ;
+        lv2:symbol "lfo4_frequency" ;
+        lv2:name "LFO4 Frequency" ;
+        lv2:default 0.400079 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 152 ;
+        lv2:symbol "filter1_to_amplifier" ;
+        lv2:name "Filter1 To Amplifier" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LFO ;
+	    lv2:displayPriority 0 ;
+        pg:group plug:G_FIL2AMP ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 153 ;
+        lv2:symbol "filter2_to_amplifier" ;
+        lv2:name "Filter2 To Amplifier" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FIL2AMP ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 154 ;
+        lv2:symbol "glide" ;
+        lv2:name "Glide" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBAL ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 155 ;
+        lv2:symbol "master" ;
+        lv2:name "Master" ;
+        lv2:default 0.547619 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBAL ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 156 ;
+        lv2:symbol "modwheel" ;
+        lv2:name "Modwheel" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBAL ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 157 ;
+        lv2:symbol "pitchbend" ;
+        lv2:name "Pitchbend" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBAL ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 158 ;
+        lv2:symbol "xy_pad_x" ;
+        lv2:name "XY Pad X" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_XYPAD ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 159 ;
+        lv2:symbol "xy_pad_y" ;
+        lv2:name "XY Pad Y" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_XYPAD ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 160 ;
+        lv2:symbol "delay_pingpong" ;
+        lv2:name "Delay PingPong" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 161 ;
+        lv2:symbol "delay_time" ;
+        lv2:name "Delay Time" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 162 ;
+        lv2:symbol "delay_feedback" ;
+        lv2:name "Delay Feedback" ;
+        lv2:default 0.631464 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 163 ;
+        lv2:symbol "delay_highpass_frequency" ;
+        lv2:name "Delay Highpass Frequency" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 164 ;
+        lv2:symbol "delay_ducking" ;
+        lv2:name "Delay Ducking" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 165 ;
+        lv2:symbol "delay_dry" ;
+        lv2:name "Delay Dry" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 166 ;
+        lv2:symbol "delay_wet" ;
+        lv2:name "Delay Wet" ;
+        lv2:default 0.814367 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 167 ;
+        lv2:symbol "delay_on" ;
+        lv2:name "Delay On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXDELAY ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 168 ;
+        lv2:symbol "reverb_predelay" ;
+        lv2:name "Reverb PreDelay" ;
+        lv2:default 0.333333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXREVERB ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 169 ;
+        lv2:symbol "reverb_eq_gain" ;
+        lv2:name "Reverb EQ Gain" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXREVERB ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 170 ;
+        lv2:symbol "reverb_eq_freq" ;
+        lv2:name "Reverb EQ Freq" ;
+        lv2:default 0.549101 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXREVERB ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 171 ;
+        lv2:symbol "reverb_drywet" ;
+        lv2:name "Reverb DryWet" ;
+        lv2:default 0.378929 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXREVERB ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 172 ;
+        lv2:symbol "reverb_mid_hall" ;
+        lv2:name "Reverb Mid Hall" ;
+        lv2:default 0.142857 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXREVERB ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 173 ;
+        lv2:symbol "reverb_high_freq_damp" ;
+        lv2:name "Reverb High Freq Damp" ;
+        lv2:default 0.668740 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXREVERB ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 174 ;
+        lv2:symbol "reverb_on" ;
+        lv2:name "Reverb On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXREVERB ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 175 ;
+        lv2:symbol "phaser_reset" ;
+        lv2:name "Phaser Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXPHASER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 176 ;
+        lv2:symbol "phaser_on" ;
+        lv2:name "Phaser On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXPHASER ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 177 ;
+        lv2:symbol "phaser_frequency" ;
+        lv2:name "Phaser Frequency" ;
+        lv2:default 0.733014 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXPHASER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 178 ;
+        lv2:symbol "phaser_feedback" ;
+        lv2:name "Phaser Feedback" ;
+        lv2:default 0.250000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXPHASER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 179 ;
+        lv2:symbol "phaser_rate" ;
+        lv2:name "Phaser Rate" ;
+        lv2:default 0.378177 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXPHASER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 180 ;
+        lv2:symbol "phaser_amount" ;
+        lv2:name "Phaser Amount" ;
+        lv2:default 0.300000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXPHASER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 181 ;
+        lv2:symbol "phaser_drywet" ;
+        lv2:name "Phaser DryWet" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXPHASER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 182 ;
+        lv2:symbol "flanger_reset" ;
+        lv2:name "Flanger Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXFLANGER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 183 ;
+        lv2:symbol "flanger_on" ;
+        lv2:name "Flanger On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXFLANGER ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 184 ;
+        lv2:symbol "flanger_rate" ;
+        lv2:name "Flanger Rate" ;
+        lv2:default 0.326662 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXFLANGER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 185 ;
+        lv2:symbol "flanger_feedback" ;
+        lv2:name "Flanger Feedback" ;
+        lv2:default 0.800000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXFLANGER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 186 ;
+        lv2:symbol "flanger_amount" ;
+        lv2:name "Flanger Amount" ;
+        lv2:default 0.300000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXFLANGER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 187 ;
+        lv2:symbol "flanger_drywet" ;
+        lv2:name "Flanger DryWet" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXFLANGER ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 188 ;
+        lv2:symbol "chorus_reset" ;
+        lv2:name "Chorus Reset" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXCHORUS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 189 ;
+        lv2:symbol "chorus_on" ;
+        lv2:name "Chorus On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXCHORUS ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 190 ;
+        lv2:symbol "chorus_rate" ;
+        lv2:name "Chorus Rate" ;
+        lv2:default 0.326662 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXCHORUS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 191 ;
+        lv2:symbol "chorus_amount" ;
+        lv2:name "Chorus Amount" ;
+        lv2:default 0.400000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXCHORUS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 192 ;
+        lv2:symbol "chorus_feedback" ;
+        lv2:name "Chorus Feedback" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXCHORUS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 193 ;
+        lv2:symbol "chorus_drywet" ;
+        lv2:name "Chorus DryWet" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FXCHORUS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 194 ;
+        lv2:symbol "unison_detune" ;
+        lv2:name "Unison Detune" ;
+        lv2:default 0.365148 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBAL ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 195 ;
+        lv2:symbol "unison_width" ;
+        lv2:name "Unison Width" ;
+        lv2:default 0.700000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GLOBAL ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 196 ;
+        lv2:symbol "arp_step_1_on" ;
+        lv2:name "Arp Step 1 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 197 ;
+        lv2:symbol "arp_step_2_on" ;
+        lv2:name "Arp Step 2 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 198 ;
+        lv2:symbol "arp_step_3_on" ;
+        lv2:name "Arp Step 3 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 199 ;
+        lv2:symbol "arp_step_4_on" ;
+        lv2:name "Arp Step 4 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 200 ;
+        lv2:symbol "arp_step_5_on" ;
+        lv2:name "Arp Step 5 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 201 ;
+        lv2:symbol "arp_step_6_on" ;
+        lv2:name "Arp Step 6 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 202 ;
+        lv2:symbol "arp_step_7_on" ;
+        lv2:name "Arp Step 7 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 203 ;
+        lv2:symbol "arp_step_8_on" ;
+        lv2:name "Arp Step 8 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 204 ;
+        lv2:symbol "arp_step_9_on" ;
+        lv2:name "Arp Step 9 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 205 ;
+        lv2:symbol "arp_step_10_on" ;
+        lv2:name "Arp Step 10 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 206 ;
+        lv2:symbol "arp_step_11_on" ;
+        lv2:name "Arp Step 11 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 207 ;
+        lv2:symbol "arp_step_12_on" ;
+        lv2:name "Arp Step 12 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 208 ;
+        lv2:symbol "arp_step_13_on" ;
+        lv2:name "Arp Step 13 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 209 ;
+        lv2:symbol "arp_step_14_on" ;
+        lv2:name "Arp Step 14 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+         lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+   ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 210 ;
+        lv2:symbol "arp_step_15_on" ;
+        lv2:name "Arp Step 15 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 211 ;
+        lv2:symbol "arp_step_16_on" ;
+        lv2:name "Arp Step 16 On" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_ON ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 212 ;
+        lv2:symbol "arp_step_1_mod_1" ;
+        lv2:name "Arp Step 1 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 213 ;
+        lv2:symbol "arp_step_2_mod_1" ;
+        lv2:name "Arp Step 2 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 214 ;
+        lv2:symbol "arp_step_3_mod_1" ;
+        lv2:name "Arp Step 3 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 215 ;
+        lv2:symbol "arp_step_4_mod_1" ;
+        lv2:name "Arp Step 4 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 216 ;
+        lv2:symbol "arp_step_5_mod_1" ;
+        lv2:name "Arp Step 5 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 217 ;
+        lv2:symbol "arp_step_6_mod_1" ;
+        lv2:name "Arp Step 6 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 218 ;
+        lv2:symbol "arp_step_7_mod_1" ;
+        lv2:name "Arp Step 7 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 219 ;
+        lv2:symbol "arp_step_8_mod_1" ;
+        lv2:name "Arp Step 8 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 220 ;
+        lv2:symbol "arp_step_9_mod_1" ;
+        lv2:name "Arp Step 9 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 221 ;
+        lv2:symbol "arp_step_10_mod_1" ;
+        lv2:name "Arp Step 10 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 222 ;
+        lv2:symbol "arp_step_11_mod_1" ;
+        lv2:name "Arp Step 11 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 223 ;
+        lv2:symbol "arp_step_12_mod_1" ;
+        lv2:name "Arp Step 12 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 224 ;
+        lv2:symbol "arp_step_13_mod_1" ;
+        lv2:name "Arp Step 13 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 225 ;
+        lv2:symbol "arp_step_14_mod_1" ;
+        lv2:name "Arp Step 14 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 226 ;
+        lv2:symbol "arp_step_15_mod_1" ;
+        lv2:name "Arp Step 15 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 227 ;
+        lv2:symbol "arp_step_16_mod_1" ;
+        lv2:name "Arp Step 16 Mod 1" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD1 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 228 ;
+        lv2:symbol "arp_step_1_mod_2" ;
+        lv2:name "Arp Step 1 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 229 ;
+        lv2:symbol "arp_step_2_mod_2" ;
+        lv2:name "Arp Step 2 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 230 ;
+        lv2:symbol "arp_step_3_mod_2" ;
+        lv2:name "Arp Step 3 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 231 ;
+        lv2:symbol "arp_step_4_mod_2" ;
+        lv2:name "Arp Step 4 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 232 ;
+        lv2:symbol "arp_step_5_mod_2" ;
+        lv2:name "Arp Step 5 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 233 ;
+        lv2:symbol "arp_step_6_mod_2" ;
+        lv2:name "Arp Step 6 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 234 ;
+        lv2:symbol "arp_step_7_mod_2" ;
+        lv2:name "Arp Step 7 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 235 ;
+        lv2:symbol "arp_step_8_mod_2" ;
+        lv2:name "Arp Step 8 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 236 ;
+        lv2:symbol "arp_step_9_mod_2" ;
+        lv2:name "Arp Step 9 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 237 ;
+        lv2:symbol "arp_step_10_mod_2" ;
+        lv2:name "Arp Step 10 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 238 ;
+        lv2:symbol "arp_step_11_mod_2" ;
+        lv2:name "Arp Step 11 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 239 ;
+        lv2:symbol "arp_step_12_mod_2" ;
+        lv2:name "Arp Step 12 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 240 ;
+        lv2:symbol "arp_step_13_mod_2" ;
+        lv2:name "Arp Step 13 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 241 ;
+        lv2:symbol "arp_step_14_mod_2" ;
+        lv2:name "Arp Step 14 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 242 ;
+        lv2:symbol "arp_step_15_mod_2" ;
+        lv2:name "Arp Step 15 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 243 ;
+        lv2:symbol "arp_step_16_mod_2" ;
+        lv2:name "Arp Step 16 Mod 2" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_MOD2 ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 244 ;
+        lv2:symbol "arp_step_1_transpose" ;
+        lv2:name "Arp Step 1 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 245 ;
+        lv2:symbol "arp_step_2_transpose" ;
+        lv2:name "Arp Step 2 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 246 ;
+        lv2:symbol "arp_step_3_transpose" ;
+        lv2:name "Arp Step 3 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 247 ;
+        lv2:symbol "arp_step_4_transpose" ;
+        lv2:name "Arp Step 4 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 248 ;
+        lv2:symbol "arp_step_5_transpose" ;
+        lv2:name "Arp Step 5 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 249 ;
+        lv2:symbol "arp_step_6_transpose" ;
+        lv2:name "Arp Step 6 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 250 ;
+        lv2:symbol "arp_step_7_transpose" ;
+        lv2:name "Arp Step 7 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 251 ;
+        lv2:symbol "arp_step_8_transpose" ;
+        lv2:name "Arp Step 8 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 252 ;
+        lv2:symbol "arp_step_9_transpose" ;
+        lv2:name "Arp Step 9 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 253 ;
+        lv2:symbol "arp_step_10_transpose" ;
+        lv2:name "Arp Step 10 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 254 ;
+        lv2:symbol "arp_step_11_transpose" ;
+        lv2:name "Arp Step 11 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 255 ;
+        lv2:symbol "arp_step_12_transpose" ;
+        lv2:name "Arp Step 12 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 256 ;
+        lv2:symbol "arp_step_13_transpose" ;
+        lv2:name "Arp Step 13 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 257 ;
+        lv2:symbol "arp_step_14_transpose" ;
+        lv2:name "Arp Step 14 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 258 ;
+        lv2:symbol "arp_step_15_transpose" ;
+        lv2:name "Arp Step 15 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 259 ;
+        lv2:symbol "arp_step_16_transpose" ;
+        lv2:name "Arp Step 16 Transpose" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_TRANS ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 260 ;
+        lv2:symbol "arp_mod_transpose" ;
+        lv2:name "Arp Mod Transpose" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_SETUP ;
+	    lv2:displayPriority 0 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 261 ;
+        lv2:symbol "arpeggiator_on" ;
+        lv2:name "Arpeggiator On" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_SETUP ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 262 ;
+        lv2:symbol "arpeggiator_oneshot" ;
+        lv2:name "Arpeggiator OneShot" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_ARP_SETUP ;
+	    lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ;
+
+    doap:name "Odin2" ;
+    doap:maintainer [ foaf:name "TheWaveWarden" ] .
+
+plug:G_OSC1
+    a pg:ControlGroup ;
+    lv2:name "OSC1" ;
+    lv2:symbol "g_osc1" ;
+    lv2:displayPriority 92 .
+
+plug:G_OSC2
+    a pg:ControlGroup ;
+    lv2:name "OSC2" ;
+    lv2:symbol "g_osc2" ;
+    lv2:displayPriority 91 .
+
+plug:G_OSC3
+    a pg:ControlGroup ;
+    lv2:name "OSC3" ;
+    lv2:symbol "g_osc3" ;
+    lv2:displayPriority 90 .
+
+plug:G_FIL1MAIN
+    a pg:ControlGroup ;
+    lv2:name "Filter 1 - Main" ;
+    lv2:symbol "g_fil1main" ;
+    lv2:displayPriority 78 .
+
+plug:G_FIL1MOD
+    a pg:ControlGroup ;
+    lv2:name "Filter 1 - Mod" ;
+    lv2:symbol "g_fil1mod" ;
+    lv2:displayPriority 77 .
+
+plug:G_FIL1SPEC
+    a pg:ControlGroup ;
+    lv2:name "Filter 1 - Special" ;
+    lv2:symbol "g_fil1spec" ;
+    lv2:displayPriority 76 .
+
+plug:G_FIL2MAIN
+    a pg:ControlGroup ;
+    lv2:name "Filter 2 - Main" ;
+    lv2:symbol "g_fil2main" ;
+    lv2:displayPriority 75 .
+
+plug:G_FIL2MOD
+    a pg:ControlGroup ;
+    lv2:name "Filter 2 - Mod" ;
+    lv2:symbol "g_fil2mod" ;
+    lv2:displayPriority 74 .
+
+plug:G_FIL2SPEC
+    a pg:ControlGroup ;
+    lv2:name "Filter 2 - Special" ;
+    lv2:symbol "g_fil2spec" ;
+    lv2:displayPriority 73 .
+
+plug:G_FIL3MAIN
+    a pg:ControlGroup ;
+    lv2:name "Filter 3 - Main" ;
+    lv2:symbol "g_fil3main" ;
+    lv2:displayPriority 72 .
+
+plug:G_FIL3MOD
+    a pg:ControlGroup ;
+    lv2:name "Filter 3 - Mod" ;
+    lv2:symbol "g_fil3mod" ;
+    lv2:displayPriority 71 .
+
+plug:G_FIL3SPEC
+    a pg:ControlGroup ;
+    lv2:name "Filter 3 - Special" ;
+    lv2:symbol "g_fil3spec" ;
+    lv2:displayPriority 70 .
+
+plug:G_ROUTFIL1
+    a pg:ControlGroup ;
+    lv2:name "Routing - Filter 1" ;
+    lv2:symbol "g_routfil1" ;
+    lv2:displayPriority 60 .
+
+plug:G_ROUTFIL2
+    a pg:ControlGroup ;
+    lv2:name "Routing - Filter 2" ;
+    lv2:symbol "g_routfil2" ;
+    lv2:displayPriority 60 .
+
+plug:G_AMP
+    a pg:ControlGroup ;
+    lv2:name "Amp" ;
+    lv2:symbol "g_amp" ;
+    lv2:displayPriority 51 .
+
+plug:G_DIST
+    a pg:ControlGroup ;
+    lv2:name "Distortion" ;
+    lv2:symbol "g_dist" ;
+    lv2:displayPriority 50 .
+
+plug:G_AMPENV
+    a pg:ControlGroup ;
+    lv2:name "Envelope Amp" ;
+    lv2:symbol "g_ampenv" ;
+    lv2:displayPriority 44 .
+
+plug:G_FILENV
+    a pg:ControlGroup ;
+    lv2:name "Envelope Filter" ;
+    lv2:symbol "g_filenv" ;
+    lv2:displayPriority 43 .
+
+plug:G_MODENV
+    a pg:ControlGroup ;
+    lv2:name "Envelope Mod" ;
+    lv2:symbol "g_modenv" ;
+    lv2:displayPriority 42 .
+
+plug:G_GLOBENV
+    a pg:ControlGroup ;
+    lv2:name "Envelope Global" ;
+    lv2:symbol "g_globenv" ;
+    lv2:displayPriority 41 .
+
+plug:G_ENVLOOP
+    a pg:ControlGroup ;
+    lv2:name "Envelope Loop" ;
+    lv2:symbol "g_envloop" ;
+    lv2:displayPriority 40 .
+
+plug:G_LFO1
+    a pg:ControlGroup ;
+    lv2:name "LFO - 1-2" ;
+    lv2:symbol "g_lfo1" ;
+    lv2:displayPriority 30 .
+
+plug:G_LFO2
+    a pg:ControlGroup ;
+    lv2:name "LFO - 3-4" ;
+    lv2:symbol "g_lfo2" ;
+    lv2:displayPriority 30 .
+
+plug:G_FIL2AMP
+    a pg:ControlGroup ;
+    lv2:name "Filter to Amp" ;
+    lv2:symbol "g_fil2amp" ;
+    lv2:displayPriority 21 .
+
+plug:G_GLOBAL
+    a pg:ControlGroup ;
+    lv2:name "Global" ;
+    lv2:symbol "g_global" ;
+    lv2:displayPriority 80 .
+
+plug:G_XYPAD
+    a pg:ControlGroup ;
+    lv2:name "XY-Pad" ;
+    lv2:symbol "g_xypad" ;
+    lv2:displayPriority 20 .
+
+plug:G_FXDELAY
+    a pg:ControlGroup ;
+    lv2:name "FX Delay" ;
+    lv2:symbol "g_fxdelay" ;
+    lv2:displayPriority 14 .
+
+plug:G_FXREVERB
+    a pg:ControlGroup ;
+    lv2:name "FX Reverb" ;
+    lv2:symbol "g_fxreverb" ;
+    lv2:displayPriority 13 .
+
+plug:G_FXPHASER
+    a pg:ControlGroup ;
+    lv2:name "FX Phaser" ;
+    lv2:symbol "g_fxphaser" ;
+    lv2:displayPriority 12 .
+
+plug:G_FXFLANGER
+    a pg:ControlGroup ;
+    lv2:name "FX Flanger" ;
+    lv2:symbol "g_fxflanger" ;
+    lv2:displayPriority 11 .
+
+plug:G_FXCHORUS
+    a pg:ControlGroup ;
+    lv2:name "FX Chorus" ;
+    lv2:symbol "g_fxchorus" ;
+    lv2:displayPriority 10 .
+
+plug:G_ARP_ON
+    a pg:ControlGroup ;
+    lv2:name "Arp On/Off" ;
+    lv2:symbol "g_arp_on" ;
+    lv2:displayPriority 4 .
+
+plug:G_ARP_MOD1
+    a pg:ControlGroup ;
+    lv2:name "Arp Mod1" ;
+    lv2:symbol "g_arp_mod1" ;
+    lv2:displayPriority 3 .
+
+plug:G_ARP_MOD2
+    a pg:ControlGroup ;
+    lv2:name "Arp Mod2" ;
+    lv2:symbol "g_arp_mod2" ;
+    lv2:displayPriority 2 .
+
+plug:G_ARP_TRANS
+    a pg:ControlGroup ;
+    lv2:name "Arp Transpose" ;
+    lv2:symbol "g_arp_trans" ;
+    lv2:displayPriority 1 .
+
+plug:G_ARP_SETUP
+    a pg:ControlGroup ;
+    lv2:name "Arp Setup" ;
+    lv2:symbol "g_arp_setup" ;
+    lv2:displayPriority 0 .
