@@ -1,0 +1,1147 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix doap: <http://usefulinc.com/ns/doap#>.
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#>.
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix urid: <http://lv2plug.in/ns/ext/urid#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <http://github.com/nicklan/drmr#> .
+
+plug:G101_GLOBAL
+	a pg:InputGroup;
+	lv2:index 1 ;
+    lv2:displayPriority 999 ;
+	lv2:name "Global" ;
+	lv2:symbol "g101_global" .
+
+plug:G102_SAMPLES
+	a pg:InputGroup;
+	lv2:index 2 ;
+    lv2:displayPriority 899 ;
+	lv2:name "Samples 1, 2" ;
+	lv2:symbol "g102_samples" .
+
+plug:G103_SAMPLES
+	a pg:InputGroup;
+	lv2:index 3 ;
+    lv2:displayPriority 898 ;
+	lv2:name "Samples 3, 4" ;
+	lv2:symbol "g103_samples" .
+
+plug:G104_SAMPLES
+	a pg:InputGroup;
+	lv2:index 4 ;
+    lv2:displayPriority 897 ;
+	lv2:name "Samples 5, 6" ;
+	lv2:symbol "g104_samples" .
+
+plug:G105_SAMPLES
+	a pg:InputGroup;
+	lv2:index 5 ;
+    lv2:displayPriority 896 ;
+	lv2:name "Samples 7, 8" ;
+	lv2:symbol "g105_samples" .
+
+plug:G106_SAMPLES
+	a pg:InputGroup;
+	lv2:index 6 ;
+    lv2:displayPriority 895 ;
+	lv2:name "Samples 9, 10" ;
+	lv2:symbol "g106_samples" .
+
+plug:G107_SAMPLES
+	a pg:InputGroup;
+	lv2:index 7 ;
+    lv2:displayPriority 894 ;
+	lv2:name "Samples 11, 12" ;
+	lv2:symbol "g107_samples" .
+
+plug:G108_SAMPLES
+	a pg:InputGroup;
+	lv2:index 8 ;
+    lv2:displayPriority 893 ;
+	lv2:name "Samples 13, 14" ;
+	lv2:symbol "g108_samples" .
+
+plug:G109_SAMPLES
+	a pg:InputGroup;
+	lv2:index 9 ;
+    lv2:displayPriority 892 ;
+	lv2:name "Samples 15, 16" ;
+	lv2:symbol "g109_samples" .
+
+plug:G110_SAMPLES
+	a pg:InputGroup;
+	lv2:index 10 ;
+    lv2:displayPriority 891 ;
+	lv2:name "Samples 17, 18" ;
+	lv2:symbol "g110_samples" .
+
+plug:G111_SAMPLES
+	a pg:InputGroup;
+	lv2:index 11 ;
+    lv2:displayPriority 890 ;
+	lv2:name "Samples 19, 20" ;
+	lv2:symbol "g111_samples" .
+
+plug:G112_SAMPLES
+	a pg:InputGroup;
+	lv2:index 12 ;
+    lv2:displayPriority 889 ;
+	lv2:name "Samples 21, 22" ;
+	lv2:symbol "g112_samples" .
+
+plug:G113_SAMPLES
+	a pg:InputGroup;
+	lv2:index 13 ;
+    lv2:displayPriority 888 ;
+	lv2:name "Samples 23, 24" ;
+	lv2:symbol "g113_samples" .
+
+plug:G114_SAMPLES
+	a pg:InputGroup;
+	lv2:index 14 ;
+    lv2:displayPriority 887 ;
+	lv2:name "Samples 25, 26" ;
+	lv2:symbol "g114_samples" .
+
+plug:G115_SAMPLES
+	a pg:InputGroup;
+	lv2:index 15 ;
+    lv2:displayPriority 886 ;
+	lv2:name "Samples 27, 28" ;
+	lv2:symbol "g115_samples" .
+
+plug:G116_SAMPLES
+	a pg:InputGroup;
+	lv2:index 16 ;
+    lv2:displayPriority 885 ;
+	lv2:name "Samples 29, 30" ;
+	lv2:symbol "g116_samples" .
+
+plug:G117_SAMPLES
+	a pg:InputGroup;
+	lv2:index 17 ;
+    lv2:displayPriority 884 ;
+	lv2:name "Samples 31, 32" ;
+	lv2:symbol "g117_samples" .
+
+<http://github.com/nicklan/drmr>
+  a lv2:InstrumentPlugin, lv2:Plugin;
+  lv2:binary <drmr.so>;
+  doap:name "DrMr Sampler";
+  doap:maintainer [
+	foaf:name "Nick Lanham" ;
+	foaf:homepage <http://github.com/nick/drmr/wiki> ;
+	foaf:mbox <nick@afternight.org>
+  ] ;
+  doap:license <http://usefulinc.com/doap/licenses/gpl> ;
+  lv2:requiredFeature urid:map ;
+  ui:ui <http://github.com/nicklan/drmr#ui> ;
+  lv2:extensionData <http://lv2plug.in/ns/ext/state#interface> ;
+  lv2:port [
+    a lv2:InputPort , atom:AtomPort;
+    atom:bufferType atom:Sequence ;
+    atom:supports <http://lv2plug.in/ns/ext/midi#MidiEvent> ,
+                  <http://lv2plug.in/ns/ext/atom#Resource> ;
+    lv2:index 0;
+    lv2:symbol "control";
+    lv2:name "Control";
+  ],
+  [
+    a lv2:OutputPort , atom:AtomPort ;
+    atom:bufferType atom:Sequence ;
+    atom:supports <http://lv2plug.in/ns/ext/atom#Resource> ;
+    lv2:index 68 ;
+    lv2:symbol "core_events" ;
+    lv2:name "Core Events"
+  ],
+  [
+    a lv2:AudioPort, lv2:OutputPort;
+    lv2:index 1;
+    lv2:symbol "left";
+    lv2:name "Left";
+  ],
+
+  [
+    a lv2:AudioPort, lv2:OutputPort;
+    lv2:index 2;
+    lv2:symbol "right";
+    lv2:name "Right";
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 3;
+    lv2:symbol "base_note";
+    lv2:name "Midi Base Note";
+    lv2:minimum 21;
+    lv2:maximum 107;
+    lv2:default 36;
+    lv2:portProperty lv2:integer;
+    pg:group plug:G101_GLOBAL ;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 4;
+    pg:group plug:G102_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_one";
+    lv2:name "Gain 01";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 5;
+    pg:group plug:G102_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_two";
+    lv2:name "Gain 02";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 6;
+    pg:group plug:G103_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_three";
+    lv2:name "Gain 03";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 7;
+    pg:group plug:G103_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_four";
+    lv2:name "Gain 04";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 8;
+    pg:group plug:G104_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_five";
+    lv2:name "Gain 05";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 9;
+    pg:group plug:G104_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_six";
+    lv2:name "Gain 06";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 10;
+    pg:group plug:G105_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_seven";
+    lv2:name "Gain 07";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 11;
+    pg:group plug:G105_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_eight";
+    lv2:name "Gain 08";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 12;
+    pg:group plug:G106_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_nine";
+    lv2:name "Gain 09";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 13;
+    pg:group plug:G106_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_ten";
+    lv2:name "Gain 10";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 14;
+    pg:group plug:G107_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_eleven";
+    lv2:name "Gain 11";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ] 
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 15;
+    pg:group plug:G107_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_twelve";
+    lv2:name "Gain 12";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 16;
+    pg:group plug:G108_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_thirteen";
+    lv2:name "Gain 13";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 17;
+    pg:group plug:G108_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_fourteen";
+    lv2:name "Gain 14";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 18;
+    pg:group plug:G109_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_fifteen";
+    lv2:name "Gain 15";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 19;
+    pg:group plug:G109_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_sixteen";
+    lv2:name "Gain 16";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+ [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 20;
+    pg:group plug:G110_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_seventeen";
+    lv2:name "Gain 17";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 21;
+    pg:group plug:G110_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_eighteen";
+    lv2:name "Gain 18";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 22;
+    pg:group plug:G111_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_nineteen";
+    lv2:name "Gain 19";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 23;
+    pg:group plug:G111_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_twenty";
+    lv2:name "Gain 20";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 24;
+    pg:group plug:G112_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_twentyone";
+    lv2:name "Gain 21";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 25;
+    pg:group plug:G112_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_twentytwo";
+    lv2:name "Gain 22";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 26;
+    pg:group plug:G113_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_twentythree";
+    lv2:name "Gain 23";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 27;
+    pg:group plug:G113_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_twentyfour";
+    lv2:name "Gain 24";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 28;
+    pg:group plug:G114_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_twentyfive";
+    lv2:name "Gain 25";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 29;
+    pg:group plug:G114_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_twentysix";
+    lv2:name "Gain 26";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 30;
+    pg:group plug:G115_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_twentyseven";
+    lv2:name "Gain 27";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 31;
+    pg:group plug:G115_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_twentyeight";
+    lv2:name "Gain 28";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 32;
+    pg:group plug:G116_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_twentynine";
+    lv2:name "Gain 29";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 33;
+    pg:group plug:G116_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_thirty";
+    lv2:name "Gain 30";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 34;
+    pg:group plug:G117_SAMPLES ;
+    lv2:displayPriority 500 ;
+    lv2:symbol "gain_thirtyone";
+    lv2:name "Gain 31";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 35;
+    pg:group plug:G117_SAMPLES ;
+    lv2:displayPriority 300 ;
+    lv2:symbol "gain_thirtytwo";
+    lv2:name "Gain 32";
+    lv2:minimum -60.0;
+    lv2:maximum 6.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -60.0
+    ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 36;
+    pg:group plug:G102_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_one";
+    lv2:name "Pan 01";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 37;
+    pg:group plug:G102_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_two";
+    lv2:name "Pan 02";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 38;
+    pg:group plug:G103_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_three";
+    lv2:name "Pan 03";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 39;
+    pg:group plug:G103_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_four";
+    lv2:name "Pan 04";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 40;
+    pg:group plug:G104_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_five";
+    lv2:name "Pan 05";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 41;
+    pg:group plug:G104_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_six";
+    lv2:name "Pan 06";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 42;
+    pg:group plug:G105_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_seven";
+    lv2:name "Pan 07";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 43;
+    pg:group plug:G105_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_eight";
+    lv2:name "Pan 08";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 44;
+    pg:group plug:G106_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_nine";
+    lv2:name "Pan 09";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 45;
+    pg:group plug:G106_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_ten";
+    lv2:name "Pan 10";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 46;
+    pg:group plug:G107_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_eleven";
+    lv2:name "Pan 11";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0; 
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 47;
+    pg:group plug:G107_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_twelve";
+    lv2:name "Pan 12";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 48;
+    pg:group plug:G108_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_thirteen";
+    lv2:name "Pan 13";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 49;
+    pg:group plug:G108_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_fourteen";
+    lv2:name "Pan 14";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 50;
+    pg:group plug:G109_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_fifteen";
+    lv2:name "Pan 15";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 51;
+    pg:group plug:G109_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_sixteen";
+    lv2:name "Pan 16";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ],
+
+ [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 52;
+    pg:group plug:G110_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_seventeen";
+    lv2:name "Pan 17";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 53;
+    pg:group plug:G110_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_eighteen";
+    lv2:name "Pan 18";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 54;
+    pg:group plug:G111_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_nineteen";
+    lv2:name "Pan 19";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 55;
+    pg:group plug:G111_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_twenty";
+    lv2:name "Pan 20";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 56;
+    pg:group plug:G112_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_twentyone";
+    lv2:name "Pan 21";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 57;
+    pg:group plug:G112_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_twentytwo";
+    lv2:name "Pan 22";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 58;
+    pg:group plug:G113_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_twentythree";
+    lv2:name "Pan 23";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 59;
+    pg:group plug:G113_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_twentyfour";
+    lv2:name "Pan 24";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 60;
+    pg:group plug:G114_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_twentyfive";
+    lv2:name "Pan 25";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 61;
+    pg:group plug:G114_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_twentysix";
+    lv2:name "Pan 26";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 62;
+    pg:group plug:G115_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_twentyseven";
+    lv2:name "Pan 27";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 63;
+    pg:group plug:G115_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_twentyeight";
+    lv2:name "Pan 28";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 64;
+    pg:group plug:G116_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_twentynine";
+    lv2:name "Pan 29";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 65;
+    pg:group plug:G116_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_thirty";
+    lv2:name "Pan 30";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 66;
+    pg:group plug:G117_SAMPLES ;
+    lv2:displayPriority 400 ;
+    lv2:symbol "pan_thirtyone";
+    lv2:name "Pan 31";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+    lv2:scalePoint [
+      rdfs:label "-inf" ;
+      rdf:value -1.0
+      ]
+  ],
+
+  [
+    a lv2:ControlPort, lv2:InputPort;
+    lv2:index 67;
+    pg:group plug:G117_SAMPLES ;
+    lv2:displayPriority 200 ;
+    lv2:symbol "pan_thirtytwo";
+    lv2:name "Pan 32";
+    lv2:minimum -1.0;
+    lv2:maximum 1.0;
+    lv2:default 0.0;
+  ].
+
+<http://github.com/nicklan/drmr#ui>
+  a ui:GtkUI ;
+  ui:binary <drmr_ui.so> .

@@ -37,8 +37,9 @@
 
 <http://gareus.org/oss/lv2/zeroconvolv#ir>
 	a lv2:Parameter;
-        mod:fileTypes "wav,flac";
+	mod:fileTypes "wav,flac";
 	rdfs:label "Impulse Response";
+	lv2:displayPriority 400 ;
 	rdfs:range atom:Path.
 
 <http://gareus.org/oss/lv2/zeroconvolv#gain>
@@ -48,7 +49,7 @@
 
 <http://gareus.org/oss/lv2/zeroconvolv#sum_inputs>
 	a lv2:Parameter;
-	rdfs:label "Downmix stereo input (only useful with true-stereo varian)";
+	rdfs:label "Downmix stereo input (only useful with true-stereo variant)";
 	rdfs:range atom:Bool.
 
 <http://gareus.org/oss/lv2/zeroconvolv#predelay>
@@ -77,14 +78,14 @@
 zcpset:noopMono
 	a pset:Preset;
 	lv2:appliesTo <http://gareus.org/oss/lv2/zeroconvolv#Mono>;
-rdfs:seeAlso <presets.ttl> .
+	rdfs:seeAlso <presets.ttl> .
 
 zcpset:noopMonoToStereo
 	a pset:Preset;
 	lv2:appliesTo <http://gareus.org/oss/lv2/zeroconvolv#MonoToStereo>;
-rdfs:seeAlso <presets.ttl> .
+	rdfs:seeAlso <presets.ttl> .
 
 zcpset:noopStereo
 	a pset:Preset;
 	lv2:appliesTo <http://gareus.org/oss/lv2/zeroconvolv#Stereo>;
-rdfs:seeAlso <presets.ttl> .
+	rdfs:seeAlso <presets.ttl> .
