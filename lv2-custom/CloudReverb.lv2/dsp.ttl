@@ -1,0 +1,815 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix bufs:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <http://github.com/xunil-cloud/CloudReverb:> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix time:  <http://lv2plug.in/ns/ext/time#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+plug:InputMix
+	a lv2:Parameter ;
+	rdfs:label "Blend" ;
+	pg:group plug:INPUT_MAIN ;
+	lv2:displayPriority 3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:PreDelay
+	a lv2:Parameter ;
+	rdfs:label "Pre Delay" ;
+	pg:group plug:INPUT_MAIN ;
+	lv2:displayPriority 2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1000 .
+
+plug:HighPass
+	a lv2:Parameter ;
+	rdfs:label "Low Cut" ;
+	pg:group plug:INPUT_FILTER ;
+	lv2:displayPriority 3 ;
+	rdfs:range atom:Float ;
+	lv2:default 20 ;
+	lv2:minimum 20 ;
+	lv2:maximum 1000 .
+
+plug:LowPass
+	a lv2:Parameter ;
+	rdfs:label "High Cut" ;
+	pg:group plug:INPUT_FILTER ;
+	lv2:displayPriority 2 ;
+	rdfs:range atom:Float ;
+	lv2:default 20000 ;
+	lv2:minimum 400 ;
+	lv2:maximum 20000 .
+
+plug:TapCount
+	a lv2:Parameter ;
+	rdfs:label "Tap Count" ;
+	pg:group plug:EARLY_DELAY ;
+	lv2:displayPriority 4 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 1 ;
+	lv2:maximum 50 .
+
+plug:TapLength
+	a lv2:Parameter ;
+	rdfs:label "Length" ;
+	pg:group plug:EARLY_DELAY ;
+	lv2:displayPriority 2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 500 .
+
+plug:TapGain
+	a lv2:Parameter ;
+	rdfs:label "Gain" ;
+	pg:group plug:EARLY_DELAY ;
+	lv2:displayPriority 1 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:TapDecay
+	a lv2:Parameter ;
+	rdfs:label "Decay" ;
+	pg:group plug:EARLY_DELAY ;
+	lv2:displayPriority 0 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:DiffusionEnabled
+	a lv2:Parameter ;
+	rdfs:label "Enabled" ;
+	pg:group plug:EARLY_DIFFUSION ;
+	lv2:displayPriority 11 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:DiffusionStages
+	a lv2:Parameter ;
+	rdfs:label "Stages" ;
+	pg:group plug:EARLY_DIFFUSION ;
+	lv2:displayPriority 10 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 1 ;
+	lv2:maximum 8 .
+
+plug:DiffusionDelay
+	a lv2:Parameter ;
+	rdfs:label "Delay" ;
+	pg:group plug:EARLY_DIFFUSION ;
+	lv2:displayPriority 8 ;
+	rdfs:range atom:Float ;
+	lv2:default 10 ;
+	lv2:minimum 10 ;
+	lv2:maximum 100 .
+
+plug:DiffusionFeedback
+	a lv2:Parameter ;
+	rdfs:label "Feedback" ;
+	pg:group plug:EARLY_DIFFUSION ;
+	lv2:displayPriority 7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:LineCount
+	a lv2:Parameter ;
+	rdfs:label "Delay Lines" ;
+	pg:group plug:ROUTING ;
+	lv2:displayPriority 3 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 1 ;
+	lv2:maximum 12 .
+
+plug:LineDelay
+	a lv2:Parameter ;
+	rdfs:label "Delay" ;
+	pg:group plug:LATE_DELAY ;
+	lv2:displayPriority 9 ;
+	rdfs:range atom:Float ;
+	lv2:default 20 ;
+	lv2:minimum 20 ;
+	lv2:maximum 1000 .
+
+plug:LineDecay
+	a lv2:Parameter ;
+	rdfs:label "Decay" ;
+	pg:group plug:LATE_DELAY ;
+	lv2:displayPriority 8 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0.05 ;
+	lv2:maximum 60 .
+
+plug:LateDiffusionEnabled
+	a lv2:Parameter ;
+	rdfs:label "Enabled" ;
+	pg:group plug:LATE_DIFFUSION ;
+	lv2:displayPriority 10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:LateDiffusionStages
+	a lv2:Parameter ;
+	rdfs:label "Stages" ;
+	pg:group plug:LATE_DIFFUSION ;
+	lv2:displayPriority 9 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 1 ;
+	lv2:maximum 8 .
+
+plug:LateDiffusionDelay
+	a lv2:Parameter ;
+	rdfs:label "Delay" ;
+	pg:group plug:LATE_DIFFUSION ;
+	lv2:displayPriority 7 ;
+	rdfs:range atom:Float ;
+	lv2:default 10 ;
+	lv2:minimum 10 ;
+	lv2:maximum 100 .
+
+plug:LateDiffusionFeedback
+	a lv2:Parameter ;
+	rdfs:label "Feedback" ;
+	pg:group plug:LATE_DIFFUSION ;
+	lv2:displayPriority 6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:PostLowShelfGain
+	a lv2:Parameter ;
+	rdfs:label "LowShelf Gain" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 10 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:PostLowShelfFrequency
+	a lv2:Parameter ;
+	rdfs:label "LowShelf Frequency" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 9 ;
+	rdfs:range atom:Float ;
+	lv2:default 1000 ;
+	lv2:minimum 20 ;
+	lv2:maximum 1000 .
+
+plug:PostHighShelfGain
+	a lv2:Parameter ;
+	rdfs:label "HighShelf Gain" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 8 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:PostHighShelfFrequency
+	a lv2:Parameter ;
+	rdfs:label "HighShelf Frequency" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 7 ;
+	rdfs:range atom:Float ;
+	lv2:default 20000 ;
+	lv2:minimum 400 ;
+	lv2:maximum 20000 .
+
+plug:PostCutoffFrequency
+	a lv2:Parameter ;
+	rdfs:label "Cutoff" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 6 ;
+	rdfs:range atom:Float ;
+	lv2:default 20000 ;
+	lv2:minimum 400 ;
+	lv2:maximum 20000 .
+
+plug:EarlyDiffusionModAmount
+	a lv2:Parameter ;
+	rdfs:label "Mod Amount" ;
+	pg:group plug:EARLY_DIFFUSION ;
+	lv2:displayPriority 6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2.5 .
+
+plug:EarlyDiffusionModRate
+	a lv2:Parameter ;
+	rdfs:label "Mod Rate" ;
+	pg:group plug:EARLY_DIFFUSION ;
+	lv2:displayPriority 5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 5 .
+
+plug:LineModAmount
+	a lv2:Parameter ;
+	rdfs:label "Mod Amount" ;
+	pg:group plug:LATE_DELAY ;
+	lv2:displayPriority 7 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2.5 .
+
+plug:LineModRate
+	a lv2:Parameter ;
+	rdfs:label "Mod Rate" ;
+	pg:group plug:LATE_DELAY ;
+	lv2:displayPriority 6 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 5 .
+
+plug:LateDiffusionModAmount
+	a lv2:Parameter ;
+	rdfs:label "Mod Amount" ;
+	pg:group plug:LATE_DIFFUSION ;
+	lv2:displayPriority 5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2.5 .
+
+plug:LateDiffusionModRate
+	a lv2:Parameter ;
+	rdfs:label "Mod Rate" ;
+	pg:group plug:LATE_DIFFUSION ;
+	lv2:displayPriority 4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 5 .
+
+plug:TapSeed
+	a lv2:Parameter ;
+	rdfs:label "Seed" ;
+	pg:group plug:EARLY_DELAY ;
+	lv2:displayPriority 3 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1e+06 .
+
+plug:DiffusionSeed
+	a lv2:Parameter ;
+	rdfs:label "Seed" ;
+	pg:group plug:EARLY_DIFFUSION ;
+	lv2:displayPriority 9 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1e+06 .
+
+plug:DelaySeed
+	a lv2:Parameter ;
+	rdfs:label "Seed" ;
+	pg:group plug:LATE_DELAY ;
+	lv2:displayPriority 10 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1e+06 .
+
+plug:PostDiffusionSeed
+	a lv2:Parameter ;
+	rdfs:label "Seed" ;
+	pg:group plug:LATE_DIFFUSION ;
+	lv2:displayPriority 8 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1e+06 .
+
+plug:CrossSeed
+	a lv2:Parameter ;
+	rdfs:label "Cross Seed" ;
+	pg:group plug:SETUP ;
+	lv2:displayPriority 3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:DryOut
+	a lv2:Parameter ;
+	rdfs:label "Dry" ;
+	pg:group plug:MIXER ;
+	lv2:displayPriority 3 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:PredelayOut
+	a lv2:Parameter ;
+	rdfs:label "Pre Delay" ;
+	pg:group plug:MIXER ;
+	lv2:displayPriority 2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:EarlyOut
+	a lv2:Parameter ;
+	rdfs:label "Early" ;
+	pg:group plug:MIXER ;
+	lv2:displayPriority 1 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:MainOut
+	a lv2:Parameter ;
+	rdfs:label "Late" ;
+	pg:group plug:MIXER ;
+	lv2:displayPriority 0 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:HiPassEnabled
+	a lv2:Parameter ;
+	rdfs:label "Low Cut Enabled" ;
+	pg:group plug:INPUT_FILTER ;
+	lv2:displayPriority 1 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:LowPassEnabled
+	a lv2:Parameter ;
+	rdfs:label "High Cut Enabled" ;
+	pg:group plug:INPUT_FILTER ;
+	lv2:displayPriority 0 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:LowShelfEnabled
+	a lv2:Parameter ;
+	rdfs:label "LowShelf Enabled" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 5 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:HighShelfEnabled
+	a lv2:Parameter ;
+	rdfs:label "HighShelf Enabled" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 4 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:CutoffEnabled
+	a lv2:Parameter ;
+	rdfs:label "Cutoff Enabled" ;
+	pg:group plug:EQ ;
+	lv2:displayPriority 3 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:LateStageTap
+	a lv2:Parameter ;
+	rdfs:label "Tap Routing" ;
+	pg:group plug:ROUTING ;
+	lv2:displayPriority 2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "Pre" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Post" ;
+		rdf:value 1 ;
+	] .
+
+plug:Interpolation
+	a lv2:Parameter ;
+	rdfs:label "Interpolation" ;
+	pg:group plug:SETUP ;
+	lv2:displayPriority 2 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:EARLY_DELAY
+	a pg:ControlGroup ;
+	lv2:name "Early Tap Delay" ;
+	lv2:symbol "early_delay" ;
+	lv2:displayPriority 9 .
+plug:EARLY_DIFFUSION
+	a pg:ControlGroup ;
+	lv2:name "Early Diffusion" ;
+	lv2:symbol "early_diffusion" ;
+	lv2:displayPriority 8 .
+plug:LATE_DELAY
+	a pg:ControlGroup ;
+	lv2:name "Late Delay" ;
+	lv2:symbol "late_delay" ;
+	lv2:displayPriority 7 .
+plug:LATE_DIFFUSION
+	a pg:ControlGroup ;
+	lv2:name "Late Diffusion" ;
+	lv2:symbol "late_diffusion" ;
+	lv2:displayPriority 6 .
+plug:EQ
+	a pg:ControlGroup ;
+	lv2:name "EQ" ;
+	lv2:symbol "eq" ;
+	lv2:displayPriority 5 .
+plug:INPUT_MAIN
+	a pg:ControlGroup ;
+	lv2:name "Input Main" ;
+	lv2:symbol "input_main" ;
+	lv2:displayPriority 4 .
+plug:INPUT_FILTER
+	a pg:ControlGroup ;
+	lv2:name "Input Filter" ;
+	lv2:symbol "input_filter" ;
+	lv2:displayPriority 3 .
+plug:ROUTING
+	a pg:ControlGroup ;
+	lv2:name "Routing" ;
+	lv2:symbol "routing" ;
+	lv2:displayPriority 2 .
+plug:MIXER
+	a pg:ControlGroup ;
+	lv2:name "Mixer" ;
+	lv2:symbol "mixer" ;
+	lv2:displayPriority 1 .
+plug:SETUP
+	a pg:ControlGroup ;
+	lv2:name "Setup" ;
+	lv2:symbol "setup" ;
+	lv2:displayPriority 0 .
+
+plug:input_group_1
+	a pg:InputGroup ;
+	lv2:name "Input" ;
+	lv2:symbol "input_group_1" .
+
+plug:output_group_1
+	a pg:OutputGroup ;
+	lv2:name "Output" ;
+	lv2:symbol "output_group_1" .
+
+<http://github.com/xunil-cloud/CloudReverb>
+	ui:ui <http://github.com/xunil-cloud/CloudReverb:UI> ;
+	a lv2:ReverbPlugin, lv2:Plugin ;
+	doap:name "CloudReverb" ;
+	doap:description "Algorithmic reverb. The algorithm is borrowed from CloudSeed VST by Valdemar Erlingsson." ;
+	lv2:minorVersion 0 ;
+	lv2:microVersion 3 ;
+	doap:maintainer [
+		a foaf:Person ;
+		foaf:name "BensonC" ;
+		foaf:homepage <> ;
+		foaf:mbox <> ;
+	] ;
+	doap:release [
+		a doap:Version ;
+		doap:revision "0.3" ;
+	] ;
+	lv2:optionalFeature
+		lv2:hardRTCapable ;
+	lv2:extensionData
+		state:interface ;
+	lv2:requiredFeature
+		urid:map ,
+		opts:options ,
+		bufs:boundedBlockLength ;
+	pg:mainInput plug:input_group_1 ;
+	pg:mainOutput plug:output_group_1 ;
+	patch:writable
+		plug:InputMix ,
+		plug:PreDelay ,
+		plug:HighPass ,
+		plug:LowPass ,
+		plug:TapCount ,
+		plug:TapLength ,
+		plug:TapGain ,
+		plug:TapDecay ,
+		plug:DiffusionEnabled ,
+		plug:DiffusionStages ,
+		plug:DiffusionDelay ,
+		plug:DiffusionFeedback ,
+		plug:LineCount ,
+		plug:LineDelay ,
+		plug:LineDecay ,
+		plug:LateDiffusionEnabled ,
+		plug:LateDiffusionStages ,
+		plug:LateDiffusionDelay ,
+		plug:LateDiffusionFeedback ,
+		plug:PostLowShelfGain ,
+		plug:PostLowShelfFrequency ,
+		plug:PostHighShelfGain ,
+		plug:PostHighShelfFrequency ,
+		plug:PostCutoffFrequency ,
+		plug:EarlyDiffusionModAmount ,
+		plug:EarlyDiffusionModRate ,
+		plug:LineModAmount ,
+		plug:LineModRate ,
+		plug:LateDiffusionModAmount ,
+		plug:LateDiffusionModRate ,
+		plug:TapSeed ,
+		plug:DiffusionSeed ,
+		plug:DelaySeed ,
+		plug:PostDiffusionSeed ,
+		plug:CrossSeed ,
+		plug:DryOut ,
+		plug:PredelayOut ,
+		plug:EarlyOut ,
+		plug:MainOut ,
+		plug:HiPassEnabled ,
+		plug:LowPassEnabled ,
+		plug:LowShelfEnabled ,
+		plug:HighShelfEnabled ,
+		plug:CutoffEnabled ,
+		plug:LateStageTap ,
+		plug:Interpolation ;
+	patch:readable
+		plug:InputMix ,
+		plug:PreDelay ,
+		plug:HighPass ,
+		plug:LowPass ,
+		plug:TapCount ,
+		plug:TapLength ,
+		plug:TapGain ,
+		plug:TapDecay ,
+		plug:DiffusionEnabled ,
+		plug:DiffusionStages ,
+		plug:DiffusionDelay ,
+		plug:DiffusionFeedback ,
+		plug:LineCount ,
+		plug:LineDelay ,
+		plug:LineDecay ,
+		plug:LateDiffusionEnabled ,
+		plug:LateDiffusionStages ,
+		plug:LateDiffusionDelay ,
+		plug:LateDiffusionFeedback ,
+		plug:PostLowShelfGain ,
+		plug:PostLowShelfFrequency ,
+		plug:PostHighShelfGain ,
+		plug:PostHighShelfFrequency ,
+		plug:PostCutoffFrequency ,
+		plug:EarlyDiffusionModAmount ,
+		plug:EarlyDiffusionModRate ,
+		plug:LineModAmount ,
+		plug:LineModRate ,
+		plug:LateDiffusionModAmount ,
+		plug:LateDiffusionModRate ,
+		plug:TapSeed ,
+		plug:DiffusionSeed ,
+		plug:DelaySeed ,
+		plug:PostDiffusionSeed ,
+		plug:CrossSeed ,
+		plug:DryOut ,
+		plug:PredelayOut ,
+		plug:EarlyOut ,
+		plug:MainOut ,
+		plug:HiPassEnabled ,
+		plug:LowPassEnabled ,
+		plug:LowShelfEnabled ,
+		plug:HighShelfEnabled ,
+		plug:CutoffEnabled ,
+		plug:LateStageTap ,
+		plug:Interpolation ;
+	lv2:port [
+		a lv2:InputPort , lv2:AudioPort ;
+		lv2:index 0 ;
+		lv2:symbol "audio_in_1" ;
+		lv2:name "Audio In 1" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:InputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_in_2" ;
+		lv2:name "Audio In 2" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 2 ;
+		lv2:symbol "audio_out_1" ;
+		lv2:name "Audio Out 1" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 3 ;
+		lv2:symbol "audio_out_2" ;
+		lv2:name "Audio Out 2" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:InputPort , atom:AtomPort ;
+		rsz:minimumSize 11504 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			patch:Message ,
+			time:Position ;
+		lv2:designation lv2:control ;
+		lv2:index 4 ;
+		lv2:symbol "in" ;
+		lv2:name "In" ;
+	] , [
+		a lv2:OutputPort , atom:AtomPort ;
+		rsz:minimumSize 11504 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			patch:Message ;
+		lv2:designation lv2:control ;
+		lv2:index 5 ;
+		lv2:symbol "out" ;
+		lv2:name "Out" ;
+	] , [
+		a lv2:OutputPort , lv2:ControlPort ;
+		lv2:designation lv2:latency ;
+		lv2:symbol "latency" ;
+		lv2:name "Latency" ;
+		lv2:index 6 ;
+		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
+		units:unit units:frame ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:freeWheeling ;
+		lv2:symbol "freeWheeling" ;
+		lv2:name "Free Wheeling" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 7 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:enabled ;
+		lv2:symbol "enabled" ;
+		lv2:name "Enabled" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 8 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] ;
+	opts:supportedOption
+		bufs:maxBlockLength .

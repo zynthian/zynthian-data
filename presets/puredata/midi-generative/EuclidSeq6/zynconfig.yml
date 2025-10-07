@@ -2,69 +2,278 @@ main_file: "main"
 
 # New flag to explicitly request EuclidSeq widget
 use_euclidseq_widget: true
+osc_zctrls: true
 
 
-midi_controllers:
-
+General:
  Volume:
-  midi_cc: 7
-  value: 60
+  osc_path: "/zctrl/vol"
+  value_min: 0
+  value_max: 100
+  value: 50
+ Start/Clock:
+  osc_path: "/zctrl/clock"
+  labels: ["Off", "Start", "MIDI"]
+  ticks: [1,2,3]
+  value_min: 1
+  value_max: 3
+  value: 1
+ Tempo BPM:
+  osc_path: "/zctrl/tempo"
+  value_min: 10
+  value_max: 420
+  value: 200
 
- Start/Stop: 
-   midi_cc: 74
-   value: 'Stop'
-   labels: [ 'Stop', 'Start' ]
-
+Global:   
  Upper 3:
-  midi_cc: 76
-  value: 'Kit1'
-  labels: [ 'Kit1', 'Kit2', 'MIDI Out' ]
-
+  osc_path: "/zctrl/upper"
+  labels: ["Silent", "Kit1", "Kit2", "MIDI Out"]
+  ticks: [1,2,3,4]
+  value_min: 1
+  value_max: 4
+  value: 2
  Lower 3:
-  midi_cc: 77
-  value: 'Tones'
-  labels: [ 'Tones', 'Toms', 'MIDI Out' ]
-
-  
-
- Channel:
-  midi_cc: 114
-  value: '1'
-  labels: [ '1', '2', '3', '4', '5', '6']
-
- Note:
-  midi_cc: 72
-  value: 60
-
+  osc_path: "/zctrl/lower"
+  labels: ["Silent", "Tones", "Toms", "MIDI Out"]
+  ticks: [1,2,3,4]
+  value_min: 1
+  value_max: 4
+  value: 2 
  Mode:
-  midi_cc: 18
-  value: 'Euclidean'
-  labels: [ 'Polygon', 'Interval', 'Euclidean' ]
-
- Lengh:
-  midi_cc: 19
-  value: 4
-
- Hits:
-  midi_cc: 16
-  value: 4
- 
-
- Offset:
-  midi_cc: 17
-  value: 0
-  
- Interval:
-  midi_cc: 91
-  value: 4
-
- Mute:
-  midi_cc: 79
+  osc_path: "/zctrl/mode"
+  labels: ["Euclidean", "Interval", "Polygon"]
+  ticks: [1,2,3]
+  value_min: 1
+  value_max: 3
+  value: 1
+ Channel:
+  osc_path: "/zctrl/ch"
+  labels: ["1", "2", "3", "4", "5", "6"]
+  ticks: [0,1,2,3,4,5]
+  value_min: 0
+  value_max: 5
   value: 0
 
+Channel 1A:
+ Length 1:
+  osc_path: "/zctrl/limit_1"
+  value_min: 1
+  value_max: 32
+  value: 16
+ Hits 1:
+  osc_path: "/zctrl/hits_1"
+  value_min: 0
+  value_max: 32
+  value: 4
+ Offset 1:
+  osc_path: "/zctrl/offset_1"
+  value_min: 0
+  value_max: 15
+  value: 0
+ Interval 1:
+  osc_path: "/zctrl/interval_val_1"
+  value_min: 1
+  value_max: 16
+  value: 4
 
- Tempo:
-  midi_cc: 71
-  value: 60
-  
- 
+Channel 1B:
+ Note 1:
+  osc_path: "/zctrl/note_num_1"
+  value_min: 1
+  value_max: 128
+  value: 36
+ Mute 1:
+  osc_path: "/zctrl/mute_1"
+  labels: ["OFF", "ON", "NULL"]
+  ticks: [0,1,2]
+  value_min: 0
+  value_max: 1
+  value: 0   
+
+
+
+
+
+
+
+Channel 2A:
+ Length 2:
+  osc_path: "/zctrl/limit_2"
+  value_min: 1
+  value_max: 32
+  value: 20
+ Hits 2:
+  osc_path: "/zctrl/hits_2"
+  value_min: 0
+  value_max: 32
+  value: 3
+ Offset 2:
+  osc_path: "/zctrl/offset_2"
+  value_min: 0
+  value_max: 15
+  value: 0
+ Interval 2:
+  osc_path: "/zctrl/interval_val_2"
+  value_min: 1
+  value_max: 16
+  value: 0
+
+Channel 2B:
+ Note 2:
+  osc_path: "/zctrl/note_num_2"
+  value_min: 1
+  value_max: 128
+  value: 40
+ Mute 2:
+  osc_path: "/zctrl/mute_2"
+  labels: ["OFF", "ON", "NULL"]
+  ticks: [0,1,2]
+  value_min: 0
+  value_max: 1
+  value: 0   
+
+Channel 3A:
+ Length 3:
+  osc_path: "/zctrl/limit_3"
+  value_min: 1
+  value_max: 32
+  value: 16
+ Hits 3:
+  osc_path: "/zctrl/hits_3"
+  value_min: 0
+  value_max: 32
+  value: 10
+
+ Offset 3:
+  osc_path: "/zctrl/offset_3"
+  value_min: 0
+  value_max: 15
+  value: 0
+ Interval 3:
+  osc_path: "/zctrl/interval_val_3"
+  value_min: 1
+  value_max: 16
+  value: 0
+
+Channel 3B:
+ Note 3:
+  osc_path: "/zctrl/note_num_3"
+  value_min: 1
+  value_max: 128
+  value: 51
+ Mute 3:
+  osc_path: "/zctrl/mute_3"
+  labels: ["OFF", "ON", "NULL"]
+  ticks: [0,1,2]
+  value_min: 0
+  value_max: 1
+  value: 0   
+
+
+Channel 4A:
+ Length 4:
+  osc_path: "/zctrl/limit_4"
+  value_min: 1
+  value_max: 32
+  value: 13
+ Hits 4:
+  osc_path: "/zctrl/hits_4"
+  value_min: 0
+  value_max: 32
+  value: 8
+ Offset 4:
+  osc_path: "/zctrl/offset_4"
+  value_min: 0
+  value_max: 15
+  value: 0
+ Interval 4:
+  osc_path: "/zctrl/interval_val_4"
+  value_min: 1
+  value_max: 16
+  value: 0
+
+Channel 4B:
+ Note 4:
+  osc_path: "/zctrl/note_num_4"
+  value_min: 1
+  value_max: 128
+  value: 45
+ Mute 4:
+  osc_path: "/zctrl/mute_4"
+  labels: ["OFF", "ON", "NULL"]
+  ticks: [0,1,2]
+  value_min: 0
+  value_max: 1
+  value: 0   
+
+Channel 5A:
+ Length 5:
+  osc_path: "/zctrl/limit_5"
+  value_min: 1
+  value_max: 32
+  value: 19
+ Hits 5:
+  osc_path: "/zctrl/hits_5"
+  value_min: 0
+  value_max: 32
+  value: 5
+ Offset 5:
+  osc_path: "/zctrl/offset_5"
+  value_min: 0
+  value_max: 15
+  value: 0
+ Interval 5:
+  osc_path: "/zctrl/interval_val_5"
+  value_min: 1
+  value_max: 16
+  value: 0
+
+Channel 5B:
+ Note 5:
+  osc_path: "/zctrl/note_num_5"
+  value_min: 1
+  value_max: 128
+  value: 41
+ Mute 5:
+  osc_path: "/zctrl/mute_5"
+  labels: ["OFF", "ON", "NULL"]
+  ticks: [0,1,2]
+  value_min: 0
+  value_max: 1
+  value: 0   
+
+Channel 6A:
+ Length 6:
+  osc_path: "/zctrl/limit_6"
+  value_min: 1
+  value_max: 32
+  value: 16
+ Hits 6:
+  osc_path: "/zctrl/hits_6"
+  value_min: 0
+  value_max: 32
+  value: 3
+ Offset 6:
+  osc_path: "/zctrl/offset_6"
+  value_min: 0
+  value_max: 15
+  value: 0
+ Interval 6:
+  osc_path: "/zctrl/interval_val_6"
+  value_min: 1
+  value_max: 16
+  value: 0
+
+Channel 6B:
+ Note 6:
+  osc_path: "/zctrl/note_num_6"
+  value_min: 1
+  value_max: 128
+  value: 43
+ Mute 6:
+  osc_path: "/zctrl/mute_6"
+  labels: ["OFF", "ON", "NULL"]
+  ticks: [0,1,2]
+  value_min: 0
+  value_max: 1
+  value: 0   
