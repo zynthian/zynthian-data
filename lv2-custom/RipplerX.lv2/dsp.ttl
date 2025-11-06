@@ -76,7 +76,7 @@ plug:a_model
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 8	 ;
+	lv2:maximum 11	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "String" ;
@@ -105,6 +105,15 @@ plug:a_model
 	], [
 		rdfs:label "Closed Tube" ;
 		rdf:value 8 ;
+	], [
+		rdfs:label "Marimba2" ;
+		rdf:value 9 ;
+	], [
+		rdfs:label "Bell" ;
+		rdf:value 10 ;
+	], [
+		rdfs:label "Djembe" ;
+		rdf:value 11 ;
 	] .
 
 plug:a_partials
@@ -115,7 +124,7 @@ plug:a_partials
 	rdfs:range atom:Float ;
 	lv2:default 3 ;
 	lv2:minimum 0 ;
-	lv2:maximum 4	 ;
+	lv2:maximum 6	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "4" ;
@@ -132,6 +141,12 @@ plug:a_partials
 	], [
 		rdfs:label "64" ;
 		rdf:value 4 ;
+	], [
+		rdfs:label "1" ;
+		rdf:value 5 ;
+	], [
+		rdfs:label "2" ;
+		rdf:value 6 ;
 	] .
 
 plug:a_decay
@@ -181,7 +196,7 @@ plug:a_rel
 	rdfs:label "A Release" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
-	lv2:minimum 0 ;
+	lv2:minimum 0.001 ;
 	lv2:maximum 1 .
 
 plug:a_inharm
@@ -210,9 +225,9 @@ plug:a_cut
 	lv2:displayPriority 88 ;
 	rdfs:label "A LowCut" ;
 	rdfs:range atom:Float ;
-	lv2:default 20 ;
-	lv2:minimum 20 ;
-	lv2:maximum 20000 .
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
 
 plug:a_radius
 	a lv2:Parameter ;
@@ -270,7 +285,7 @@ plug:b_model
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 8	 ;
+	lv2:maximum 11	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "String" ;
@@ -299,6 +314,15 @@ plug:b_model
 	], [
 		rdfs:label "Closed Tube" ;
 		rdf:value 8 ;
+	], [
+		rdfs:label "Marimba2" ;
+		rdf:value 9 ;
+	], [
+		rdfs:label "Bell" ;
+		rdf:value 10 ;
+	], [
+		rdfs:label "Djembe" ;
+		rdf:value 11 ;
 	] .
 
 plug:b_partials
@@ -309,7 +333,7 @@ plug:b_partials
 	rdfs:range atom:Float ;
 	lv2:default 3 ;
 	lv2:minimum 0 ;
-	lv2:maximum 4	 ;
+	lv2:maximum 6	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "4" ;
@@ -326,6 +350,12 @@ plug:b_partials
 	], [
 		rdfs:label "64" ;
 		rdf:value 4 ;
+	], [
+		rdfs:label "1" ;
+		rdf:value 5 ;
+	], [
+		rdfs:label "2" ;
+		rdf:value 6 ;
 	] .
 
 plug:b_decay
@@ -375,7 +405,7 @@ plug:b_rel
 	rdfs:label "B Release" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
-	lv2:minimum 0 ;
+	lv2:minimum 0.001 ;
 	lv2:maximum 1 .
 
 plug:b_inharm
@@ -404,9 +434,9 @@ plug:b_cut
 	lv2:displayPriority 68;
 	rdfs:label "B LowCut" ;
 	rdfs:range atom:Float ;
-	lv2:default 20 ;
-	lv2:minimum 20 ;
-	lv2:maximum 20000 .
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
 
 plug:b_radius
 	a lv2:Parameter ;
@@ -508,7 +538,7 @@ plug:noise_att
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
 	lv2:minimum 1 ;
-	lv2:maximum 5000 .
+	lv2:maximum 20000 .
 
 plug:noise_dec
 	a lv2:Parameter ;
@@ -519,7 +549,7 @@ plug:noise_dec
 	rdfs:range atom:Float ;
 	lv2:default 500 ;
 	lv2:minimum 1 ;
-	lv2:maximum 5000 .
+	lv2:maximum 20000 .
 
 plug:noise_sus
 	a lv2:Parameter ;
@@ -549,8 +579,8 @@ plug:vel_mallet_mix
 	lv2:displayPriority 53 ;
 	rdfs:label "Vel Mallet Mix" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_mallet_res
@@ -559,8 +589,8 @@ plug:vel_mallet_res
 	lv2:displayPriority 55 ;
 	rdfs:label "Vel Mallet Resonance" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_mallet_stiff
@@ -569,8 +599,8 @@ plug:vel_mallet_stiff
 	lv2:displayPriority 54 ;
 	rdfs:label "Vel Mallet Stiffness" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_noise_mix
@@ -579,8 +609,8 @@ plug:vel_noise_mix
 	lv2:displayPriority 42 ;
 	rdfs:label "Vel Noise Mix" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_noise_res
@@ -589,8 +619,8 @@ plug:vel_noise_res
 	lv2:displayPriority 43 ;
 	rdfs:label "Vel Noise Resonance" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_a_decay
@@ -599,8 +629,8 @@ plug:vel_a_decay
 	lv2:displayPriority 83;
 	rdfs:label "Vel A Decay" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_a_hit
@@ -609,8 +639,8 @@ plug:vel_a_hit
 	lv2:displayPriority 82;
 	rdfs:label "Vel A Hit" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_a_inharm
@@ -619,8 +649,8 @@ plug:vel_a_inharm
 	lv2:displayPriority 81;
 	rdfs:label "Vel A Inharmonic" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_b_decay
@@ -629,8 +659,8 @@ plug:vel_b_decay
 	lv2:displayPriority 63;
 	rdfs:label "Vel B Decay" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_b_hit
@@ -639,8 +669,8 @@ plug:vel_b_hit
 	lv2:displayPriority 62;
 	rdfs:label "Vel B Hit" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_b_inharm
@@ -649,8 +679,8 @@ plug:vel_b_inharm
 	lv2:displayPriority 61;
 	rdfs:label "Vel B Inharmonic" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:couple
@@ -701,6 +731,11 @@ plug:gain
 	lv2:minimum -24 ;
 	lv2:maximum 24 .
 
+plug:input_group_1
+	a pg:InputGroup ;
+	lv2:name "Sidechain" ;
+	lv2:symbol "input_group_1" .
+
 plug:output_group_1
 	a pg:OutputGroup ;
 	lv2:name "Output" ;
@@ -711,8 +746,8 @@ plug:output_group_1
 	a lv2:InstrumentPlugin ;
 	doap:name "RipplerX" ;
 	doap:description "RipplerX" ;
-	lv2:minorVersion 3 ;
-	lv2:microVersion 4 ;
+	lv2:minorVersion 5 ;
+	lv2:microVersion 18 ;
 	doap:maintainer [
 		a foaf:Person ;
 		foaf:name "Tilr" ;
@@ -721,7 +756,7 @@ plug:output_group_1
 	] ;
 	doap:release [
 		a doap:Version ;
-		doap:revision "1.3.4" ;
+		doap:revision "1.5.18" ;
 	] ;
 	lv2:optionalFeature
 		lv2:hardRTCapable ;
@@ -731,6 +766,7 @@ plug:output_group_1
 		urid:map ,
 		opts:options ,
 		bufs:boundedBlockLength ;
+	pg:mainInput plug:input_group_1 ;
 	pg:mainOutput plug:output_group_1 ;
 	patch:writable
 		plug:mallet_mix ,
@@ -845,39 +881,53 @@ plug:output_group_1
 		plug:ab_split ,
 		plug:gain ;
 	lv2:port [
-		a lv2:OutputPort , lv2:AudioPort ;
+		a lv2:InputPort , lv2:AudioPort ;
 		lv2:index 0 ;
+		lv2:symbol "audio_in_1" ;
+		lv2:name "Audio In 1" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:InputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_in_2" ;
+		lv2:name "Audio In 2" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 2 ;
 		lv2:symbol "audio_out_1" ;
 		lv2:name "Audio Out 1" ;
 		pg:group plug:output_group_1 ;
 		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
 	] , [
 		a lv2:OutputPort , lv2:AudioPort ;
-		lv2:index 1 ;
+		lv2:index 3 ;
 		lv2:symbol "audio_out_2" ;
 		lv2:name "Audio Out 2" ;
 		pg:group plug:output_group_1 ;
 		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
 	] , [
 		a lv2:InputPort , atom:AtomPort ;
-		rsz:minimumSize 12152 ;
+		rsz:minimumSize 13736 ;
 		atom:bufferType atom:Sequence ;
 		atom:supports
 			midi:MidiEvent ,
 			patch:Message ,
 			time:Position ;
 		lv2:designation lv2:control ;
-		lv2:index 2 ;
+		lv2:index 4 ;
 		lv2:symbol "in" ;
 		lv2:name "In" ;
 	] , [
 		a lv2:OutputPort , atom:AtomPort ;
-		rsz:minimumSize 12152 ;
+		rsz:minimumSize 13736 ;
 		atom:bufferType atom:Sequence ;
 		atom:supports
 			patch:Message ;
 		lv2:designation lv2:control ;
-		lv2:index 3 ;
+		lv2:index 5 ;
 		lv2:symbol "out" ;
 		lv2:name "Out" ;
 	] , [
@@ -885,7 +935,7 @@ plug:output_group_1
 		lv2:designation lv2:latency ;
 		lv2:symbol "latency" ;
 		lv2:name "Latency" ;
-		lv2:index 4 ;
+		lv2:index 6 ;
 		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
 		units:unit units:frame ;
 	] , [
@@ -896,7 +946,7 @@ plug:output_group_1
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2:index 5 ;
+		lv2:index 7 ;
 		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
 	] , [
 		a lv2:InputPort , lv2:ControlPort ;
@@ -906,7 +956,7 @@ plug:output_group_1
 		lv2:default 1.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2:index 6 ;
+		lv2:index 8 ;
 		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
 	] ;
 	opts:supportedOption
