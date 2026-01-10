@@ -7,6 +7,7 @@
 @prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
 @prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix pp:   <http://lv2plug.in/ns/ext/port-props#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
 @prefix plug: <urn:juce:TalDub3> .
 
 
@@ -256,6 +257,7 @@
         lv2:index 13 ;
         lv2:symbol "cutoff" ;
         lv2:name "Low Cut" ;
+        lv2:designation param:cutoffFrequency ;
         lv2:default 0.548000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;
@@ -268,6 +270,7 @@
         lv2:index 14 ;
         lv2:symbol "resonance" ;
         lv2:name "Resonance" ;
+        lv2:designation param:resonance ;
         lv2:default 0.432000 ;
         lv2:minimum 0.0 ;
         lv2:maximum 1.0 ;

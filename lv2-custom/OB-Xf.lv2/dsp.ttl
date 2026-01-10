@@ -1,0 +1,1738 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix bufs:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <urn:org.surge-synth-team.OB-Xf-rework:> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix time:  <http://lv2plug.in/ns/ext/time#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+###############################################################################
+# Master PARAMETERS 
+###############################################################################
+
+plug:Volume
+    a lv2:Parameter ;
+    rdfs:label "Volume" ;
+    pg:group plug:paramgroup_Root ;
+    lv2:displayPriority 1000 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.8 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:Transpose
+    a lv2:Parameter ;
+    rdfs:label "Transpose Simitone" ;
+    pg:group plug:paramgroup_Root ;
+    lv2:displayPriority 999 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum -24 ;
+    lv2:maximum 24 .
+
+plug:Tune
+    a lv2:Parameter ;
+    rdfs:label "Tune Cents" ;
+    pg:group plug:paramgroup_Root ;
+    lv2:displayPriority 998 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -100 ;
+    lv2:maximum 100 .
+
+plug:Polyphony
+    a lv2:Parameter ;
+    rdfs:label "Polyphony" ;
+    pg:group plug:paramgroup_Root ;
+    lv2:displayPriority 997 ;
+    rdfs:range atom:Int ;
+    lv2:default 8 ;
+    lv2:minimum 1 ;
+    lv2:maximum 16 .
+
+###############################################################################
+# Global PARAMETERS 
+###############################################################################
+
+plug:HQMode
+    a lv2:Parameter ;
+    rdfs:label "HQ Mode" ;
+    pg:group plug:paramgroup_Global_1 ;
+    lv2:displayPriority 990 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:UnisonVoices
+    a lv2:Parameter ;
+    rdfs:label "Unison Voices" ;
+    pg:group plug:paramgroup_Global_1 ;
+    lv2:displayPriority 989 ;
+    rdfs:range atom:Int ;
+    lv2:default 2 ;
+    lv2:minimum 1 ;
+    lv2:maximum 8 .
+
+plug:Portamento
+    a lv2:Parameter ;
+    rdfs:label "Portamento" ;
+    pg:group plug:paramgroup_Global_2 ;
+    lv2:displayPriority 988 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:Unison
+    a lv2:Parameter ;
+    rdfs:label "Unison" ;
+    pg:group plug:paramgroup_Global_1 ;
+    lv2:displayPriority 987 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:UnisonDetune
+    a lv2:Parameter ;
+    rdfs:label "Unison Detune" ;
+    pg:group plug:paramgroup_Global_1 ;
+    lv2:displayPriority 986 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.25 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:EnvLegatoMode
+    a lv2:Parameter ;
+    rdfs:label "Env Legato Mode" ;
+    pg:group plug:paramgroup_Global_2 ;
+    lv2:displayPriority 985 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 3 ;
+    lv2:scalePoint [ rdfs:label "Both" ; rdf:value 0 ] ,
+                   [ rdfs:label "Filter"  ; rdf:value 1 ] ,
+                   [ rdfs:label "Amp"  ; rdf:value 2 ] ,
+                   [ rdfs:label "Retrig"  ; rdf:value 3 ] .
+
+plug:NotePriority
+    a lv2:Parameter ;
+    rdfs:label "Note Priority" ;
+    pg:group plug:paramgroup_Global_2 ;
+    lv2:displayPriority 984 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 2 ;
+    lv2:scalePoint [ rdfs:label "Last" ; rdf:value 0 ] ,
+                   [ rdfs:label "Low"  ; rdf:value 1 ] ,
+                   [ rdfs:label "High"  ; rdf:value 2 ] .
+
+###############################################################################
+# OSC PARAMETERS 
+###############################################################################
+
+# OSC Pitch
+plug:Osc1Pitch
+    a lv2:Parameter ;
+    rdfs:label "Osc1 Pitch" ;
+    pg:group plug:paramgroup_OSC_Pitch ;
+    lv2:displayPriority 970 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -24.0 ;
+    lv2:maximum 24.0 .
+
+plug:Osc2Detune
+    a lv2:Parameter ;
+    rdfs:label "Osc2 Detune" ;
+    pg:group plug:paramgroup_OSC_Pitch ;
+    lv2:displayPriority 969 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:Osc2Pitch
+    a lv2:Parameter ;
+    rdfs:label "Osc2 Pitch" ;
+    pg:group plug:paramgroup_OSC_Pitch ;
+    lv2:displayPriority 968 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -24.0 ;
+    lv2:maximum 24.0 .
+
+# OSC Waves
+plug:Osc1SawWave
+    a lv2:Parameter ;
+    rdfs:label "Osc1 Saw Wave" ;
+    pg:group plug:paramgroup_OSC_Waves ;
+    lv2:displayPriority 967 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:Osc1PulseWave
+    a lv2:Parameter ;
+    rdfs:label "Osc1 Pulse Wave" ;
+    pg:group plug:paramgroup_OSC_Waves ;
+    lv2:displayPriority 966 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:Osc2SawWave
+    a lv2:Parameter ;
+    rdfs:label "Osc2 Saw Wave" ;
+    pg:group plug:paramgroup_OSC_Waves ;
+    lv2:displayPriority 965 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:Osc2PulseWave
+    a lv2:Parameter ;
+    rdfs:label "Osc2 Pulse Wave" ;
+    pg:group plug:paramgroup_OSC_Waves ;
+    lv2:displayPriority 964 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+# OSC PW
+plug:OscPW
+    a lv2:Parameter ;
+    rdfs:label "Osc PW" ;
+    pg:group plug:paramgroup_OSC_PW ;
+    lv2:displayPriority 960 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.5 ;
+    lv2:minimum 0.5 ;
+    lv2:maximum 0.975 .
+
+plug:Osc2PWOffset
+    a lv2:Parameter ;
+    rdfs:label "Osc2 PW Offset" ;
+    pg:group plug:paramgroup_OSC_PW ;
+    lv2:displayPriority 959 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 0.475 .
+
+# ENV to Pitch
+plug:EnvToPitchAmount
+    a lv2:Parameter ;
+    rdfs:label "Env→Pitch Amt" ;
+    pg:group plug:paramgroup_ENV_Pitch ;
+    lv2:displayPriority 950 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 36.0 .
+
+plug:EnvToPitchBothOscs
+    a lv2:Parameter ;
+    rdfs:label "Env→Pitch Both" ;
+    pg:group plug:paramgroup_ENV_Pitch ;
+    lv2:displayPriority 949 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:EnvToPitchInvert
+    a lv2:Parameter ;
+    rdfs:label "Env→Pitch Invert" ;
+    pg:group plug:paramgroup_ENV_Pitch ;
+    lv2:displayPriority 948 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+# ENV to PW
+plug:EnvToPWAmount
+    a lv2:Parameter ;
+    rdfs:label "Env→PW Amt" ;
+    pg:group plug:paramgroup_ENV_PW ;
+    lv2:displayPriority 890 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:EnvToPWBothOscs
+    a lv2:Parameter ;
+    rdfs:label "Env→PW Both" ;
+    pg:group plug:paramgroup_ENV_PW ;
+    lv2:displayPriority 889 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:EnvToPWInvert
+    a lv2:Parameter ;
+    rdfs:label "Env→PW Invert" ;
+    pg:group plug:paramgroup_ENV_PW ;
+    lv2:displayPriority 888 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+# OSC Common
+plug:OscCrossmod
+    a lv2:Parameter ;
+    rdfs:label "Crossmod" ;
+    pg:group plug:paramgroup_OSC_Common ;
+    lv2:displayPriority 880 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1.0 ;
+    lv2:maximum 1.0 .
+
+plug:OscSync
+    a lv2:Parameter ;
+    rdfs:label "Osc Sync" ;
+    pg:group plug:paramgroup_OSC_Common ;
+    lv2:displayPriority 879 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:OscBrightness
+    a lv2:Parameter ;
+    rdfs:label "Osc Bright" ;
+    pg:group plug:paramgroup_OSC_Common ;
+    lv2:displayPriority 878 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+###############################################################################
+# Mixer PARAMETERS
+###############################################################################
+
+plug:Osc1Mix
+    a lv2:Parameter ;
+    rdfs:label "Osc1 Mix" ;
+    pg:group plug:paramgroup_Mixer_1 ;
+    lv2:displayPriority 850 ;
+    rdfs:range atom:Float ;
+    lv2:default 1.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:Osc2Mix
+    a lv2:Parameter ;
+    rdfs:label "Osc2 Mix" ;
+    pg:group plug:paramgroup_Mixer_1 ;
+    lv2:displayPriority 849 ;
+    rdfs:range atom:Float ;
+    lv2:default 1.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:RingModMix
+    a lv2:Parameter ;
+    rdfs:label "Ring Mod Mix" ;
+    pg:group plug:paramgroup_Mixer_1 ;
+    lv2:displayPriority 848 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:NoiseMix
+    a lv2:Parameter ;
+    rdfs:label "Noise Mix" ;
+    pg:group plug:paramgroup_Mixer_1 ;
+    lv2:displayPriority 847 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:NoiseColor
+    a lv2:Parameter ;
+    rdfs:label "Noise Color" ;
+    pg:group plug:paramgroup_Noise ;
+    lv2:displayPriority 846 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "White" ; rdf:value 0.0 ] ,
+                   [ rdfs:label "Pink"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Brown" ; rdf:value 1.0 ] .
+
+###############################################################################
+# Filter PARAMETERS
+###############################################################################
+
+plug:FilterCutoff
+    a lv2:Parameter ;
+    rdfs:label "Filter Cutoff" ;
+    pg:group plug:paramgroup_Filter_1 ;
+    lv2:designation param:cutoffFrequency ;
+    lv2:displayPriority 790 ;
+    rdfs:range atom:Float ;
+    lv2:default 75 ;
+    lv2:minimum -45 ;
+    lv2:maximum 75 .
+
+plug:FilterResonance
+    a lv2:Parameter ;
+    rdfs:label "Filter Resonance" ;
+    pg:group plug:paramgroup_Filter_1 ;
+    lv2:designation param:resonance ;
+    lv2:displayPriority 789 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+plug:FilterEnvAmount
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Amount" ;
+    pg:group plug:paramgroup_Filter_1 ;
+    lv2:displayPriority 788 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+plug:Filter4PoleMode
+    a lv2:Parameter ;
+    rdfs:label "4-Pole Mode" ;
+    pg:group plug:paramgroup_Filter_1 ;
+    lv2:displayPriority 787 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:FilterKeyFollow
+    a lv2:Parameter ;
+    rdfs:label "Filter Key Follow" ;
+    pg:group plug:paramgroup_Filter_2 ;
+    lv2:displayPriority 786 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+plug:FilterMode
+    a lv2:Parameter ;
+    rdfs:label "Filter Mode" ;
+    pg:group plug:paramgroup_Filter_2 ;
+    lv2:displayPriority 785 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+plug:Filter2PoleBPBlend
+    a lv2:Parameter ;
+    rdfs:label "BP" ;
+    pg:group plug:paramgroup_Filter_2 ;
+    lv2:displayPriority 784 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:Filter2PolePush
+    a lv2:Parameter ;
+    rdfs:label "2-Pole Push" ;
+    pg:group plug:paramgroup_Filter_2 ;
+    lv2:displayPriority 783 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:Filter4PoleXpander 
+    a lv2:Parameter ;
+    rdfs:label "Xpander" ;
+    pg:group plug:paramgroup_Filter_3 ;
+    lv2:displayPriority 782 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+
+
+plug:FilterXpanderMode
+    a lv2:Parameter ;
+    rdfs:label "Filter Xpander Mode" ;
+    pg:group plug:paramgroup_Filter_3 ;
+    lv2:displayPriority 781 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 14 ;
+    lv2:scalePoint [ rdfs:label "LP4" ; rdf:value 0 ] ,
+                   [ rdfs:label "LP3"  ; rdf:value 1 ] ,
+                   [ rdfs:label "LP2" ; rdf:value 2 ] ,
+                   [ rdfs:label "LP1"  ; rdf:value 3 ] ,
+                   [ rdfs:label "HP3"  ; rdf:value 4 ] ,
+                   [ rdfs:label "HP2" ; rdf:value 5 ] ,
+                   [ rdfs:label "HP1"  ; rdf:value 6 ] ,
+                   [ rdfs:label "BP4" ; rdf:value 7 ] ,
+                   [ rdfs:label "BP2"  ; rdf:value 8 ] ,
+                   [ rdfs:label "N2" ; rdf:value 9 ] ,
+                   [ rdfs:label "PH3"  ; rdf:value 10 ] ,
+                   [ rdfs:label "HP2+LP1" ; rdf:value 11 ] ,
+                   [ rdfs:label "HP3+LP1"  ; rdf:value 12 ] ,
+                   [ rdfs:label "N2+LP1" ; rdf:value 13 ] ,
+                   [ rdfs:label "PH3+LP1"  ; rdf:value 14 ] .
+               
+
+
+
+###############################################################################
+# Filter Envelope PARAMETERS
+###############################################################################
+
+plug:FilterEnvAttack
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Attack" ;
+    pg:group plug:paramgroup_FilterEnv_1 ;
+    lv2:designation param:attack ;
+    lv2:displayPriority 700 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+
+plug:FilterEnvDecay
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Decay" ;
+    pg:group plug:paramgroup_FilterEnv_1 ;
+    lv2:designation param:decay ;
+    lv2:displayPriority 699 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.5 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+
+
+plug:FilterEnvSustain
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Sustain" ;
+    pg:group plug:paramgroup_FilterEnv_1 ;
+    lv2:designation param:sustain ;
+    lv2:displayPriority 698 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:FilterEnvRelease
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Release" ;
+    pg:group plug:paramgroup_FilterEnv_1 ;
+    lv2:designation param:release ;
+    lv2:displayPriority 697 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+
+plug:FilterEnvInvert
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Invert" ;
+    pg:group plug:paramgroup_FilterEnv_2 ;
+    lv2:displayPriority 696 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:FilterEnvAttackCurve
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Attack Curve" ;
+    pg:group plug:paramgroup_FilterEnv_2 ;
+    lv2:displayPriority 695 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+plug:VelToFilterEnv
+    a lv2:Parameter ;
+    rdfs:label "Filter Env Vel" ;
+    pg:group plug:paramgroup_FilterEnv_2 ;
+    lv2:displayPriority 694 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+
+
+
+###############################################################################
+# Amp Envelope PARMETERS
+###############################################################################
+
+plug:AmpEnvAttack
+    a lv2:Parameter ;
+    rdfs:label "Amp Env Attack" ;
+    pg:group plug:paramgroup_AmpEnv_1 ;
+    lv2:designation param:attack ;
+    lv2:displayPriority 650 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:AmpEnvDecay
+    a lv2:Parameter ;
+    rdfs:label "Amp Env Decay" ;
+    pg:group plug:paramgroup_AmpEnv_1 ;
+    lv2:designation param:decay ;
+    lv2:displayPriority 649 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+
+plug:AmpEnvSustain
+    a lv2:Parameter ;
+    rdfs:label "Amp Env Sustain" ;
+    pg:group plug:paramgroup_AmpEnv_1 ;
+    lv2:designation param:sustain ;
+    lv2:displayPriority 648 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.5 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+
+plug:AmpEnvRelease
+    a lv2:Parameter ;
+    rdfs:label "Amp Env Release" ;
+    pg:group plug:paramgroup_AmpEnv_1 ;
+    lv2:designation param:release ;
+    lv2:displayPriority 647 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:AmpEnvAttackCurve
+    a lv2:Parameter ;
+    rdfs:label "Amp Env Attack Curve" ;
+    pg:group plug:paramgroup_AmpEnv_2 ;
+    lv2:displayPriority 646 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+plug:VelToAmpEnv
+    a lv2:Parameter ;
+    rdfs:label "Vel To Amp Env" ;
+    pg:group plug:paramgroup_AmpEnv_2 ;
+    lv2:displayPriority 645 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+
+###############################################################################
+# LFO PARAMETERS
+###############################################################################
+
+plug:LFO1Rate
+    a lv2:Parameter ;
+    rdfs:label "LFO1 Rate" ;
+    pg:group plug:paramgroup_LFO1_Core ;
+    lv2:displayPriority 540 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.1 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    units:unit units:hz .
+
+plug:LFO1TempoSync
+    a lv2:Parameter ;
+    rdfs:label "LFO1 Tempo Sync" ;
+    pg:group plug:paramgroup_LFO1_Core ;
+    lv2:displayPriority 539 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+plug:LFO1Wave1
+    a lv2:Parameter ;
+    rdfs:label "Sine to Tri" ;
+    pg:group plug:paramgroup_LFO1_Waves ;
+    lv2:displayPriority 538 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:LFO1Wave2
+    a lv2:Parameter ;
+    rdfs:label "Pulse to Saw" ;
+    pg:group plug:paramgroup_LFO1_Waves ;
+    lv2:displayPriority 437 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:LFO1PW
+    a lv2:Parameter ;
+    rdfs:label "LFO1 PW" ;
+    pg:group plug:paramgroup_LFO1_Waves ;
+    lv2:displayPriority 436 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.5 ;
+    lv2:minimum 0.5 ;
+    lv2:maximum 0.95 .
+
+plug:LFO1Wave3
+    a lv2:Parameter ;
+    rdfs:label "S&H to S&Glide" ;
+    pg:group plug:paramgroup_LFO1_Waves ;
+    lv2:displayPriority 435 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:LFO1ModAmount1
+    a lv2:Parameter ;
+    rdfs:label "LFO1 Mod Amount 1" ;
+    pg:group plug:paramgroup_LFO1_Mod1 ;
+    lv2:displayPriority 434 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:LFO1ToOsc1Pitch
+    a lv2:Parameter ;
+    rdfs:label "LFO1 → Osc1 Pitch" ;
+    pg:group plug:paramgroup_LFO1_Mod1 ;
+    lv2:displayPriority 433 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+
+plug:LFO1ToOsc2Pitch
+    a lv2:Parameter ;
+    rdfs:label "LFO1 → Osc2 Pitch" ;
+    pg:group plug:paramgroup_LFO1_Mod1 ;
+    lv2:displayPriority 432 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+
+plug:LFO1ToFilterCutoff
+    a lv2:Parameter ;
+    rdfs:label "LFO1 → Filter Cutoff" ;
+    pg:group plug:paramgroup_LFO1_Mod1 ;
+    lv2:displayPriority 431 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO1ModAmount2
+    a lv2:Parameter ;
+    rdfs:label "LFO1 Mod Amount 2" ;
+    pg:group plug:paramgroup_LFO1_Mod2 ;
+    lv2:displayPriority 429 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:LFO1ToOsc1PW
+    a lv2:Parameter ;
+    rdfs:label "LFO1 → Osc1 PW" ;
+    pg:group plug:paramgroup_LFO1_Mod2 ;
+    lv2:displayPriority 428 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+plug:LFO1ToOsc2PW
+    a lv2:Parameter ;
+    rdfs:label "LFO1 → Osc2 PW" ;
+    pg:group plug:paramgroup_LFO1_Mod2 ;
+    lv2:displayPriority 427 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO1ToVolume
+    a lv2:Parameter ;
+    rdfs:label "LFO1 → Volume" ;
+    pg:group plug:paramgroup_LFO1_Mod2 ;
+    lv2:displayPriority 426 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO2Rate
+    a lv2:Parameter ;
+    rdfs:label "LFO2 Rate" ;
+    pg:group plug:paramgroup_LFO2_Core ;
+    lv2:displayPriority 425 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.1 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    units:unit units:hz .
+
+plug:LFO2TempoSync
+    a lv2:Parameter ;
+    rdfs:label "LFO2 Tempo Sync" ;
+    pg:group plug:paramgroup_LFO2_Core ;
+    lv2:displayPriority 424 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "On"  ; rdf:value 1 ] .
+
+
+plug:LFO2Wave1
+    a lv2:Parameter ;
+    rdfs:label "Sine to Tri" ;
+    pg:group plug:paramgroup_LFO2_Waves ;
+    lv2:displayPriority 423 ;
+    rdfs:range atom:Int ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+
+plug:LFO2Wave2
+    a lv2:Parameter ;
+    rdfs:label "Pulse to Saw" ;
+    pg:group plug:paramgroup_LFO2_Waves ;
+    lv2:displayPriority 422 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+
+plug:LFO2PW
+    a lv2:Parameter ;
+    rdfs:label "LFO2 PW" ;
+    pg:group plug:paramgroup_LFO2_Waves ;
+    lv2:displayPriority 421 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.5 ;
+    lv2:minimum 0.5 ;
+    lv2:maximum 0.95 .
+
+plug:LFO2Wave3
+    a lv2:Parameter ;
+    rdfs:label "S&H to S&Glide" ;
+    pg:group plug:paramgroup_LFO2_Waves ;
+    lv2:displayPriority 420 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+
+plug:LFO2ModAmount1
+    a lv2:Parameter ;
+    rdfs:label "LFO2 Mod Amount 1" ;
+    pg:group plug:paramgroup_LFO2_Mod1 ;
+    lv2:displayPriority 419 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+
+plug:LFO2ToOsc1Pitch
+    a lv2:Parameter ;
+    rdfs:label "LFO2 → Osc1 Pitch" ;
+    pg:group plug:paramgroup_LFO2_Mod1 ;
+    lv2:displayPriority 418 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO2ToOsc2Pitch
+    a lv2:Parameter ;
+    rdfs:label "LFO2 → Osc2 Pitch" ;
+    pg:group plug:paramgroup_LFO2_Mod1 ;
+    lv2:displayPriority 417 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO2ToFilterCutoff
+    a lv2:Parameter ;
+    rdfs:label "LFO2 → Filter Cutoff" ;
+    pg:group plug:paramgroup_LFO2_Mod1 ;
+    lv2:displayPriority 416 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO2ModAmount2
+    a lv2:Parameter ;
+    rdfs:label "LFO2 Mod Amount 2" ;
+    pg:group plug:paramgroup_LFO2_Mod2 ;
+    lv2:displayPriority 415 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1.0 ;
+    lv2:maximum 1.0 .
+
+plug:LFO2ToOsc1PW
+    a lv2:Parameter ;
+    rdfs:label "LFO2 → Osc1 PW" ;
+    pg:group plug:paramgroup_LFO2_Mod2 ;
+    lv2:displayPriority 414 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO2ToOsc2PW
+    a lv2:Parameter ;
+    rdfs:label "LFO2 → Osc2 PW" ;
+    pg:group plug:paramgroup_LFO2_Mod2 ;
+    lv2:displayPriority 413 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+plug:LFO2ToVolume
+    a lv2:Parameter ;
+    rdfs:label "LFO2 → Volume" ;
+    pg:group plug:paramgroup_LFO2_Mod2 ;
+    lv2:displayPriority 412 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Off" ; rdf:value 0 ] ,
+                   [ rdfs:label "Forward"  ; rdf:value 0.5 ] ,
+                   [ rdfs:label "Reverse" ; rdf:value 1 ] .
+
+###############################################################################
+# Control PARAMETERS
+###############################################################################
+
+plug:PitchBendUp
+    a lv2:Parameter ;
+    rdfs:label "Pitch Bend Up" ;
+    pg:group plug:paramgroup_Control ;
+    lv2:displayPriority 220 ;
+    rdfs:range atom:Int ;
+    lv2:default 2.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 48.0 .
+
+plug:PitchBendDown
+    a lv2:Parameter ;
+    rdfs:label "Pitch Bend Down" ;
+    pg:group plug:paramgroup_Control ;
+    lv2:displayPriority 221 ;
+    rdfs:range atom:Int ;
+    lv2:default 2.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 48.0 .
+
+plug:BendOsc2Only
+    a lv2:Parameter ;
+    rdfs:label "Bend Osc2 Only" ;
+    pg:group plug:paramgroup_Control ;
+    lv2:displayPriority 220 ;
+    rdfs:range atom:Float ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 .
+
+plug:VibratoWave
+    a lv2:Parameter ;
+    rdfs:label "Vibrato Wave" ;
+    pg:group plug:paramgroup_Vibrato ;
+    lv2:displayPriority 219 ;
+    rdfs:range atom:Int ;
+    lv2:default 0 ;
+    lv2:minimum 0 ;
+    lv2:maximum 1 ;
+    lv2:scalePoint [ rdfs:label "Sine" ; rdf:value 0.0 ] ,
+                   [ rdfs:label "Square" ; rdf:value 1.0 ] .
+
+plug:VibratoRate
+    a lv2:Parameter ;
+    rdfs:label "Vibrato Rate" ;
+    pg:group plug:paramgroup_Vibrato ;
+    lv2:displayPriority 218 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.3 ;
+    lv2:minimum 0.01 ;
+    lv2:maximum 1 ;
+   units:unit units:hz .
+
+###############################################################################
+# Voice Variation PARAMETERS
+###############################################################################
+
+plug:PanVoice1
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 1" ;
+    pg:group plug:paramgroup_VoicePan_1_4 ;
+    lv2:displayPriority 140 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:PanVoice2
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 2" ;
+    pg:group plug:paramgroup_VoicePan_1_4 ;
+    lv2:displayPriority 139 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+plug:PanVoice3
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 3" ;
+    pg:group plug:paramgroup_VoicePan_1_4 ;
+    lv2:displayPriority 138 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+plug:PanVoice4
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 4" ;
+    pg:group plug:paramgroup_VoicePan_1_4 ;
+    lv2:displayPriority 137 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:PanVoice5
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 5" ;
+    pg:group plug:paramgroup_VoicePan_5_8 ;
+    lv2:displayPriority 136 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:PanVoice6
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 6" ;
+    pg:group plug:paramgroup_VoicePan_5_8 ;
+    lv2:displayPriority 135 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:PanVoice7
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 7" ;
+    pg:group plug:paramgroup_VoicePan_5_8 ;
+    lv2:displayPriority 134 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+plug:PanVoice8
+    a lv2:Parameter ;
+    rdfs:label "Pan Voice 8" ;
+    pg:group plug:paramgroup_VoicePan_5_8 ;
+    lv2:displayPriority 133 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum -1 ;
+    lv2:maximum 1 .
+
+###############################################################################
+# SLOP
+###############################################################################
+
+plug:PortamentoSlop
+    a lv2:Parameter ;
+    rdfs:label "Portamento Slop" ;
+    pg:group plug:paramgroup_Slop ;
+    lv2:displayPriority 120 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:FilterSlop
+    a lv2:Parameter ;
+    rdfs:label "Filter Slop" ;
+    pg:group plug:paramgroup_Slop ;
+    lv2:displayPriority 119 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:EnvelopeSlop
+    a lv2:Parameter ;
+    rdfs:label "Envelope Slop" ;
+    pg:group plug:paramgroup_Slop ;
+    lv2:displayPriority 118 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+plug:LevelSlop
+    a lv2:Parameter ;
+    rdfs:label "Level Slop" ;
+    pg:group plug:paramgroup_Slop ;
+    lv2:displayPriority 117 ;
+    rdfs:range atom:Float ;
+    lv2:default 0.0 ;
+    lv2:minimum 0.0 ;
+    lv2:maximum 1.0 .
+
+###############################################################################
+# ECO
+###############################################################################
+
+plug:EcoMode
+    a lv2:Parameter ;
+    rdfs:label "Eco Mode" ;
+    pg:group plug:paramgroup_Eco ;
+    lv2:displayPriority 110 ;
+    rdfs:range atom:Int ;
+    lv2:default 1 ;
+    lv2:minimum 1 ;
+    lv2:maximum 1 .
+
+
+###############################################################################
+# PAGE GROUPS
+###############################################################################
+
+plug:paramgroup_Root
+    a pg:Group ;
+    lv2:displayPriority 100 ;
+    lv2:symbol "paramgroup_Root" ;
+    lv2:name "MASTER 1" .
+
+plug:paramgroup_Global_1
+    a pg:Group ;
+    lv2:displayPriority 99 ;
+    lv2:symbol "paramgroup_Global_1" ;
+    lv2:name "GLOBAL 1" .
+
+plug:paramgroup_Global_2
+    a pg:Group ;
+    lv2:displayPriority 98 ;
+    lv2:symbol "paramgroup_Global_2" ;
+    lv2:name "GLOBAL 2" .
+
+plug:paramgroup_OSC_Pitch
+    a pg:Group ;
+    lv2:displayPriority 97 ;
+    lv2:symbol "paramgroup_OSC_Pitch" ;
+    lv2:name "OSC Pitch" .
+
+plug:paramgroup_OSC_Waves
+    a pg:Group ;
+    lv2:displayPriority 96 ;
+    lv2:symbol "paramgroup_OSC_Waves" ;
+    lv2:name "OSC Waves" .
+
+plug:paramgroup_OSC_PW
+    a pg:Group ;
+    lv2:displayPriority 95 ;
+    lv2:symbol "paramgroup_OSC_PW" ;
+    lv2:name "OSC PW" .
+
+plug:paramgroup_ENV_Pitch
+    a pg:Group ;
+    lv2:displayPriority 94 ;
+    lv2:symbol "paramgroup_ENV_Pitch" ;
+    lv2:name "ENV to Pitch" .
+
+plug:paramgroup_ENV_PW
+    a pg:Group ;
+    lv2:displayPriority 93 ;
+    lv2:symbol "paramgroup_ENV_PW" ;
+    lv2:name "ENV to PW" .
+
+plug:paramgroup_OSC_Common
+    a pg:Group ;
+    lv2:displayPriority 92 ;
+    lv2:symbol "paramgroup_OSC_Common" ;
+    lv2:name "OSC Common" .
+
+plug:paramgroup_Mixer_1
+    a pg:Group ;
+    lv2:displayPriority 91 ;
+    lv2:symbol "paramgroup_Mixer_1" ;
+    lv2:name "MIXER" .
+
+plug:paramgroup_Noise
+    a pg:Group ;
+    lv2:displayPriority 90 ;
+    lv2:symbol "paramgroup_Noise" ;
+    lv2:name "NOISE" .
+
+plug:paramgroup_Filter_1
+    a pg:Group ;
+    lv2:displayPriority 89 ;
+    lv2:symbol "paramgroup_Filter_1" ;
+    lv2:name "FILTER 1" .
+
+plug:paramgroup_Filter_2
+    a pg:Group ;
+    lv2:displayPriority 88 ;
+    lv2:symbol "paramgroup_Filter_2" ;
+    lv2:name "FILTER 2" .
+
+plug:paramgroup_Filter_3
+    a pg:Group ;
+    lv2:displayPriority 87 ;
+    lv2:symbol "paramgroup_Filter_3" ;
+    lv2:name "FILTER 3" .
+
+plug:paramgroup_FilterEnv_1
+    a pg:Group ;
+    lv2:displayPriority 86 ;
+    lv2:symbol "paramgroup_FilterEnv_1" ;
+    lv2:name "FILTER ENV 1" .
+
+plug:paramgroup_FilterEnv_2
+    a pg:Group ;
+    lv2:displayPriority 85 ;
+    lv2:symbol "paramgroup_FilterEnv_2" ;
+    lv2:name "FILTER ENV 2" .
+
+plug:paramgroup_AmpEnv_1
+    a pg:Group ;
+    lv2:displayPriority 84 ;
+    lv2:symbol "paramgroup_AmpEnv_1" ;
+    lv2:name "AMP ENV 1" .
+
+plug:paramgroup_AmpEnv_2
+    a pg:Group ;
+    lv2:displayPriority 83 ;
+    lv2:symbol "paramgroup_AmpEnv_2" ;
+    lv2:name "AMP ENV 2" .
+
+plug:paramgroup_LFO1_Core
+    a pg:Group ;
+    lv2:displayPriority 69 ;
+    lv2:symbol "paramgroup_LFO1_Core" ;
+    lv2:name "LFO1 - Rate" .
+
+plug:paramgroup_LFO1_Waves
+    a pg:Group ;
+    lv2:displayPriority 68 ;
+    lv2:symbol "paramgroup_LFO1_Waves" ;
+    lv2:name "LFO1 - Waves" .
+
+plug:paramgroup_LFO1_Mod1
+    a pg:Group ;
+    lv2:displayPriority 67 ;
+    lv2:symbol "paramgroup_LFO1_Mod1" ;
+    lv2:name "LFO1 - Mod1" .
+
+plug:paramgroup_LFO1_Mod2
+    a pg:Group ;
+    lv2:displayPriority 66 ;
+    lv2:symbol "paramgroup_Mod2" ;
+    lv2:name "LFO1 - Mod2" .
+
+plug:paramgroup_LFO2_Core
+    a pg:Group ;
+    lv2:displayPriority 59 ;
+    lv2:symbol "paramgroup_LFO2_Core" ;
+    lv2:name "LFO2 - Rate" .
+
+plug:paramgroup_LFO2_Waves
+    a pg:Group ;
+    lv2:displayPriority 58 ;
+    lv2:symbol "paramgroup_LFO2_Waves" ;
+    lv2:name "LFO2 - Waves" .
+plug:paramgroup_LFO2_Mod1
+    a pg:Group ;
+    lv2:displayPriority 57 ;
+    lv2:symbol "paramgroup_LFO2_Mod1" ;
+    lv2:name "LFO2 - Mod1" .
+
+plug:paramgroup_LFO2_Mod2
+    a pg:Group ;
+    lv2:displayPriority 56 ;
+    lv2:symbol "paramgroup_LFO2_Mod2" ;
+    lv2:name "LFO2 - Mod2" .
+
+plug:paramgroup_Control 
+    a pg:Group ;
+    lv2:displayPriority 50 ;
+    lv2:symbol "paramgroup_Control" ;
+    lv2:name "CONTROL" .
+
+plug:paramgroup_Vibrato  
+    a pg:Group ;
+    lv2:displayPriority 40 ;
+    lv2:symbol "paramgroup_Vibrato" ;
+    lv2:name "VIBRATO" .
+
+plug:paramgroup_VoicePan_1_4
+    a pg:Group ;
+    lv2:displayPriority 30 ;
+    lv2:symbol "paramgroup_VoicePan_1_4" ;
+    lv2:name "VOICE PAN 1-4" .
+
+plug:paramgroup_VoicePan_5_8
+    a pg:Group ;
+    lv2:displayPriority 20 ;
+    lv2:symbol "paramgroup_VoicePan_5_8" ;
+    lv2:name "VOICE PAN 5-8" .
+
+plug:paramgroup_Slop
+    a pg:Group ;
+    lv2:displayPriority 10 ;
+    lv2:symbol "paramgroup_Slop" ;
+    lv2:name "SLOP" .
+
+plug:paramgroup_Eco
+    a pg:Group ;
+    lv2:displayPriority 5 ;
+    lv2:symbol "paramgroup_Eco" ;
+    lv2:name "ECO" .
+
+###############################################################################
+# End of group definitions
+###############################################################################
+
+
+<urn:org.surge-synth-team.OB-Xf-rework>
+	ui:ui <urn:org.surge-synth-team.OB-Xf-rework:UI> ;
+	a lv2:InstrumentPlugin ;
+	doap:name "OB-Xf" ;
+	doap:description "OB-Xf" ;
+	lv2:minorVersion 9 ;
+	lv2:microVersion 7 ;
+	doap:maintainer [
+		a foaf:Person ;
+		foaf:name "Surge Synth Team" ;
+		foaf:homepage <> ;
+		foaf:mbox <> ;
+	] ;
+	doap:release [
+		a doap:Version ;
+		doap:revision "0.9.7" ;
+	] ;
+	lv2:optionalFeature
+		lv2:hardRTCapable ;
+	lv2:extensionData
+		state:interface ;
+	lv2:requiredFeature
+		urid:map ,
+		opts:options ,
+		bufs:boundedBlockLength ;
+	pg:mainOutput plug:output_group_1 ;
+	patch:writable
+		plug:Volume ,
+		plug:Transpose ,
+		plug:Tune ,
+		plug:Polyphony ,
+		plug:HQMode ,
+		plug:UnisonVoices ,
+		plug:Portamento ,
+		plug:Unison ,
+		plug:UnisonDetune ,
+		plug:EnvLegatoMode ,
+		plug:NotePriority ,
+		plug:Osc1Pitch ,
+		plug:Osc2Detune ,
+		plug:Osc2Pitch ,
+		plug:Osc1SawWave ,
+		plug:Osc1PulseWave ,
+		plug:Osc2SawWave ,
+		plug:Osc2PulseWave ,
+		plug:OscPW ,
+		plug:Osc2PWOffset ,
+		plug:EnvToPitchAmount ,
+		plug:EnvToPitchBothOscs ,
+		plug:EnvToPitchInvert ,
+		plug:EnvToPWAmount ,
+		plug:EnvToPWBothOscs ,
+		plug:EnvToPWInvert ,
+		plug:OscCrossmod ,
+		plug:OscSync ,
+		plug:OscBrightness ,
+		plug:Osc1Mix ,
+		plug:Osc2Mix ,
+		plug:RingModMix ,
+		plug:NoiseMix ,
+		plug:NoiseColor ,
+		plug:PitchBendUp ,
+		plug:PitchBendDown ,
+		plug:BendOsc2Only ,
+		plug:VibratoWave ,
+		plug:VibratoRate ,
+		plug:Filter4PoleMode ,
+		plug:FilterCutoff ,
+		plug:FilterResonance ,
+		plug:FilterEnvAmount ,
+		plug:FilterKeyFollow ,
+		plug:FilterMode ,
+		plug:Filter2PoleBPBlend ,
+		plug:Filter2PolePush ,
+		plug:Filter4PoleXpander ,
+		plug:FilterXpanderMode ,
+		plug:LFO1TempoSync ,
+		plug:LFO1Rate ,
+		plug:LFO1ModAmount1 ,
+		plug:LFO1ModAmount2 ,
+		plug:LFO1Wave1 ,
+		plug:LFO1Wave2 ,
+		plug:LFO1Wave3 ,
+		plug:LFO1PW ,
+		plug:LFO1ToOsc1Pitch ,
+		plug:LFO1ToOsc2Pitch ,
+		plug:LFO1ToFilterCutoff ,
+		plug:LFO1ToOsc1PW ,
+		plug:LFO1ToOsc2PW ,
+		plug:LFO1ToVolume ,
+		plug:LFO2TempoSync ,
+		plug:LFO2Rate ,
+		plug:LFO2ModAmount1 ,
+		plug:LFO2ModAmount2 ,
+		plug:LFO2Wave1 ,
+		plug:LFO2Wave2 ,
+		plug:LFO2Wave3 ,
+		plug:LFO2PW ,
+		plug:LFO2ToOsc1Pitch ,
+		plug:LFO2ToOsc2Pitch ,
+		plug:LFO2ToFilterCutoff ,
+		plug:LFO2ToOsc1PW ,
+		plug:LFO2ToOsc2PW ,
+		plug:LFO2ToVolume ,
+		plug:FilterEnvInvert ,
+		plug:FilterEnvAttack ,
+		plug:FilterEnvDecay ,
+		plug:FilterEnvSustain ,
+		plug:FilterEnvRelease ,
+		plug:FilterEnvAttackCurve ,
+		plug:VelToFilterEnv ,
+		plug:AmpEnvAttack ,
+		plug:AmpEnvDecay ,
+		plug:AmpEnvSustain ,
+		plug:AmpEnvRelease ,
+		plug:AmpEnvAttackCurve ,
+		plug:VelToAmpEnv ,
+		plug:PortamentoSlop ,
+		plug:FilterSlop ,
+		plug:EnvelopeSlop ,
+		plug:LevelSlop ,
+		plug:PanVoice1 ,
+		plug:PanVoice2 ,
+		plug:PanVoice3 ,
+		plug:PanVoice4 ,
+		plug:PanVoice5 ,
+		plug:PanVoice6 ,
+		plug:PanVoice7 ,
+		plug:PanVoice8 ;
+	patch:readable
+		plug:Volume ,
+		plug:Transpose ,
+		plug:Tune ,
+		plug:Polyphony ,
+		plug:HQMode ,
+		plug:UnisonVoices ,
+		plug:Portamento ,
+		plug:Unison ,
+		plug:UnisonDetune ,
+		plug:EnvLegatoMode ,
+		plug:NotePriority ,
+		plug:Osc1Pitch ,
+		plug:Osc2Detune ,
+		plug:Osc2Pitch ,
+		plug:Osc1SawWave ,
+		plug:Osc1PulseWave ,
+		plug:Osc2SawWave ,
+		plug:Osc2PulseWave ,
+		plug:OscPW ,
+		plug:Osc2PWOffset ,
+		plug:EnvToPitchAmount ,
+		plug:EnvToPitchBothOscs ,
+		plug:EnvToPitchInvert ,
+		plug:EnvToPWAmount ,
+		plug:EnvToPWBothOscs ,
+		plug:EnvToPWInvert ,
+		plug:OscCrossmod ,
+		plug:OscSync ,
+		plug:OscBrightness ,
+		plug:Osc1Mix ,
+		plug:Osc2Mix ,
+		plug:RingModMix ,
+		plug:NoiseMix ,
+		plug:NoiseColor ,
+		plug:PitchBendUp ,
+		plug:PitchBendDown ,
+		plug:BendOsc2Only ,
+		plug:VibratoWave ,
+		plug:VibratoRate ,
+		plug:Filter4PoleMode ,
+		plug:FilterCutoff ,
+		plug:FilterResonance ,
+		plug:FilterEnvAmount ,
+		plug:FilterKeyFollow ,
+		plug:FilterMode ,
+		plug:Filter2PoleBPBlend ,
+		plug:Filter2PolePush ,
+		plug:Filter4PoleXpander ,
+		plug:FilterXpanderMode ,
+		plug:LFO1TempoSync ,
+		plug:LFO1Rate ,
+		plug:LFO1ModAmount1 ,
+		plug:LFO1ModAmount2 ,
+		plug:LFO1Wave1 ,
+		plug:LFO1Wave2 ,
+		plug:LFO1Wave3 ,
+		plug:LFO1PW ,
+		plug:LFO1ToOsc1Pitch ,
+		plug:LFO1ToOsc2Pitch ,
+		plug:LFO1ToFilterCutoff ,
+		plug:LFO1ToOsc1PW ,
+		plug:LFO1ToOsc2PW ,
+		plug:LFO1ToVolume ,
+		plug:LFO2TempoSync ,
+		plug:LFO2Rate ,
+		plug:LFO2ModAmount1 ,
+		plug:LFO2ModAmount2 ,
+		plug:LFO2Wave1 ,
+		plug:LFO2Wave2 ,
+		plug:LFO2Wave3 ,
+		plug:LFO2PW ,
+		plug:LFO2ToOsc1Pitch ,
+		plug:LFO2ToOsc2Pitch ,
+		plug:LFO2ToFilterCutoff ,
+		plug:LFO2ToOsc1PW ,
+		plug:LFO2ToOsc2PW ,
+		plug:LFO2ToVolume ,
+		plug:FilterEnvInvert ,
+		plug:FilterEnvAttack ,
+		plug:FilterEnvDecay ,
+		plug:FilterEnvSustain ,
+		plug:FilterEnvRelease ,
+		plug:FilterEnvAttackCurve ,
+		plug:VelToFilterEnv ,
+		plug:AmpEnvAttack ,
+		plug:AmpEnvDecay ,
+		plug:AmpEnvSustain ,
+		plug:AmpEnvRelease ,
+		plug:AmpEnvAttackCurve ,
+		plug:VelToAmpEnv ,
+		plug:PortamentoSlop ,
+		plug:FilterSlop ,
+		plug:EnvelopeSlop ,
+		plug:LevelSlop ,
+		plug:PanVoice1 ,
+		plug:PanVoice2 ,
+		plug:PanVoice3 ,
+		plug:PanVoice4 ,
+		plug:PanVoice5 ,
+		plug:PanVoice6 ,
+		plug:PanVoice7 ,
+		plug:PanVoice8 ;
+	lv2:port [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 0 ;
+		lv2:symbol "audio_out_1" ;
+		lv2:name "Audio Out 1" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_out_2" ;
+		lv2:name "Audio Out 2" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:InputPort , atom:AtomPort ;
+		rsz:minimumSize 15536 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			midi:MidiEvent ,
+			patch:Message ,
+			time:Position ;
+		lv2:designation lv2:control ;
+		lv2:index 2 ;
+		lv2:symbol "in" ;
+		lv2:name "In" ;
+	] , [
+		a lv2:OutputPort , atom:AtomPort ;
+		rsz:minimumSize 15536 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			patch:Message ;
+		lv2:designation lv2:control ;
+		lv2:index 3 ;
+		lv2:symbol "out" ;
+		lv2:name "Out" ;
+	] , [
+		a lv2:OutputPort , lv2:ControlPort ;
+		lv2:designation lv2:latency ;
+		lv2:symbol "latency" ;
+		lv2:name "Latency" ;
+		lv2:index 4 ;
+		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
+		units:unit units:frame ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:freeWheeling ;
+		lv2:symbol "freeWheeling" ;
+		lv2:name "Free Wheeling" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 5 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:enabled ;
+		lv2:symbol "enabled" ;
+		lv2:name "Enabled" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 6 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] ;
+	opts:supportedOption
+		bufs:maxBlockLength .
