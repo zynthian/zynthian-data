@@ -20,10 +20,90 @@
 @prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 
+plug:mallet_type
+	a lv2:Parameter ;
+	pg:group plug:G4B_MALLET_MAT ;
+	lv2:displayPriority 244 ;
+	rdfs:label "Mallet Type" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 25	 ;
+	lv2:portProperty lv2:enumeration ;
+	lv2:scalePoint [
+		rdfs:label "Impulse" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "User File" ;
+		rdf:value 11 ;
+	], [
+		rdfs:label "Click 1" ;
+		rdf:value 12 ;
+	], [
+		rdfs:label "Click 2" ;
+		rdf:value 13 ;
+	], [
+		rdfs:label "Click 3" ;
+		rdf:value 14 ;
+	], [
+		rdfs:label "Click 4" ;
+		rdf:value 15 ;
+	], [
+		rdfs:label "Click 5" ;
+		rdf:value 16 ;
+	], [
+		rdfs:label "Click 6" ;
+		rdf:value 17 ;
+	], [
+		rdfs:label "Blip" ;
+		rdf:value 18 ;
+	], [
+		rdfs:label "Blop" ;
+		rdf:value 19 ;
+	], [
+		rdfs:label "Metal 1" ;
+		rdf:value 20 ;
+	], [
+		rdfs:label "Metal 2" ;
+		rdf:value 21 ;
+	], [
+		rdfs:label "Wood" ;
+		rdf:value 22 ;
+	], [
+		rdfs:label "Strike" ;
+		rdf:value 23 ;
+	], [
+		rdfs:label "Perc 1" ;
+		rdf:value 24 ;
+	], [
+		rdfs:label "Perc 2" ;
+		rdf:value 25 ;
+	] .
+
+plug:mallet_pitch
+	a lv2:Parameter ;
+	pg:group plug:G4A_MALLET_SETUP ;
+	lv2:displayPriority 252 ;
+	rdfs:label "Mallet Pitch" ;
+	rdfs:range atom:Float ;
+	lv2:default -5.36442e-07 ;
+	lv2:minimum -24 ;
+	lv2:maximum 24 .
+
+plug:mallet_filter
+	a lv2:Parameter ;
+	pg:group plug:G4C_MALLET_TONE ;
+	lv2:displayPriority 232 ;
+	rdfs:label "Mallet Filter" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
 plug:mallet_mix
 	a lv2:Parameter ;
-	pg:group plug:G5_GLOBAL_MIX ;
-	lv2:displayPriority 38 ;
+	pg:group plug:G4A_MALLET_SETUP ;
+	lv2:displayPriority 254 ;
 	rdfs:label "Mallet Mix" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -32,8 +112,8 @@ plug:mallet_mix
 
 plug:mallet_res
 	a lv2:Parameter ;
-	pg:group plug:G3A_MALLET_SETUP ;
-	lv2:displayPriority 59 ;
+	pg:group plug:G4C_MALLET_TONE ;
+	lv2:displayPriority 234 ;
 	rdfs:label "Mallet Resonance" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.8 ;
@@ -42,18 +122,28 @@ plug:mallet_res
 
 plug:mallet_stiff
 	a lv2:Parameter ;
-	pg:group plug:G3A_MALLET_SETUP ;
-	lv2:displayPriority 58 ;
-	rdfs:label "Mallet Stifness" ;
+	pg:group plug:G4B_MALLET_MAT ;
+	lv2:displayPriority 243 ;
+	rdfs:label "Mallet Stiffness" ;
 	rdfs:range atom:Float ;
 	lv2:default 600 ;
 	lv2:minimum 100 ;
 	lv2:maximum 5000 .
 
+plug:mallet_ktrack
+	a lv2:Parameter ;
+	pg:group plug:G4A_MALLET_SETUP ;
+	lv2:displayPriority 251 ;
+	rdfs:label "Mallet Keytrack" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
 plug:a_on
 	a lv2:Parameter ;
-	pg:group plug:G1A_RES_A_SETUP ;
-	lv2:displayPriority 99 ;
+	pg:group plug:G1A_RES_SETUP ;
+	lv2:displayPriority 404 ;
 	rdfs:label "A ON" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
@@ -70,13 +160,13 @@ plug:a_on
 
 plug:a_model
 	a lv2:Parameter ;
-	pg:group plug:G1A_RES_A_SETUP ;
-	lv2:displayPriority 98 ;
+	pg:group plug:G2A_RES_A_MODEL ;
+	lv2:displayPriority 354 ;
 	rdfs:label "A Model" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 8	 ;
+	lv2:maximum 11	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "String" ;
@@ -105,17 +195,26 @@ plug:a_model
 	], [
 		rdfs:label "Closed Tube" ;
 		rdf:value 8 ;
+	], [
+		rdfs:label "Marimba2" ;
+		rdf:value 9 ;
+	], [
+		rdfs:label "Bell" ;
+		rdf:value 10 ;
+	], [
+		rdfs:label "Djembe" ;
+		rdf:value 11 ;
 	] .
 
 plug:a_partials
 	a lv2:Parameter ;
-	pg:group plug:G1B_RES_A_MAT ;
-	lv2:displayPriority 95 ;
+	pg:group plug:G2A_RES_A_MODEL ;
+	lv2:displayPriority 353 ;
 	rdfs:label "A Partials" ;
 	rdfs:range atom:Float ;
 	lv2:default 3 ;
 	lv2:minimum 0 ;
-	lv2:maximum 4	 ;
+	lv2:maximum 6	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "4" ;
@@ -132,12 +231,18 @@ plug:a_partials
 	], [
 		rdfs:label "64" ;
 		rdf:value 4 ;
+	], [
+		rdfs:label "1" ;
+		rdf:value 5 ;
+	], [
+		rdfs:label "2" ;
+		rdf:value 6 ;
 	] .
 
 plug:a_decay
 	a lv2:Parameter ;
-	pg:group plug:G1D_RES_A_TIME ;
-	lv2:displayPriority 86 ;
+	pg:group plug:G2D_RES_A_ATTEN ;
+	lv2:displayPriority 324 ;
 	rdfs:label "A Decay" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
@@ -146,8 +251,8 @@ plug:a_decay
 
 plug:a_damp
 	a lv2:Parameter ;
-	pg:group plug:G1B_RES_A_MAT ;
-	lv2:displayPriority 94 ;
+	pg:group plug:G2B_RES_A_MAT ;
+	lv2:displayPriority 344 ;
 	rdfs:label "A Material" ;
 	rdfs:range atom:Float ;
 	lv2:default -2.23517e-08 ;
@@ -156,8 +261,8 @@ plug:a_damp
 
 plug:a_tone
 	a lv2:Parameter ;
-	pg:group plug:G1C_RES_A_TONE ;
-	lv2:displayPriority 91 ;
+	pg:group plug:G2C_RES_A_TONE ;
+	lv2:displayPriority 334 ;
 	rdfs:label "A Tone" ;
 	rdfs:range atom:Float ;
 	lv2:default -2.23517e-08 ;
@@ -166,8 +271,8 @@ plug:a_tone
 
 plug:a_hit
 	a lv2:Parameter ;
-	pg:group plug:G1B_RES_A_MAT ;
-	lv2:displayPriority 93 ;
+	pg:group plug:G2B_RES_A_MAT ;
+	lv2:displayPriority 342 ;
 	rdfs:label "A HitPos" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.26 ;
@@ -176,18 +281,18 @@ plug:a_hit
 
 plug:a_rel
 	a lv2:Parameter ;
-	pg:group plug:G1D_RES_A_TIME ;
-	lv2:displayPriority 86 ;
+	pg:group plug:G2D_RES_A_ATTEN ;
+	lv2:displayPriority 322 ;
 	rdfs:label "A Release" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
-	lv2:minimum 0 ;
+	lv2:minimum 0.001 ;
 	lv2:maximum 1 .
 
 plug:a_inharm
 	a lv2:Parameter ;
-	pg:group plug:G1C_RES_A_TONE ;
-	lv2:displayPriority 90 ;
+	pg:group plug:G2C_RES_A_TONE ;
+	lv2:displayPriority 332 ;
 	rdfs:label "A Inharmonic" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.0001 ;
@@ -196,8 +301,8 @@ plug:a_inharm
 
 plug:a_ratio
 	a lv2:Parameter ;
-	pg:group plug:G1C_RES_A_TONE ;
-	lv2:displayPriority 89 ;
+	pg:group plug:G2A_RES_A_MODEL ;
+	lv2:displayPriority 352 ;
 	rdfs:label "A Ratio" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
@@ -206,18 +311,18 @@ plug:a_ratio
 
 plug:a_cut
 	a lv2:Parameter ;
-	pg:group plug:G1C_RES_A_TONE ;
-	lv2:displayPriority 88 ;
+	pg:group plug:G2D_RES_A_ATTEN ;
+	lv2:displayPriority 321 ;
 	rdfs:label "A LowCut" ;
 	rdfs:range atom:Float ;
-	lv2:default 20 ;
-	lv2:minimum 20 ;
-	lv2:maximum 20000 .
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
 
 plug:a_radius
 	a lv2:Parameter ;
-	pg:group plug:G1B_RES_A_MAT ;
-	lv2:displayPriority 92 ;
+	pg:group plug:G2A_RES_A_MODEL ;
+	lv2:displayPriority 351 ;
 	rdfs:label "A Tube Radius" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.5 ;
@@ -226,8 +331,8 @@ plug:a_radius
 
 plug:a_coarse
 	a lv2:Parameter ;
-	pg:group plug:G1A_RES_A_SETUP ;
-	lv2:displayPriority 97;
+	pg:group plug:G1C_RES_PITCH ;
+	lv2:displayPriority 384 ;
 	rdfs:label "A coarse pitch" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -236,8 +341,8 @@ plug:a_coarse
 
 plug:a_fine
 	a lv2:Parameter ;
-	pg:group plug:G1A_RES_A_SETUP ;
-	lv2:displayPriority 96;
+	pg:group plug:G1C_RES_PITCH ;
+	lv2:displayPriority 383 ;
 	rdfs:label "A fine pitch" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -246,8 +351,8 @@ plug:a_fine
 
 plug:b_on
 	a lv2:Parameter ;
-	pg:group plug:G2A_RES_B_SETUP ;
-	lv2:displayPriority 79;
+	pg:group plug:G1A_RES_SETUP ;
+	lv2:displayPriority 403 ;
 	rdfs:label "B ON" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -264,13 +369,13 @@ plug:b_on
 
 plug:b_model
 	a lv2:Parameter ;
-	pg:group plug:G2A_RES_B_SETUP ;
-	lv2:displayPriority 78;
+	pg:group plug:G3A_RES_B_MODEL ;
+	lv2:displayPriority 304 ;
 	rdfs:label "B Model" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 8	 ;
+	lv2:maximum 11	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "String" ;
@@ -299,17 +404,26 @@ plug:b_model
 	], [
 		rdfs:label "Closed Tube" ;
 		rdf:value 8 ;
+	], [
+		rdfs:label "Marimba2" ;
+		rdf:value 9 ;
+	], [
+		rdfs:label "Bell" ;
+		rdf:value 10 ;
+	], [
+		rdfs:label "Djembe" ;
+		rdf:value 11 ;
 	] .
 
 plug:b_partials
 	a lv2:Parameter ;
-	pg:group plug:G2B_RES_B_MAT ;
-	lv2:displayPriority 75;
+	pg:group plug:G3A_RES_B_MODEL ;
+	lv2:displayPriority 303 ;
 	rdfs:label "B Partials" ;
 	rdfs:range atom:Float ;
 	lv2:default 3 ;
 	lv2:minimum 0 ;
-	lv2:maximum 4	 ;
+	lv2:maximum 6	 ;
 	lv2:portProperty lv2:enumeration ;
 	lv2:scalePoint [
 		rdfs:label "4" ;
@@ -326,12 +440,18 @@ plug:b_partials
 	], [
 		rdfs:label "64" ;
 		rdf:value 4 ;
+	], [
+		rdfs:label "1" ;
+		rdf:value 5 ;
+	], [
+		rdfs:label "2" ;
+		rdf:value 6 ;
 	] .
 
 plug:b_decay
 	a lv2:Parameter ;
-	pg:group plug:G2D_RES_B_TIME ;
-	lv2:displayPriority 67;
+	pg:group plug:G3D_RES_B_ATTEN ;
+	lv2:displayPriority 274 ;
 	rdfs:label "B Decay" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
@@ -340,8 +460,8 @@ plug:b_decay
 
 plug:b_damp
 	a lv2:Parameter ;
-	pg:group plug:G2B_RES_B_MAT ;
-	lv2:displayPriority 74;
+	pg:group plug:G3B_RES_B_MAT ;
+	lv2:displayPriority 294 ;
 	rdfs:label "B Material" ;
 	rdfs:range atom:Float ;
 	lv2:default -2.23517e-08 ;
@@ -350,8 +470,8 @@ plug:b_damp
 
 plug:b_tone
 	a lv2:Parameter ;
-	pg:group plug:G2C_RES_B_TONE ;
-	lv2:displayPriority 71;
+	pg:group plug:G3C_RES_B_TONE ;
+	lv2:displayPriority 284 ;
 	rdfs:label "B Tone" ;
 	rdfs:range atom:Float ;
 	lv2:default -2.23517e-08 ;
@@ -360,8 +480,8 @@ plug:b_tone
 
 plug:b_hit
 	a lv2:Parameter ;
-	pg:group plug:G2B_RES_B_MAT ;
-	lv2:displayPriority 73;
+	pg:group plug:G3B_RES_B_MAT ;
+	lv2:displayPriority 292 ;
 	rdfs:label "B HitPos" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.26 ;
@@ -370,18 +490,18 @@ plug:b_hit
 
 plug:b_rel
 	a lv2:Parameter ;
-	pg:group plug:G2D_RES_B_TIME ;
-	lv2:displayPriority 66;
+	pg:group plug:G3D_RES_B_ATTEN ;
+	lv2:displayPriority 272 ;
 	rdfs:label "B Release" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
-	lv2:minimum 0 ;
+	lv2:minimum 0.001 ;
 	lv2:maximum 1 .
 
 plug:b_inharm
 	a lv2:Parameter ;
-	pg:group plug:G2C_RES_B_TONE ;
-	lv2:displayPriority 70;
+	pg:group plug:G3C_RES_B_TONE ;
+	lv2:displayPriority 282 ;
 	rdfs:label "B Inharmonic" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.0001 ;
@@ -390,8 +510,8 @@ plug:b_inharm
 
 plug:b_ratio
 	a lv2:Parameter ;
-	pg:group plug:G2C_RES_B_TONE ;
-	lv2:displayPriority 69;
+	pg:group plug:G3A_RES_B_MODEL ;
+	lv2:displayPriority 302 ;
 	rdfs:label "B Ratio" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
@@ -400,18 +520,18 @@ plug:b_ratio
 
 plug:b_cut
 	a lv2:Parameter ;
-	pg:group plug:G2C_RES_B_TONE ;
-	lv2:displayPriority 68;
+	pg:group plug:G3D_RES_B_ATTEN ;
+	lv2:displayPriority 271 ;
 	rdfs:label "B LowCut" ;
 	rdfs:range atom:Float ;
-	lv2:default 20 ;
-	lv2:minimum 20 ;
-	lv2:maximum 20000 .
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
 
 plug:b_radius
 	a lv2:Parameter ;
-	pg:group plug:G2B_RES_B_MAT ;
-	lv2:displayPriority 72;
+	pg:group plug:G3A_RES_B_MODEL ;
+	lv2:displayPriority 301 ;
 	rdfs:label "B Tube Radius" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.5 ;
@@ -420,8 +540,8 @@ plug:b_radius
 
 plug:b_coarse
 	a lv2:Parameter ;
-	pg:group plug:G2A_RES_B_SETUP ;
-	lv2:displayPriority 77;
+	pg:group plug:G1C_RES_PITCH ;
+	lv2:displayPriority 382 ;
 	rdfs:label "B coarse pitch" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -430,18 +550,28 @@ plug:b_coarse
 
 plug:b_fine
 	a lv2:Parameter ;
-	pg:group plug:G2A_RES_B_SETUP ;
-	lv2:displayPriority 76;
+	pg:group plug:G1C_RES_PITCH ;
+	lv2:displayPriority 381 ;
 	rdfs:label "B fine pitch" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum -99 ;
 	lv2:maximum 99 .
 
+plug:noise_osc
+	a lv2:Parameter ;
+	pg:group plug:G5A_NOISE_SETUP ;
+	lv2:displayPriority 202 ;
+	rdfs:label "Noise DC" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
 plug:noise_mix
 	a lv2:Parameter ;
-	pg:group plug:G5_GLOBAL_MIX ;
-	lv2:displayPriority 37 ;
+	pg:group plug:G5A_NOISE_SETUP ;
+	lv2:displayPriority 204 ;
 	rdfs:label "Noise Mix" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -450,8 +580,8 @@ plug:noise_mix
 
 plug:noise_res
 	a lv2:Parameter ;
-	pg:group plug:G4A_NOISE_FILT ;
-	lv2:displayPriority 49 ;
+	pg:group plug:G5B_NOISE_FILT ;
+	lv2:displayPriority 194 ;
 	rdfs:label "Noise Resonance" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -460,8 +590,8 @@ plug:noise_res
 
 plug:noise_filter_mode
 	a lv2:Parameter ;
-	pg:group plug:G4A_NOISE_FILT ;
-	lv2:displayPriority 51 ;
+	pg:group plug:G5B_NOISE_FILT ;
+	lv2:displayPriority 191 ;
 	rdfs:label "Noise Filter Mode" ;
 	rdfs:range atom:Float ;
 	lv2:default 2 ;
@@ -481,8 +611,8 @@ plug:noise_filter_mode
 
 plug:noise_filter_freq
 	a lv2:Parameter ;
-	pg:group plug:G4A_NOISE_FILT ;
-	lv2:displayPriority 50 ;
+	pg:group plug:G5B_NOISE_FILT ;
+	lv2:displayPriority 193 ;
 	rdfs:label "Noise Filter Freq" ;
 	rdfs:range atom:Float ;
 	lv2:default 20 ;
@@ -491,8 +621,8 @@ plug:noise_filter_freq
 
 plug:noise_filter_q
 	a lv2:Parameter ;
-	pg:group plug:G4A_NOISE_FILT ;
-	lv2:displayPriority 48 ;
+	pg:group plug:G5B_NOISE_FILT ;
+	lv2:displayPriority 192 ;
 	rdfs:label "Noise Filter Q" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.707 ;
@@ -501,30 +631,30 @@ plug:noise_filter_q
 
 plug:noise_att
 	a lv2:Parameter ;
-	pg:group plug:G4B_NOISE_ENV ;
-	lv2:displayPriority 47 ;
+	pg:group plug:G5D_NOISE_ENV ;
+	lv2:displayPriority 174 ;
 	lv2:designation param:attack ;
 	rdfs:label "Noise Attack" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
 	lv2:minimum 1 ;
-	lv2:maximum 5000 .
+	lv2:maximum 20000 .
 
 plug:noise_dec
 	a lv2:Parameter ;
-	pg:group plug:G4B_NOISE_ENV ;
+	pg:group plug:G5D_NOISE_ENV ;
+	lv2:displayPriority 173 ;
 	lv2:designation param:decay ;
-	lv2:displayPriority 46 ;
 	rdfs:label "Noise Decay" ;
 	rdfs:range atom:Float ;
 	lv2:default 500 ;
 	lv2:minimum 1 ;
-	lv2:maximum 5000 .
+	lv2:maximum 20000 .
 
 plug:noise_sus
 	a lv2:Parameter ;
-	pg:group plug:G4B_NOISE_ENV ;
-	lv2:displayPriority 45 ;
+	pg:group plug:G5D_NOISE_ENV ;
+	lv2:displayPriority 172 ;
 	lv2:designation param:sustain ;
 	rdfs:label "Noise Sustain" ;
 	rdfs:range atom:Float ;
@@ -534,129 +664,259 @@ plug:noise_sus
 
 plug:noise_rel
 	a lv2:Parameter ;
-	pg:group plug:G4B_NOISE_ENV ;
-	lv2:displayPriority 44 ;
+	pg:group plug:G5D_NOISE_ENV ;
+	lv2:displayPriority 171 ;
 	lv2:designation param:release ;
 	rdfs:label "Noise Release" ;
 	rdfs:range atom:Float ;
 	lv2:default 500 ;
 	lv2:minimum 1 ;
-	lv2:maximum 5000 .
+	lv2:maximum 20000 .
+
+plug:noise_att_ten
+	a lv2:Parameter ;
+	pg:group plug:G5F_NOISE_ENV_TENSION ;
+	lv2:displayPriority 154 ;
+	rdfs:label "Noise Attack Tension" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.4 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:noise_dec_ten
+	a lv2:Parameter ;
+	pg:group plug:G5F_NOISE_ENV_TENSION ;
+	lv2:displayPriority 153 ;
+	rdfs:label "Noise Decay Tension" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.4 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:noise_rel_ten
+	a lv2:Parameter ;
+	pg:group plug:G5F_NOISE_ENV_TENSION ;
+	lv2:displayPriority 152 ;
+	rdfs:label "Noise Release Tension" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.4 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
 
 plug:vel_mallet_mix
 	a lv2:Parameter ;
-	pg:group plug:G3B_MALLET_VELMOD ;
-	lv2:displayPriority 53 ;
+	pg:group plug:G4A_MALLET_SETUP ;
+	lv2:displayPriority 253 ;
 	rdfs:label "Vel Mallet Mix" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_mallet_res
 	a lv2:Parameter ;
-	pg:group plug:G3B_MALLET_VELMOD ;
-	lv2:displayPriority 55 ;
+	pg:group plug:G4C_MALLET_TONE ;
+	lv2:displayPriority 233 ;
 	rdfs:label "Vel Mallet Resonance" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_mallet_stiff
 	a lv2:Parameter ;
-	pg:group plug:G3B_MALLET_VELMOD ;
-	lv2:displayPriority 54 ;
+	pg:group plug:G4B_MALLET_MAT ;
+	lv2:displayPriority 242 ;
 	rdfs:label "Vel Mallet Stiffness" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_noise_mix
 	a lv2:Parameter ;
-	pg:group plug:G4C_NOISE_VELMOD ;
-	lv2:displayPriority 42 ;
+	pg:group plug:G5A_NOISE_SETUP ;
+	lv2:displayPriority 203 ;
 	rdfs:label "Vel Noise Mix" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_noise_res
 	a lv2:Parameter ;
-	pg:group plug:G4C_NOISE_VELMOD ;
-	lv2:displayPriority 43 ;
+	pg:group plug:G5C_NOISE_FILT_VELMOD ;
+	lv2:displayPriority 184 ;
 	rdfs:label "Vel Noise Resonance" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_noise_freq
+	a lv2:Parameter ;
+	pg:group plug:G5C_NOISE_FILT_VELMOD ;
+	lv2:displayPriority 183 ;
+	rdfs:label "Vel Noise Frequency" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_noise_att
+	a lv2:Parameter ;
+	pg:group plug:G5E_NOISE_ENV_VELMOD ;
+	lv2:displayPriority 164 ;
+	rdfs:label "Vel Noise Attack" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_noise_dec
+	a lv2:Parameter ;
+	pg:group plug:G5E_NOISE_ENV_VELMOD ;
+	lv2:displayPriority 163 ;
+	rdfs:label "Vel Noise Decay" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_noise_sus
+	a lv2:Parameter ;
+	pg:group plug:G5E_NOISE_ENV_VELMOD ;
+	lv2:displayPriority 162 ;
+	rdfs:label "Vel Noise Sustain" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_noise_rel
+	a lv2:Parameter ;
+	pg:group plug:G5E_NOISE_ENV_VELMOD ;
+	lv2:displayPriority 161 ;
+	rdfs:label "Vel Noise Release" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_noise_q
+	a lv2:Parameter ;
+	pg:group plug:G5C_NOISE_FILT_VELMOD ;
+	lv2:displayPriority 182 ;
+	rdfs:label "Vel Noise Q" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_a_decay
 	a lv2:Parameter ;
-	pg:group plug:G1E_RES_A_VELMOD ;
-	lv2:displayPriority 83;
+	pg:group plug:G2D_RES_A_ATTEN ;
+	lv2:displayPriority 323 ;
 	rdfs:label "Vel A Decay" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_a_hit
 	a lv2:Parameter ;
-	pg:group plug:G1E_RES_A_VELMOD ;
-	lv2:displayPriority 82;
+	pg:group plug:G2B_RES_A_MAT ;
+	lv2:displayPriority 341 ;
 	rdfs:label "Vel A Hit" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_a_inharm
 	a lv2:Parameter ;
-	pg:group plug:G1E_RES_A_VELMOD ;
-	lv2:displayPriority 81;
+	pg:group plug:G2C_RES_A_TONE ;
+	lv2:displayPriority 331 ;
 	rdfs:label "Vel A Inharmonic" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_a_damp
+	a lv2:Parameter ;
+	pg:group plug:G2B_RES_A_MAT ;
+	lv2:displayPriority 343 ;
+	rdfs:label "Vel A Material" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_a_tone
+	a lv2:Parameter ;
+	pg:group plug:G2C_RES_A_TONE ;
+	lv2:displayPriority 333 ;
+	rdfs:label "Vel A Tone" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_b_decay
 	a lv2:Parameter ;
-	pg:group plug:G2E_RES_B_VELMOD ;
-	lv2:displayPriority 63;
+	pg:group plug:G3D_RES_B_ATTEN ;
+	lv2:displayPriority 273 ;
 	rdfs:label "Vel B Decay" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_b_hit
 	a lv2:Parameter ;
-	pg:group plug:G2E_RES_B_VELMOD ;
-	lv2:displayPriority 62;
+	pg:group plug:G3B_RES_B_MAT ;
+	lv2:displayPriority 291 ;
 	rdfs:label "Vel B Hit" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:vel_b_inharm
 	a lv2:Parameter ;
-	pg:group plug:G2E_RES_B_VELMOD ;
-	lv2:displayPriority 61;
+	pg:group plug:G3C_RES_B_TONE ;
+	lv2:displayPriority 281 ;
 	rdfs:label "Vel B Inharmonic" ;
 	rdfs:range atom:Float ;
-	lv2:default 0 ;
-	lv2:minimum 0 ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_b_damp
+	a lv2:Parameter ;
+	pg:group plug:G3B_RES_B_MAT ;
+	lv2:displayPriority 293 ;
+	rdfs:label "Vel B Material" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:vel_b_tone
+	a lv2:Parameter ;
+	pg:group plug:G3C_RES_B_TONE ;
+	lv2:displayPriority 283 ;
+	rdfs:label "Vel B Tone" ;
+	rdfs:range atom:Float ;
+	lv2:default -2.23517e-08 ;
+	lv2:minimum -1 ;
 	lv2:maximum 1 .
 
 plug:couple
 	a lv2:Parameter ;
-	pg:group plug:G6_RES_MIX ;
-	lv2:displayPriority 35;
+	pg:group plug:G1B_RES_MIX ;
+	lv2:displayPriority 394 ;
 	rdfs:label "Coupling" ;
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
@@ -673,8 +933,8 @@ plug:couple
 
 plug:ab_mix
 	a lv2:Parameter ;
-	pg:group plug:G6_RES_MIX ;
-	lv2:displayPriority 34;
+	pg:group plug:G1B_RES_MIX ;
+	lv2:displayPriority 393 ;
 	rdfs:label "A+B Mix" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.5 ;
@@ -683,8 +943,8 @@ plug:ab_mix
 
 plug:ab_split
 	a lv2:Parameter ;
-	pg:group plug:G6_RES_MIX ;
-	lv2:displayPriority 33;
+	pg:group plug:G1B_RES_MIX ;
+	lv2:displayPriority 392 ;
 	rdfs:label "A>B Split" ;
 	rdfs:range atom:Float ;
 	lv2:default 0.01 ;
@@ -693,13 +953,82 @@ plug:ab_split
 
 plug:gain
 	a lv2:Parameter ;
-	pg:group plug:G5_GLOBAL_MIX ;
-	lv2:displayPriority 39 ;
+	pg:group plug:G1B_RES_MIX ;
+	lv2:displayPriority 391 ;
 	rdfs:label "Res Gain" ;
 	rdfs:range atom:Float ;
 	lv2:default -5.36442e-07 ;
 	lv2:minimum -24 ;
 	lv2:maximum 24 .
+
+plug:bend_range
+	a lv2:Parameter ;
+	pg:group plug:G6_KEY ;
+	lv2:displayPriority 104 ;
+	rdfs:label "PitchBend Range" ;
+	rdfs:range atom:Float ;
+	lv2:default 2 ;
+	lv2:minimum 1 ;
+	lv2:maximum 24 .
+
+plug:stereoizer
+	a lv2:Parameter ;
+	pg:group plug:G1A_RES_SETUP ;
+	lv2:displayPriority 402 ;
+	rdfs:label "Stereoizer" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:reuse_voices
+	a lv2:Parameter ;
+	pg:group plug:G6_KEY ;
+	lv2:displayPriority 103 ;
+	rdfs:label "Reuse Voices" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:fadeout_repeats
+	a lv2:Parameter ;
+	pg:group plug:G6_KEY ;
+	lv2:displayPriority 102 ;
+	rdfs:label "Fadeout Repeated Notes" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:input_group_1
+	a pg:InputGroup ;
+	lv2:name "Sidechain" ;
+	lv2:symbol "input_group_1" .
 
 plug:output_group_1
 	a pg:OutputGroup ;
@@ -711,8 +1040,8 @@ plug:output_group_1
 	a lv2:InstrumentPlugin ;
 	doap:name "RipplerX" ;
 	doap:description "RipplerX" ;
-	lv2:minorVersion 3 ;
-	lv2:microVersion 4 ;
+	lv2:minorVersion 5 ;
+	lv2:microVersion 18 ;
 	doap:maintainer [
 		a foaf:Person ;
 		foaf:name "Tilr" ;
@@ -721,7 +1050,7 @@ plug:output_group_1
 	] ;
 	doap:release [
 		a doap:Version ;
-		doap:revision "1.3.4" ;
+		doap:revision "1.5.18" ;
 	] ;
 	lv2:optionalFeature
 		lv2:hardRTCapable ;
@@ -731,11 +1060,16 @@ plug:output_group_1
 		urid:map ,
 		opts:options ,
 		bufs:boundedBlockLength ;
+	pg:mainInput plug:input_group_1 ;
 	pg:mainOutput plug:output_group_1 ;
 	patch:writable
+		plug:mallet_type ,
+		plug:mallet_pitch ,
+		plug:mallet_filter ,
 		plug:mallet_mix ,
 		plug:mallet_res ,
 		plug:mallet_stiff ,
+		plug:mallet_ktrack ,
 		plug:a_on ,
 		plug:a_model ,
 		plug:a_partials ,
@@ -764,6 +1098,7 @@ plug:output_group_1
 		plug:b_radius ,
 		plug:b_coarse ,
 		plug:b_fine ,
+		plug:noise_osc ,
 		plug:noise_mix ,
 		plug:noise_res ,
 		plug:noise_filter_mode ,
@@ -773,25 +1108,46 @@ plug:output_group_1
 		plug:noise_dec ,
 		plug:noise_sus ,
 		plug:noise_rel ,
+		plug:noise_att_ten ,
+		plug:noise_dec_ten ,
+		plug:noise_rel_ten ,
 		plug:vel_mallet_mix ,
 		plug:vel_mallet_res ,
 		plug:vel_mallet_stiff ,
 		plug:vel_noise_mix ,
 		plug:vel_noise_res ,
+		plug:vel_noise_freq ,
+		plug:vel_noise_att ,
+		plug:vel_noise_dec ,
+		plug:vel_noise_sus ,
+		plug:vel_noise_rel ,
+		plug:vel_noise_q ,
 		plug:vel_a_decay ,
 		plug:vel_a_hit ,
 		plug:vel_a_inharm ,
+		plug:vel_a_damp ,
+		plug:vel_a_tone ,
 		plug:vel_b_decay ,
 		plug:vel_b_hit ,
 		plug:vel_b_inharm ,
+		plug:vel_b_damp ,
+		plug:vel_b_tone ,
 		plug:couple ,
 		plug:ab_mix ,
 		plug:ab_split ,
-		plug:gain ;
+		plug:gain ,
+		plug:bend_range ,
+		plug:stereoizer ,
+		plug:reuse_voices ,
+		plug:fadeout_repeats ;
 	patch:readable
+		plug:mallet_type ,
+		plug:mallet_pitch ,
+		plug:mallet_filter ,
 		plug:mallet_mix ,
 		plug:mallet_res ,
 		plug:mallet_stiff ,
+		plug:mallet_ktrack ,
 		plug:a_on ,
 		plug:a_model ,
 		plug:a_partials ,
@@ -820,6 +1176,7 @@ plug:output_group_1
 		plug:b_radius ,
 		plug:b_coarse ,
 		plug:b_fine ,
+		plug:noise_osc ,
 		plug:noise_mix ,
 		plug:noise_res ,
 		plug:noise_filter_mode ,
@@ -829,55 +1186,86 @@ plug:output_group_1
 		plug:noise_dec ,
 		plug:noise_sus ,
 		plug:noise_rel ,
+		plug:noise_att_ten ,
+		plug:noise_dec_ten ,
+		plug:noise_rel_ten ,
 		plug:vel_mallet_mix ,
 		plug:vel_mallet_res ,
 		plug:vel_mallet_stiff ,
 		plug:vel_noise_mix ,
 		plug:vel_noise_res ,
+		plug:vel_noise_freq ,
+		plug:vel_noise_att ,
+		plug:vel_noise_dec ,
+		plug:vel_noise_sus ,
+		plug:vel_noise_rel ,
+		plug:vel_noise_q ,
 		plug:vel_a_decay ,
 		plug:vel_a_hit ,
 		plug:vel_a_inharm ,
+		plug:vel_a_damp ,
+		plug:vel_a_tone ,
 		plug:vel_b_decay ,
 		plug:vel_b_hit ,
 		plug:vel_b_inharm ,
+		plug:vel_b_damp ,
+		plug:vel_b_tone ,
 		plug:couple ,
 		plug:ab_mix ,
 		plug:ab_split ,
-		plug:gain ;
+		plug:gain ,
+		plug:bend_range ,
+		plug:stereoizer ,
+		plug:reuse_voices ,
+		plug:fadeout_repeats ;
 	lv2:port [
-		a lv2:OutputPort , lv2:AudioPort ;
+		a lv2:InputPort , lv2:AudioPort ;
 		lv2:index 0 ;
+		lv2:symbol "audio_in_1" ;
+		lv2:name "Audio In 1" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:InputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_in_2" ;
+		lv2:name "Audio In 2" ;
+		pg:group plug:input_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 2 ;
 		lv2:symbol "audio_out_1" ;
 		lv2:name "Audio Out 1" ;
 		pg:group plug:output_group_1 ;
 		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
 	] , [
 		a lv2:OutputPort , lv2:AudioPort ;
-		lv2:index 1 ;
+		lv2:index 3 ;
 		lv2:symbol "audio_out_2" ;
 		lv2:name "Audio Out 2" ;
 		pg:group plug:output_group_1 ;
 		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
 	] , [
 		a lv2:InputPort , atom:AtomPort ;
-		rsz:minimumSize 12152 ;
+		rsz:minimumSize 13736 ;
 		atom:bufferType atom:Sequence ;
 		atom:supports
 			midi:MidiEvent ,
 			patch:Message ,
 			time:Position ;
 		lv2:designation lv2:control ;
-		lv2:index 2 ;
+		lv2:index 4 ;
 		lv2:symbol "in" ;
 		lv2:name "In" ;
 	] , [
 		a lv2:OutputPort , atom:AtomPort ;
-		rsz:minimumSize 12152 ;
+		rsz:minimumSize 13736 ;
 		atom:bufferType atom:Sequence ;
 		atom:supports
 			patch:Message ;
 		lv2:designation lv2:control ;
-		lv2:index 3 ;
+		lv2:index 5 ;
 		lv2:symbol "out" ;
 		lv2:name "Out" ;
 	] , [
@@ -885,7 +1273,7 @@ plug:output_group_1
 		lv2:designation lv2:latency ;
 		lv2:symbol "latency" ;
 		lv2:name "Latency" ;
-		lv2:index 4 ;
+		lv2:index 6 ;
 		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
 		units:unit units:frame ;
 	] , [
@@ -896,7 +1284,7 @@ plug:output_group_1
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2:index 5 ;
+		lv2:index 7 ;
 		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
 	] , [
 		a lv2:InputPort , lv2:ControlPort ;
@@ -906,111 +1294,135 @@ plug:output_group_1
 		lv2:default 1.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2:index 6 ;
+		lv2:index 8 ;
 		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
 	] ;
 	opts:supportedOption
 		bufs:maxBlockLength .
 
 
-plug:G1A_RES_A_SETUP
-    a pg:InputGroup ;
-    lv2:name "Resonator A - Setup" ;
-    lv2:symbol "g1a_res_a_setup" ;
-    lv2:displayPriority 20 .
+plug:G1A_RES_SETUP
+	a pg:InputGroup ;
+	lv2:name "Resonator Setup" ;
+	lv2:symbol "g1a_res_setup" ;
+	lv2:displayPriority 40 .
 
-plug:G1B_RES_A_MAT
-    a pg:InputGroup ;
-    lv2:name "Resonator A - Material" ;
-    lv2:symbol "g1b_res_a_mat" ;
-    lv2:displayPriority 19 .
+plug:G1B_RES_MIX
+	a pg:InputGroup ;
+	lv2:name "Resonator Mix" ;
+	lv2:symbol "g1b_res_mix" ;
+	lv2:displayPriority 39 .
 
-plug:G1C_RES_A_TONE
-    a pg:InputGroup ;
-    lv2:name "Resonator A - Tone" ;
-    lv2:symbol "g1c_res_a_tone" ;
-    lv2:displayPriority 18 .
+plug:G1C_RES_PITCH
+	a pg:InputGroup ;
+	lv2:name "Resonator Pitch" ;
+	lv2:symbol "g1c_res_pitch" ;
+	lv2:displayPriority 38 .
 
-plug:G1D_RES_A_TIME
-    a pg:InputGroup ;
-    lv2:name "Resonator A - Time" ;
-    lv2:symbol "g1d_res_a_time" ;
-    lv2:displayPriority 17 .
+plug:G2A_RES_A_MODEL
+	a pg:InputGroup ;
+	lv2:name "Resonator A - Model" ;
+	lv2:symbol "g2a_res_a_model" ;
+	lv2:displayPriority 35 .
 
-plug:G1E_RES_A_VELMOD
-    a pg:InputGroup ;
-    lv2:name "Resonator A - Velocity Modulation" ;
-    lv2:symbol "g1e_res_a_velmod" ;
-    lv2:displayPriority 16 .
+plug:G2B_RES_A_MAT
+	a pg:InputGroup ;
+	lv2:name "Resonator A - Material" ;
+	lv2:symbol "g2b_res_a_mat" ;
+	lv2:displayPriority 34 .
 
-plug:G2A_RES_B_SETUP
-    a pg:InputGroup ;
-    lv2:name "Resonator B - Setup" ;
-    lv2:symbol "g2a_res_b_setup" ;
-    lv2:displayPriority 15 .
+plug:G2C_RES_A_TONE
+	a pg:InputGroup ;
+	lv2:name "Resonator A - Tone" ;
+	lv2:symbol "g2c_res_a_tone" ;
+	lv2:displayPriority 33 .
 
-plug:G2B_RES_B_MAT
-    a pg:InputGroup ;
-    lv2:name "Resonator B - Material" ;
-    lv2:symbol "g2b_res_b_mat" ;
-    lv2:displayPriority 14 .
+plug:G2D_RES_A_ATTEN
+	a pg:InputGroup ;
+	lv2:name "Resonator A - Attenuation" ;
+	lv2:symbol "g2d_res_a_atten" ;
+	lv2:displayPriority 32 .
 
-plug:G2C_RES_B_TONE
-    a pg:InputGroup ;
-    lv2:name "Resonator B - Tone" ;
-    lv2:symbol "g2c_res_b_tone" ;
-    lv2:displayPriority 13 .
+plug:G3A_RES_B_MODEL
+	a pg:InputGroup ;
+	lv2:name "Resonator B - Model" ;
+	lv2:symbol "g3a_res_b_model" ;
+	lv2:displayPriority 30 .
 
-plug:G2D_RES_B_TIME
-    a pg:InputGroup ;
-    lv2:name "Resonator B - Time" ;
-    lv2:symbol "g2d_res_b_time" ;
-    lv2:displayPriority 12 .
+plug:G3B_RES_B_MAT
+	a pg:InputGroup ;
+	lv2:name "Resonator B - Material" ;
+	lv2:symbol "g3b_res_b_mat" ;
+	lv2:displayPriority 29 .
 
-plug:G2E_RES_B_VELMOD
-    a pg:InputGroup ;
-    lv2:name "Resonator B - Velocity Modulation" ;
-    lv2:symbol "g2e_res_b_velmod" ;
-    lv2:displayPriority 11 .
+plug:G3C_RES_B_TONE
+	a pg:InputGroup ;
+	lv2:name "Resonator B - Tone" ;
+	lv2:symbol "g3c_res_b_tone" ;
+	lv2:displayPriority 28 .
 
-plug:G3A_MALLET_SETUP
-    a pg:InputGroup ;
-    lv2:name "Mallet - Setup" ;
-    lv2:symbol "g3_mallet_setup" ;
-    lv2:displayPriority 8 .
+plug:G3D_RES_B_ATTEN
+	a pg:InputGroup ;
+	lv2:name "Resonator B - Attenuation" ;
+	lv2:symbol "g3d_res_b_atten" ;
+	lv2:displayPriority 27 .
 
-plug:G3B_MALLET_VELMOD
-    a pg:InputGroup ;
-    lv2:name "Mallet - Velocity Modulation" ;
-    lv2:symbol "g3b_mallet_velmod" ;
-    lv2:displayPriority 7 .
+plug:G4A_MALLET_SETUP
+	a pg:InputGroup ;
+	lv2:name "Mallet Setup" ;
+	lv2:symbol "g4a_mallet_setup" ;
+	lv2:displayPriority 25 .
 
-plug:G4A_NOISE_FILT
-    a pg:InputGroup ;
-    lv2:name "Noise - Filter" ;
-    lv2:symbol "g4a_noise_filt" ;
-    lv2:displayPriority 6 .
+plug:G4B_MALLET_MAT
+	a pg:InputGroup ;
+	lv2:name "Mallet Material" ;
+	lv2:symbol "g4b_mallet_mat" ;
+	lv2:displayPriority 24 .
 
-plug:G4B_NOISE_ENV
-    a pg:InputGroup ;
-    lv2:name "Noise - Envelope" ;
-    lv2:symbol "g4b_noise_env" ;
-    lv2:displayPriority 5 .
+plug:G4C_MALLET_TONE
+	a pg:InputGroup ;
+	lv2:name "Mallet Tone" ;
+	lv2:symbol "g4c_mallet_tone" ;
+	lv2:displayPriority 23 .
 
-plug:G4C_NOISE_VELMOD
-    a pg:InputGroup ;
-    lv2:name "Noise - Velocity Modulation" ;
-    lv2:symbol "g4c_noise_velmod" ;
-    lv2:displayPriority 4 .
+plug:G5A_NOISE_SETUP
+	a pg:InputGroup ;
+	lv2:name "Noise Setup" ;
+	lv2:symbol "g5a_noise_setup" ;
+	lv2:displayPriority 20 .
 
-plug:G5_GLOBAL_MIX
-    a pg:InputGroup ;
-    lv2:name "Global Mix" ;
-    lv2:symbol "g5_global_mix" ;
-    lv2:displayPriority 3 .
+plug:G5B_NOISE_FILT
+	a pg:InputGroup ;
+	lv2:name "Noise Filter" ;
+	lv2:symbol "g5b_noise_filt" ;
+	lv2:displayPriority 19 .
 
-plug:G6_RES_MIX
-    a pg:InputGroup ;
-    lv2:name "Resonator Mix" ;
-    lv2:symbol "g6_res_mix" ;
-    lv2:displayPriority 10 .
+plug:G5C_NOISE_FILT_VELMOD
+	a pg:InputGroup ;
+	lv2:name "Noise Filter - Velocity Modulation" ;
+	lv2:symbol "g5c_noise_filt_velmod" ;
+	lv2:displayPriority 18 .
+
+plug:G5D_NOISE_ENV
+	a pg:InputGroup ;
+	lv2:name "Noise Envelope" ;
+	lv2:symbol "g5d_noise_env" ;
+	lv2:displayPriority 17 .
+
+plug:G5E_NOISE_ENV_VELMOD
+	a pg:InputGroup ;
+	lv2:name "Noise Envelope - Velocity Modulation" ;
+	lv2:symbol "g5e_noise_env_velmod" ;
+	lv2:displayPriority 16 .
+
+plug:G5F_NOISE_ENV_TENSION
+	a pg:InputGroup ;
+	lv2:name "Noise Envelope - Tension" ;
+	lv2:symbol "g5F_noise_env_ten" ;
+	lv2:displayPriority 15 .
+
+plug:G6_KEY
+	a pg:InputGroup ;
+	lv2:name "Keyboard" ;
+	lv2:symbol "g6_key" ;
+	lv2:displayPriority 10 .
