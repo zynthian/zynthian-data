@@ -406,7 +406,17 @@ plug:p29
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
 	lv2:minimum 0 ;
-	lv2:maximum 2 .
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "Down" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Normal" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "Up" ;
+		rdf:value 2 ;
+	] .
 
 plug:p30
 	a lv2:Parameter ;
@@ -416,7 +426,17 @@ plug:p30
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 2 .
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "Up" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Up/Down" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "Down" ;
+		rdf:value 2 ;
+	] .
 
 plug:p31
 	a lv2:Parameter ;
@@ -426,7 +446,17 @@ plug:p31
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 2 .
+	lv2:maximum 2 ;
+		lv2:scalePoint [
+		rdfs:label "1 Oct" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "2 Oct" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "3 Oct" ;
+		rdf:value 2 ;
+	] .
 
 plug:p32
 	a lv2:Parameter ;
@@ -436,7 +466,14 @@ plug:p32
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 1 .
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "Auto" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Manual" ;
+		rdf:value 1 ;
+	] .
 
 plug:p33
 	a lv2:Parameter ;
@@ -446,7 +483,17 @@ plug:p33
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
 	lv2:minimum 0 ;
-	lv2:maximum 2 .
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "LFO" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "MAN" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "ENV" ;
+		rdf:value 2 ;
+	] .
 
 plug:p34
 	a lv2:Parameter ;
@@ -456,7 +503,14 @@ plug:p34
 	rdfs:range atom:Float ;
 	lv2:default 0 ;
 	lv2:minimum 0 ;
-	lv2:maximum 1 .
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "Normal" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Inverted" ;
+		rdf:value 1 ;
+	] .
 
 plug:p35
 	a lv2:Parameter ;
@@ -466,7 +520,14 @@ plug:p35
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
 	lv2:minimum 0 ;
-	lv2:maximum 1 .
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "Env" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Gate" ;
+		rdf:value 1 ;
+	] .
 
 plug:p43
 	a lv2:Parameter ;
@@ -476,7 +537,14 @@ plug:p43
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
 	lv2:minimum 0 ;
-	lv2:maximum 1 .
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "1982" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "1984" ;
+		rdf:value 1 ;
+	] .
 
 plug:p36
 	a lv2:Parameter ;
@@ -524,7 +592,17 @@ plug:p39
 	rdfs:range atom:Float ;
 	lv2:default 2 ;
 	lv2:minimum 0 ;
-	lv2:maximum 2 .
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "Mono" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Poly I" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "Poly II" ;
+		rdf:value 2 ;
+	] .
 
 plug:p40
 	a lv2:Parameter ;
