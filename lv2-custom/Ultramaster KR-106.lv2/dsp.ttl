@@ -1,0 +1,917 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix bufs:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix param: <http://lv2plug.in/ns/ext/parameters#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug:  <https://kayrock.org/kr106:> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix time:  <http://lv2plug.in/ns/ext/time#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix units: <http://lv2plug.in/ns/extensions/units#> .
+@prefix urid:  <http://lv2plug.in/ns/ext/urid#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+plug:p0
+	a lv2:Parameter ;
+	pg:group plug:G_BENDER ;
+	lv2:displayPriority 123 ;
+	rdfs:label "Bender DCO" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p1
+	a lv2:Parameter ;
+	pg:group plug:G_BENDER ;
+	lv2:displayPriority 122 ;
+	rdfs:label "Bender VCF" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p42
+	a lv2:Parameter ;
+	pg:group plug:G_BENDER ;
+	lv2:displayPriority 121 ;
+	rdfs:label "Bender LFO" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p2
+	a lv2:Parameter ;
+	pg:group plug:G_ARP ;
+	lv2:displayPriority 111 ;
+	rdfs:label "Arp Rate" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.234375 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p3
+	a lv2:Parameter ;
+	pg:group plug:G_LFO ;
+	lv2:displayPriority 102 ;
+	rdfs:label "LFO Rate" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.24 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p4
+	a lv2:Parameter ;
+	pg:group plug:G_LFO ;
+	lv2:displayPriority 101 ;
+	rdfs:label "LFO Delay" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p5
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_MAIN ;
+	lv2:displayPriority 94 ;
+	rdfs:label "DCO LFO" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p6
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_MAIN ;
+	lv2:displayPriority 93 ;
+	rdfs:label "DCO PWM" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p7
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_MAIN ;
+	lv2:displayPriority 92 ;
+	rdfs:label "DCO Sub" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p8
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_MAIN ;
+	lv2:displayPriority 91 ;
+	rdfs:label "DCO Noise" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p9
+	a lv2:Parameter ;
+	pg:group plug:G_FILTER_VCF_MAIN ;
+	lv2:displayPriority 63 ;
+	rdfs:label "HPF" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 3 .
+
+plug:p10
+	a lv2:Parameter ;
+	pg:group plug:G_FILTER_VCF_MAIN ;
+	lv2:displayPriority 62 ;
+    lv2:designation param:cutoffFrequency ;
+	rdfs:label "VCF Freq" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p11
+	a lv2:Parameter ;
+	pg:group plug:G_FILTER_VCF_MAIN ;
+	lv2:displayPriority 61 ;
+    lv2:designation param:resonance ;
+	rdfs:label "VCF Res" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p12
+	a lv2:Parameter ;
+	pg:group plug:G_FILTER_VCF_MOD ;
+	lv2:displayPriority 54 ;
+	rdfs:label "VCF Env" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p13
+	a lv2:Parameter ;
+	pg:group plug:G_FILTER_VCF_MOD ;
+	lv2:displayPriority 52 ;
+	rdfs:label "VCF LFO" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p14
+	a lv2:Parameter ;
+	pg:group plug:G_FILTER_VCF_MOD ;
+	lv2:displayPriority 51 ;
+	rdfs:label "VCF Kbd" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p15
+	a lv2:Parameter ;
+	pg:group plug:G_VCA ;
+	lv2:displayPriority 42 ;
+	rdfs:label "Volume" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p16
+	a lv2:Parameter ;
+	pg:group plug:G_ENV_MAIN ;
+	lv2:displayPriority 34 ;
+    lv2:designation param:attack ;
+	rdfs:label "Attack" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.25 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p17
+	a lv2:Parameter ;
+	pg:group plug:G_ENV_MAIN ;
+	lv2:displayPriority 33 ;
+    lv2:designation param:decay ;
+	rdfs:label "Decay" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.25 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p18
+	a lv2:Parameter ;
+	pg:group plug:G_ENV_MAIN ;
+	lv2:displayPriority 32 ;
+    lv2:designation param:sustain ;
+	rdfs:label "Sustain" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.9 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p19
+	a lv2:Parameter ;
+	pg:group plug:G_ENV_MAIN ;
+	lv2:displayPriority 31 ;
+    lv2:designation param:release ;
+	rdfs:label "Release" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.25 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p20
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN_TRANS ;
+	lv2:displayPriority 143 ;
+	rdfs:label "Transpose" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p21
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN_TRANS ;
+	lv2:displayPriority 141 ;
+	rdfs:label "Hold" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p22
+	a lv2:Parameter ;
+	pg:group plug:G_ARP ;
+	lv2:displayPriority 114 ;
+	rdfs:label "Arpeggio" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p23
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_WAVEFORM ;
+	lv2:displayPriority 83 ;
+	rdfs:label "Pulse" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p24
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_WAVEFORM ;
+	lv2:displayPriority 82 ;
+	rdfs:label "Saw" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p25
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_WAVEFORM ;
+	lv2:displayPriority 81 ;
+	rdfs:label "Sub Sw" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p26
+	a lv2:Parameter ;
+	pg:group plug:G_CHORUS ;
+	lv2:displayPriority 13 ;
+	rdfs:label "Chorus Off" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p27
+	a lv2:Parameter ;
+	pg:group plug:G_CHORUS ;
+	lv2:displayPriority 12 ;
+	rdfs:label "Chorus I" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p28
+	a lv2:Parameter ;
+	pg:group plug:G_CHORUS ;
+	lv2:displayPriority 11 ;
+	rdfs:label "Chorus II" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p29
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_SETUP ;
+	lv2:displayPriority 71 ;
+	rdfs:label "Octave" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "Down" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Normal" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "Up" ;
+		rdf:value 2 ;
+	] .
+
+plug:p30
+	a lv2:Parameter ;
+	pg:group plug:G_ARP ;
+	lv2:displayPriority 113 ;
+	rdfs:label "Arp Mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "Up" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Up/Down" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "Down" ;
+		rdf:value 2 ;
+	] .
+
+plug:p31
+	a lv2:Parameter ;
+	pg:group plug:G_ARP ;
+	lv2:displayPriority 112 ;
+	rdfs:label "Arp Range" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2 ;
+		lv2:scalePoint [
+		rdfs:label "1 Oct" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "2 Oct" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "3 Oct" ;
+		rdf:value 2 ;
+	] .
+
+plug:p32
+	a lv2:Parameter ;
+	pg:group plug:G_LFO ;
+	lv2:displayPriority 103 ;
+	rdfs:label "LFO Mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "Auto" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Manual" ;
+		rdf:value 1 ;
+	] .
+
+plug:p33
+	a lv2:Parameter ;
+	pg:group plug:G_DCO_SETUP ;
+	lv2:displayPriority 72 ;
+	rdfs:label "PWM Mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "LFO" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "MAN" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "ENV" ;
+		rdf:value 2 ;
+	] .
+
+plug:p34
+	a lv2:Parameter ;
+	pg:group plug:G_FILTER_VCF_MOD ;
+	lv2:displayPriority 53 ;
+	rdfs:label "VCF Env Inv" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "Normal" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Inverted" ;
+		rdf:value 1 ;
+	] .
+
+plug:p35
+	a lv2:Parameter ;
+	pg:group plug:G_VCA ;
+	lv2:displayPriority 41 ;
+	rdfs:label "VCA Mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "Env" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Gate" ;
+		rdf:value 1 ;
+	] .
+
+plug:p43
+	a lv2:Parameter ;
+	pg:group plug:G_ENV_MODE ;
+	lv2:displayPriority 21 ;
+	rdfs:label "ADSR Mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 ;
+	lv2:scalePoint [
+		rdfs:label "1982" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "1984" ;
+		rdf:value 1 ;
+	] .
+
+plug:p36
+	a lv2:Parameter ;
+	pg:group plug:G_BENDER ;
+	lv2:displayPriority 124 ;
+	rdfs:label "Bender" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:p37
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN ;
+	lv2:displayPriority 151 ;
+	rdfs:label "Tuning" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum -1 ;
+	lv2:maximum 1 .
+
+plug:p38
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN ;
+	lv2:displayPriority 153 ;
+	rdfs:label "Power" ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p39
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN_PORTA ;
+	lv2:displayPriority 132 ;
+	rdfs:label "Porta Mode" ;
+	rdfs:range atom:Float ;
+	lv2:default 2 ;
+	lv2:minimum 0 ;
+	lv2:maximum 2 ;
+	lv2:scalePoint [
+		rdfs:label "Mono" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "Poly I" ;
+		rdf:value 1 ;
+	], [
+		rdfs:label "Poly II" ;
+		rdf:value 2 ;
+	] .
+
+plug:p40
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN_PORTA ;
+	lv2:displayPriority 131 ;
+	rdfs:label "Porta Rate" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:p41
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN_TRANS ;
+	lv2:displayPriority 142 ;
+	rdfs:label "Transpose Offset" ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum -24 ;
+	lv2:maximum 36 .
+
+plug:p44
+	a lv2:Parameter ;
+	pg:group plug:G_MAIN ;
+	lv2:displayPriority 152 ;
+	rdfs:label "Master Volume" ;
+	rdfs:range atom:Float ;
+	lv2:default 0.5 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1 .
+
+plug:output_group_1
+	a pg:OutputGroup ;
+	lv2:name "Output" ;
+	lv2:symbol "output_group_1" .
+
+<https://kayrock.org/kr106>
+	ui:ui <https://kayrock.org/kr106:UI> ;
+	a lv2:InstrumentPlugin ;
+	doap:name "Ultramaster KR-106" ;
+	doap:description "Ultramaster KR-106" ;
+	lv2:minorVersion 1 ;
+	lv2:microVersion 9 ;
+	doap:maintainer [
+		a foaf:Person ;
+		foaf:name "Kayrock" ;
+		foaf:homepage <> ;
+		foaf:mbox <> ;
+	] ;
+	doap:release [
+		a doap:Version ;
+		doap:revision "2.1.9" ;
+	] ;
+	lv2:optionalFeature
+		lv2:hardRTCapable ;
+	lv2:extensionData
+		state:interface ;
+	lv2:requiredFeature
+		urid:map ,
+		opts:options ,
+		bufs:boundedBlockLength ;
+	pg:mainOutput plug:output_group_1 ;
+	patch:writable
+		plug:p0 ,
+		plug:p1 ,
+		plug:p42 ,
+		plug:p2 ,
+		plug:p3 ,
+		plug:p4 ,
+		plug:p5 ,
+		plug:p6 ,
+		plug:p7 ,
+		plug:p8 ,
+		plug:p9 ,
+		plug:p10 ,
+		plug:p11 ,
+		plug:p12 ,
+		plug:p13 ,
+		plug:p14 ,
+		plug:p15 ,
+		plug:p16 ,
+		plug:p17 ,
+		plug:p18 ,
+		plug:p19 ,
+		plug:p20 ,
+		plug:p21 ,
+		plug:p22 ,
+		plug:p23 ,
+		plug:p24 ,
+		plug:p25 ,
+		plug:p26 ,
+		plug:p27 ,
+		plug:p28 ,
+		plug:p29 ,
+		plug:p30 ,
+		plug:p31 ,
+		plug:p32 ,
+		plug:p33 ,
+		plug:p34 ,
+		plug:p35 ,
+		plug:p43 ,
+		plug:p36 ,
+		plug:p37 ,
+		plug:p38 ,
+		plug:p39 ,
+		plug:p40 ,
+		plug:p41 ,
+		plug:p44 ;
+	patch:readable
+		plug:p0 ,
+		plug:p1 ,
+		plug:p42 ,
+		plug:p2 ,
+		plug:p3 ,
+		plug:p4 ,
+		plug:p5 ,
+		plug:p6 ,
+		plug:p7 ,
+		plug:p8 ,
+		plug:p9 ,
+		plug:p10 ,
+		plug:p11 ,
+		plug:p12 ,
+		plug:p13 ,
+		plug:p14 ,
+		plug:p15 ,
+		plug:p16 ,
+		plug:p17 ,
+		plug:p18 ,
+		plug:p19 ,
+		plug:p20 ,
+		plug:p21 ,
+		plug:p22 ,
+		plug:p23 ,
+		plug:p24 ,
+		plug:p25 ,
+		plug:p26 ,
+		plug:p27 ,
+		plug:p28 ,
+		plug:p29 ,
+		plug:p30 ,
+		plug:p31 ,
+		plug:p32 ,
+		plug:p33 ,
+		plug:p34 ,
+		plug:p35 ,
+		plug:p43 ,
+		plug:p36 ,
+		plug:p37 ,
+		plug:p38 ,
+		plug:p39 ,
+		plug:p40 ,
+		plug:p41 ,
+		plug:p44 ;
+	lv2:port [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 0 ;
+		lv2:symbol "audio_out_1" ;
+		lv2:name "Audio Out 1" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#left> ;
+	] , [
+		a lv2:OutputPort , lv2:AudioPort ;
+		lv2:index 1 ;
+		lv2:symbol "audio_out_2" ;
+		lv2:name "Audio Out 2" ;
+		pg:group plug:output_group_1 ;
+		lv2:designation <http://lv2plug.in/ns/ext/port-groups#right> ;
+	] , [
+		a lv2:InputPort , atom:AtomPort ;
+		rsz:minimumSize 11432 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			midi:MidiEvent ,
+			patch:Message ,
+			time:Position ;
+		lv2:designation lv2:control ;
+		lv2:index 2 ;
+		lv2:symbol "in" ;
+		lv2:name "In" ;
+	] , [
+		a lv2:OutputPort , atom:AtomPort ;
+		rsz:minimumSize 11432 ;
+		atom:bufferType atom:Sequence ;
+		atom:supports
+			midi:MidiEvent ,
+			patch:Message ;
+		lv2:designation lv2:control ;
+		lv2:index 3 ;
+		lv2:symbol "out" ;
+		lv2:name "Out" ;
+	] , [
+		a lv2:OutputPort , lv2:ControlPort ;
+		lv2:designation lv2:latency ;
+		lv2:symbol "latency" ;
+		lv2:name "Latency" ;
+		lv2:index 4 ;
+		lv2:portProperty lv2:reportsLatency , lv2:integer , lv2:connectionOptional , pprop:notOnGUI ;
+		units:unit units:frame ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:freeWheeling ;
+		lv2:symbol "freeWheeling" ;
+		lv2:name "Free Wheeling" ;
+		lv2:default 0.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 5 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] , [
+		a lv2:InputPort , lv2:ControlPort ;
+		lv2:designation lv2:enabled ;
+		lv2:symbol "enabled" ;
+		lv2:name "Enabled" ;
+		lv2:default 1.0 ;
+		lv2:minimum 0.0 ;
+		lv2:maximum 1.0 ;
+		lv2:index 6 ;
+		lv2:portProperty lv2:toggled , lv2:connectionOptional , pprop:notOnGUI ;
+	] ;
+	opts:supportedOption
+		bufs:maxBlockLength .
+
+plug:G_MAIN
+   a pg:ControlGroup ;
+   lv2:name "MAIN" ;
+   lv2:symbol "g_main" ;
+   lv2:displayPriority 150 .
+
+plug:G_MAIN_TRANS
+   a pg:ControlGroup ;
+   lv2:name "MAIN - Transpose/Hold" ;
+   lv2:symbol "g_main_trans" ;
+   lv2:displayPriority 140 .
+
+plug:G_MAIN_PORTA
+   a pg:ControlGroup ;
+   lv2:name "MAIN - Portamento" ;
+   lv2:symbol "g_main_porta" ;
+   lv2:displayPriority 130 .
+
+plug:G_BENDER
+   a pg:ControlGroup ;
+   lv2:name "BENDER" ;
+   lv2:symbol "g_bender" ;
+   lv2:displayPriority 120 .
+
+plug:G_ARP
+   a pg:ControlGroup ;
+   lv2:name "ARP" ;
+   lv2:symbol "g_arp" ;
+   lv2:displayPriority 110 .
+
+plug:G_LFO
+   a pg:ControlGroup ;
+   lv2:name "LFO" ;
+   lv2:symbol "g_lfo" ;
+   lv2:displayPriority 100 .
+
+plug:G_DCO_MAIN
+   a pg:ControlGroup ;
+   lv2:name "DCO - Main" ;
+   lv2:symbol "g_dco_main" ;
+   lv2:displayPriority 90 .
+
+plug:G_DCO_WAVEFORM
+   a pg:ControlGroup ;
+   lv2:name "DCO - Waveform" ;
+   lv2:symbol "g_dco_waveform" ;
+   lv2:displayPriority 80 .
+
+plug:G_DCO_SETUP
+   a pg:ControlGroup ;
+   lv2:name "DCO - Setup" ;
+   lv2:symbol "g_dco_setup" ;
+   lv2:displayPriority 70 .
+
+plug:G_FILTER_VCF_MAIN
+   a pg:ControlGroup ;
+   lv2:name "FILTER/VCF - Main" ;
+   lv2:symbol "g_filter_vcf_main" ;
+   lv2:displayPriority 60 .
+
+plug:G_FILTER_VCF_MOD
+   a pg:ControlGroup ;
+   lv2:name "FILTER/VCF - Mod" ;
+   lv2:symbol "g_filter_vcf_mod" ;
+   lv2:displayPriority 50 .
+
+plug:G_VCA
+   a pg:ControlGroup ;
+   lv2:name "VCA" ;
+   lv2:symbol "g_vca" ;
+   lv2:displayPriority 40 .
+
+plug:G_ENV_MAIN
+   a pg:ControlGroup ;
+   lv2:name "ENV - Main" ;
+   lv2:symbol "g_env_main" ;
+   lv2:displayPriority 30 .
+
+plug:G_ENV_MODE
+   a pg:ControlGroup ;
+   lv2:name "ENV - Mode" ;
+   lv2:symbol "g_env_mode" ;
+   lv2:displayPriority 20 .
+
+plug:G_CHORUS
+   a pg:ControlGroup ;
+   lv2:name "CHORUS" ;
+   lv2:symbol "g_chorus" ;
+   lv2:displayPriority 10 .
