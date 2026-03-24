@@ -238,7 +238,6 @@ plug:p19
 
 plug:p20
 	a lv2:Parameter ;
-	pg:group plug:G_MAIN_TRANS ;
 	lv2:displayPriority 143 ;
 	rdfs:label "Transpose" ;
 	rdfs:range atom:Float ;
@@ -246,6 +245,7 @@ plug:p20
 	lv2:minimum 0 ;
 	lv2:maximum 1	 ;
 	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	pprop:notOnGUI 1;
 	lv2:scalePoint [
 		rdfs:label "Off" ;
 		rdf:value 0 ;
@@ -256,7 +256,7 @@ plug:p20
 
 plug:p21
 	a lv2:Parameter ;
-	pg:group plug:G_MAIN_TRANS ;
+	pg:group plug:G_MAIN ;
 	lv2:displayPriority 141 ;
 	rdfs:label "Hold" ;
 	rdfs:range atom:Float ;
@@ -568,7 +568,6 @@ plug:p37
 
 plug:p38
 	a lv2:Parameter ;
-	pg:group plug:G_MAIN ;
 	lv2:displayPriority 153 ;
 	rdfs:label "Power" ;
 	rdfs:range atom:Float ;
@@ -576,6 +575,7 @@ plug:p38
 	lv2:minimum 0 ;
 	lv2:maximum 1	 ;
 	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	pprop:notOnGUI 1;
 	lv2:scalePoint [
 		rdfs:label "Off" ;
 		rdf:value 0 ;
@@ -586,7 +586,7 @@ plug:p38
 
 plug:p39
 	a lv2:Parameter ;
-	pg:group plug:G_MAIN_PORTA ;
+	pg:group plug:G_MAIN_TRANS_PORTA ;
 	lv2:displayPriority 132 ;
 	rdfs:label "Porta Mode" ;
 	rdfs:range atom:Float ;
@@ -606,7 +606,7 @@ plug:p39
 
 plug:p40
 	a lv2:Parameter ;
-	pg:group plug:G_MAIN_PORTA ;
+	pg:group plug:G_MAIN_TRANS_PORTA ;
 	lv2:displayPriority 131 ;
 	rdfs:label "Porta Rate" ;
 	rdfs:range atom:Float ;
@@ -616,7 +616,7 @@ plug:p40
 
 plug:p41
 	a lv2:Parameter ;
-	pg:group plug:G_MAIN_TRANS ;
+	pg:group plug:G_MAIN ;
 	lv2:displayPriority 142 ;
 	rdfs:label "Transpose Offset" ;
 	rdfs:range atom:Float ;
@@ -832,16 +832,10 @@ plug:G_MAIN
    lv2:symbol "g_main" ;
    lv2:displayPriority 150 .
 
-plug:G_MAIN_TRANS
+plug:G_MAIN_TRANS_PORTA
    a pg:ControlGroup ;
-   lv2:name "MAIN - Transpose/Hold" ;
-   lv2:symbol "g_main_trans" ;
-   lv2:displayPriority 140 .
-
-plug:G_MAIN_PORTA
-   a pg:ControlGroup ;
-   lv2:name "MAIN - Portamento" ;
-   lv2:symbol "g_main_porta" ;
+   lv2:name "PORTAMENTO" ;
+   lv2:symbol "g_main_trans_porta" ;
    lv2:displayPriority 130 .
 
 plug:G_BENDER
@@ -882,13 +876,13 @@ plug:G_DCO_SETUP
 
 plug:G_FILTER_VCF_MAIN
    a pg:ControlGroup ;
-   lv2:name "FILTER/VCF - Main" ;
+   lv2:name "FILTER - Main" ;
    lv2:symbol "g_filter_vcf_main" ;
    lv2:displayPriority 60 .
 
 plug:G_FILTER_VCF_MOD
    a pg:ControlGroup ;
-   lv2:name "FILTER/VCF - Mod" ;
+   lv2:name "FILTER - Mod" ;
    lv2:symbol "g_filter_vcf_mod" ;
    lv2:displayPriority 50 .
 
@@ -900,7 +894,7 @@ plug:G_VCA
 
 plug:G_ENV_MAIN
    a pg:ControlGroup ;
-   lv2:name "ENV - Main" ;
+   lv2:name "ENV - ADSR" ;
    lv2:symbol "g_env_main" ;
    lv2:displayPriority 30 .
 
