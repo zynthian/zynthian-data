@@ -1,0 +1,950 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ui:   <http://lv2plug.in/ns/extensions/ui#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix pg:   <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix plug: <https://github.com/jatinchowdhury18/AnalogTapeModel> .
+
+<https://github.com/jatinchowdhury18/AnalogTapeModel>
+    a lv2:Plugin ;
+    lv2:requiredFeature <http://lv2plug.in/ns/ext/buf-size#boundedBlockLength> ,
+                        <http://lv2plug.in/ns/ext/urid#map> ;
+    lv2:extensionData <http://lv2plug.in/ns/ext/options#interface> ,
+                      <http://lv2plug.in/ns/ext/state#interface> ,
+                      <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
+
+    lv2:microVersion 11 ;
+    lv2:minorVersion 6 ;
+
+    ui:ui <https://github.com/jatinchowdhury18/AnalogTapeModel#ExternalUI> ,
+          <https://github.com/jatinchowdhury18/AnalogTapeModel#ParentUI> ;
+
+    lv2:port [
+        a lv2:InputPort, atom:AtomPort ;
+        atom:bufferType atom:Sequence ;
+        atom:supports <http://lv2plug.in/ns/ext/time#Position> ;
+        lv2:index 0 ;
+        lv2:symbol "lv2_events_in" ;
+        lv2:name "Events Input" ;
+        lv2:designation lv2:control ;
+        lv2:portProperty lv2:connectionOptional ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 1 ;
+        lv2:symbol "lv2_freewheel" ;
+        lv2:name "Freewheel" ;
+        lv2:default 0.0 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#freeWheeling> ;
+        lv2:portProperty lv2:toggled, <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 2 ;
+        lv2:symbol "lv2_latency" ;
+        lv2:name "Latency" ;
+        lv2:designation <http://lv2plug.in/ns/lv2core#latency> ;
+        lv2:portProperty lv2:reportsLatency, lv2:integer ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:AudioPort ;
+        lv2:index 3 ;
+        lv2:symbol "lv2_audio_in_1" ;
+        lv2:name "Audio Input 1" ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:AudioPort ;
+        lv2:index 4 ;
+        lv2:symbol "lv2_audio_in_2" ;
+        lv2:name "Audio Input 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 5 ;
+        lv2:symbol "lv2_audio_out_1" ;
+        lv2:name "Audio Output 1" ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 6 ;
+        lv2:symbol "lv2_audio_out_2" ;
+        lv2:name "Audio Output 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:symbol "input_gain" ;
+        lv2:name "Input Gain" ;
+        lv2:default 0.833333 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GAIN ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:symbol "output_gain" ;
+        lv2:name "Output Gain" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GAIN ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:symbol "dry_wet" ;
+        lv2:name "Dry/Wet" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_GAIN ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:symbol "input_filters_on_off" ;
+        lv2:name "Input Filters On/Off" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILTERS ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:symbol "input_low_cut" ;
+        lv2:name "Input Low Cut" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILTERS ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 12 ;
+        lv2:symbol "input_high_cut" ;
+        lv2:name "Input High Cut" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILTERS ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 13 ;
+        lv2:symbol "input_cut_makeup" ;
+        lv2:name "Input Cut Makeup" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FILTERS ;
+        lv2:displayPriority 1 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 14 ;
+        lv2:symbol "tone_on_off" ;
+        lv2:name "Tone On/Off" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TONE ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 15 ;
+        lv2:symbol "tone_bass" ;
+        lv2:name "Tone Bass" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TONE ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 16 ;
+        lv2:symbol "tone_treble" ;
+        lv2:name "Tone Treble" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TONE ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 17 ;
+        lv2:symbol "tone_transition_frequency" ;
+        lv2:name "Tone Transition Frequency" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TONE ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 18 ;
+        lv2:symbol "compression_on_off" ;
+        lv2:name "Compression On/Off" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_COMP ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 19 ;
+        lv2:symbol "compression_amount" ;
+        lv2:name "Compression Amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_COMP ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 20 ;
+        lv2:symbol "compression_attack" ;
+        lv2:name "Compression Attack" ;
+        lv2:default 0.369896 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_COMP ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 21 ;
+        lv2:symbol "compression_release" ;
+        lv2:name "Compression Release" ;
+        lv2:default 0.620547 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_COMP ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 22 ;
+        lv2:symbol "tape_on_off" ;
+        lv2:name "Tape On/Off" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TAPE ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 23 ;
+        lv2:symbol "tape_drive" ;
+        lv2:name "Tape Drive" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TAPE ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 24 ;
+        lv2:symbol "tape_saturation" ;
+        lv2:name "Tape Saturation" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TAPE ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 25 ;
+        lv2:symbol "tape_bias" ;
+        lv2:name "Tape Bias" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_TAPE ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 26 ;
+        lv2:symbol "tape_mode" ;
+        lv2:name "Tape Mode" ;
+        lv2:default 0.400000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_SETUP ;
+        lv2:displayPriority 2 ;
+        lv2:scalePoint [
+                rdf:value 0.0 ;
+                rdfs:label "RK2" ;
+                rdfs:comment "RK2" ;
+            ], [
+                rdf:value 0.2 ;
+                rdfs:label "RK4" ;
+                rdfs:comment "RK4" ;
+            ], [
+                rdf:value 0.4 ;
+                rdfs:label "NR4" ;
+                rdfs:comment "NR4" ;
+            ], [
+                rdf:value 0.6 ;
+                rdfs:label "NR8" ;
+                rdfs:comment "NR8" ;
+            ], [
+                rdf:value 0.8 ;
+                rdfs:label "STN" ;
+                rdfs:comment "STN" ;
+            ], [
+                rdf:value 1.0 ;
+                rdfs:label "V1" ;
+                rdfs:comment "V1" ;
+            ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 27 ;
+        lv2:symbol "oversampling_factor" ;
+        lv2:name "Oversampling Factor" ;
+        lv2:default 0.250000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OVERSAMPLING ;
+        lv2:displayPriority 7 ;
+        lv2:scalePoint [
+                rdf:value 0.0 ;
+                rdfs:label "1X" ;
+                rdfs:comment "1X" ;
+            ], [
+                rdf:value 0.25 ;
+                rdfs:label "2X" ;
+                rdfs:comment "2X" ;
+            ], [
+                rdf:value 0.5 ;
+                rdfs:label "4X" ;
+                rdfs:comment "4X" ;
+            ], [
+                rdf:value 0.75 ;
+                rdfs:label "8X" ;
+                rdfs:comment "8X" ;
+            ], [
+                rdf:value 1.0 ;
+                rdfs:label "16X" ;
+                rdfs:comment "16X" ;
+            ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 28 ;
+        lv2:symbol "oversampling_mode" ;
+        lv2:name "Oversampling Mode" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OVERSAMPLING ;
+        lv2:displayPriority 6 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "Min. Phase" ;
+            rdfs:comment "Min. Phase" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "Linear Phase" ;
+            rdfs:comment "Linear Phase" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 29 ;
+        lv2:symbol "oversampling_factor__render_" ;
+        lv2:name "Oversampling Factor (Render)" ;
+        lv2:default 0.250000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OVERSAMPLING ;
+        lv2:displayPriority 5 ;
+        lv2:scalePoint [
+                rdf:value 0.0 ;
+                rdfs:label "1X" ;
+                rdfs:comment "1X" ;
+            ], [
+                rdf:value 0.25 ;
+                rdfs:label "2X" ;
+                rdfs:comment "2X" ;
+            ], [
+                rdf:value 0.5 ;
+                rdfs:label "4X" ;
+                rdfs:comment "4X" ;
+            ], [
+                rdf:value 0.75 ;
+                rdfs:label "8X" ;
+                rdfs:comment "8X" ;
+            ], [
+                rdf:value 1.0 ;
+                rdfs:label "16X" ;
+                rdfs:comment "16X" ;
+            ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 30 ;
+        lv2:symbol "oversampling_mode__render_" ;
+        lv2:name "Oversampling Mode (Render)" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OVERSAMPLING ;
+        lv2:displayPriority 4 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "Min. Phase" ;
+            rdfs:comment "Min. Phase" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "Linear Phase" ;
+            rdfs:comment "Linear Phase" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 31 ;
+        lv2:symbol "oversampling__render_like_real_time_" ;
+        lv2:name "Oversampling (render like real-time)" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_OVERSAMPLING ;
+        lv2:displayPriority 3 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 32 ;
+        lv2:symbol "loss_on_off" ;
+        lv2:name "Loss On/Off" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LOSS ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 33 ;
+        lv2:symbol "tape_speed" ;
+        lv2:name "Tape Speed" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LOSS ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 34 ;
+        lv2:symbol "tape_spacing" ;
+        lv2:name "Tape Spacing" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LOSS ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 35 ;
+        lv2:symbol "tape_thickness" ;
+        lv2:name "Tape Thickness" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LOSS ;
+        lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 36 ;
+        lv2:symbol "playhead_gap" ;
+        lv2:name "Playhead Gap" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LOSS ;
+        lv2:displayPriority 5 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 37 ;
+        lv2:symbol "azimuth" ;
+        lv2:name "Azimuth" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_LOSS ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 38 ;
+        lv2:symbol "wow_flutter_on_off" ;
+        lv2:name "Wow/Flutter On/Off" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_WOW ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 39 ;
+        lv2:symbol "flutter_rate" ;
+        lv2:name "Flutter Rate" ;
+        lv2:default 0.300000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FLUTTER ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 40 ;
+        lv2:symbol "flutter_depth" ;
+        lv2:name "Flutter Depth" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_FLUTTER ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 41 ;
+        lv2:symbol "wow_rate" ;
+        lv2:name "Wow Rate" ;
+        lv2:default 0.250000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_WOW ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 42 ;
+        lv2:symbol "wow_depth" ;
+        lv2:name "Wow Depth" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_WOW ;
+        lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 43 ;
+        lv2:symbol "wow_variance" ;
+        lv2:name "Wow Variance" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_WOW ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 44 ;
+        lv2:symbol "wow_drift" ;
+        lv2:name "Wow Drift" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_WOW ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 45 ;
+        lv2:symbol "degrade_point1x" ;
+        lv2:name "Degrade 0.1x" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DEGRADE ;
+        lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 46 ;
+        lv2:symbol "degrade_on_off" ;
+        lv2:name "Degrade On/Off" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DEGRADE ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 47 ;
+        lv2:symbol "degrade_depth" ;
+        lv2:name "Degrade Depth" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DEGRADE ;
+        lv2:displayPriority 5 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 48 ;
+        lv2:symbol "degrade_amount" ;
+        lv2:name "Degrade Amount" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DEGRADE ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 49 ;
+        lv2:symbol "degrade_variance" ;
+        lv2:name "Degrade Variance" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DEGRADE ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 50 ;
+        lv2:symbol "degrade_envelope" ;
+        lv2:name "Degrade Envelope" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_DEGRADE ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 51 ;
+        lv2:symbol "chew_on_off" ;
+        lv2:name "Chew On/Off" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_CHEW ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 52 ;
+        lv2:symbol "chew_depth" ;
+        lv2:name "Chew Depth" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_CHEW ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 53 ;
+        lv2:symbol "chew_freq" ;
+        lv2:name "Chew Freq" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_CHEW ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 54 ;
+        lv2:symbol "chew_variance" ;
+        lv2:name "Chew Variance" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_CHEW ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 55 ;
+        lv2:symbol "mid_side_mode" ;
+        lv2:name "Mid/Side Mode" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_STEREO ;
+        lv2:displayPriority 2 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 56 ;
+        lv2:symbol "stereo_balance" ;
+        lv2:name "Stereo Balance" ;
+        lv2:default 0.500000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_STEREO ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 57 ;
+        lv2:symbol "stereo_makeup" ;
+        lv2:name "Stereo Makeup" ;
+        lv2:default 1.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_STEREO ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+            rdf:value 0.0 ;
+            rdfs:label "OFF" ;
+            rdfs:comment "OFF" ;
+        ], [
+            rdf:value 1.0 ;
+            rdfs:label "ON" ;
+            rdfs:comment "ON" ;
+        ];
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 58 ;
+        lv2:symbol "mix_group" ;
+        lv2:name "Mix Group" ;
+        lv2:default 0.000000 ;
+        lv2:minimum 0.0 ;
+        lv2:maximum 1.0 ;
+        pg:group plug:G_SETUP ;
+        lv2:displayPriority 0 ;
+        lv2:scalePoint [
+                rdf:value 0.0 ;
+                rdfs:label "N/A" ;
+                rdfs:comment "N/A" ;
+            ], [
+                rdf:value 0.25 ;
+                rdfs:label "1" ;
+                rdfs:comment "1" ;
+            ], [
+                rdf:value 0.5 ;
+                rdfs:label "2" ;
+                rdfs:comment "2" ;
+            ], [
+                rdf:value 0.75 ;
+                rdfs:label "3" ;
+                rdfs:comment "3" ;
+            ], [
+                rdf:value 1.0 ;
+                rdfs:label "4" ;
+                rdfs:comment "4" ;
+            ];
+    ] ;
+
+    doap:name "CHOWTapeModel" ;
+    doap:maintainer [ foaf:name "chowdsp" ] .
+
+plug:G_GAIN
+   a pg:ControlGroup ;
+   lv2:name "Gain" ;
+   lv2:symbol "g_gain" ;
+   lv2:displayPriority 12 .
+
+plug:G_FILTERS
+   a pg:ControlGroup ;
+   lv2:name "Filters" ;
+   lv2:symbol "g_filters" ;
+   lv2:displayPriority 11 .
+
+plug:G_STEREO
+   a pg:ControlGroup ;
+   lv2:name "Stereo" ;
+   lv2:symbol "g_stereo" ;
+   lv2:displayPriority 10 .
+
+plug:G_TAPE
+   a pg:ControlGroup ;
+   lv2:name "Tape" ;
+   lv2:symbol "g_tape" ;
+   lv2:displayPriority 9 .
+
+plug:G_COMP
+   a pg:ControlGroup ;
+   lv2:name "Comp" ;
+   lv2:symbol "g_comp" ;
+   lv2:displayPriority 8 .
+
+plug:G_TONE
+   a pg:ControlGroup ;
+   lv2:name "Tone" ;
+   lv2:symbol "g_tone" ;
+   lv2:displayPriority 7 .
+
+plug:G_LOSS
+   a pg:ControlGroup ;
+   lv2:name "Loss" ;
+   lv2:symbol "g_loss" ;
+   lv2:displayPriority 6 .
+
+plug:G_DEGRADE
+   a pg:ControlGroup ;
+   lv2:name "Degrade" ;
+   lv2:symbol "g_degrade" ;
+   lv2:displayPriority 5 .
+
+plug:G_CHEW
+   a pg:ControlGroup ;
+   lv2:name "Chew" ;
+   lv2:symbol "g_chew" ;
+   lv2:displayPriority 4 .
+
+plug:G_FLUTTER
+   a pg:ControlGroup ;
+   lv2:name "Flutter" ;
+   lv2:symbol "g_flutter" ;
+   lv2:displayPriority 3 .
+
+plug:G_WOW
+   a pg:ControlGroup ;
+   lv2:name "Wow" ;
+   lv2:symbol "g_wow" ;
+   lv2:displayPriority 2 .
+
+plug:G_OVERSAMPLING
+   a pg:ControlGroup ;
+   lv2:name "Oversamling" ;
+   lv2:symbol "g_oversampling" ;
+   lv2:displayPriority 1 .
+   
+plug:G_SETUP
+   a pg:ControlGroup ;
+   lv2:name "Setup" ;
+   lv2:symbol "g_setup" ;
+   lv2:displayPriority 0 .
+
