@@ -123,7 +123,7 @@ plug:p8
 plug:p9
 	a lv2:Parameter ;
 	pg:group plug:G_FILTER_VCF_MAIN ;
-	lv2:displayPriority 63 ;
+	lv2:displayPriority 64 ;
 	rdfs:label "HPF" ;
 	rdfs:range atom:Float ;
 	lv2:default 1 ;
@@ -354,6 +354,7 @@ plug:p26
 	lv2:minimum 0 ;
 	lv2:maximum 1	 ;
 	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	pprop:notOnGUI 1 ;
 	lv2:scalePoint [
 		rdfs:label "Off" ;
 		rdf:value 0 ;
@@ -508,7 +509,7 @@ plug:p34
 		rdfs:label "Normal" ;
 		rdf:value 0 ;
 	], [
-		rdfs:label "Inverted" ;
+		rdfs:label "Invert" ;
 		rdf:value 1 ;
 	] .
 
@@ -618,8 +619,8 @@ plug:p41
 	a lv2:Parameter ;
 	pg:group plug:G_MAIN ;
 	lv2:displayPriority 142 ;
-	rdfs:label "Transpose Offset" ;
-	rdfs:range atom:Float ;
+	rdfs:label "Transpose Semitones" ;
+	rdfs:range atom:Integer ;
 	lv2:default 0 ;
 	lv2:minimum -24 ;
 	lv2:maximum 36 .
@@ -633,6 +634,151 @@ plug:p44
 	lv2:default 0.5 ;
 	lv2:minimum 0 ;
 	lv2:maximum 1 .
+
+plug:p45
+	a lv2:Parameter ;
+	pg:group plug:G_OPTIONS ;
+	lv2:displayPriority 134 ;
+	rdfs:label "Voices" ;
+	rdfs:range atom:Float ;
+	lv2:default 6 ;
+	lv2:minimum 6 ;
+	lv2:maximum 10 ;
+	lv2:scalePoint [
+		rdfs:label "6" ;
+		rdf:value 6 ;
+	], [
+		rdfs:label "8" ;
+		rdf:value 8 ;
+	], [
+		rdfs:label "10" ;
+		rdf:value 10 ;
+	] .
+
+plug:p46
+	a lv2:Parameter ;
+	rdfs:label "VCF Oversample" ;
+	pg:group plug:G_FILTER_VCF_MAIN ;
+	lv2:displayPriority 63 ;
+	rdfs:range atom:Float ;
+	lv2:default 4 ;
+	lv2:minimum 2 ;
+	lv2:maximum 4 ;
+	lv2:scalePoint [
+		rdfs:label "x2" ;
+		rdf:value 2 ;
+	], [
+		rdfs:label "x4" ;
+		rdf:value 4 ;
+	] .
+
+plug:p47
+	a lv2:Parameter ;
+	rdfs:label "Ignore Velocity" ;
+	pg:group plug:G_OPTIONS ;
+	lv2:displayPriority 133 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p48
+	a lv2:Parameter ;
+	rdfs:label "Arp Limit Kbd" ;
+	pg:group plug:G_ARP ;
+	lv2:displayPriority 110 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p49
+	a lv2:Parameter ;
+	rdfs:label "Arp Sync Host" ;
+	pg:group plug:G_ARP ;
+	lv2:displayPriority 109 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p50
+	a lv2:Parameter ;
+	rdfs:label "LFO Sync Host" ;
+	pg:group plug:G_LFO ;
+	lv2:displayPriority 100 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p51
+	a lv2:Parameter ;
+	rdfs:label "Mono Retrigger" ;
+	pg:group plug:G_OPTIONS ;
+	lv2:displayPriority 132 ;
+	rdfs:range atom:Float ;
+	lv2:default 1 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
+
+plug:p52
+	a lv2:Parameter ;
+	rdfs:label "MIDI SysEx" ;
+	pg:group plug:G_OPTIONS ;
+	lv2:displayPriority 131 ;
+	rdfs:range atom:Float ;
+	lv2:default 0 ;
+	lv2:minimum 0 ;
+	lv2:maximum 1	 ;
+	lv2:portProperty lv2:enumeration , lv2:toggled ;
+	lv2:scalePoint [
+		rdfs:label "Off" ;
+		rdf:value 0 ;
+	], [
+		rdfs:label "On" ;
+		rdf:value 1 ;
+	] .
 
 plug:output_group_1
 	a pg:OutputGroup ;
@@ -710,8 +856,16 @@ plug:output_group_1
 		plug:p39 ,
 		plug:p40 ,
 		plug:p41 ,
-		plug:p44 ;
-	patch:readable
+		plug:p44 ,
+		plug:p45 ,
+		plug:p46 ,
+		plug:p47 ,
+		plug:p48 ,
+		plug:p49 ,
+		plug:p50 ,
+		plug:p51 ,
+		plug:p52 ;
+		patch:readable
 		plug:p0 ,
 		plug:p1 ,
 		plug:p42 ,
@@ -756,8 +910,16 @@ plug:output_group_1
 		plug:p39 ,
 		plug:p40 ,
 		plug:p41 ,
-		plug:p44 ;
-	lv2:port [
+		plug:p44 ,
+		plug:p45 ,
+		plug:p46 ,
+		plug:p47 ,
+		plug:p48 ,
+		plug:p49 ,
+		plug:p50 ,
+		plug:p51 ,
+		plug:p52 ;
+		lv2:port [
 		a lv2:OutputPort , lv2:AudioPort ;
 		lv2:index 0 ;
 		lv2:symbol "audio_out_1" ;
@@ -831,6 +993,12 @@ plug:G_MAIN
    lv2:name "MAIN" ;
    lv2:symbol "g_main" ;
    lv2:displayPriority 150 .
+
+plug:G_OPTIONS
+   a pg:ControlGroup ;
+   lv2:name "OPTIONS" ;
+   lv2:symbol "g_options" ;
+   lv2:displayPriority 140 .
 
 plug:G_MAIN_TRANS_PORTA
    a pg:ControlGroup ;
