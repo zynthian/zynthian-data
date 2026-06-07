@@ -1,0 +1,533 @@
+
+@prefix doap:   <http://usefulinc.com/ns/doap#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix guiext: <http://lv2plug.in/ns/extensions/ui#>.
+@prefix opts:   <http://lv2plug.in/ns/ext/options#> .
+@prefix time:   <http://lv2plug.in/ns/ext/time#>.
+@prefix units:  <http://lv2plug.in/ns/extensions/units#> .
+@prefix atom:   <http://lv2plug.in/ns/ext/atom#> .
+@prefix urid:   <http://lv2plug.in/ns/ext/urid#> .
+@prefix param:  <http://lv2plug.in/ns/ext/parameters#> .
+@prefix pg:     <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix pprop:  <http://lv2plug.in/ns/ext/port-props#> .
+@prefix midi:   <http://lv2plug.in/ns/ext/midi#> .
+@prefix patch:  <http://lv2plug.in/ns/ext/patch#> .
+@prefix work:   <http://lv2plug.in/ns/ext/worker#> .
+@prefix bufsz:  <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix state:  <http://lv2plug.in/ns/ext/state#> .
+@prefix mod:    <http://moddevices.com/ns/mod#> .
+@prefix nrack:  <urn:brummer:neuralrack#> .
+@prefix spdx:   <http://spdx.org/rdf/terms#> .
+
+
+nrack:G0_Default
+    a param:ControlGroup ;
+    lv2:symbol "Default" ;
+    rdfs:label "Options" .
+
+nrack:G1_NoiseGate
+    a param:ControlGroup ;
+    lv2:symbol "NoiseGate" ;
+    rdfs:label "NoiseGate" .
+
+nrack:G2_Pedal
+    a param:ControlGroup ;
+    lv2:symbol "Pedal" ;
+    rdfs:label "Pedal Profile" .
+
+nrack:G3_EQ
+    a param:ControlGroup ;
+    lv2:symbol "Equaliser" ;
+    rdfs:label "6 Band EQ" .
+
+nrack:G4_Amp
+    a param:ControlGroup ;
+    lv2:symbol "Amp" ;
+    rdfs:label "Amp Profile" .
+
+nrack:G5_IR_Left
+    a param:ControlGroup ;
+    lv2:symbol "IR" ;
+    rdfs:label "IR Left" .
+
+nrack:G6_IR_Right
+    a param:ControlGroup ;
+    lv2:symbol "IR1" ;
+    rdfs:label "IR Right" .
+
+<nrack:me>
+   a foaf:Person ;
+   foaf:name "brummer" ;
+   foaf:mbox <mailto:brummer@web.de> ;
+   foaf:homepage <https://github.com/brummer10> .
+
+nrack:Neural_Model
+    a lv2:Parameter ;
+    mod:fileTypes "nammodel,aidadspmodel,nam,aidiax,json" ;
+    rdfs:label "Neural Model Pedal" ;
+    pg:group nrack:G2_Pedal ;
+    rdfs:range atom:Path .
+
+nrack:Neural_Model1
+    a lv2:Parameter ;
+    mod:fileTypes "nammodel,aidadspmodel,nam,aidiax,json" ;
+    rdfs:label "Neural Model Amp" ;
+    pg:group nrack:G4_Amp ;
+    rdfs:range atom:Path .
+
+nrack:irfile
+    a lv2:Parameter ;
+    mod:fileTypes "cabsim,ir,wav,audio" ;
+    rdfs:label "IR File Left" ;
+    pg:group nrack:G5_IR_Left ;
+    rdfs:range atom:Path .
+
+nrack:irfile1
+    a lv2:Parameter ;
+    mod:fileTypes "cabsim,ir,wav,audio" ;
+    rdfs:label "IR File Right" ;
+    pg:group nrack:G6_IR_Right ;
+    rdfs:range atom:Path .
+
+nrack:eqpos
+    a lv2:Parameter ;
+    rdfs:label "EQ position" ;
+    rdfs:range atom:Int ;
+    lv2:default 1 ;
+    lv2:minimum 0 ;
+    lv2:maximum 2 ;
+    pg:group nrack:G0_Default .
+
+<urn:brummer:neuralrack>
+   a lv2:Plugin ,
+       lv2:SimulatorPlugin ;
+   doap:maintainer <nrack:me> ;
+   doap:name "Neuralrack" ;
+   doap:license <https://spdx.org/licenses/BSD-3-Clause> ;
+   lv2:project <urn:brummer:neuralrack> ;
+   lv2:optionalFeature lv2:hardRTCapable ;
+   lv2:requiredFeature urid:map ,
+       bufsz:boundedBlockLength ,
+       work:schedule ,
+       opts:options ;
+   opts:supportedOption bufsz:maxBlockLength ;
+   lv2:extensionData work:interface ,
+                    state:interface ;
+   lv2:minorVersion 3 ;
+   lv2:microVersion 2 ;
+
+guiext:ui <urn:brummer:neuralrack_ui> ;
+
+patch:writable nrack:Neural_Model ;
+patch:writable nrack:Neural_Model1 ;
+
+patch:writable nrack:irfile ;
+patch:writable nrack:irfile1 ;
+
+patch:writable nrack:eqpos;
+
+rdfs:comment """
+Neuralrack is a Neural Model loader with support for *.nam, *.aidax and *.json based model files.
+Neuralrack allow to load up to two model files and run them serial.
+The input/output could be controlled separate for each model.
+For tone sharping a 6 band EQ could be enabled.
+Additional it allow to load up a separate Impulse Response file for each output channel (stereo).
+Neuralrack provide a buffered Mode which introduce a one frame latency when enabled.
+It moves the complete processing into a background thread. That will reduce the CPU load when needed.
+The resulting latency will be reported to the host so that it could be compensated.
+""";
+
+
+   lv2:port  [
+       a lv2:AudioPort ,
+          lv2:InputPort ;
+      lv2:index 0 ;
+      lv2:symbol "in0" ;
+      lv2:name "In0" ;
+   ], [
+      a lv2:AudioPort ,
+           lv2:OutputPort ;
+      lv2:index 1 ;
+      lv2:symbol "out0" ;
+      lv2:name "Out0" ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 2 ;
+      lv2:symbol "Knob0" ;
+      lv2:name "Input Pedal" ;
+      pg:group nrack:G2_Pedal ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 3 ;
+      lv2:symbol "Knob1" ;
+      lv2:name "Output Pedal" ;
+      pg:group nrack:G2_Pedal ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 4 ;
+      lv2:symbol "Knob2" ;
+      lv2:name "Output Amp" ;
+      pg:group nrack:G4_Amp ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+        a lv2:InputPort ,
+            atom:AtomPort ;
+        <http://lv2plug.in/ns/ext/resize-port#minimumSize> 8192 ;
+        atom:bufferType atom:Sequence ;
+        atom:supports patch:Message ;
+        lv2:designation lv2:control ;
+        lv2:index 5 ;
+        lv2:symbol "CONTROL" ;
+        lv2:name "CONTROL" ;
+    ], [
+        a lv2:OutputPort ,
+            atom:AtomPort ;
+        <http://lv2plug.in/ns/ext/resize-port#minimumSize> 8192 ;
+        atom:bufferType atom:Sequence ;
+        atom:supports patch:Message ;
+        lv2:designation lv2:control ;
+        lv2:index 6 ;
+        lv2:symbol "NOTIFY" ;
+        lv2:name "NOTIFY";
+    ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 7 ;
+      lv2:symbol "Knob3" ;
+      lv2:name "Output IR Left" ;
+      pg:group nrack:G5_IR_Left ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 8 ;
+      lv2:symbol "Knob4" ;
+      lv2:name "Output IR Right" ;
+      pg:group nrack:G6_IR_Right ;
+      units:unit units:db ;
+      lv2:default 0.0 ;
+      lv2:minimum -20.0;
+      lv2:maximum 20.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 9 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeA" ;
+      lv2:name "Normalize IR Left" ;
+      pg:group nrack:G5_IR_Left ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 10 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeB" ;
+      lv2:name "Normalize IR Right" ;
+      pg:group nrack:G6_IR_Right ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 11 ;
+      lv2:symbol "Knob5" ;
+      lv2:name "Input Amp" ;
+      pg:group nrack:G4_Amp ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 12 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeSlotA" ;
+      lv2:name "Normalize Pedal" ;
+      pg:group nrack:G2_Pedal ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 13 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "NormalizeSlotB" ;
+      lv2:name "Normalize Amp" ;
+      pg:group nrack:G4_Amp ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 14 ;
+      lv2:designation lv2:enabled;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "ENABLE" ;
+      lv2:name "enable" ;
+      pg:group nrack:G0_Default ;
+      lv2:default 1.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 15 ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
+      lv2:symbol "eraseSlotA" ;
+      lv2:name "erase Slot A" ;
+      #pg:group nrack:G2_Pedal ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 16 ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
+      lv2:symbol "eraseSlotB" ;
+      lv2:name "erase Slot B" ;
+      #pg:group nrack:G4_Amp ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 17 ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
+      lv2:symbol "eraseIr" ;
+      lv2:name "erase Ir" ;
+      #pg:group nrack:G5_IR_Left ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 18 ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
+      lv2:symbol "eraseIr1" ;
+      lv2:name "erase Ir1" ;
+      #pg:group nrack:G6_IR_Right ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:OutputPort,
+           lv2:ControlPort ;
+      lv2:index 19 ;
+      lv2:designation <http://lv2plug.in/ns/lv2core#latency>;
+      lv2:portProperty lv2:reportsLatency, lv2:integer;
+      units:unit units:frame;
+      lv2:symbol "latency" ;
+      lv2:name "Latency" ;
+      lv2:minimum 0 ;
+      lv2:maximum 192000 ;
+    ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 20 ;
+      lv2:portProperty lv2:integer ;
+      lv2:symbol "buffered" ;
+      lv2:name "Buffered" ;
+      pg:group nrack:G0_Default ;
+      lv2:default 0 ;
+      lv2:minimum 0 ;
+      lv2:maximum 2 ;
+   ], [
+      a lv2:AudioPort ,
+           lv2:OutputPort ;
+      lv2:index 21 ;
+      lv2:symbol "out1" ;
+      lv2:name "Out1" ;
+   ], [
+      a lv2:OutputPort,
+           lv2:ControlPort ;
+      lv2:index 22 ;
+      lv2:symbol "ms_latency" ;
+      lv2:name "Latency ms" ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 171.0 ;
+    ], [
+      a lv2:OutputPort,
+           lv2:ControlPort ;
+      lv2:index 23 ;
+      lv2:portProperty lv2:integer ;
+      lv2:symbol "Xrun" ;
+      lv2:name "Xrun " ;
+      lv2:minimum 0 ;
+      lv2:maximum 192000 ;
+    ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 24 ;
+      lv2:symbol "_30Hz" ;
+      lv2:name "30Hz" ;
+      pg:group nrack:G3_EQ ;
+      units:unit units:db ;
+      lv2:default -20.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 25 ;
+      lv2:symbol "_125Hz" ;
+      lv2:name "125Hz" ;
+      pg:group nrack:G3_EQ ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 26 ;
+      lv2:symbol "_500Hz" ;
+      lv2:name "500Hz" ;
+      pg:group nrack:G3_EQ ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 27 ;
+      lv2:symbol "_2kHz" ;
+      lv2:name "2kHz" ;
+      pg:group nrack:G3_EQ ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 28 ;
+      lv2:symbol "_8kHz" ;
+      lv2:name "8kHz" ;
+      pg:group nrack:G3_EQ ;
+      units:unit units:db ;
+      lv2:default 0.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 29 ;
+      lv2:symbol "_16kHz" ;
+      lv2:name "16kHz" ;
+      pg:group nrack:G3_EQ ;
+      units:unit units:db ;
+      lv2:default -20.000000 ;
+      lv2:minimum -20.000000 ;
+      lv2:maximum 20.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 30 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "EQ" ;
+      lv2:name "EQ on/off" ;
+      pg:group nrack:G3_EQ ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 31 ;
+      lv2:symbol "Threshold" ;
+      lv2:name "Threshold" ;
+      pg:group nrack:G1_NoiseGate ;
+      lv2:default 0.017 ;
+      lv2:minimum 0.01 ;
+      lv2:maximum 0.31 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 32 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "Noisegate" ;
+      lv2:name "NG on/off" ;
+      pg:group nrack:G1_NoiseGate ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 33 ;
+      lv2:portProperty lv2:toggled ;
+      lv2:symbol "IrMode" ;
+      lv2:name "IR Mode" ;
+      pg:group nrack:G5_IR_Left ;
+      lv2:default 0.0 ;
+      lv2:minimum 0.0 ;
+      lv2:maximum 1.0 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 34 ;
+      lv2:symbol "Knob6" ;
+      lv2:name "IR Mix" ;
+      pg:group nrack:G5_IR_Left ;
+      units:unit units:db ;
+      lv2:default 0.500000 ;
+      lv2:minimum 0.000000 ;
+      lv2:maximum 1.000000 ;
+   ], [
+      a lv2:InputPort ,
+          lv2:ControlPort ;
+      lv2:index 35 ;
+      lv2:symbol "Knob7" ;
+      lv2:name "Master" ;
+      pg:group nrack:G6_IR_Right ;
+      units:unit units:db ;
+      lv2:default 0.0 ;
+      lv2:minimum -20.0;
+      lv2:maximum 20.0 ;
+   ].
+
+<urn:brummer:neuralrack_ui>
+   a guiext:X11UI;
+   guiext:binary <Neuralrack_ui.so> ;
+       lv2:extensionData guiext::idle ;
+       lv2:extensionData guiext:resize ;
+       lv2:extensionData guiext:idleInterface ;
+       lv2:requiredFeature guiext:idleInterface ;
+       lv2:optionalFeature opts:options ;
+       opts:supportedOption guiext:scaleFactor ; 
+        guiext:portNotification [
+            guiext:plugin  <urn:brummer:neuralrack> ;
+            lv2:symbol "NOTIFY" ;
+            guiext:notifyType atom:Blank
+        ] .
