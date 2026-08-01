@@ -1,5 +1,5 @@
 
-@prefix doap:   <http://usefulinc.com/ns/doap#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
 @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
 @prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -13,17 +13,19 @@
 @prefix pprop:  <http://lv2plug.in/ns/ext/port-props#> .
 @prefix midi:   <http://lv2plug.in/ns/ext/midi#> .
 @prefix patch:  <http://lv2plug.in/ns/ext/patch#> .
-@prefix work:   <http://lv2plug.in/ns/ext/worker#> .
-@prefix bufsz:  <http://lv2plug.in/ns/ext/buf-size#> .
-@prefix state:  <http://lv2plug.in/ns/ext/state#> .
+@prefix work:  <http://lv2plug.in/ns/ext/worker#> .
+@prefix bufsz: <http://lv2plug.in/ns/ext/buf-size#> .
+@prefix state:   <http://lv2plug.in/ns/ext/state#> .
+@prefix mod: <http://moddevices.com/ns/mod#> .
+@prefix rata: <urn:brummer:ratatouille#> .
+@prefix spdx:  <http://spdx.org/rdf/terms#> .
 @prefix pg:     <http://lv2plug.in/ns/ext/port-groups#> .
-@prefix mod:    <http://moddevices.com/ns/mod#> .
-@prefix rata:   <urn:brummer:ratatouille#> .
-@prefix spdx:   <http://spdx.org/rdf/terms#> .
 
 <rata:me>
    a foaf:Person ;
-   foaf:name "brummer" .
+   foaf:name "brummer" ;
+   foaf:mbox <mailto:brummer@web.de> ;
+   foaf:homepage <https://github.com/brummer10> .
 
 rata:G1_MAIN
 	a pg:InputGroup;
@@ -61,10 +63,9 @@ rata:G6_OPTIONS
 	lv2:name "Options" ;
 	lv2:symbol "g6_options" .
 
-
 rata:Neural_Model
     a lv2:Parameter ;
-    mod:fileTypes "nam,aidax,json,nammodel,aidadspmodel" ;
+    mod:fileTypes "nammodel,aidadspmodel,nam,aidiax,json" ;
     rdfs:label "Neural Model A" ;
     rdfs:range atom:Path ;
     pg:group rata:G3_MODELS ;
@@ -72,7 +73,7 @@ rata:Neural_Model
 
 rata:Neural_Model1
     a lv2:Parameter ;
-    mod:fileTypes "nam,aidax,json,nammodel,aidadspmodel" ;
+    mod:fileTypes "nammodel,aidadspmodel,nam,aidiax,json" ;
     rdfs:label "Neural Model B" ;
     rdfs:range atom:Path ;
     pg:group rata:G3_MODELS ;
@@ -81,7 +82,7 @@ rata:Neural_Model1
 rata:irfile
     a lv2:Parameter ;
     mod:fileTypes "cabsim,ir,wav,audio" ;
-    rdfs:label "IR A" ;
+    rdfs:label "IR File A" ;
     rdfs:range atom:Path ;
     pg:group rata:G4_IRS ;
     lv2:displayPriority 699 .
@@ -89,11 +90,10 @@ rata:irfile
 rata:irfile1
     a lv2:Parameter ;
     mod:fileTypes "cabsim,ir,wav,audio" ;
-    rdfs:label "IR B" ;
+    rdfs:label "IR File B" ;
     rdfs:range atom:Path ;
     pg:group rata:G4_IRS ;
     lv2:displayPriority 697 .
-
 
 <urn:brummer:ratatouille>
    a lv2:Plugin ,
@@ -102,15 +102,16 @@ rata:irfile1
    doap:name "Ratatouille" ;
    doap:license <https://spdx.org/licenses/BSD-3-Clause> ;
    lv2:project <urn:brummer:ratatouille> ;
-   lv2:optionalFeature lv2:hardRTCapable ,
-       opts:options ;
+   lv2:optionalFeature lv2:hardRTCapable ;
    lv2:requiredFeature urid:map ,
        bufsz:boundedBlockLength ,
-       work:schedule ;
+       work:schedule ,
+       opts:options ;
+   opts:supportedOption bufsz:maxBlockLength ;
    lv2:extensionData work:interface ,
                     state:interface ;
    lv2:minorVersion 9 ;
-   lv2:microVersion 5 ;
+   lv2:microVersion 11 ;
 
 guiext:ui <urn:brummer:ratatouille_ui> ;
 
@@ -177,7 +178,6 @@ and moves the complete processing into a background thread, that reduce the CPU 
       lv2:maximum 1.000000 ;
       pg:group rata:G2_MIX ;
       lv2:displayPriority 899 ;
-
    ], [
         a lv2:InputPort ,
             atom:AtomPort ;
@@ -231,8 +231,8 @@ and moves the complete processing into a background thread, that reduce the CPU 
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G5_NORMALIZATION ;
-      lv2:displayPriority 597 ;
+      pg:group rata:G4_IRS ;
+      lv2:displayPriority 698 ;
    ], [
       a lv2:InputPort ,
           lv2:ControlPort ;
@@ -243,8 +243,8 @@ and moves the complete processing into a background thread, that reduce the CPU 
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G5_NORMALIZATION ;
-      lv2:displayPriority 596 ;
+      pg:group rata:G4_IRS ;
+      lv2:displayPriority 696 ;
    ], [
       a lv2:InputPort ,
           lv2:ControlPort ;
@@ -266,8 +266,8 @@ and moves the complete processing into a background thread, that reduce the CPU 
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G5_NORMALIZATION ;
-      lv2:displayPriority 599 ;
+      pg:group rata:G3_MODELS ;
+      lv2:displayPriority 798 ;
    ], [
       a lv2:InputPort ,
           lv2:ControlPort ;
@@ -278,8 +278,8 @@ and moves the complete processing into a background thread, that reduce the CPU 
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G5_NORMALIZATION ;
-      lv2:displayPriority 598 ;
+      pg:group rata:G3_MODELS ;
+      lv2:displayPriority 796 ;
    ], [
       a lv2:InputPort ,
           lv2:ControlPort ;
@@ -297,50 +297,42 @@ and moves the complete processing into a background thread, that reduce the CPU 
       a lv2:InputPort ,
           lv2:ControlPort ;
       lv2:index 15 ;
-      lv2:portProperty pprop:trigger ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
       lv2:symbol "eraseSlotA" ;
       lv2:name "Remove Model A" ;
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G3_MODELS ;
-      lv2:displayPriority 798 ;
    ], [
       a lv2:InputPort ,
           lv2:ControlPort ;
       lv2:index 16 ;
-      lv2:portProperty pprop:trigger ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
       lv2:symbol "eraseSlotB" ;
       lv2:name "Remove Model B" ;
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G3_MODELS ;
-      lv2:displayPriority 796 ;
    ], [
       a lv2:InputPort ,
           lv2:ControlPort ;
       lv2:index 17 ;
-      lv2:portProperty pprop:trigger ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
       lv2:symbol "eraseIr" ;
       lv2:name "Remove IR A" ;
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G4_IRS ;
-      lv2:displayPriority 698 ;
    ], [
       a lv2:InputPort ,
           lv2:ControlPort ;
       lv2:index 18 ;
-      lv2:portProperty pprop:trigger ;
+      lv2:portProperty pprop:trigger, pprop:notOnGUI ;
       lv2:symbol "eraseIr1" ;
       lv2:name "Remove IR B" ;
       lv2:default 0.0 ;
       lv2:minimum 0.0 ;
       lv2:maximum 1.0 ;
-      pg:group rata:G4_IRS ;
-      lv2:displayPriority 696 ;
    ], [
       a lv2:OutputPort,
            lv2:ControlPort ;
@@ -384,6 +376,15 @@ and moves the complete processing into a background thread, that reduce the CPU 
       lv2:name "Latency ms" ;
       lv2:minimum 0.0 ;
       lv2:maximum 171.0 ;
+    ], [
+      a lv2:OutputPort,
+           lv2:ControlPort ;
+      lv2:index 23 ;
+      lv2:portProperty lv2:integer ;
+      lv2:symbol "Xrun" ;
+      lv2:name "Xrun " ;
+      lv2:minimum 0 ;
+      lv2:maximum 192000 ;
     ].
 
 <urn:brummer:ratatouille_ui>
