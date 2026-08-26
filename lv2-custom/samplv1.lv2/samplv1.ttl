@@ -116,7 +116,7 @@
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN2 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 9 ;
@@ -125,7 +125,7 @@
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN2 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 10 ;
@@ -134,7 +134,7 @@
 		lv2:default 1.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN2 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 11 ;
@@ -144,7 +144,7 @@
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN3 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 12 ;
@@ -153,7 +153,7 @@
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN3 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 13 ;
@@ -162,7 +162,7 @@
 		lv2:default 1.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN3 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 14 ;
@@ -171,7 +171,7 @@
 		lv2:default 0.0 ;
 		lv2:minimum -4.0 ;
 		lv2:maximum 4.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN4 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 15 ;
@@ -180,7 +180,7 @@
 		lv2:default 0.0 ;
 		lv2:minimum -1.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN4 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 16 ;
@@ -189,7 +189,7 @@
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN4 ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 17 ;
@@ -198,7 +198,7 @@
 		lv2:default 0.5 ;
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
-		lv2pg:group samplv1_lv2:G101_GEN1 ;
+		lv2pg:group samplv1_lv2:G101_GEN4 ;
  	], [
  		a lv2:InputPort, lv2:ControlPort ;
  		lv2:index 18 ;
@@ -988,8 +988,23 @@ samplv1_lv2:P205_TUNING_KEYMAP_FILE
 
 samplv1_lv2:G101_GEN1
 	a lv2pg:InputGroup;
-	lv2:name "Sampler - GEN" ;
+	lv2:name "Sampler - GEN Sample" ;
 	lv2:symbol "GEN1" .
+
+samplv1_lv2:G101_GEN2
+	a lv2pg:InputGroup;
+	lv2:name "Sampler - GEN Offset" ;
+	lv2:symbol "GEN2" .
+
+samplv1_lv2:G101_GEN3
+	a lv2pg:InputGroup;
+	lv2:name "Sampler - GEN Loop" ;
+	lv2:symbol "GEN3" .
+
+samplv1_lv2:G101_GEN4
+	a lv2pg:InputGroup;
+	lv2:name "Sampler - GEN Misc" ;
+	lv2:symbol "GEN4" .
 
 samplv1_lv2:G102_DCF1
 	a lv2pg:InputGroup;
