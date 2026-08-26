@@ -15,6 +15,7 @@
 @prefix lv2resize: <http://lv2plug.in/ns/ext/resize-port#> .
 @prefix lv2pg:   <http://lv2plug.in/ns/ext/port-groups#> .
 @prefix lv2pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix lv2param:   <http://lv2plug.in/ns/ext/parameters#> .
 @prefix mod: <http://moddevices.com/ns/mod#> .
 
 @prefix samplv1_lv2: <http://samplv1.sourceforge.net/lv2#> .
@@ -217,6 +218,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G102_DCF1 ;
+		lv2:designation lv2param:cutoffFrequency ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 20 ;
@@ -226,6 +228,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G102_DCF1 ;
+		lv2:designation lv2param:resonance ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 21 ;
@@ -272,6 +275,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G102_DCF1 ;
+		lv2:designation lv2param:attack ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 25 ;
@@ -281,6 +285,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G102_DCF1 ;
+		lv2:designation lv2param:decay ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 26 ;
@@ -290,6 +295,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G102_DCF1 ;
+		lv2:designation lv2param:sustain ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 27 ;
@@ -299,6 +305,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G102_DCF1 ;
+		lv2:designation lv2param:release ;
  	], [
  		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 28 ;
@@ -388,6 +395,7 @@
 		lv2:minimum -1.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G103_LFO1 ;
+		lv2:designation lv2param:cutoffFrequency ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 37 ;
@@ -397,6 +405,7 @@
 		lv2:minimum -1.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G103_LFO1 ;
+		lv2:designation lv2param:resonance ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 38 ;
@@ -424,6 +433,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G103_LFO1 ;
+		lv2:designation lv2param:attack ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 41 ;
@@ -433,6 +443,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G103_LFO1 ;
+		lv2:designation lv2param:decay ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 42 ;
@@ -442,6 +453,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G103_LFO1 ;
+		lv2:designation lv2param:sustain ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 43 ;
@@ -451,6 +463,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G103_LFO1 ;
+		lv2:designation lv2param:release ;
  	], [
  		a lv2:InputPort, lv2:ControlPort ;
  		lv2:index 44 ;
@@ -479,6 +492,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G104_DCA1 ;
+		lv2:designation lv2param:attack ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 47 ;
@@ -488,6 +502,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G104_DCA1 ;
+		lv2:designation lv2param:decay ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 48 ;
@@ -497,6 +512,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G104_DCA1 ;
+		lv2:designation lv2param:sustain ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 49 ;
@@ -506,6 +522,7 @@
 		lv2:minimum 0.0 ;
 		lv2:maximum 1.0 ;
 		lv2pg:group samplv1_lv2:G104_DCA1 ;
+		lv2:designation lv2param:release ;
 	], [
 		a lv2:InputPort, lv2:ControlPort ;
 		lv2:index 50 ;
