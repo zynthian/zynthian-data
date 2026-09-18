@@ -1,0 +1,472 @@
+@prefix atom:  <http://lv2plug.in/ns/ext/atom#> .
+@prefix dg:    <http://www.darkglass.com/lv2/ns#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#> .
+@prefix midi:  <http://lv2plug.in/ns/ext/midi#> .
+@prefix mod:   <http://moddevices.com/ns/mod#> .
+@prefix opts:  <http://lv2plug.in/ns/ext/options#> .
+@prefix pg:    <http://lv2plug.in/ns/ext/port-groups#> .
+@prefix patch: <http://lv2plug.in/ns/ext/patch#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rsz:   <http://lv2plug.in/ns/ext/resize-port#> .
+@prefix spdx:  <http://spdx.org/rdf/terms#> .
+@prefix ui:    <http://lv2plug.in/ns/extensions/ui#> .
+@prefix unit:  <http://lv2plug.in/ns/extensions/units#> .
+@prefix pprop: <http://lv2plug.in/ns/ext/port-props#> .
+@prefix plug:  <https://dusk-audio.github.io/plugins/tape-echo> .
+
+
+<https://dusk-audio.github.io/plugins/tape-echo>
+    a lv2:DelayPlugin, lv2:Plugin, doap:Project ;
+
+    lv2:extensionData opts:interface ,
+                      <http://kxstudio.sf.net/ns/lv2ext/programs#Interface> ;
+
+    lv2:optionalFeature <http://lv2plug.in/ns/lv2core#hardRTCapable> ,
+                        <http://lv2plug.in/ns/ext/buf-size#boundedBlockLength> ;
+
+    lv2:requiredFeature opts:options ,
+                        <http://lv2plug.in/ns/ext/urid#map> ;
+
+    opts:supportedOption <http://lv2plug.in/ns/ext/buf-size#nominalBlockLength> ,
+                         <http://lv2plug.in/ns/ext/buf-size#maxBlockLength> ,
+                         <http://lv2plug.in/ns/ext/parameters#sampleRate> ;
+
+    ui:ui <https://dusk-audio.github.io/plugins/tape-echo#DAF_UI> ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:AudioPort ;
+        lv2:index 0 ;
+        lv2:symbol "lv2_audio_in_1" ;
+        lv2:name "Audio Input 1" ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:AudioPort ;
+        lv2:index 1 ;
+        lv2:symbol "lv2_audio_in_2" ;
+        lv2:name "Audio Input 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 2 ;
+        lv2:symbol "lv2_audio_out_1" ;
+        lv2:name "Audio Output 1" ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:AudioPort ;
+        lv2:index 3 ;
+        lv2:symbol "lv2_audio_out_2" ;
+        lv2:name "Audio Output 2" ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, atom:AtomPort ;
+        lv2:index 4 ;
+        lv2:name "Events Input" ;
+        lv2:symbol "lv2_events_in" ;
+        rsz:minimumSize 2048 ;
+        atom:bufferType atom:Sequence ;
+        atom:supports <http://lv2plug.in/ns/ext/time#Position> ;
+    ] ;
+
+    lv2:port [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 5 ;
+        lv2:name "Mode" ;
+        lv2:symbol "mode" ;
+        lv2:default 1 ;
+        lv2:minimum 1 ;
+        lv2:maximum 12 ;
+        lv2:scalePoint [
+            rdfs:label "Head 1" ;
+            rdf:value 1 ;
+        ] ,
+        [
+            rdfs:label "Head 2" ;
+            rdf:value 2 ;
+        ] ,
+        [
+            rdfs:label "Head 3" ;
+            rdf:value 3 ;
+        ] ,
+        [
+            rdfs:label "Head 2 + 3" ;
+            rdf:value 4 ;
+        ] ,
+        [
+            rdfs:label "Head 1 + Rev" ;
+            rdf:value 5 ;
+        ] ,
+        [
+            rdfs:label "Head 2 + Rev" ;
+            rdf:value 6 ;
+        ] ,
+        [
+            rdfs:label "Head 3 + Rev" ;
+            rdf:value 7 ;
+        ] ,
+        [
+            rdfs:label "Head 1 + 2 + Rev" ;
+            rdf:value 8 ;
+        ] ,
+        [
+            rdfs:label "Head 2 + 3 + Rev" ;
+            rdf:value 9 ;
+        ] ,
+        [
+            rdfs:label "Head 1 + 2 + Rev" ;
+            rdf:value 10 ;
+        ] ,
+        [
+            rdfs:label "All Heads + Rev" ;
+            rdf:value 11 ;
+        ] ,
+        [
+            rdfs:label "Rev Only" ;
+            rdf:value 12 ;
+        ] ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G_DELAYMODE ;
+        lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 6 ;
+        lv2:name "Repeat Rate" ;
+        lv2:symbol "repeat_rate" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_DELAYTIME ;
+        lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 7 ;
+        lv2:name "Intensity" ;
+        lv2:symbol "intensity" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_DELAYMODE ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 8 ;
+        lv2:name "Echo Volume" ;
+        lv2:symbol "echo_volume" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_LEVELS ;
+        lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 9 ;
+        lv2:name "Reverb Volume" ;
+        lv2:symbol "reverb_volume" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_LEVELS ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 10 ;
+        lv2:name "Bass" ;
+        lv2:symbol "bass" ;
+        lv2:default 0 ;
+        lv2:minimum -1 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_TONE ;
+        lv2:displayPriority 4 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 11 ;
+        lv2:name "Treble" ;
+        lv2:symbol "treble" ;
+        lv2:default 0 ;
+        lv2:minimum -1 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_TONE ;
+        lv2:displayPriority 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 12 ;
+        lv2:name "Input Volume" ;
+        lv2:symbol "input_volume" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_MAIN ;
+        lv2:displayPriority 4 ;
+
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 13 ;
+        lv2:name "Wow & Flutter" ;
+        lv2:symbol "wow_flutter" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_DELAYMODE ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 14 ;
+        lv2:name "Dry Level" ;
+        lv2:symbol "dry_level" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 15 ;
+        lv2:name "Tempo Sync" ;
+        lv2:symbol "tempo_sync" ;
+        lv2:default 0 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G_DELAYTIME ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 16 ;
+        lv2:name "Sync Division" ;
+        lv2:symbol "sync_division" ;
+        lv2:default 2 ;
+        lv2:minimum 0 ;
+        lv2:maximum 15 ;
+        lv2:portProperty lv2:integer ;
+        lv2:portProperty <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 17 ;
+        lv2:name "Tape Age" ;
+        lv2:symbol "tape_age" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:enumeration ;
+        lv2:scalePoint [
+            rdfs:label  "New" ;
+            rdf:value 0 ;
+        ] ,
+        [
+            rdfs:label  "Used" ;
+            rdf:value 0.5 ;
+        ] ,
+        [
+            rdfs:label  "Old" ;
+            rdf:value 1 ;
+        ] ;
+        pg:group plug:G_TONE ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 18 ;
+        lv2:name "Enabled" ;
+        lv2:symbol "lv2_enabled" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled , lv2:integer ;
+        lv2:designation lv2:enabled ;
+        pg:group plug:G_MAIN ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 19 ;
+        lv2:name "Record VU" ;
+        lv2:symbol "out_level" ;
+        lv2:minimum 0 ;
+        lv2:maximum 3 ;
+        lv2:portProperty <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 20 ;
+        lv2:name "Output Volume" ;
+        lv2:symbol "output_volume" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_MAIN ;
+        lv2:displayPriority 3;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 21 ;
+        lv2:name "Echo Pan" ;
+        lv2:symbol "echo_pan" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_LEVELS ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 22 ;
+        lv2:name "Reverb Pan" ;
+        lv2:symbol "reverb_pan" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_LEVELS ;
+        lv2:displayPriority 1 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 23 ;
+        lv2:name "Input Send" ;
+        lv2:symbol "input_send" ;
+        lv2:default 1 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        lv2:portProperty lv2:toggled ;
+        lv2:portProperty lv2:integer ;
+        lv2:portProperty <http://lv2plug.in/ns/ext/port-props#notOnGUI> ;
+
+    ] ,
+    [
+        a lv2:OutputPort, lv2:ControlPort ;
+        lv2:index 24 ;
+        lv2:name "Record Peak" ;
+        lv2:symbol "peak_level" ;
+        lv2:minimum 0 ;
+        lv2:maximum 3 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 25 ;
+        lv2:name "Mix" ;
+        lv2:symbol "mix" ;
+        lv2:default 0.5 ;
+        lv2:minimum 0 ;
+        lv2:maximum 1 ;
+        pg:group plug:G_MAIN ;
+        lv2:displayPriority 2 ;
+    ] ,
+    [
+        a lv2:InputPort, lv2:ControlPort ;
+        lv2:index 26 ;
+        lv2:name "Echo Rate Note" ;
+        lv2:symbol "echo_rate_note" ;
+        lv2:default 5 ;
+        lv2:minimum 1 ;
+        lv2:maximum 11 ;
+            lv2:scalePoint [
+            rdfs:label "5/32" ;
+            rdf:value 1 ;
+        ] ,
+        [
+            rdfs:label "1/8" ;
+            rdf:value 2 ;
+        ] ,
+        [
+            rdfs:label "1/16d" ;
+            rdf:value 3 ;
+        ] ,
+        [
+            rdfs:label "1/8t" ;
+            rdf:value 4 ;
+        ] ,
+        [
+            rdfs:label "1/16" ;
+            rdf:value 5 ;
+        ] ,
+        [
+            rdfs:label "1/32d" ;
+            rdf:value 6 ;
+        ] ,
+        [
+            rdfs:label "1/16t" ;
+            rdf:value 7 ;
+        ] ,
+        [
+            rdfs:label "1/32" ;
+            rdf:value 8 ;
+        ] ,
+        [
+            rdfs:label "1/64d" ;
+            rdf:value 9 ;
+        ] ,
+        [
+            rdfs:label "1/32t" ;
+            rdf:value 10 ;
+        ] ,
+        [
+            rdfs:label "1/64" ;
+            rdf:value 11 ;
+        ] ;
+        lv2:portProperty lv2:integer ;
+        pg:group plug:G_DELAYTIME ;
+        lv2:displayPriority 3 ;
+
+    ] ;
+
+    rdfs:comment "Component-modeled vintage tape echo: 3-head tape delay with spring reverb, tape saturation and wow and flutter." ;
+
+    mod:brand "Dusk Audio" ;
+    mod:label "Tape Echo 2" ;
+
+    doap:name "Tape Echo 2" ;
+    doap:license <http://spdx.org/licenses/GPL-3.0-or-later.html> ;
+
+    doap:maintainer [
+        foaf:name "Dusk Audio" ;
+        foaf:homepage <https://dusk-audio.github.io/> ;
+    ] ;
+
+    lv2:microVersion 7 ;
+    lv2:minorVersion 2 .
+
+plug:G_MAIN
+a pg:ControlGroup ;
+lv2:name "Main" ;
+lv2:symbol "g_main" ;
+lv2:displayPriority 100 .
+
+plug:G_DELAYMODE
+a pg:ControlGroup ;
+lv2:name "Delay Mode" ;
+lv2:symbol "g_delaymode" ;
+lv2:displayPriority 90 .
+
+plug:G_DELAYTIME
+a pg:ControlGroup ;
+lv2:name "Delay Time" ;
+lv2:symbol "g_delaytime" ;
+lv2:displayPriority 80 .
+
+plug:G_LEVELS
+a pg:ControlGroup ;
+lv2:name "Levels" ;
+lv2:symbol "g_levels" ;
+lv2:displayPriority 70 .
+
+plug:G_TONE
+a pg:ControlGroup ;
+lv2:name "Tone" ;
+lv2:symbol "g_tone" ;
+lv2:displayPriority 60 .
